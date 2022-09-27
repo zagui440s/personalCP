@@ -254,10 +254,11 @@ One library manager is `npm`. We can use npm to easily download and "install" Ja
 - Some of you may be wondering what `exports` is on the Javascript files. The Javascript folders will sometimes have prewritten spec (test) files and in order for the spec file to read the contents of the corresponding Javascript files where your code is written, it must be attached to the `export` Javascript object. To ensure that you are writing correct code, run `node WHATEVER_CHALLENGE_NAME_Spec.js` in the `js` folder. Don't run `node WHATEVER_CHALLENGE_NAME.js` as it will blow up.
 
 ## Assignments
-- [Roman Numerals](https://github.com/romeoplatoon/algo-roman-numerals) in JS
+- [Roman Numerals](https://github.com/sierraplatoon/algo-roman-numerals) in JS
 - [Git Practice](http://learngitbranching.js.org/)
-- [Factorial](https://github.com/romeoplatoon/algo-factorial) in JS
-- [Fibonacci](https://github.com/romeoplatoon/algo-fibonacci) in JS
-- [Linear Search](https://github.com/romeoplatoon/algo-linear-search) in JS
+
+- [Factorial](https://github.com/sierraplatoon/algo-factorial) in JS
+- [Fibonacci](https://github.com/sierraplatoon/algo-fibonacci) in JS
+- [Linear Search](https://github.com/sierraplatoon/algo-linear-search) in JS
 
 

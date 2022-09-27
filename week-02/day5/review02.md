@@ -27,11 +27,11 @@ class Person:
 ```
 
 ## Assessment
-- [Assessment #1](https://github.com/romeoplatoon/assessment-1)
+- [Assessment #1](https://github.com/sierraplatoon/assessment-1)
 
 ## Assignments
-- [School Interface II](https://github.com/romeoplatoon/oop-school-interface-ii)
-- [Budget](https://github.com/romeoplatoon/oop-budget)
-- [Bowling](https://github.com/romeoplatoon/oop-bowling)
+- [School Interface II](https://github.com/sierraplatoon/oop-school-interface-ii)
+- [Budget](https://github.com/sierraplatoon/oop-budget)
+- [Bowling](https://github.com/sierraplatoon/oop-bowling)
 
 

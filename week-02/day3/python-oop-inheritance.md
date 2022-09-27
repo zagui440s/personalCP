@@ -151,9 +151,9 @@ terminator.work()
 - [Method Resolution Order(MRO)](https://www.educative.io/edpresso/what-is-mro-in-python)
 
 ## Assignments
-- [App Users III](https://github.com/romeoplatoon/oop-app-users-iii) in Python
-- [School Interface I](https://github.com/romeoplatoon/oop-school-interface-i)
-- [Boggle I](https://github.com/romeoplatoon/oop-boggle-i)
-- Stretch challenge: [Boggle II](https://github.com/romeoplatoon/oop-boggle-ii)
+- [App Users III](https://github.com/sierraplatoon/oop-app-users-iii) in Python
+- [School Interface I](https://github.com/sierraplatoon/oop-school-interface-i)
+- [Boggle I](https://github.com/sierraplatoon/oop-boggle-i)
+- Stretch challenge: [Boggle II](https://github.com/sierraplatoon/oop-boggle-ii)
 
 

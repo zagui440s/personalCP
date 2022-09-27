@@ -181,8 +181,8 @@ print(alice.age)
 ## External Resources
 
 ## Assignments
-- [App Users II](https://github.com/romeoplatoon/oop-app-users-ii) in Python
-- [Contact List](https://github.com/romeoplatoon/oop-contact-list) in Python
-- [Caesar Cipher](https://github.com/romeoplatoon/algo-caesar-cipher) in JS/Python
+- [App Users II](https://github.com/sierraplatoon/oop-app-users-ii) in Python
+- [Contact List](https://github.com/sierraplatoon/oop-contact-list) in Python
+- [Caesar Cipher](https://github.com/sierraplatoon/algo-caesar-cipher) in JS/Python
 
 

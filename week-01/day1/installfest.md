@@ -86,8 +86,8 @@ There are many IDEs (integrated development environments) out there that develop
 
 
 ## Assignments
-- [99 Bottles](https://github.com/romeoplatoon/algo-99-bottles) in JS
-- [Deaf Grandma](https://github.com/romeoplatoon/algo-deaf-grandma) in JS
-- [Terminal Commands In Depth](https://github.com/romeoplatoon/misc-command-line) ...nothing to submit here but necessary reading
+- [99 Bottles](https://github.com/sierraplatoon/algo-99-bottles) in JS
+- [Deaf Grandma](https://github.com/sierraplatoon/algo-deaf-grandma) in JS
+- [Terminal Commands In Depth](https://github.com/sierraplatoon/misc-command-line) ...nothing to submit here but necessary reading
 - [Incoming Student Survey](https://docs.google.com/forms/d/e/1FAIpQLSePRzeiSCe1hqzud7btr--Xxm791zqCe_RqA_9mGxEIUN_IwQ/viewform)
 

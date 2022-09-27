@@ -145,10 +145,10 @@ We just created two files: `file1.py` and `file2.py`. `file1.py` has a `say_hell
 
 ## Assignments
 
-- [Armstrong Numbers](https://github.com/romeoplatoon/algo-armstrong-numbers) in JS/Python
-- [Sum Pairs](https://github.com/romeoplatoon/algo-sum-pairs) in JS/Python
-- [Credit Check](https://github.com/romeoplatoon/algo-credit-check) in JS/Python
-- [Anagrams I](https://github.com/romeoplatoon/algo-anagrams-i) in JS/Python
-- [Debug Deaf Grandma](https://github.com/romeoplatoon/debug-deaf-grandma) in JS
+- [Armstrong Numbers](https://github.com/sierraplatoon/algo-armstrong-numbers) in JS/Python
+- [Sum Pairs](https://github.com/sierraplatoon/algo-sum-pairs) in JS/Python
+- [Credit Check](https://github.com/sierraplatoon/algo-credit-check) in JS/Python
+- [Anagrams I](https://github.com/sierraplatoon/algo-anagrams-i) in JS/Python
+- [Debug Deaf Grandma](https://github.com/sierraplatoon/debug-deaf-grandma) in JS
 
 

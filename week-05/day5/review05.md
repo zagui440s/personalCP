@@ -76,4 +76,4 @@ def student_new(request):
 
 ## Assignments
 - Reading Assignment: [Databases/SQL](https://learn.coderslang.com/0118-introduction-to-relational-databases-and-sql/)
-- [Install Postgres](https://github.com/romeoplatoon/install-postgres)
+- [Install Postgres](https://github.com/sierraplatoon/install-postgres)

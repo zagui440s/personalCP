@@ -145,8 +145,8 @@ Dunder methods are not generally meant to be called directly by our code. Python
 
 
 ## Assignments
-- [App Users I](https://github.com/romeoplatoon/oop-app-users-i) in Python
-- [Guessing Game](https://github.com/romeoplatoon/oop-guessing-game) in Python
-- [CSV Reader](https://github.com/romeoplatoon/csv-reader)
+- [App Users I](https://github.com/sierraplatoon/oop-app-users-i) in Python
+- [Guessing Game](https://github.com/sierraplatoon/oop-guessing-game) in Python
+- [CSV Reader](https://github.com/sierraplatoon/csv-reader)
 
 
