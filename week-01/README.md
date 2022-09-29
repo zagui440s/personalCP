@@ -4,9 +4,6 @@
 - JavaScript fundamentals
 - Python fundamentals
 
-# Lecture Videos:
-- [Week 1 Videos](https://www.youtube.com/watch?v=6aNz3ptwTjI&list=PLu0CiQ7bzwEQ7l_3gNRFPfh4-ilnPpoS8)
-
 # Why is it important?
 - Git helps you create different 'save points' in your application.
 - Git simplifies the process of working with other people and makes it easy to collaborate on projects. 
@@ -23,6 +20,4 @@
 5. Be able to write simple JavaScript applications
 6. Be able to write simple Python applications
 
-# Afternoon Breakout Sessions (optional):
-1. Python & JavaScript Review
-2. Anything else?
+
