@@ -18,7 +18,7 @@ Before we get started, just know that this will be chaos. Your goal is to get a 
 - Make sure you have an Apple ID
 - Download XCode from the Mac App Store
 - Ensure that you're running the most recent operating system. You can check your version by going to "System Preferences" and clicking on "Software Update"
-- [Complete Installfest (MacOS)](../../page-resources/installfest.md)
+- [Complete Installfest (MacOS)](../../page-resources/installfest_mac.md)
 
 ### Ubuntu Linux Setup
 - [Complete Installfest (Ubuntu Linux)](../../page-resources/installfest_ubuntu.md)
