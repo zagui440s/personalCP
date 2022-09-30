@@ -26,8 +26,6 @@ class Person:
         return f"My age is {self.age}."
 ```
 
-## Assessment
-- [Assessment #1](https://github.com/sierraplatoon/assessment-1)
 
 ## Assignments
 - [School Interface II](https://github.com/sierraplatoon/oop-school-interface-ii)

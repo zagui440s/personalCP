@@ -1,1 +1,0 @@
-[Assessment #3](https://github.com/romeoplatoon/assessment-3)
