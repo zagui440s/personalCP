@@ -13,7 +13,7 @@
 - Javascript was created by Brendan Eich during his time at Netscape in 1995 that conforms to the ECMAScript specification.
 - JavaScript is one of the core technologies of the World Wide Web.
 - JavaScript is high-level language. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
-- With the creation of Node.js (by Google) you can leverage Javascript to write server side code
+- With the creation of [Node.js](https://nodejs.org/en/), created by [Ryan Dahl](https://en.wikipedia.org/wiki/Node.js#History), you can leverage Javascript to write server side code
 
 **Data Types**
   - **Strings**
