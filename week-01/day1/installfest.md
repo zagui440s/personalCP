@@ -27,7 +27,7 @@ Before we get started, just know that this will be chaos. Your goal is to get a 
 - Ensure that you're running the most recent operating system (Windows 10 and 11 are both fine). You can update to the latest Windows version by selecting `Start > Settings > **Windows Update **> Check for updates.`
 - [Complete Installfest (Windows)](../../page-resources/installfest_windows.md)
 
-### CLI Intro
+### CLI (Command Line Interface) Intro
 
 Review the following BASH commands:
 - pwd
