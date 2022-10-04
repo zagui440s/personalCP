@@ -130,11 +130,16 @@ You can also write your own modules, which allows for you as the author to organ
 ## file1.py
 def say_hello():
     print('Hey there')
+def say_goodbye():
+    print('Bye bye')
 
 ## file2.py
 import file1
 import file1 as anything
+from file1 import say_goodbye
 anything.say_hello()
+
+say_goodbye()
 ```
 We just created two files: `file1.py` and `file2.py`. `file1.py` has a `say_hello` function. `file2.py` has nothing in it, but imports that file in as the name of the file and we can use all the methods in that file. We can also rewrite it as `import file1 as anything` and call `anything.say_hello()`. You can `import` anything into your file by providing the correct relative path to the file. More on that can be found under external resources.
 
