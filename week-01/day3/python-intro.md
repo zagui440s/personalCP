@@ -21,6 +21,7 @@
 
 > In python, like all programming languages, we will manipulate various different types of data, such as numbers and lists. If you want to understand how you can manipulate your data, and compare it to other data, the most important thing to understand is the TYPE of your data. Many of these data types are similar to the data types we use in javascript, but there are some important differences I'll point out. There are two types of types: primitive types, which are just a single value, and non-primitive types, which can contain other data.
 
+### **Primitive Types**
 ### Numbers
 
 > The first type we'll learn about are numbers. Let's create a number literal and assign it to a variable.
@@ -60,6 +61,7 @@ print(f"Let's go {activity} on {day} afternoon.") # This is sometimes called an 
 
 > The last primitive type in python is boolean. There are only two boolean values, `True` and `False`. These work the same as in javascript, except that we spell them with capital letters. 
 
+### **Non-Primitive Types**
 ### Lists
 
 > The most fundamental non-primitive type in python is a list. A python list is roughly equivalent to a javascript array, but lists in python are a bit more flexible. 
@@ -215,7 +217,8 @@ while x > 0:
 
 
 **Built-in Methods**
-> Most types of values in python have built-in methods that you can use to manipulate that value. a method is simply a function that belongs to an object. There are two types of methods that you should be aware of: destructive and non-destructive methods. Destructive methods are those that change the original data where non-destructive methods are those that do not change the original data. You have to be careful with the methods that you use as there isn't a clear indication in Python or JS as to which are destructive and which aren't. Let's take a look at the example below:
+> Most types of values in python have built-in methods that you can use to manipulate that value. a method is simply a function that belongs to an object. There are two types of methods that you should be aware of: destructive and non-destructive methods. 
+> Destructive methods are those that change the original data where non-destructive methods are those that do not change the original data. You have to be careful with the methods that you use as there isn't a clear indication in Python or JS as to which are destructive and which aren't. Let's take a look at the example below:
 ```python
 first_name = 'jonathan'
 first_name.capitalize() # this is a string method that converts the first character to upper case

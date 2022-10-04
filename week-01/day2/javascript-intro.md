@@ -251,9 +251,10 @@ Libraries used to leverage pre-written code (developed by other developers) to i
 One library manager is `npm`. We can use npm to easily download and "install" JavaScript libraries to use with our apps. 
 
 
-- Some of you may be wondering what `exports` is on the Javascript files. The Javascript folders will sometimes have prewritten spec (test) files and in order for the spec file to read the contents of the corresponding Javascript files where your code is written, it must be attached to the `export` Javascript object. To ensure that you are writing correct code, run `node WHATEVER_CHALLENGE_NAME_Spec.js` in the `js` folder. Don't run `node WHATEVER_CHALLENGE_NAME.js` as it will blow up.
+
 
 ## Assignments
+> Some of you may be wondering what `exports` is on the Javascript files. The Javascript folders will sometimes have prewritten spec (test) files and in order for the spec file to read the contents of the corresponding Javascript files where your code is written, it must be attached to the `export` Javascript object. To ensure that you are writing correct code, run `node WHATEVER_CHALLENGE_NAME_Spec.js` in the `js` folder. Don't run `node WHATEVER_CHALLENGE_NAME.js` as it will blow up.
 - [Roman Numerals](https://github.com/sierraplatoon/algo-roman-numerals) in JS
 - [Git Practice](http://learngitbranching.js.org/)
 
