@@ -236,7 +236,8 @@ staff.pop()
 staff # my original has been changed yet again!
 ```
 
-​
+## Resources
+- https://www.pythoncheatsheet.org/cheatsheet/basics
 ## Assignments
 - [99 Bottles](https://github.com/sierraplatoon/algo-99-Bottles) in Python
 - [Deaf Grandma](https://github.com/sierraplatoon/algo-deaf-grandma) in Python
