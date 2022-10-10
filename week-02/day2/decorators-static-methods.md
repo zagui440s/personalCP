@@ -63,7 +63,7 @@ def PrintCurrentTimeAndAlso(func):
 		print(f'Calling {func.__name__} at {datetime.now()}')
 		return func(*args, **kwargs)
 
-	return WrapperFunction
+return WrapperFunction
 
 # This creates a new, decorated function
 PrintCurrentTimeAndAlsoAddOne = PrintCurrentTimeAndAlso(AddOne)
