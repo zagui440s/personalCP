@@ -23,8 +23,8 @@
 - Features of OOP:
 	- Encapsulation = Data access can be restricted based on needs (covered today)
 	- Abstraction = Logic/Complexity is hidden, for simplicity (covered today)
-	- Inheritance = Sharing of similar features and attributes (covered Thursday)
-	- Polymorphism = Objects can take different forms depending on needs/situation (covered Thursday)
+	- Inheritance = Sharing of similar features and attributes (covered Wednesday)
+	- Polymorphism = Objects can take different forms depending on needs/situation (covered Wednesday)
 
 ### Classes Introduction
 Creating a class in Python is as simple as the adding the following code:

@@ -84,8 +84,6 @@ print(sum)
 
 **sort()**
 ```python
-from functools import cmp_to_key
-
 people = [
     {
         'name': 'alice',
@@ -110,6 +108,29 @@ people.sort(key=lambda k : k['age'])
 # This returns a new list (original list is not modified)
 people_sorted = sorted(people, key=lambda k : k['age'],reverse=True) 
 ```
+### Dictionary - zip
+**zip**
+```py
+
+numbers = [1, 2, 3]
+letters = ['a', 'b', 'c']
+zipped = zip(numbers, letters)
+print(zipped)  # Holds an iterator object
+#<zip object at 0x7fa4831153c8>
+print(type(zipped))
+#<class 'zip'>
+print(list(zipped))
+[(1, 'a'), (2, 'b'), (3, 'c')]
+```
+**Create dictionary from 2 lists**
+```py 
+stocks = ['reliance', 'infosys', 'tcs']
+prices = [2175, 1127, 2750]
+dictionary = dict(zip(stocks, prices))
+print(dictionary)
+# output {'reliance': 2175, 'infosys': 1127, 'tcs': 2750}
+```
+
 
 ### Try-Except
 > When building an application, your code doesn't always run the way you expect it to, and sometimes it throws an error! We can use try/except to write code that we think might throw an error, and then prepare an alternate plan in case the code fails. 
