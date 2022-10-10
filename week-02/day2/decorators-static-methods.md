@@ -25,15 +25,15 @@ Like many programming languages, Python has first-class functions. This means th
 # this function does not make widgets. it makes functions that create widgets
 def WidgetMakerMaker(widget_color):
 
-		# this function actually makes widgets
+	# this function actually makes widgets
 	def WidgetMaker():
 		return {
 			'type': 'widget',
 			'color': widget_color,
 		}
 		
-		# return the function we just created, so it can be used outside of WidgetMakerMaker
-		return WidgetMaker
+	# return the function we just created, so it can be used outside of WidgetMakerMaker
+	return WidgetMaker
 
 RedWidgetMaker = WidgetMakerMaker('red')
 red_widget = RedWidgetMaker()
@@ -63,7 +63,7 @@ def PrintCurrentTimeAndAlso(func):
 		print(f'Calling {func.__name__} at {datetime.now()}')
 		return func(*args, **kwargs)
 
-return WrapperFunction
+	return WrapperFunction
 
 # This creates a new, decorated function
 PrintCurrentTimeAndAlsoAddOne = PrintCurrentTimeAndAlso(AddOne)
