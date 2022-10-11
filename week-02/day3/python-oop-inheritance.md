@@ -27,7 +27,7 @@ class Dog:
         print("BARK BARK!")
 
 spot = Dog('Spot')
-spot.eat()
+spot.eat('steak')
 ```
 
 > In the example above, we say that every dog has an attribute called `name`. Every dog also has the ability to `eat` and `bark`.
@@ -44,7 +44,7 @@ class Cat:
         print("meow meow!")
 
 garfield = Cat('Garfield')
-garfield.eat()
+garfield.eat('tuna')
 ```
 > In the example above, we say that every cat has an attribute called `name`. Every cat also has the ability to `eat` and `meow`. This `Cat` class is pretty similar to our previous `Dog`. This isn't just a coincidence, like how a table and a horse both have four legs. Cats and dogs are both able to eat because they are both types of animals. Using inheritance, we can rewrite the above classes to avoid repeating code.
 
