@@ -23,25 +23,25 @@ Like many programming languages, Python has first-class functions. This means th
 
 ```python
 # this function does not make widgets. it makes functions that create widgets
-def WidgetMakerMaker(widget_color):
+def widgetMakerMaker(widget_color):
 
 	# this function actually makes widgets
-	def WidgetMaker():
+	def widgetMaker():
 		return {
 			'type': 'widget',
 			'color': widget_color,
 		}
 		
 	# return the function we just created, so it can be used outside of WidgetMakerMaker
-	return WidgetMaker
+	return widgetMaker
 
-RedWidgetMaker = WidgetMakerMaker('red')
-red_widget = RedWidgetMaker()
-another_red_widget = RedWidgetMaker()
+redWidgetMaker = widgetMakerMaker('red')
+red_widget = redWidgetMaker()
+another_red_widget = redWidgetMaker()
 
-BlueWidgetMaker = WidgetMakerMaker('blue')
-blue_widget = BlueWidgetMaker()
-another_blue_widget = BlueWidgetMaker()
+blueWidgetMaker = widgetMakerMaker('blue')
+blue_widget = blueWidgetMaker()
+another_blue_widget = blueWidgetMaker()
 ```
 
 A function that defines other functions can be useful if you have some logic that is repeated in many functions, but you don't want to write redundant code. For example, let's say we're trying to improve the performance of a slow application, so we want to print the time when every function is called to better understand what's taking so long. We can use one function to `decorate` another, which extends its functionality.
