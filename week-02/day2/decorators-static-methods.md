@@ -178,7 +178,6 @@ print(alice.age)
 
 > A great thing about using setters and getters like this is that we don't even have to plan for this up front. We can design our application in a simple way, and directly assign to instance variables, like `alice.age = 32`. Later on, if we decide that we need extra logic when the age changes, like a Person dying when they reach age 100, we can achieve that only by changing the class definition, by replacing `self.age` with `self._age`, and using setter/getter decorators on `def age()`. The rest of our application does not need to know about the internal details of the person class. 
 
-## External Resources
 
 ## Assignments
 - [App Users II](https://github.com/sierraplatoon/oop-app-users-ii) in Python
