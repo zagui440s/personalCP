@@ -43,7 +43,7 @@ class Cat:
     def meow(self):
         print("meow meow!")
 
-garfield = Cat('Spot')
+garfield = Cat('Garfield')
 garfield.eat()
 ```
 > In the example above, we say that every cat has an attribute called `name`. Every cat also has the ability to `eat` and `meow`. This `Cat` class is pretty similar to our previous `Dog`. This isn't just a coincidence, like how a table and a horse both have four legs. Cats and dogs are both able to eat because they are both types of animals. Using inheritance, we can rewrite the above classes to avoid repeating code.
