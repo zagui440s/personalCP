@@ -152,17 +152,17 @@ class Pizza:
 
 ```python
 class Person:
-	def __init__(self):
-		self._age = 0
-		self.dead = False
+     def __init__(self):
+         self._age = 0
+	 self.dead = False
        
      # using property decorator
      # a getter function
-	@property
-	def age(self):
-		print("getter method called")
-		return self._age
-       
+     @property
+     def age(self):
+	print("getter method called")
+	return self._age
+
      # a setter function
      @age.setter
      def age(self, a):
