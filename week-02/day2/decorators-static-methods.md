@@ -180,6 +180,8 @@ print(alice.age)
 
 
 ## Assignments
+
+Start with App Users II. Then do Contact List. **The Caesar Cipher is less important for today, and is more to practice algorithm-style programming problems. However implementing it as a class is a good opportunity to practice writing classes.**
 - [App Users II](https://github.com/sierraplatoon/oop-app-users-ii) in Python
 - [Contact List](https://github.com/sierraplatoon/oop-contact-list) in Python
 - [Caesar Cipher](https://github.com/sierraplatoon/algo-caesar-cipher) in JS/Python
