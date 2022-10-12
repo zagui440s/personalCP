@@ -139,4 +139,5 @@ bob.sayHello()
 ## Assignments
 - [Stock Picker](https://github.com/sierraplatoon/algo-stock-picker) in JS/Python
 - [Pig Latin](https://github.com/sierraplatoon/algo-pig-latin) in JS/Python
+- [School Interface II](https://github.com/sierraplatoon/oop-school-interface-ii) in Python
 
