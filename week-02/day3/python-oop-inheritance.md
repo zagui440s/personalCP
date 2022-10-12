@@ -163,7 +163,8 @@ Please Start with School Interface I. Then follow with the Boggle exercise, and 
 
 - [School Interface I](https://github.com/sierraplatoon/oop-school-interface-i)
 - [Boggle I](https://github.com/sierraplatoon/oop-boggle-i)
-- [Boggle II](https://github.com/sierraplatoon/oop-boggle-ii)
 - [App Users III](https://github.com/sierraplatoon/oop-app-users-iii) in Python
+- [Boggle II](https://github.com/sierraplatoon/oop-boggle-ii)
+
 
 
