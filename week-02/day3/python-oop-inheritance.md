@@ -73,7 +73,13 @@ lucky.eat('chicken nugget')
 ```
 > Notice how we passed the `Animal` class to the `Cat` and `Dog` classes. This indicates that `Animal` is a parent class of both `Cat` and `Dog`. As such, `Cat` and `Dog` have access to all of the methods from animal, even `__init__`. This might seem a little unintuitive because the child class is always 'bigger' than the parent. The child class has access to everything in the parent class(`__init__`, `eat`), and then also has its own method `speak`, which overrides `speak` from the parent class.
 
-> Sometimes, we'll want to define a child class that doesn't use the exact same methods as its parent, but we don't want to override it entirely, like we just did with `speak`. We can use the `super()` method to access an instance of the parent class, call any of its methods from the child class, and then add more custom logic afterwards. This is commonly used to repeat the `__init__` method from the parent class, and then add an extra property at the end. For example, a difference between dogs and cats is that a dog can be a registered service animal, whereas a cat cannot.
+**super()**
+> Sometimes, we'll want to define a child class that doesn't use the exact same methods as its parent, but we don't want to override it entirely, like we just did with `speak`. 
+> We can use the `super()` method to access an instance of the parent class, call any of its methods from the child class, and then add more custom logic afterwards. 
+> super() returns a temporary object of the superclass that allows you to call that superclass’s methods.
+> This is commonly used to repeat the `__init__` method from the parent class, and then add an extra property at the end. 
+
+For example, a difference between dogs and cats is that a dog can be a registered service animal, whereas a cat cannot.
 
 ```python
 class Animal:
