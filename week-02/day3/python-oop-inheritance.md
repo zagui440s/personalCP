@@ -157,13 +157,13 @@ terminator.work()
 - [Method Resolution Order(MRO)](https://www.educative.io/edpresso/what-is-mro-in-python)
 
 ## Assignments
-We suggest starting with App Users III as it is a continuation of what we were doing yesterday. From there we recommend the School Interface I exercise, and from there the Boogle exercises, followed by School Interface I.
+Please Start with School Interface I. Then follow with the Boggle exercise, and lastly App Users III
 
 **Note:** Today in particular has several larger assignments! It is OK if you don't finish them all today.
 
+- [School Interface I](https://github.com/sierraplatoon/oop-school-interface-i)
 - [App Users III](https://github.com/sierraplatoon/oop-app-users-iii) in Python
 - [Boggle I](https://github.com/sierraplatoon/oop-boggle-i)
 - [Boggle II](https://github.com/sierraplatoon/oop-boggle-ii)
-- Stretch Challenge: [School Interface I](https://github.com/sierraplatoon/oop-school-interface-i)
 
 
