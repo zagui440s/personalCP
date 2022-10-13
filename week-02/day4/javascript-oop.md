@@ -137,7 +137,12 @@ bob.sayHello()
 > When writing modern javascript, there are several reasons to prefer using the `class` keyword instead of explicitly modifying prototypes. Using the `class` keyword lets you write OOP code that is similar to what you would write in most other languages, and it more accurately describes our intentions: we want a class, with a constructor function, and instance methods. Also, using prototypes is a little ugly because your class is defined across multiple code blocks, for the constructor function and also the prototype methods, whereas when you use the `class` keyword, the entire class is stored in the `class` block. HOWEVER, you still need to understand how prototypes work. If you write an object-oriented javascript program, and it's not behaving how you expect it to, there will be no classes for you to inspect. You'll need to debug your prototypes.
 
 ## Assignments
-- [Stock Picker](https://github.com/sierraplatoon/algo-stock-picker) in JS/Python
-- [Pig Latin](https://github.com/sierraplatoon/algo-pig-latin) in JS/Python
+Start with School Interface II. Then, Pig Latin. Stock Picker is the stretch assignment for today.
+
 - [School Interface II](https://github.com/sierraplatoon/oop-school-interface-ii) in Python
+- [Pig Latin](https://github.com/sierraplatoon/algo-pig-latin) in JS/Python
+
+Stretch:
+- [Stock Picker](https://github.com/sierraplatoon/algo-stock-picker) in JS/Python
+
 
