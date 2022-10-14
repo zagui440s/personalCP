@@ -27,9 +27,8 @@ class Person:
 ```
 
 
-## Assignments
-- [School Interface II](https://github.com/sierraplatoon/oop-school-interface-ii)
-- [Budget](https://github.com/sierraplatoon/oop-budget)
+## Assignments (**if you finish the assessment early**)
+- [School Interface III](https://github.com/sierraplatoon/oop-school-interface-iii)
 - [Bowling](https://github.com/sierraplatoon/oop-bowling)
 
 
