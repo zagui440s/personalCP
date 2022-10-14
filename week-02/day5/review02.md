@@ -27,7 +27,7 @@ class Person:
 ```
 
 
-## Assignments (**if you finish the assessment early**)
+## Optional assignments (**if you finish the assessment early**)
 - [School Interface III](https://github.com/sierraplatoon/oop-school-interface-iii)
 - [Bowling](https://github.com/sierraplatoon/oop-bowling)
 
