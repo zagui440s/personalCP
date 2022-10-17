@@ -125,6 +125,7 @@ a B-Tree is NOT a binary tree. It's similar, but can have more than 2 children p
 
 ## Resources
 - [Data structure visualization](https://cmps-people.ok.ubc.ca/ylucet/DS/Algorithms.html)
+- [Data structures in the indunstry](https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/amp/)
 
 ## Assignments
 - [Bank Accounts](https://github.com/sierraplatoon/oop-bank-accounts)
