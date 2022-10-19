@@ -188,7 +188,7 @@ def example_3(my_list):
 
 ## Resources
 **Big O Notation**
-- [Big O Slides](https://docs.google.com/presentation/d/1RNYAhAkNF3-UR9rzlBOaWJ0fyYundS0TAGXEYRv-Ybo/edit#slide=id.g22ef87eb09_0_23)
+- [Big O Slides](https://docs.google.com/presentation/d/1QtzsFoSPi4Eh4mJKlYk77jJZmHUcfMifWcAC-cyHIYg/edit?usp=sharing)
 
 ## Assignments
 - [Big O Problems 1](https://github.com/sierraplatoon/algo-big-o-i)
