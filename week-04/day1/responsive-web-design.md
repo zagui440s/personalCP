@@ -215,6 +215,7 @@
 
 ## External Resources
 - [Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [Learn Flexbox with flexbox froggy] (https://flexboxfroggy.com)
 
 	
 ## Assignments
