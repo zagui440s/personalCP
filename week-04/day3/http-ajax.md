@@ -41,7 +41,7 @@
 > When Axios performs a request, it takes a few hundred milliseconds to complete, but we wouldn't want our application to just do nothing while it waits. Instead, axios immediately returns a `promise` object, which lets us specify what we want to do once the request finishes. The promise object has two important methods: `.then()` accepts a callback function to specify what happens if the request succeeded, and the promise is 'resolved'. The promise also has a method called `.catch()`, which accepts a callback function to specify what happens if the request fails, and the promise is 'rejected'. It's also important to understand that `.then()` and `.catch()` also return promises, so these methods can be chained off of each other.
 
 ```javascript
-axios.get('ttps://pokeapi.co/api/v2/pokemon/12/').then((response)=>{
+axios.get('https://pokeapi.co/api/v2/pokemon/12/').then((response)=>{
     console.log(response)
 }).catch((error)=>{
     console.log('no good: ', error)
