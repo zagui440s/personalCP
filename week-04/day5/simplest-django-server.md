@@ -32,7 +32,11 @@ Let's create a virtual environment whenever we work with Django so that it doesn
 python -m venv <envname>
 
 # 2. Start your virtual environment. Running the script with 'source' applies it to our current shell, instead of a subshell
+# Mac:
 source <envname>/bin/activate
+
+# Windows:
+<envname>/Source/activate
 
 # 3. Eject from your virtual environment (once you're done - this is run at the very end of development)
 deactivate
@@ -127,4 +131,5 @@ urlpatterns = [
 
 ## Assignments
 - [Hello Django](https://github.com/sierraplatoon/hello-django)
+- [Simple To-do](https://github.com/sierraplatoon/html-simple-to-do)  
 
