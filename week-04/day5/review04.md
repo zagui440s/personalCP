@@ -6,4 +6,4 @@
 
 
 ## Assignments
-- [Simple To-do](https://github.com/romeoplatoon/html-simple-to-do)  
+- [Simple To-do](https://github.com/sierraplatoon/html-simple-to-do)  
