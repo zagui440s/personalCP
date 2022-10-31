@@ -296,7 +296,7 @@ Let's create a form so that people can vote on a question. In `polls/templates/p
 <h1> Details about Question {{ question.id }} </h1>
 <h2> {{ question.question_text }} </h2>
 
-<form action="/polls/{{ question.id }}/vote" method="POST">
+<form action="/polls/{{ question.id }}/vote/" method="POST">
   {% csrf_token %}
   {% for choice in question.choices %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
@@ -357,7 +357,7 @@ def results(request, question_id):
   {% endfor %}
 </ul>
 
-<a href="/polls/{{ question.id }}/detail">Vote again?</a>
+<a href="/polls/{{ question.id }}/">Vote again?</a>
 ```
 
 
