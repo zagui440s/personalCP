@@ -13,9 +13,12 @@
         - use environment variables to supply credentials to your app
 
 > Another reason is because some APIs are inaccessible from the front end, due to the Same Origin Policy (SOP) and lack of Cross Origin Resource Sharing (CORS). This is intended to be a security feature, but it can sometimes be frustrating to work around. 
-    - by default, when you send an AJAX request, browsers only will use responses from servers in the same origin
-    - example origin, including protocol (https), subdomain, and tld: https://developer.mozilla.org/
-    - a server that is expecting to receive cross-origin requests can set headers on the response (`access-control-allow-origin: *`), meaning that any client is allowed to use the response
+
+> by default, when you send an AJAX request, browsers only will use responses from servers in the same origin
+
+> example origin, including protocol (https), subdomain, and tld: https://developer.mozilla.org/
+
+> a server that is expecting to receive cross-origin requests can set headers on the response (`access-control-allow-origin: *`), meaning that any client is allowed to use the response
 
 > The process for acquiring and using an API key may be different for different APIs, so be sure to read the documentation. The API Key is a unique key associated with your developer account for billing/usage purposes. You will often have public and/or private API keys - the public key can be used on the front end, since it's not sensitive or private. The private key must be stored securely on the server (using env variables, not in a git repo). If you are getting charged money for using an API, make sure you protect your private key. If anyone gets a hold of your private key, they can impersonate you and you can get charged boatloads of money. Public keys are public - don't worry about protecting these.
 
