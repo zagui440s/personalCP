@@ -167,6 +167,9 @@ SELECT count(*) FROM STUDENTS WHERE birthdate >= 2017/01/01 AND birthdate <= 201
 - [psql guide](https://www.postgresguide.com/utilities/psql/)
 
 ## Assignments
+- Reading Assignment: [Databases/SQL](https://learn.coderslang.com/0118-introduction-to-relational-databases-and-sql/)
+- [Install Postgres](https://github.com/sierraplatoon/install-postgres)
+
 - [SQL Basics](https://github.com/sierraplatoon/sql-basics)
 - Read [SQL Queries](https://github.com/sierraplatoon/curriculum/blob/main/page-resources/sql-queries.md)
 - [SQL Queries](https://github.com/sierraplatoon/sql-queries)
