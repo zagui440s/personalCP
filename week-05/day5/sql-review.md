@@ -71,6 +71,7 @@ We create constraints in our database tables so that the data records within tho
   - Can the value for a field be left empty?
 - CHECK
   - Does the value for a field need to satisfy some condition? (e.g gpa <= 4.0 && gpa >= 0.0)
+
 [Contraints docs](https://www.postgresql.org/docs/current/ddl-constraints.html)
 
 ### Entity relationships
