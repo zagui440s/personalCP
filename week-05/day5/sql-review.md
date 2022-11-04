@@ -245,6 +245,15 @@ VALUES
 ```
 
 
+- display student name, course name(s) for the student with locker combination '17-27-37'
+
+## Resources 
+
+### Working with SQL in python
+- [Executing SQL using a python library (psycopg)](https://www.youtube.com/watch?v=BThxg1U-p08&list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&index=7)
+- [Transactions](https://youtu.be/BThxg1U-p08?list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&t=2911)
+- [From CSV to database](https://youtu.be/BThxg1U-p08?list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&t=5665)
+
 ## Assignments
 - [SQL Zoo](http://sqlzoo.net/) 
 - [PG Exercises](https://pgexercises.com/questions/basic/) 
