@@ -249,6 +249,9 @@ VALUES
 
 ## Resources 
 
+### SQL Workshop
+- [Links to video and materials repo](https://github.com/sierraplatoon/curriculum/blob/main/week-05/day5/sql-workshop.md)
+
 ### Working with SQL in python
 - [Executing SQL using a python library (psycopg)](https://www.youtube.com/watch?v=BThxg1U-p08&list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&index=7)
 - [Transactions](https://youtu.be/BThxg1U-p08?list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&t=2911)
