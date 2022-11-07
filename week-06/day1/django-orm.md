@@ -230,6 +230,7 @@ function add_student(event)  {
 
 ## External Resources
 - [Django Docs](https://docs.djangoproject.com/en/2.2/)
+- [Django Models Intro Docs](https://docs.djangoproject.com/en/2.2/topics/db/models/)
 - [Django Queries Cheat Sheet](https://github.com/chrisdl/Django-QuerySet-Cheatsheet)
 - [Django Validators Resource](https://docs.djangoproject.com/en/2.2/ref/validators/)
 - [Database Diagramer](https://www.quickdatabasediagrams.com/)
