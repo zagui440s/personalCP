@@ -315,7 +315,7 @@ from .models import *
 admin.site.register([Locker, Student, Professor, Course, Enrollment])
 ```
 
-Then when you login to the admin site `
+Then you can log into the admin site `http://localhost:8000/admin` with credentials `admin`, `admin` you should be able to see your model tables
 
 ## External Resources
 
