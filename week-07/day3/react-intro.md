@@ -479,15 +479,12 @@ Answer: We're modifying our state value (`myData`) when we push our new number i
   }
 ```
 
-## Student Challenge
-
-Let's get some practice with creating a simple React app that uses state (and maybe prop) values. Your challenge will be to create a React application that counts the number of vowels in a word and highlights each vowel in the output: [Vowels Challenge](https://github.com/quebecplatoon/react-vowels)
 
 ## External Resources
 - [React Docs and Tutorials](https://reactjs.org/docs/getting-started.html)
 
 ## Assignments
-- [Vowels](https://github.com/sierraplatoon/react-vowels) ...from lecture
+- [Vowels](https://github.com/sierraplatoon/react-vowels) 
 - [Detention](https://github.com/sierraplatoon/react-detention)
 - [State Abbreviator](https://github.com/sierraplatoon/react-state-abbreviator)
 

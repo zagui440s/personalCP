@@ -1,3 +1,0 @@
-# NO CLASS: Study Break
-
-
