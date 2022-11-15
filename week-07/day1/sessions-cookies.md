@@ -220,11 +220,14 @@ def log_in(request):
 ```
 
 
-## External Resources
+## Assignments
+- [Django view-counter](https://github.com/sierraplatoon/django-view-counter)
+
+
+## Preview Tutorials: Django Authentication & Login
+If you want, do these tutorials for a preview of tomorrow's lesson and to go deeper into Django's built-in tools for handling user accounts, login, and authentication.
 - [WS Vincent Authentication Tutorial](https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/)
 - [WS Vincent Password Reset Tutorial](https://wsvincent.com/django-user-authentication-tutorial-password-reset/)
 
-## Assignments
-- [Django view-counter](https://github.com/sierraplatoon/django-view-counter)
 
 
