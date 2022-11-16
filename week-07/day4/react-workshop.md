@@ -6,7 +6,13 @@ and their ["Thinking In React"](https://reactjs.org/docs/thinking-in-react.html)
 However we will be building the learning projects in those guides using [functional components](https://reactjs.org/docs/components-and-props.html) instead of class-based components, as the community is shiftting to functional components as the the norm.
 
 ## Assignments
-- [Mute Button](https://github.com/sierraplatoon/react-mute-button)
-- [Whack-A-Mole](https://github.com/sierraplatoon/react-whack-a-mole)
-- [Palindrome](https://github.com/sierraplatoon/react-palindrome)
-- [Doors Game](https://github.com/sierraplatoon/react-doors-game)
+
+### First do these, in this order:
+
+1. [Mute Button](https://github.com/sierraplatoon/react-mute-button)
+2. [Palindrome](https://github.com/sierraplatoon/react-palindrome)
+
+### Then, ONLY if you finish the above, do these:
+
+3. [Whack-A-Mole](https://github.com/sierraplatoon/react-whack-a-mole)
+4. [Doors Game](https://github.com/sierraplatoon/react-doors-game)
