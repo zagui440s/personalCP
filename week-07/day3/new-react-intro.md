@@ -25,7 +25,7 @@
 > React.js by itself is not such a large and complicated library, but it is the center of a complex ecosystem, made up of many other scripts and tools, some of which will get bundled with react itself when we create our first react app today. The first one we'll see will probably be `react-dom`, which is used specifically for interacting with the DOM in browsers. This functionality would be included in React.js itself, but React can actually be used to render views in platforms that don't use the DOM, like mobile devices or 3D scenes, so it makes sense to put DOM manipulation in a separate package. 
 
 ##### Webpack
-> Two more important tools we'll want to use with react are webpack and babel. As we build our react app, we'll want to organize it into many smaller files that import each other, similarly to how we built our back end with django. However, we can get better performance if our server sends only a few, large, minified files, instead of many smaller files. Webpack will allow us to write our app in an organized way, and then automatically bundle the files together.
+> As we build our react app, we'll want to organize it into many smaller files that import each other, similarly to how we built our back end with django. However, we can get better performance if our server sends only a few, large, minified files, instead of many smaller files. Webpack will allow us to write our app in an organized way, and then automatically bundle the files together.
 
 ##### Babel
 > There are many advanced features of javascript that we might want to use in our application that are not yet supported in all browsers. There are also features we want to use in our application that are not natively supported by any browser, such as JSX. Babel is a tool that allows us to write javascript in whatever style we prefer, and then have it automatically converted into a style that all browsers can understand. 
@@ -78,8 +78,7 @@ You should never have to modify anything in the ```node_modules/``` folder.
 
 JSX is essentially an intermediary language syntax that allows us to write JavaScript code inside of HTML syntax. This is the same sort of functionality that Django templating syntax offered us when we were working in Django, allowing us to insert Python code into HTML templates. JSX code boils down to become JavaScript code behind the scenes. To insert JS logic in JSX code blocks, we use curly braces `{` `}`, and write JS expressions inside of those blocks. There is some limitation to what JS code we can write with in these blocks, but we'll explore this more later on.
 
-
-We generally start our modifications in ```src/App.js```. Let's modify our ```App.jsx``` to look like this:
+We generally start our modifications in ```src/App.jsx```. Let's modify our ```App.jsx``` to look like this:
 
 ```javascript
 // App.jsx
