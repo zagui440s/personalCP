@@ -18,27 +18,6 @@
 
 - [Intro React Slides](https://docs.google.com/presentation/d/1M-v9JHc3DkdPIVDClBvMbrenVyFPJm890aK7QvVjQ48/edit#slide=id.g195c3bc0cd1_0_84)
 
-> React is the most popular front end framework in North America, but there are several popular options, such as Angular, Vue, and Svelte.
-
-> Django helped us build MVC applications, where django templates served as the view. Now, we'll no longer be using django templates, and instead we'll use react for our views. 
-
-> React.js by itself is not such a large and complicated library, but it is the center of a complex ecosystem, made up of many other scripts and tools, some of which will get bundled with react itself when we create our first react app today. The first one we'll see will probably be `react-dom`, which is used specifically for interacting with the DOM in browsers. This functionality would be included in React.js itself, but React can actually be used to render views in platforms that don't use the DOM, like mobile devices or 3D scenes, so it makes sense to put DOM manipulation in a separate package. 
-
-##### Webpack
-> As we build our react app, we'll want to organize it into many smaller files that import each other, similarly to how we built our back end with django. However, we can get better performance if our server sends only a few, large, minified files, instead of many smaller files. Webpack will allow us to write our app in an organized way, and then automatically bundle the files together.
-
-##### Babel
-> There are many advanced features of javascript that we might want to use in our application that are not yet supported in all browsers. There are also features we want to use in our application that are not natively supported by any browser, such as JSX. Babel is a tool that allows us to write javascript in whatever style we prefer, and then have it automatically converted into a style that all browsers can understand. 
-
-##### create-react-app (CRA)
-> Both webpack and babel are fairly complex to configure, but fortunately there are other tools that can abstract away this complexity for us. Create-react-app is a popular npm library that will help us scaffold a react project, similarly to using `django-admin startproject mysite`.
-
-##### Vite
-> For this class we will be using a tool called Vite (which means 'fast' in french). This tool will take care of building and managing our app in a quicker and more efficient manner. Similar to create-rect-app it will scaffold a react project for us and give us a dev server to use. 
-
-##### Components
-> A defining feature of react applications is the use of component-based architecture. We'll use JSX to write components, and we'll use our components to compose complex applications. The JSX in our components looks like snippets of HTML, but it's actually a syntax extension of javascript. 
-
 
 ### First React App
 
