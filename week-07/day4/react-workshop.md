@@ -12,7 +12,7 @@ However we will be building the learning projects in those guides using [functio
 1. [Mute Button](https://github.com/sierraplatoon/react-mute-button)
 2. [Palindrome](https://github.com/sierraplatoon/react-palindrome)
 
-### Then, ONLY if you finish the above, do these:
+### Then, if you finish the above, do these:
 
 3. [Whack-A-Mole](https://github.com/sierraplatoon/react-whack-a-mole)
 4. [Doors Game](https://github.com/sierraplatoon/react-doors-game)
