@@ -7,12 +7,9 @@ However we will be building the learning projects in those guides using [functio
 
 ## Assignments
 
-### First do these, in this order:
+### We are assigning more assignemnts than can be done just today to give you opportunities for practice. Aim to do finish the first 2 then work on the next 2 for practice if you'd like
 
 1. [Mute Button](https://github.com/sierraplatoon/react-mute-button)
 2. [Palindrome](https://github.com/sierraplatoon/react-palindrome)
-
-### Then, if you finish the above, do these:
-
 3. [Whack-A-Mole](https://github.com/sierraplatoon/react-whack-a-mole)
 4. [Doors Game](https://github.com/sierraplatoon/react-doors-game)
