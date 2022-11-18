@@ -16,6 +16,7 @@ In django,
   2. create, read, update, and delete data through our model class
   3. do some logic and stuff
   4. send responses back to the sender, render a page, or do a page redirect
+- Routing via `urls.py` deals with defining what method in the views will handle what url route
 
 In **templates** you can write html and css that will be displayed to a user. Django gives you some extra functionality that allows to simple logic like for loops, if statements, and variables.
 
