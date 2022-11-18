@@ -21,9 +21,13 @@ In **templates** you can write html and css that will be displayed to a user. Dj
 In **models** you create class objects that are tied to tables in a database. you set attributes (column names) and give them types (ex: char field, integer field)
 
 You can make 3 types of relationships between 2 models:
- A  |  B
+
+ A---|---B
+
 one-to-one: add an attribute of type models.OneToOneField  on one of the models (doesn’t matter which one) A or B
+
 one-to-many: add an attribute of type  models.ForeignKey  on model B (the one that there will be many of)
+
 many-to-many: add an attribute models.ManyToManyField attribute on either model (A or B)
 
 For each of these relationships, you can set a related name attribute that you can use on the other side of the connection (that name will be used by the model you did not add the attribute to
