@@ -1,3 +1,3 @@
-# NO CLASS: Study Break
+# NO CLASS: Thanksgiving Break
 
 
