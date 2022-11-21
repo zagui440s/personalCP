@@ -2,8 +2,8 @@
 
 ## Topics Covered / Goals
 - Planning and creating a React application
-- Functional vs class-based components
 - Passing down data and functions as props
+- Using state properly
 - React Bootstrap
 
 
@@ -13,10 +13,8 @@ Today begins a string of lessons involing the 'News Site' project. This is somet
 
 ### Project Setup
 
-- start a basic react project with `npm create vite`
-    - `npm` will install and run an npm module if you don't have it, or just run it if you've already installed it
-    - `npx` seems to not recognize `npx create vite` if the package is not installed already but `npx vite` seems to trigger the install.
-    - or you could just install it manually first `npx install vite`
+- start a basic react project with `npx create vite`
+    -[npm vs npx](https://sentry.io/answers/difference-between-npm-and-npx-in-javascript/#:~:text=The%20command%20npm%20is%20used,JavaScript%20packages%20downloaded%20this%20way.&text=To%20understand%20why%20both%20of,s%20approach%20to%20dependency%20management.)
 - delete unnecessary boilerplate
 - copy data over
     - eventually, we'll use the hackernews API to provide news articles for our app. For now, we'll use some hard-coded sample data in `news.json`. 
@@ -26,65 +24,45 @@ Today begins a string of lessons involing the 'News Site' project. This is somet
 - App: top level component that contains all other components
     - The App tracks all the state for the other components (in this demo).
 - ArticleTeaser: a preview of an article, with a headline and a date
-    - accepts `id`, `title`, `createdDate`, and `handleTitleClick`
+    - accepts `objectID`, `title`, `created_at`, and `handleTitleClick`
     - accepts a function as a prop. remember the difference between a function call and function reference
-- Article: the actual article, with content and images
+- Article: the actual article, with content 
     - has many props. use spread syntax.
     - conditional rendering. There are a few different ways to do this in react
 - AppNav: the navigation bar with links
     - list rendering. create a nav link for each item in the navItems array. 
 
-## Component I: AppNav
-The `AppNav` component should accept the following `props`:
-1. `navItems` - an array of navItem objects.
-2. `handleNavClick` - a function.
 
-The `AppNav` component should return a `<nav>` component that contains `<a>`'s as children - one for every item in the `props.navItems` array.
-
-The AppNav component should:
-1) Map through `props.navItems` to create an array of `<a>` elements. The objects within `props.navItems` look something like this:
-```
-{
-  label: "NYREGION",
-  value: "nyregion"
-}
-```
-When transforming/mapping the `nav` item objects in `props.navItems` into an array of `<a>` tags, you'll want to use the `label` property (displayed in the example above) as the text that appears on screen. At the same time, you will want to attach an event handler to each `<a>`'s `onClick` event. `onClick` should call `props.handleNavClick`, and pass the 'value' property from the `nav` item object.
-
-**You are done when all of your data is displayed and your `onClick` events are firing for your AppNav links and your ArticleTeaser links (i.e. you should see the `console.log`s)**
-
-## Component II: ArticleTeaser
-The `ArticleTeaser` component should accept the following `props` from `App.js`:
-1. `id` - a number
+## Component I: ArticleTeaser
+The `ArticleTeaser` component should accept the following `props` from `App.jsx`:
+1. `objectID` - a number
 2. `title` - a string
-3. `created_date` - a string
+3. `created_at` - a string
 4. `handleTitleClick` - a event handling function
 
 All of these `props` will always be passed in.
 
 The `ArticleTeaser` component should:
-1. Display the `title` inside of an `<a>` tag.
-2. When the `title` `<a>` tag is clicked, it should call `props.handleTitleClick(props.id);`. Will arrow functions be useful here?
-3. Display the `created_date` in a `<p>` tag.
+1. Display the `title` inside of an `<h2>` tag.
+2. When the `title` `<h2>` tag is clicked, it should call `props.handleTitleClick(props.id);`. 
+3. Display the `created_at` in a `<p>` tag.
 
 
 ## Component II: Article
 In `App.jsx`, you'll notice that when the `Article` component is rendered, we pass `{...article}` to the component. This is known as the spread syntax. You can read more about it [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax). Rather than passing the entire `article` object, we are spreading its properties to be passed down via `props`.
 Therefore, the `Article` component should accept the following `props`:
 1. `title` - a string
-2. `created_date` - a string
-3. `abstract` - a string
-4. `byline` - a string (optional)
-5. `image` - a url string (optional)
+2. `created_at` - a string
+3. `url` - a string
+4. `author` - a string (optional)
 
 The `title`, `abstract`, and `created_date` `props` will always contain values. `image` and `byline` may be set, but they may also be null. Be sure to account for this.
 
 The `Article` component should:
 1. Display the `title` inside of an `<h1>` tag.
-2. Display the `created_date` in a `<p>` tag.
-3. Display the `byline` (if it exists) in an `<h2>` tag.
-4. Display the `image` (if it exists) in an `<img>` tag (the value of `image` should be set to the `src` attribute of the `<img>` tag).
-5. Display the `abstract` inside of a `<p>` tag.
+2. Display the `created_at` in a `<p>` tag.
+3. Display the `url` in an `<a>` tag.
+4. Display the `author` inside of a `<p>` tag.
 
 #### Sidenote: Conditional rendering in React
 How do I only render something if the data exists? There are several ways we can handle this in React. Here we will explore three common options:
@@ -123,7 +101,23 @@ Explanation: This is a common pattern for rendering that involves more complex l
 ```
 Explanation: This is a good option to use if you are choosing between two different components/elements to render, but you can technically just render an empty string or `null` as seen above.
 
+## Component III: AppNav
+The `AppNav` component should accept the following `props`:
+1. `sections` - an array of navItem objects.
+2. `handleNavClick` - a function.
 
+The `AppNav` component should return a `<nav>` component that contains `<a>`'s as children - one for every item in the `props.sections` array.
+
+The AppNav component should:
+1) Map through `props.sections` to create an array of `<a>` elements. The objects within `props.sections` look something like this:
+```
+{
+  label: "stories"
+}
+```
+When transforming/mapping the `nav` item objects in `props.sections` into an array of `<a>` tags, you'll want to use the `label` property (displayed in the example above) as the text that appears on screen. At the same time, you will want to attach an event handler to each `<a>`'s `onClick` event. `onClick` should call `props.handleNavClick`, and pass the `label` property from the `nav` item object.
+
+**You are done when all of your data is displayed and your `onClick` events are firing for your AppNav links and your ArticleTeaser links (i.e. you should see the `console.log`s)**
 
 ### React-bootstrap
 > It's easy to use bootstrap in our react app the same way we have been using it already. We could load bootstrap's CSS and JS in our index.html, and define a react component that uses those bootstrap classes. 
