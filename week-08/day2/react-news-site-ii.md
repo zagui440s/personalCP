@@ -9,14 +9,11 @@
 - News Site II (see assignment list)
 
 ### Article list component
-> Instead of just viewing one random article, a user should be able to view a list of article teasers, and then click one of them that they want to read. 
-
 > Let's create a component for the home page that will list our articles
 
 ```javascript
 import "./articleList.css"
 import ArticleTeaser from '../ArticleTeaser/ArticleTeaser.js';
-
 
 function ArticleList(props) {
   return (
@@ -40,15 +37,20 @@ export default ArticleList;
 
 > For now, we'll need at least two pages. The home page will have a list of articles, and then we'll have another page for viewing an individual article.
 
-
-[React Router](https://reactrouter.com/docs/en/v6) is a popular open source library that's used to control routing in a single page app. Using this library, you can load `component`s based on URL paths. For example, you can configure React Router to load ComponentX when the URL `http://localhost:3000/#/componentx` is requested.
+[React Router](https://reactrouter.com/en/main) is a popular open source library that's used to control routing in a single page app. Using this library, you can load `component`s based on URL paths. For example, you can configure React Router to load ComponentX when the URL `http://localhost:3000/#/componentx` is requested.
 
 To utilize React Router, let's install:
 ```sh
 $ npm install react-router-dom --save
 ```
 
-In `App.js`, bring in the necessary libraries from the package you just installed:
+### hash-router vs browser-router
+> Normally, whenever the URL changes, your browser sends a GET request to that new URL. However, by default, if the URL contains a `#`, then anything that changes after the `#` is not considered a new server-side route, and so no data is sent to the server. This is used for client-side routing to elements with a specific id. You can access this information from javascript with `window.location.hash`. hash-router extends this concept, and uses the value of `window.location.hash` to load different components, which will serve as the pages of our website.
+
+> Another option for client-side routing is the browser-router. This approach doesn't leave a `#` in the URL, and instead uses extra javascript to avoid making requests to the server when the URL changes. Using the browser router can cause a variety of bugs to occur in your application, because there will be some situations where client-side URLs will accidentally get sent to the server. When a user refreshes the page or just types a URL directly into the URL bar, that request will go to the server, and your server needs to be prepared to handle that request gracefully. Also, many modern browsers don't even show the full URL by default, so the sole benefit of the browser router is often irrelevant. 
+
+
+In `App.js`, we need to bring in the necessary libraries from the package we just installed:
 
 ```javascript
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
@@ -110,13 +112,6 @@ import {Link} from "react-router-dom";
 ```
 
 `articleID` corresponds to the index of an item in the articles array, and is a parameter already being passed into this function. You should be able to click links in your homepage and be able to hit different urls that correspond with the article that you clicked.
-
-
-
-### hash-router vs browser-router
-> Normally, whenever the URL changes, your browser sends a GET request to that new URL. However, by default, if the URL contains a `#`, then anything that changes after the `#` is not considered a new server-side route, and so no data is sent to the server. This is used for client-side routing to elements with a specific id. You can access this information from javascript with `window.location.hash`. hash-router extends this concept, and uses the value of `window.location.hash` to load different components, which will serve as the pages of our website.
-
-> Another option for client-side routing is the browser-router. This approach doesn't leave a `#` in the URL, and instead uses extra javascript to avoid making requests to the server when the URL changes. Using the browser router can cause a variety of bugs to occur in your application, because there will be some situations where client-side URLs will accidentally get sent to the server. When a user refreshes the page or just types a URL directly into the URL bar, that request will go to the server, and your server needs to be prepared to handle that request gracefully. Also, many modern browsers don't even show the full URL by default, so the sole benefit of the browser router is often irrelevant. 
 
 
 
