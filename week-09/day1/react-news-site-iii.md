@@ -1,12 +1,11 @@
 # News Site III
 
 ## Topics Covered / Goals
-- Continue to build upon News Site project
 - Component Lifecycle
   - Each React component has a lifecycle and understanding the component lifecycle will help you understand the data flow in your app.
   - Lifecycle methods determine what is executed at what time in the component's lifecycle.
-  - React hooks (useEffect) are the new way to implement lifecycle methods into functional components.
-
+- React hooks (like useEffect) are the new way to implement lifecycle methods into functional components.
+- Continue to build upon News Site project
 
 
 ## Lesson
@@ -197,7 +196,7 @@ class Something extends Component {
     console.log("componentWillUnount: I AM DYING NOW!")
   }
 
-   componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.value !== this.props.value)
       console.log("componentDidUpdate: I AM UPDATING NOW!")
   }
@@ -333,110 +332,86 @@ function App() {
 export default App;
 ```
 
----
+## Other Hooks:
 
-# News Site III
+### useContext()
 
-## Change NavBar
+This hook allows a component to receive information from distant parents without passing it as props.
 
-`AppNav`
-```js
-import { useState } from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
-import sections from '../../data/sections.json'
-import "./appNav.css"
+The parent component will use `createContext` to create the context of data and provide it to its children and the child component can then use `useContext` to access that data.
 
-function AppNav(props) {
-  const [navItems, setNavItems] = useState(sections)
+Example:
+```javascript
+// App.jsx
 
+import { createContext } from 'react';
+
+const ThemeContext = createContext(null);
+
+export default function App() {
   return (
-    <Navbar className="bar">
-      <Navbar.Brand>
-        <img src="https://www.codeplatoon.org/wp-content/uploads/2018/10/CP-logo-2018-abbrev-1.png" width="60" />
-        Code Platoon News
-      </Navbar.Brand>
-      <Nav>
-      {
-        navItems.map((navItem, index) => {
-          return (
-            <Nav.Link key={index} onClick={() => console.log(navItem.value)}>
-                { navItem.label }
-            </Nav.Link>
-          )
-        })
-      }
-      </Nav>
-    </Navbar>
+    <ThemeContext.Provider value="dark">
+      <Form />  // the component that will consume the context is in here
+    </ThemeContext.Provider>
   )
 }
 
-export default AppNav;
 ```
-> from news site III exercise
-## The Section Page
-The Section Page will be used to display articles that belong to a specific section (specifically, "World", "Science",  or "Books").  The Section Page should be loaded when a user clicks on one of these options in the top navigation.
-
-The route that should display a section page should be `/sections/:sectionName`, where the `:sectionName` parameter would be one of the supported sections (listed above). For example, Clicking on the "World" link in the top navigation would redirect to http://localhost:5173/sections/world - this page would only display articles whose "section" property is set to "world".
-
-To accomplish this, you will need to:
-
-1. Create `SectionPage.js` inside of `src/pages`
-2. Create a new route (`/sections/:sectionName`) in App.js which points to the `SectionPage` component
-3. Obtain the `sectionName` from the url using `useParams()`
-4. Within `SectionPage.js`, utilize the `filter()` function to retrieve articles by a specific section, and store them in a state value (`articles`). Remember, we'll be using `useEffect` here, just like we did for our HomePage component. 
-5. Pass `articles` into the `<ArticleList>` component, thereby rendering the `ArticleList` with articles for the desired section. 
-
-Attempt to navigate to **http://localhost:5173/#/sections/world**, and confirm that this is showing you the appropriate content. We should only see news articles that have a section value of "world".
-
-## Section Links in `AppNav.js`
-Now we need to update our AppNav component to use the new route that we added. We'll be using the Link component from the React Router, just like before, to facilitate internal navigation within our application. 
-
-Attempt to navigate from the home page to a section page, using the AppNav links. Verify that we are taken to the correct page and showing the appropriate content.
-
-Attempt to navigate from one section page to another section page, using the AppNav links. Uh-oh, there seems to be some issue here! While our url changes to the correct location, our content remained the same! Why would this be?? 
-
-As we've mentioned before, React smartly only update the page contents when it knows something has changed. In this case, we're going from one section page to another, so the SectionPage component doesn't need to be removed from the view, and thus React keeps the previous one that was in use. However, React doesn't know anything need to change, because the render is only relying on the internal state values (in this case, `articles`). 
-
-We need to get a new set of articles for the new section. How can we do this? This is where the component lifecycle concepts come into play. Our component need to react to an update, in this case, from the url. We will need to use `useParams` to figure out the new section value, and use that to get a new collection of articles. 
-
-
-
-## Article Search
-
-Let's add the ability to search for articles on the Home Page.  In order to accomplish this, the high-level things we need to build are:
-
-1. Add a new function that accepts a search term, and returns a list of articles with that term in their title.
-2. Add an input box to the `src/pages/HomePage` component that calls the function above, and updates state.
-3. Add a new state value to track the search text. 
-
-
-**HomePage.js**
-
-As mentioned above, you will want to add a text input to the `HomePage`.  Why not use React Bootstraps's nicely styled text input? (Remember that you'll need to import all of these new libraries from `react-bootstrap` at the top of your file!) Go ahead and put this above your `<ArticleList>` component:
 
 ```javascript
-<InputGroup>
-  <InputGroup.Text>Search</InputGroup.Text>
-  <FormControl placeholder="by Title" onChange={handleSearch} />
-</InputGroup>
+// App.jsx
+
+import { useContext } from 'react';
+
+export default function MyButton() {
+
+  const theme = useContext(ThemeContext);
+  const className = 'button-' + theme;
+  return (
+    <button className={className}>
+      click me
+    </button>
+  );
+
+}
+
 ```
 
-Note that we've provided the method that should be called from the `onChange` event - it's a class method called `handleSearch()`. 
-Create the `handleSearch()` class method on the `HomePage.js` component. Within this event handler, you should:
-1. Extract the value of the text input and set it to a new state value (`searchTitle`)
-2. Update our useEffect() dependency array to include `searchTitle`
+### useRef()
 
-If these steps are completed successfully, the list of articles displayed on the home page should change as you interact with the text box.
+useRef is a React Hook that lets you reference a value that’s not needed for rendering.
+It returns a ref object with a single current property initially set to the initial value you provided.
+
+```javascript
+import { useRef } from 'react';
+
+function Stopwatch() {
+  const intervalRef = useRef(0);
+  // ...
+  
+```
+[useRef docs](https://beta.reactjs.org/apis/react/useRef)
+
+### useReducer()
+
+useReducer helps manage state when it gets complex. useReducer is usually preferable to useState when you have complex state logic that involves multiple sub-values or when the next state depends on the previous one. 
+
+- [useReducer example](https://reactjs.org/docs/hooks-reference.html#usereducer)
+- [Extracting state logic into a reducer](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer)
 
 
+### Custom Hooks
+- [Building your own hooks](https://reactjs.org/docs/hooks-custom.html)
 
 
 ## External Resources
 - [State & Lifecycle](https://reactjs.org/docs/state-and-lifecycle.html)
 - [Conditional Rendering](https://reactjs.org/docs/conditional-rendering.html)
+- [Rules of hooks](https://reactjs.org/docs/hooks-rules.html)
 
 ## Assignments
 - [News Site III](https://github.com/sierraplatoon/react-news-site-iii)
 - [Temperature Conversion](https://github.com/sierraplatoon/react-temperature-conversion)
+
 
 
