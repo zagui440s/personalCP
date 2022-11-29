@@ -14,7 +14,44 @@ Up to this point, we've been building our website using static data that exists 
 Today's challenge isn't going to be a ton of React. Instead it's mostly using JavaScript to connect with an API and use the returned data in our app, presenting in a React Component. Once we get our news data from the external data source (our API), we will put it in our HomePage and ArticleList components.
 
 ## Asynchronous Code
-When you are writing pieces code that are independent from one another, writing them asynchronously allows them to run in parallel which could make your code run much faster.
+
+Let's take a step back and first talk about what asynchronous code is, why we use it, and how it operates in JavaScript. Let's take a look a the code below:
+```javascript
+function wait(time_in_ms) {
+    let startTime = new Date().getTime();
+    while (new Date().getTime() < startTime + time_in_ms);
+}
+
+console.log("sierra");
+
+wait(5000); // wait 5 seconds ("doing some work")
+console.log("hello");
+
+wait(6000); // wait 6 seconds ("doing some work")
+console.log("world");
+```
+How long will this code take to execute? Answer: 11 seconds.
+
+But what if we could do some work in parallel (i.e. asynchronously)? Let's take a look at our updated asynchronous code below:
+
+```javascript
+function wait(time_in_ms) {
+    let startTime = new Date().getTime();
+    while (new Date().getTime() < startTime + time_in_ms);
+}
+
+console.log("sierra");
+
+let myCallback = () => { console.log("world"); }
+setTimeout(myCallback, 6000); // wait 6 seconds ("doing some work"), asynchronously
+
+wait(5000); // wait 5 seconds ("doing some work")
+console.log("hello");
+```
+
+How long will this code take to execute? Answer: 6 seconds.
+
+This is because while we're doing some work on the side for 6 seconds, we are able to do some other work in our main execution thread for 5 seconds.
 
 Some examples of asynchronous functions:
 - setTimeout(()=>{}, 10000)  <=== call function after 10 seconds have passed
@@ -22,6 +59,53 @@ Some examples of asynchronous functions:
 
 ## Promises
 Now, let's talk about Promises. A [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) in JavaScript is a construct that specifies a future returned value. 
+
+Let's take a look at the basic structure of **creating a Promise**:
+
+```javascript
+function doSomething() {
+    return Math.random() > 0.25; // success rate: 75% 
+}
+// an example of a Promise that resolves to a string (NOTE: we can return any data type as needed)
+let myPromise = new Promise((onSuccess, onFailure) =>{ 
+        let success = doSomething();
+        if (success)
+            onSuccess("We did our thing!");
+        else
+            onFailure("There was an error!!!");
+    }
+)
+```
+
+And next, let's take a look at the basic structure of **consuming a Promise**:
+
+```javascript
+function doSomething() {
+    return Math.random() > 0.25; // success rate: 75% 
+}
+// creating a Promise
+let myPromise = new Promise((onSuccess, onFailure) => { 
+        let success = doSomething();
+        if (success)
+            onSuccess("We did our thing!");
+        else
+            onFailure("There was an error!!!");
+    }
+)
+// consuming a Promise example 1
+myPromise.then(data => {
+    console.log("SUCCESS:", data);
+}).catch(error => {
+    console.log("FAILURE:", error);
+})
+
+// consuming a Promise example 2
+// let handleSuccess = (msg) => { console.log("SUCCESS:", msg); };
+// let handleFailure = (msg) => { console.log("FAILURE:", msg); };
+// myPromise.then(handleSuccess, handleFailure);
+```
+
+Asynchronous code can make your code much faster, when you have tasks that are independent of one another and can run in parallel. However, sometimes, you need to complete some tasks in order.
 
 Let's consider a program that simulates some real world action. I think it's a great time to grab some cereal, so let's do it:
 
@@ -83,37 +167,37 @@ The keyword async before a function makes the function return a promise
 Let's take a look:
 
 ```javascript
+
+let washDishes = () => { 
+    return new Promise((onSuccess, onFailure) => {
+        setTimeout(() => onSuccess("We washed a bowl and spoon!"), 15000)
+    }); 
+}
+
+let pourCereal = (result) => { 
+    console.log(result);
+    return new Promise((onSuccess, onFailure) => {
+        setTimeout(() => onSuccess("We poured some cereal!"), 3000)
+    }); 
+}
+
+let pourMilk = (result) => {
+    console.log(result);
+    return new Promise((onSuccess, onFailure) => {
+        setTimeout(() => onSuccess("We poured some milk!"), 3000)
+    });  
+}
+
+let eatBreakfast = (result) => { 
+    console.log(result);
+    console.log("Now we can eat!");
+}
+
+let goHungry = (error) => {
+    console.log(error)
+    console.log("I’m still hungry!!!");
+}
 async function prepBreakfast() {
-    let washDishes = () => { 
-        return new Promise((onSuccess, onFailure) => {
-            setTimeout(() => onSuccess("We washed a bowl and spoon!"), 15000)
-        }); 
-    }
-
-    let pourCereal = (result) => { 
-        console.log(result);
-        return new Promise((onSuccess, onFailure) => {
-            setTimeout(() => onSuccess("We poured some cereal!"), 3000)
-        }); 
-    }
-
-    let pourMilk = (result) => {
-        console.log(result);
-        return new Promise((onSuccess, onFailure) => {
-            setTimeout(() => onSuccess("We poured some milk!"), 3000)
-        });  
-    }
-
-    let eatBreakfast = (result) => { 
-        console.log(result);
-        console.log("Now we can eat!");
-    }
-
-    let goHungry = (error) => {
-        console.log(error)
-        console.log("I’m still hungry!!!");
-    }
-
     try { 
         let result = await washDishes();
         result = await pourCereal(result);
@@ -142,7 +226,6 @@ Next, let's create 3 functions:
 - `fetchArticleByID(id)` - given an article ID, returns an Article object with the given ID.
 - `fetchArticlesBySection(section)` - returns a list of articles whose `section` attribute matches the section argument.
 - `fetchArticles(filters)` - returns a list of articles. The filters argument is optional - if no filters are provided, an array of all the articles are returned. If filters are provided, an array of Articles that meet the criteria are returned.
-
 
 
 
@@ -272,4 +355,3 @@ The final goal is to recreate the [hackernews website](https://news.ycombinator.
 
 ## Assignments
 - [News Site IV](https://github.com/sierraplatoon/react-news-site-iv)
-
