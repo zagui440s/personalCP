@@ -131,7 +131,7 @@ axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
 		- button to log out
 
 
-### STRETCH: Django  [walkthrough demo from a previous cohort](https://www.youtube.com/watch?v=6vBGHBmXKAw&list=PLu0CiQ7bzwESxBdsmsbfRk8Nm4tv5lVgq&index=5)
+### STRETCH: Django -- [walkthrough demo from a previous cohort](https://www.youtube.com/watch?v=6vBGHBmXKAw&list=PLu0CiQ7bzwESxBdsmsbfRk8Nm4tv5lVgq&index=5)
 - create api routes for login, signup, and logout that work with the django user auth model
 - make the three buttons in our react app call the apis that you wrote above
   
