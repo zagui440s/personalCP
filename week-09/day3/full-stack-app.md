@@ -119,7 +119,7 @@ axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
 
 ### React Frontend
 ***\*Utilize state, and effects**
-- Create a `login page`, a `signup page`, and a `home page` inside your `react router`.
+- Create a `login page`, a `signup page`, and a `home page` inside your `react router`(you may choose between `HashRouter` and `BrowserRouter`).
 	- `signup`: 
 		- form that takes in firstname, lastname, username(can be email), and password
 		- a submit button that takes the data from the form and saves it
@@ -134,9 +134,12 @@ axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
 
 
 ### STRETCH: connecting to Django API Server 
--- [walkthrough demo from a previous cohort (includes the project set up as a whole)](https://www.youtube.com/watch?v=6vBGHBmXKAw&list=PLu0CiQ7bzwESxBdsmsbfRk8Nm4tv5lVgq&index=5)
+*\* walkthrough [demo](https://www.youtube.com/watch?v=6vBGHBmXKAw&list=PLu0CiQ7bzwESxBdsmsbfRk8Nm4tv5lVgq&index=5) from a previous cohort (includes the project set up as a whole)
 
-- create api routes for login, signup, and logout that work with the django user auth model
+- create api routes for `login`, `signup`, and `logout` that work with the django user auth model
 - make the three buttons in our react pages from above call the apis that you wrote in your django application 
   
+
+***\*If you are using `browser router` be careful of what you name your react client side routes vs your backend server side API routes**
+
 ***\*the demo should help with any `csrf` issues you may run into**
