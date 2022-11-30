@@ -116,7 +116,7 @@ axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
  	- Connect a react project and a django project make sure you are able to see your `App.jsx`code in the browser at `localhost:8000`
 
 ### React 
-***\*\Utilize state, and effects**
+***\*Utilize state, and effects**
 - Create a login page, a sign up page, and a home page.
 	- `signup`: 
 		- form that takes in firstname, lastname, username(can be email), and password
