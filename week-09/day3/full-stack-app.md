@@ -112,6 +112,8 @@ axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
   ```
 
 # Assignment 
+
+### Setup
 - Create a full stack application. 
  	- Connect a react project and a django project make sure you are able to see your `App.jsx`code in the browser at `localhost:8000`
 
