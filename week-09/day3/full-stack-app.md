@@ -110,3 +110,28 @@ axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
 		whoAmI()
   }, [])
   ```
+
+# Assignment 
+- Create a full stack application. 
+ 	- Connect a react project and a django project make sure you are able to see your `App.jsx`code in the browser at `localhost:8000`
+
+### React 
+***\*\Utilize state, and effects**
+- Create a login page, a sign up page, and a home page.
+	- `signup`: 
+		- form that takes in firstname, lastname, username(can be email), and password
+		- a submit button that takes the data from the form and saves it
+	- `login`: 
+		- form that takes in username and password
+		- a submit button 
+		 	- takes the data from the form and keeps track of the logged in user `useState()?`
+		 	- reroutes to the `homePage`
+	- `homePage`: 
+		- display username of person logged in  
+		- button to log out
+
+
+### STRETCH: Django  [walkthrough demo from a previous cohort](https://www.youtube.com/watch?v=6vBGHBmXKAw&list=PLu0CiQ7bzwESxBdsmsbfRk8Nm4tv5lVgq&index=5)
+- create api routes for login, signup, and logout that work with the django user auth model
+- make the three buttons in our react app call the apis that you wrote above
+  
