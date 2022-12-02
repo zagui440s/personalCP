@@ -1,4 +1,4 @@
 # Assessment 4
 
 
-- [Assessment #4](https://github.com/sierraplatoon/assessment-1)
+- [Assessment #4](https://classroom.github.com/a/z4Y1atnO)
