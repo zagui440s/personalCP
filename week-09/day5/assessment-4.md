@@ -2,4 +2,4 @@
 
 For this assessment we would like you to make a short video showing the functionality of your site and your view functions. 
 
-- [Assessment #4](https://classroom.github.com/a/z4Y1atnO)
+- [Assessment #4](https://classroom.github.com/a/NcVuibwT)
