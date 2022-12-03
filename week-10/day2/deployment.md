@@ -114,7 +114,6 @@ sudo certbot --nginx
 ## Assignments
 - [Rock, Paper, Scissors](https://github.com/sierraplatoon/app-rock-paper-scissors)
 
-- Start your [Personal Projects](https://github.com/sierraplatoon/assessment-5)!
-- Personal Project ideas are DUE! You must have your personal project ideas approved by the end of today, and hopefully started later this afternoon. 
+
 
 
