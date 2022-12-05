@@ -36,8 +36,3 @@ npm install react-redux
 <!-- call action to populate data -->
 
 <!-- access data in components to print -->
-
-
-
-## Assignments
-- [News Site V](https://github.com/romeoplatoon/react-news-site-v)
