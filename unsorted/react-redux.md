@@ -1,5 +1,7 @@
 # News Site V
 
+Lorem ipsum
+
 ## Topics Covered / Goals
 - Learn to manage global application state with redux
 
