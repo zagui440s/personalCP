@@ -38,7 +38,7 @@ ssh -i ~/.ssh/my_private_key.pem ubuntu@<ip_address>
 > You might have gotten an error about the permissions on your private SSH key. If so, we might need to change the permissions on our private key to make it more secure.
 
 ```bash
-sudo chmod 600 ~/code/keys/demo.pem
+sudo chmod 600 ~/.ssh/my_private_key.pem
 ```
 
 > After we successfully log into the server, we'll need to clone our project repository. Conveniently, git is preinstalled on the server.
