@@ -87,7 +87,7 @@ server {
     proxy_pass http://0.0.0.0:9000;
   }
   location /static/ {
-    alias /home/ubuntu/deployment-demo-app/news_project/build/static/;
+    alias /home/ubuntu/deployment-demo-app/news_project/static/;
   }
 }
 ```
