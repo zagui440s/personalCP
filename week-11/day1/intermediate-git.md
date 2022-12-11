@@ -177,7 +177,7 @@ git pull origin master
 
 ## Branching strategy and Git Flow
 - Long-term branches
-    - Master - live production code, **MUST** not break
+    - Master or Main - live production code, **MUST** not break
     - Develop - merges into master, **SHOULD** not break
 - Short-term branches
     - feature/ - branch off develop, merge into develop
