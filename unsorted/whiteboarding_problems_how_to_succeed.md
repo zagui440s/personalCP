@@ -5,13 +5,19 @@ The interview process - approx. 3-5 interviews, approx. 1hr each.  Here is a rou
 1. Resume screen (i.e. submitting the job application and getting past HR)
 2. Coding Challenge on leetcode or something similar
 3. Technical Interview One. It could be ...
+
     a. A technical conversation (talk about a project you've done, a technology you like, etc)
+
     b. A whiteboarding problem
 4. Technical interview Two. It could be ...
+
     a. A technical conversation (talk about a project you've done, a technology you like, etc)
+
     b. A whiteboarding problem
+
     c. A take-home coding assignment (a weekend project)
-        - They say "it should take 4hrs". It always takes twice as long. Aim to write production-quality code w/best practices, and treat it like a professional task - deliver on time, communicate delays, etc.
+
+        i. They say "it should take 4hrs". It always takes twice as long. Aim to write production-quality code w/best practices, and treat it like a professional task - deliver on time, communicate delays, etc.
 
 5. Behavioral Interview
 6. Final, final interview (if you're here you're in the running). Sometimes just a nontechnical conversation
