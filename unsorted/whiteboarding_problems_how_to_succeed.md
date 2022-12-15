@@ -37,7 +37,7 @@ It has evolved over time ...
 
 
 IF YOU DO WELL ... they will push you more in the interview. 
-**You can still get hired if you don't finish the whiteboarding problem.**. 
+**You can still get hired if you don't finish the whiteboarding problem.**
 
 ## Succeeding At Whiteboarding Problems
 "The interviewer is not your enemy -- they are your ally"
