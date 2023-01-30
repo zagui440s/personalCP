@@ -1,5 +1,10 @@
 # Intro to Javascript
 
+> maybe add more list methods?
+> import export 
+> using let instead of var
+
+
 ## Topics Covered / Goals
 - Pair Programming
   - You will likely be pair programming at your first job in some capacity. It's an important skill to have because it helps you communicate your thought process and enables you to learn from other developers.
@@ -52,9 +57,6 @@
     ```js
     let noValue = null
     ```
-
-> maybe add more list methods?
-
   - **Arrays**
     - Holds an ordered list of values. These values can be anything: strings, numbers, objects, even other arrays!
     - Once you put something in an array, it stays at that place forever until you alter the array. You can rely on it always being there. Think of an older person's pill box - the pills for Monday are in the Monday slot. If they were to shake it or drop it or something, it wouldn't matter. Those pills are still at the same place.
