@@ -239,11 +239,11 @@ staff # my original has been changed yet again!
 ## Resources
 - https://www.pythoncheatsheet.org/cheatsheet/basics
 ## Assignments
-- [99 Bottles](https://github.com/sierraplatoon/algo-99-Bottles) in Python
-- [Deaf Grandma](https://github.com/sierraplatoon/algo-deaf-grandma) in Python
-- [Roman Numerals](https://github.com/sierraplatoon/algo-roman-numerals) in Python
-- [Fibonacci](https://github.com/sierraplatoon/algo-fibonacci) in Python
-- [Factorial](https://github.com/sierraplatoon/algo-factorial) in Python
-- [Linear Search](https://github.com/sierraplatoon/algo-linear-search) in Python
+- [99 Bottles](https://github.com/tangoplatoon/algo-99-Bottles) in Python
+- [Deaf Grandma](https://github.com/tangoplatoon/algo-deaf-grandma) in Python
+- [Roman Numerals](https://github.com/tangoplatoon/algo-roman-numerals) in Python
+- [Fibonacci](https://github.com/tangoplatoon/algo-fibonacci) in Python
+- [Factorial](https://github.com/tangoplatoon/algo-factorial) in Python
+- [Linear Search](https://github.com/tangoplatoon/algo-linear-search) in Python
 
 
