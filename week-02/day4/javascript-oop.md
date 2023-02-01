@@ -139,10 +139,10 @@ bob.sayHello()
 ## Assignments
 Start with School Interface II. Then, Pig Latin. Stock Picker is the stretch assignment for today.
 
-- [School Interface II](https://github.com/sierraplatoon/oop-school-interface-ii) in Python
-- [Pig Latin](https://github.com/sierraplatoon/algo-pig-latin) in JS/Python
+- [School Interface II](https://github.com/tangoplatoon/oop-school-interface-ii) in Python
+- [Pig Latin](https://github.com/tangoplatoon/algo-pig-latin) in JS/Python
 
 Stretch:
-- [Stock Picker](https://github.com/sierraplatoon/algo-stock-picker) in JS/Python
+- [Stock Picker](https://github.com/tangoplatoon/algo-stock-picker) in JS/Python
 
 
