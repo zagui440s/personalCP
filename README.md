@@ -15,17 +15,6 @@ Questions should be asked in the #questions Slack channel using proper [formatti
 
 Your questions should be pointed (not "Can someone help me?"), show that you’ve read through the code/error, should contain your thought process / some potential solutions, and should not be anything that is easily Google-able. Once you ask a question and find a solution, please update your question thread so that other students can benefit from seeing the question and answer.
 
-## Submitting Work for Review
-1. Navigate to your desktop from your terminal(`cd ~/desktop`)
-2. Hit the `Fork` icon on the top right to copy the repo to your username instead of `codeplatoon`
-3. Clone down the repository to your desktop (`git clone REPO_LINK.git`)
-4. Update whatever work you need to
-5. Add the changes (`git add CHANGED_FILENAME`)
-6. Commit the changes (`git commit -m "SOME MESSAGE HERE"`)
-   - Repeat the above three steps until you've completed your work, and it's ready to review
-7. Push the changes up to Github (`git push origin`)
-8. Open a pull request, comparing your forked `branch` to the original `master` branch
-
 ## Daily Check-ins
 It is important for you to have a place to talk about how you are feeling and how you feel you are progressing. Every morning before class starts, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfZjxwlNH-f2mEMfrqPkO062Y58GeiGqNW8jdd_Ujvq31ZGDQ/viewform?usp=sf_link).
 
