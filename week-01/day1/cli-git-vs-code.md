@@ -3,7 +3,7 @@
 ## Topics Covered / Goals
 
 - Get your local machine set up to start the course
-- Exploring your IDE (VSCode)
+- Operating Sytem / UNIX ideas
 - Be able to navigate your computer using the command line
 - Create and manage git repositories using the command line
 
@@ -29,17 +29,31 @@ Before we get started, just know that this will be chaos. Your goal is to get a 
 
 - [Complete Installfest (Windows)](../../page-resources/installfest_windows.md)
 
-### Intro to Linux
+### Intro to UNIX
 
-#### What is Linux?
+#### What is UNIX?
 
-Whether you are on an actual Linux system, MacOS or Windows with WSL, we are going to refer to all of these environments as 'Linux'. So what is Linux? Without getting deep into the details: **Linux is an operating system architecture and set of tools that allows a user to interact with that operating system through a command line interface**. It is the lingua-franca of operating systems, i.e. it is the language you can expect any operating system to speak and allows you to interact with it in a predictable way.
+Whether you are on an actual Linux system, MacOS or Windows with WSL, we are going to refer to all of these environments as 'UNIX', or just 'the command line'. So what is UNIX? Without getting deep into the details: **UNIX is an operating system architecture and set of tools that allows a user to interact with that operating system through a command line interface**. It is the lingua-franca of operating systems, i.e. it is the language you can expect (almost) any operating system to speak and allows you to interact with it in a predictable way.
+
+#### The Details
+
+In reality, UNIX started as a specific OS invented at Bell Labs in the 1960s, by some of the same people who invented the C language. It was very popular, but also open-source, so different operating systems copied the concept but there was poor compatibility between different implementations (a common theme in the history of software development). Complicating things further, software used to be deeply coupled with hardware and made to fit an individual product, so even within a given company there wasn't a single OS that unified the experience across devices.
+
+That changed in the 80s with the invention of the personal computer and Apple and Microsoft becoming it's most significant major players. MacOS based it's OS architecture on UNIX, whereas Microsoft went it's own way entirely with Windows and MSDOS. Then in the 90s Linux was invented as an open source OS and defined the core 'kernel' that all other Linux distributions (or 'flavors') are based on. Linux is odd in that sense in that it is open-source, so there isn't one Linux, there's just a few popular 'flavors' but a million others that are jsut as 'legitimate', just not widely used. That means that in the modern age we have:
+
+**Linux** - most closely based on UNIX, but may differ slightly based on the 'flavor' you go with (Ubuntu and Debian are the major players).
+
+**MacOS** - very UNIX-_like_, but will differ in small ways. Really just a specific flavor of Linux but one that Apple uniquely controls and is closed-source as a result. Also Apple has a habit of making breaking updates whenever they please.
+
+**Windows** - Windows is built on a fundamentally different architecture, and you will see this if you try to put UNIX commands into Command Prompt or Windows PowerShell - most will simply not be recognized (even basic ones like `ls`!) However this was such a pain point for developers on Windows that they eventually relented, and the modern solution is WSL - Windows Subsystem for Linux. Essentially, if you are on Windows, the suggestion is to use WSL, which means you have an entire Linux system (defaulting to the flavor Ubuntu) within your Windows system, and, with rare exceptions, it will work just like the flavor of Linux that your WSL environment uses.
+
+The major take home is: no matter the OS we can all be on _basically_ the same environment, **_but_** there will always be small differences that will make the bahevior of Windows/MacOS/Linux different, and even one version of MacOS (for example) will differ ever so slightly from another, and this is what makes environment setup so dofficult, we simply can't anticipate every issue that you will encounter given all the permutations of that determine what makes your environment unique.
 
 #### Architecture
 
 On a basic level, a computer can only run a single program at a time, so an OS is _the_ program your physical hardware is running, and by it's design it is an interface between the hardware and the user, allowing other programs to be run _on top_ of this main program. Think of the OS like a _scheduler_ - it's there to coordinate the sharing of hardware resources between multiple users and programs without requiring each one of those users/programs to know the intimate details of the hardware.
 
-Linux (or any OS) can therefore be thought of in terms of the following set of layers:
+UNIX (or any OS) can therefore be thought of in terms of the following set of layers:
 
 ![Unix architecture](./../../page-resources/shell-diagram.jpeg)
 
@@ -55,14 +69,14 @@ These are the essential components of your OS and the concentric circles represe
 
 #### Files and Folders
 
-There are only two types of 'things' as far as a Linux environment is concerned: files and folders.
+There are only two types of 'things' as far as a UNIX environment is concerned: files and folders.
 
 - A `file` _is_ a _thing_. Depending on what kind of _thing_ it is it can be read from or written to or executed.
 - A `folder` (also called a 'directory') can _contain_ 0 or more _things_, i.e. other files or folders.
 
 As it turns out, these are the only two concepts you need to have a fully functional OS.
 
-### Linux Commands
+### UNIX Commands
 
 Many of the commands have difficult to remember acronyms. It's a product of history. At an earlier point in history computers had extremely limited memory and saving even a few characters was worth it. Also, you will be typing these commands _a lot_, so conciseness is appreciated over time, though as a beginner it can be daunting to remember what all these short commands each do.
 
@@ -168,7 +182,7 @@ You will use these less commonly as on a modern system you will have access to b
   - or type `q!` to quit without saving
   - Like I said, extremely awkward. Some love it but I avoid it like the plague.
 
-  > The difference between `vi` and `vim` is just that `vi` was xcreated first and is less feature-rich, but `vim` is the standard built-in Linux text editor at this point.
+  > The difference between `vi` and `vim` is just that `vi` was xcreated first and is less feature-rich, but `vim` is the standard built-in UNIX text editor at this point.
 
 #### Interrupts (Nice to Know)
 
@@ -236,7 +250,7 @@ This section is small but worth mentioning. An 'interrupt' is a way of communica
 
 ### Git
 
-Git is another shell command that may or may not be built-in to a system, but it's the de-facto 'version control system', in other words, it's the means by which you can save a file with it's history intact, so if you need to 'rewind' to an earlier point, you can. It ends up being a very complex tool (it is essentially solving the problem of managing/merging/splitting multiple timelines, which is fundamentally complex) but it's a necessary tool to know at a basic level and you will notice how it follows many of the same patterns as standard linux commands.
+Git is another shell command that may or may not be built-in to a system, but it's the de-facto 'version control system', in other words, it's the means by which you can save a file with it's history intact, so if you need to 'rewind' to an earlier point, you can. It ends up being a very complex tool (it is essentially solving the problem of managing/merging/splitting multiple timelines, which is fundamentally complex) but it's a necessary tool to know at a basic level and you will notice how it follows many of the same patterns as standard UNIX commands.
 
 Also note: **Git is not Github**! Git is the earlier invention, and is open-source, it is designed to manage versioning for a local filesystem, with the possibility of backing it up externally, but by default it all lives on your one computer. Github is a modern product/company (now owned by Microsoft) that aims to be the de-facto place to back up your local filesystem externally, and offers lots of related tools to the concern of version control.
 
