@@ -149,6 +149,8 @@ A lot of what we are about to run through was covered in the pre-work, but we wa
 
   This may seem pointless and obtsue but when we get to React you will see that `||` and `&&` are often used in this way to display a component only if some precondition was met.
 
+> I noticed some people using `==` in their examples this morning vs `===`, this is a good time to discuss that.
+
 - `undefined`
 
   - A way to represent something with no meaningful value yet. This is what unassigned variables hold by default.
@@ -465,7 +467,7 @@ Just about everything we are going to discuss from this point on is what is refe
 
   ```js
   let myNumbers = [1, 44, 72];
-  for (let num of myNumbers.length) {
+  for (let num of myNumbers) {
     console.log(num);
   }
   ```
@@ -484,7 +486,7 @@ Just about everything we are going to discuss from this point on is what is refe
     },
   };
 
-  for (let entry of database) {
+  for (let entry of Object.entries(database)) {
     console.log(entry); // [ '457', { name: 'Tom', age: 34 } ]
   }
   ```
@@ -529,7 +531,7 @@ Just about everything we are going to discuss from this point on is what is refe
     },
   };
 
-  for (let [key, value] of database) {
+  for (let [key, value] of Object.entries(database)) {
     console.log(key); // '457'
     console.log(value); // { name: 'Tom', age: 34 }
   }
