@@ -1,12 +1,67 @@
 # Python List Methods and Modules
 
 ## Topics Covered / Goals
+- Understand how to find an item in a list or dictionary
 - Understand switch cases
 - Understand lambda functions
 - Understand list methods map(), filter(), sort(), reduce()
 - Understand Try-Except error handling
+- Understand files in python. (relative vs. absolute paths)
 
 ## Lesson
+
+### Finding an item in a list
+
+To find an item in a list you can simply use the `if` and `in` keywords
+
+example:
+```py
+modes_of_transportation = ['car', 'bicycle', 'van', 'truck', 'motorcycle']
+
+if 'car' in modes_of_transportation:
+    print(True)
+else:
+    print(False)
+
+```
+
+### Finding an item in a dictionary
+Similarly, you can find out if a key is in a certain dictionary by using the `in` keyword.
+
+```py
+foods = {
+    "donuts": "icky!",
+    "green beans": "yummy!",
+}
+
+if 'donuts' in foods:
+    print(True)
+else:
+    print(False)
+
+# or
+
+if 'donuts' in foods.keys():
+    print(True)
+else:
+    print(False)
+
+```
+
+You can also search the values by using the `.values()` function
+
+```py
+foods = {
+    "donuts": "icky!",
+    "green beans": "yummy!",
+}
+
+if 'scrumptious' in foods.values():
+    print(True)
+else:
+    print(False)
+```
+
 
 ### Switch Cases
 - An alternative way to writing many `elif` statements if you wanted to execute multiple conditionals is using the `match` and `case` keywords
@@ -184,6 +239,76 @@ say_goodbye()
 ```
 We just created two files: `file1.py` and `file2.py`. `file1.py` has a `say_hello` and a `say_goodbye` function. `file2.py` has nothing in it, but imports that file in as the name of the file and we can use all the methods in that file. We can also rewrite it as `import file1 as anything` and call `anything.say_hello()`. You can `import` anything into your file by providing the correct relative path to the file. More on that can be found under external resources.
 
+
+### File Paths
+
+In some occasions, your python code will have to interact with files on your computer.
+
+A file has two key properties, a `filename` and a `path`. 
+
+The `filename` is simply the name of the file and the part of the `filename` after the `.` is called the file's `extension` which tells you what type of file this is. For example a `.py` file is a python file, and a `.docx` is a word document. 
+
+The path specifies the the location of the file on your computer. 
+
+Example:
+> UNIX: /Users/myname/Desktop
+
+> Windows: C:\User\myname\Desktop
+
+**Note the difference in slashes used. 
+
+In python, the `os` library helps us access some of the operating system's functions and gives us some methods that make it easier for us to access the path. 
+
+```py
+import os
+
+os.getcwd()    # get the current working directory
+
+```
+
+There are two types of file paths. `Absolute` and `Relative`.
+
+`Absolute` paths always begin at the root folder of the computer 
+
+`Relative` paths are relative to the working directory of the python file that is being run
+
+
+To find the `absolute` path to your python file you can use 
+
+```py
+import os
+
+os.path.abspath('.')
+```
+
+
+### Reading and writing files
+
+
+Reading a file using the `relative` path:
+
+```py
+with open('./example.txt', 'r') as file:
+    for line in file:
+        print(line)
+
+```
+
+Reading a file using the `absolute` path:
+```py
+import os
+
+abs_path = os.path.abspath('./example.txt')
+print(abs_path)
+
+with open(abs_path, 'r') as file:
+    for line in file:
+        print(line)
+```
+
+To write to a file, change the flag to `'w'` to write over the entire file or `'a'` to append to the end of the file. 
+
+
 ## Resources
 - [JS array methods](https://www.w3schools.com/jsref/jsref_obj_array.asp)
 - [JS array method lambda-like examples](https://medium.com/@mandeepkaur1/a-list-of-javascript-array-methods-145d09dd19a0)
@@ -196,6 +321,6 @@ We just created two files: `file1.py` and `file2.py`. `file1.py` has a `say_hell
 - [Anagrams I](https://github.com/tangoplatoon/algo-anagrams-i) in JS/Python
 - [Sum Pairs](https://github.com/tangoplatoon/algo-sum-pairs) in JS/Python
 - [Credit Check](https://github.com/tangoplatoon/algo-credit-check) in JS/Python
-- [Debug Deaf Grandma](https://github.com/tangoplatoon/debug-deaf-grandma) in JS
+- [Debug Deaf Grandma](https://github.com/tangoplatoon/debug-deaf-grandma) in Python
 
 
