@@ -602,7 +602,3 @@ We could honestly keep doing this for a long time, and it's unclear if I wrote w
 - [Factorial](https://github.com/tangoplatoon/algo-factorial) in JS
 - [Fibonacci](https://github.com/tangoplatoon/algo-fibonacci) in JS
 - [Linear Search](https://github.com/tangoplatoon/algo-linear-search) in JS
-
-```
-
-```
