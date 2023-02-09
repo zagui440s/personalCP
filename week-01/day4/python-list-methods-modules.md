@@ -196,6 +196,6 @@ We just created two files: `file1.py` and `file2.py`. `file1.py` has a `say_hell
 - [Anagrams I](https://github.com/tangoplatoon/algo-anagrams-i) in JS/Python
 - [Sum Pairs](https://github.com/tangoplatoon/algo-sum-pairs) in JS/Python
 - [Credit Check](https://github.com/tangoplatoon/algo-credit-check) in JS/Python
-- [Debug Deaf Grandma](https://github.com/tangoplatoon/debug-deaf-grandma) in JS
+- [Debug Deaf Grandma](https://github.com/tangoplatoon/debug-deaf-grandma) in Python
 
 
