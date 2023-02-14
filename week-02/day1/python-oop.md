@@ -2,9 +2,9 @@
 
 ## Topics Covered / Goals
 - **Intro to Object Oriented Programming**
-	- Object Oriented Programming (OOP) is a commonly used design paradigm. Python is an object oriented language, and so OOP is an essential piece of understanding Python.
+    - Object Oriented Programming (OOP) is a commonly used design paradigm. Python is an object oriented language, and so OOP is an essential piece of understanding Python.
 - **Classes**
-	- Classes are structures in code that allow for developers to create more elaborate data types that can better reflect real-world objects
+    - Classes are structures in code that allow for developers to create more elaborate data types that can better reflect real-world objects
 - **Instantiating objects with __init__ and self**
 	- Every class in Python should have an __init__ method, which tells python how to construct instances of that class. The instance to be created is referred to as `self`. 
 - **Instance methods and self**
@@ -14,20 +14,29 @@
 
 
 ## Lesson
-**Object Oriented Programming in Python**
-- Python is an object-oriented programming language where everything is an object (i.e., booleans, strings, hashes, arrays, integers, everything)
-- Objects are data structures that have *attributes* and *methods*. Think of objects as nouns. Most nouns have attributes (adjectives) and methods that it can do (verbs)
-	- For example, imagine you have a dog. Every dog has attributes such as breed or color. Every dog also has methods that it can do such as: speack, fetch, or roll over
-- Objects are organized by `class`-es. Classes are used to combine how data is represented and methods to manipulate that data
+- Before we get started, `help(object_name)` will give you a bit of information on what type of object you're dealing with and some methods that are available to call on it
 
-- Features of OOP:
+- **Object Oriented Programming**
+    - Python is an object-oriented programming language where everything is an object (i.e., booleans, strings, hashes, arrays, integers, everything)
+    - Object Oriented Programming (OOP) is a commonly used design paradigm. It is a method of structuring a program by bundling related properties and behaviors into individual objects.
+    - Objects are simply a collection of attribures (variables) and methods (functions).
+	    - For example, imagine you have a dog. Every dog has attributes such as breed or color. Every dog also has methods that it can do such as: speack, fetch, or roll over
+
+- **Classes**
+    - Classes are structures in code that allow us to create objects. A class serves as the blueprint or template for that object
+    - Classes are used to combine how data is represented and methods to manipulate that data
+
+- **Features of OOP**:
 	- Encapsulation = Data access can be restricted based on needs (covered today)
 	- Abstraction = Logic/Complexity is hidden, for simplicity (covered today)
 	- Inheritance = Sharing of similar features and attributes (covered Wednesday)
 	- Polymorphism = Objects can take different forms depending on needs/situation (covered Wednesday)
 
-### Classes Introduction
-Creating a class in Python is as simple as the adding the following code:
+
+### Creating a class and making an instance
+
+
+Creating a class in Python is as simple as the following:
 ```python
 class Dog: # this is our class definition
 	pass
@@ -36,6 +45,8 @@ fido = Dog() # this is how we create an instance of our Dog class
 ```
 
 A class can be viewed as a concept, or blueprint, for some idea. When we turn that concept into reality, we create instances (or objects) of the class. It is important to understand this distinction, and become familiar with the terminology being used: A class definition -vs- an instance of a class. 
+
+
 
 ### __init__() method
 The first thing we'll talk about is how to initialize a class with some data. Let's add on to our Dog class:
