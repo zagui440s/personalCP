@@ -15,9 +15,8 @@ After you've created the repository, you can now move the code over..
 ## If you have the code already cloned onto your local machine 
 
 1. change directories into the repo folder
-2. rename the old origin
-3. add the new origin link (the link to the new repository you want the code to be pushed to)
-4. push to that new origin
+2. add the new origin link (the link to the new repository you want the code to be pushed to)
+3. push to that new origin
 
 ```sh
 cd existing_repo
