@@ -1,6 +1,5 @@
 # The Call Stack and Recursion
 
-
 ## Topics Covered / Goals
 - Understand what the call stack is and how it operates
 - Understand the difference between a recursive function and an iterative function

@@ -8,6 +8,8 @@
 
 ## Lesson
 
+> [Big O Slides](https://docs.google.com/presentation/d/1QtzsFoSPi4Eh4mJKlYk77jJZmHUcfMifWcAC-cyHIYg/edit?usp=sharing)
+
 Big-O ("big O") notation is used in programming to describe the relative performance of a given algorithm. Note that it is not used to describe how much time an algorithm or program will take to run, but rather how it'll be affected by the change in input size. Programmers are generally  concerned with how much time an algorithm takes to run based on the input size, as well as how much memory it might require to utilize. However, time efficiency is usually what we are focused on improving.
 
 When analyzing the time complexity of an algorithm, we measure how the total number of operations performed increases as the input size becomes very large.
@@ -201,7 +203,7 @@ def example_3(my_list):
 
 **Big O Notation**
 
-- [Big O Slides](https://docs.google.com/presentation/d/1QtzsFoSPi4Eh4mJKlYk77jJZmHUcfMifWcAC-cyHIYg/edit?usp=sharing)
+
 
 ## Assignments
 
