@@ -169,11 +169,12 @@ When traversing a tree you typically there are different ways to traverse a tree
 ## Resources
 - [Data structure visualization](https://cmps-people.ok.ubc.ca/ylucet/DS/Algorithms.html)
 - [Data structures in the indunstry](https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/amp/)
-- [Read more about graphs]
 
 
 ## Assignments
 - [Data Structures](https://github.com/sierraplatoon/algo-data-structures)
+
+If you are done and want more data structures practice let us know!
 
 If you are done and want some more oop practice:
 - [Bank Accounts](https://github.com/sierraplatoon/oop-bank-accounts)
