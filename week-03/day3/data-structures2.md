@@ -227,6 +227,5 @@ What might be an optimal guessing strategy for such a game? How does this relate
 
 ## Assignments
 
-- [School Interface III](https://github.com/sierraplatoon/oop-school-interface-iii)
-- [Recursion](https://github.com/sierraplatoon/algo-recursion)
-- [Binary Search](https://github.com/sierraplatoon/algo-binary-search) in JS/Python
+- [Recursion](https://github.com/tangoplatoon/algo-recursion)
+- [Binary Search](https://github.com/tangoplatoon/algo-binary-search)
