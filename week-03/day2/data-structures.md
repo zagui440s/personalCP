@@ -172,11 +172,11 @@ When traversing a tree you typically there are different ways to traverse a tree
 
 
 ## Assignments
-- [Data Structures](https://github.com/sierraplatoon/algo-data-structures)
+- [Data Structures](https://github.com/tangoplatoon/algo-data-structures)
 
 If you are done and want more data structures practice let us know!
 
 If you are done and want some more oop practice:
-- [Bank Accounts](https://github.com/sierraplatoon/oop-bank-accounts)
+- [Bank Accounts](https://github.com/tangoplatoon/oop-bank-accounts)
 
 
