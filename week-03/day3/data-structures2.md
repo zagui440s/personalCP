@@ -118,7 +118,6 @@ limited_recursion(0, 10)
   - This tool breaks down code step by step, allowing you to see the Call Stack in real-time.
 
 ## Assignments
-- [School Interface III](https://github.com/sierraplatoon/oop-school-interface-iii)
-- [Recursion](https://github.com/sierraplatoon/algo-recursion)
-- [Binary Search](https://github.com/sierraplatoon/algo-binary-search) in JS/Python
+- [Recursion](https://github.com/tangoplatoon/algo-recursion)
+- [Binary Search](https://github.com/tangoplatoon/algo-binary-search) in JS/Python
 
