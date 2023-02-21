@@ -95,7 +95,7 @@ class Dog(Animal):
         self.bark()
 
 
-fido = Dog('Fido')
+fido = Dog('Fido', True)
 fido.eat('chicken nugget')
 fido.bark()
 fido.speak()
