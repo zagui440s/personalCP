@@ -199,11 +199,6 @@ def example_3(my_list):
     return yummy_count
 ```
 
-## Resources
-
-**Big O Notation**
-
-
 
 ## Assignments
 
