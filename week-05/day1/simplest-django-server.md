@@ -36,7 +36,7 @@ python -m venv <envname>
 source <envname>/bin/activate
 
 # Windows:
-<envname>/Source/activate
+<envname>/Scripts/activate
 
 # 3. Eject from your virtual environment (once you're done - this is run at the very end of development)
 deactivate
