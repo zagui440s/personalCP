@@ -1,5 +1,9 @@
 # Recursion
 
+## Link to Slide Deck
+
+[Recursion Slide Deck](https://docs.google.com/presentation/d/1C5wV3C-Npsg7hxPSZdkTj2y5gxN-rV7kGPAjE6R7Qvc/edit?usp=sharing)
+
 ## Topics Covered / Goals
 
 - Why? The basic use case for recursion
