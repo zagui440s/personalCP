@@ -9,8 +9,6 @@
     - Hash Tables
     - Binary Search Trees
 
-**Stretch**
-- Understand how to construct each type of data structure
 
 ## Lesson
 A data structure is a data organization, management, and storage format that enable efficient access and modification of data. In other words, a data structure is a collection of data values, the relationships between them, and the functions or operations that can be performed on them. 
