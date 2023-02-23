@@ -3,7 +3,6 @@ import time
 import matplotlib.pyplot as plt
 
 
-
 def constant(N):
     results = {}
     for n in N:
@@ -11,21 +10,22 @@ def constant(N):
         array = list(range(n))
         start = time.time()
         time.sleep(1)
-        
-        # 
+
+        #
         # O(1) - constant
         # ------------------------------------------
-        
-        value = array[0] 
+
+        value = array[0]
         print(value)
-        
+
         # -------------------------------------------
-        # 
+        #
 
         end = time.time()
         results[n] = end - start
 
     return results
+
 
 def binary_search(data, value):
     n = len(data)
@@ -39,30 +39,31 @@ def binary_search(data, value):
             left = middle + 1
         else:
             return middle
-    
+
 
 def logarithmic(N):
     results = {}
     for n in N:
-        
+
         array = list(range(n))
         start = time.time()
         time.sleep(1)
-        
-        # 
+
+        #
         # O(log(n)) - logarithmic
         # ------------------------------------------
-        
+
         index = binary_search(array, 1)
         print(index)
-        
+
         # -------------------------------------------
-        # 
+        #
 
         end = time.time()
         results[n] = end - start
 
     return results
+
 
 def linear(N):
     results = {}
@@ -71,24 +72,25 @@ def linear(N):
         array = list(range(n))
         start = time.time()
         time.sleep(1)
-        
-        # 
+
+        #
         # O(n) - linear
         # ------------------------------------------
-        
+
         sum = 0
         for number in array:
             sum += number
 
         print(sum)
-        
+
         # -------------------------------------------
-        # 
+        #
 
         end = time.time()
         results[n] = end - start
 
     return results
+
 
 def quadratic(N):
     results = {}
@@ -96,26 +98,26 @@ def quadratic(N):
         array = list(range(n))
         start = time.time()
         time.sleep(1)
-        
-        # 
+
+        #
         # O(n^2) - quadratic
         # ------------------------------------------
 
         r = []
         for number in array:
             for num in array:
-                r.append (number + num )
-                 
+                r.append(number + num)
 
         print(len(r))
-        
+
         # -------------------------------------------
-        # 
+        #
 
         end = time.time()
         results[n] = end - start
 
     return results
+
 
 def logLinear(N):
     results = {}
@@ -123,8 +125,8 @@ def logLinear(N):
         array = list(range(n))
         start = time.time()
         time.sleep(1)
-        
-        # 
+
+        #
         # O(n log n) - quasilinear
         # ------------------------------------------
         r = []
@@ -133,9 +135,9 @@ def logLinear(N):
             r.append(binary_search(array, value))
 
         print(len(r))
-        
+
         # -------------------------------------------
-        # 
+        #
 
         end = time.time()
         results[n] = end - start
@@ -143,9 +145,8 @@ def logLinear(N):
     return results
 
 
-
 def Fibonacci(n):
-    if n<= 0:
+    if n <= 0:
         print("Incorrect input")
     # First Fibonacci number is 0
     elif n == 1:
@@ -163,20 +164,21 @@ def exponential(N):
         array = list(range(n))
         start = time.time()
         time.sleep(1)
-        
-        # 
+
+        #
         # O(2^n) - Exponential
         # ------------------------------------------
 
         print(Fibonacci(n))
-        
+
         # -------------------------------------------
-        # 
+        #
 
         end = time.time()
         results[n] = end - start
 
     return results
+
 
 def f(n):
     if (n == 0):
@@ -185,37 +187,36 @@ def f(n):
 
     for i in range(n):
         f(n-1)
-    
 
-    
+
 def factorial(N):
     results = {}
     for n in N:
         array = list(range(n))
         start = time.time()
         time.sleep(1)
-        
-        # 
+
+        #
         # O(n log n) - Exponential
         # ------------------------------------------
 
         f(n)
-        
+
         # -------------------------------------------
-        # 
+        #
 
         end = time.time()
         results[n] = end - start
 
     return results
 
+
 def print_results(complexity, results):
-    print('complexity: ',complexity)
-    
+    print('complexity: ', complexity)
+
     print(f'n        time elapsed')
     for r in results:
         print(f'{r}       {results[r]} ')
-
 
 
 N = [10, 20, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000]
@@ -224,18 +225,10 @@ N3 = [10, 20, 100, 1000, 10000]
 N4 = [10, 20, 40]
 N5 = [3, 6, 9]
 
-# print_results('O(1)', constant(N))
+print_results('O(1)', constant(N))
 # print_results('O(log n)', logarithmic(N))
 # print_results('O(n)', linear(N))
-
-print_results('O(n log n)', logLinear(N2))
-
+# print_results('O(n log n)', logLinear(N2))
 # print_results('O(n^2)', quadratic(N3))
-
 # print_results('O(2^n)', exponential(N4))
-
 # print_results('O(n!)', factorial(N5))
-
-
-
-
