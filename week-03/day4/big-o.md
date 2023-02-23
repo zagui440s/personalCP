@@ -200,5 +200,5 @@ def example_3(my_list):
 
 ## Assignments
 
-- [Big O Problems 1](https://github.com/sierraplatoon/algo-big-o-i)
-- [Bubble Sort](https://github.com/sierraplatoon/algo-bubble-sort) in JS/python
+- [Big O Problems 1](https://github.com/tangoplatoon/algo-big-o-i)
+- [Bubble Sort](https://github.com/tangoplatoon/algo-bubble-sort) in JS/python
