@@ -10,7 +10,7 @@
 
 > [Big O Slides](https://docs.google.com/presentation/d/1QtzsFoSPi4Eh4mJKlYk77jJZmHUcfMifWcAC-cyHIYg/edit?usp=sharing)
 
-Big-O ("big O") notation is used in programming to describe the relative performance of a given algorithm. Note that it is not used to describe how much time an algorithm or program will take to run, but rather how it'll be affected by the change in input size. Programmers are generally  concerned with how much time an algorithm takes to run based on the input size, as well as how much memory it might require to utilize. However, time efficiency is usually what we are focused on improving.
+Big-O ("big O") notation is used in programming to describe the relative performance of a given algorithm. Note that it is not used to describe how much time an algorithm or program will take to run, but rather how it'll be affected by the change in input size. Programmers are generally concerned with how much time an algorithm takes to run based on the input size, as well as how much memory it might require to utilize. However, time efficiency is usually what we are focused on improving.
 
 When analyzing the time complexity of an algorithm, we measure how the total number of operations performed increases as the input size becomes very large.
 
@@ -23,13 +23,14 @@ When analyzing the time complexity of an algorithm, we measure how the total num
 Here are some common complexities that you'll encounter:
 
 | Notation | Complexity | Summary | Description |
-| -------- | ---------- | ------- | ----------- |
+| --- | --- | --- | --- |
 | O(1) | Constant Time | Instant | The relative runtime does not change relative to the input size increasing |
 | O(log N) | Logarithmic Time | Quick | The relative runtime increases slowly relative to the input size increasing |
 | O(N) | Linear Time | Proportional | The relative runtime increases proportionally relative to the input size increasing |
 | O(N log N) | Log-Linear Time | Slow | The relative runtime increases quickly relative to the input size increasing |
 | O(N^2) | Quadratic Time | Very Slow | The relative runtime increases quadratically relative to the input size increasing |
 | O(2^N) | Exponential Time | Ridiculously Slow | The relative runtime increases exponentially relative to the input size increasing |
+| O(N!) | Factorial Time | The Universe Will End First | The relative runtime increases factorially relative to the input size increasing |
 
 Let's take a look at some simple examples below:
 
@@ -46,8 +47,7 @@ append_to_list(small_list, 77) # just adds on to end, not impacted by size of li
 append_to_list(large_list, 77) # just adds on to end, not impacted by size of list
 ```
 
-O(log N): Logarithmic Time
-[Binary Search](https://github.com/sierraplatoon/algo-binary-search)
+O(log N): Logarithmic Time [Binary Search](https://github.com/sierraplatoon/algo-binary-search)
 
 O(N): Linear Time
 
@@ -66,8 +66,7 @@ find_item_greater_exists(small_list, 10) # may take up to 5 iterations
 find_item_greater_exists(large_list, 10) # may take up to 10 iterations
 ```
 
-O(N log N)
-There aren't many simple algorithms that have O(N log N) complexity, but it's important to know that various sorting algorithms exist that can sort an array this fast. If you're working on an algorithm problem, and you're struggling to come up with a solution that is better than O(N^2), try sorting the array first!
+O(N log N) There aren't many simple algorithms that have O(N log N) complexity, but it's important to know that various sorting algorithms exist that can sort an array this fast.
 
 O(N^2): Quadratic Time
 
@@ -101,12 +100,12 @@ def fibonacci_recursive(N):
         return 1
 
     return fibonacci_recursive(N - 1) + fibonacci_recursive(N - 2)
-    
+
 # 0, 1, 1, 2, 3, 5, 8, 13 ...
 f_index = 6
 print("fib index:", f_index)
 print("fib value:", fibonacci_recursive(f_index))
-print("total calls:", calls, "\n") 
+print("total calls:", calls, "\n")
 
 f_index = 12
 print("fib index:", f_index)
@@ -118,7 +117,7 @@ Here's a great site to reference (with a useful chart) for algorithmic complexit
 
 ### Making Improvements
 
-Anything that is O(N^2) or worse, is considered a bad algorithm in terms of time complexity. Sometimes, there's nothing that we can do about this, because we must solve a problem based on what it requires. Oftentimes though, we can make improvements/optimizations, that might not change our overall complexity, but improve our performance:
+Anything that is O(N^2) or worse, is impractical. Sometimes, there's nothing that we can do about this, some problems are only amenable to such a solution. Oftentimes though, we can make improvements/optimizations, that might not change our overall complexity, but improve our performance:
 
 ```python
 def find_double_exists(my_list):
@@ -198,7 +197,6 @@ def example_3(my_list):
 
     return yummy_count
 ```
-
 
 ## Assignments
 
