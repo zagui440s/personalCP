@@ -1,7 +1,7 @@
 # Into to Databases and SQL
 
-
 ## Topics Covered / Goals
+
 - Understand the need for persistent data
 - Explain the structure of a relational database
 - Install and manage postgreSQL on your local machine
@@ -10,9 +10,11 @@
 ## Lesson
 
 ### Persistence
+
 > This week we're going to focus on writing programs that save their output by reading from and writing to a Relational Database Management System (RDBMS). You might hear this type of database called a "SQL database", after the language (Structured Query Language) that's commonly used to query a relational database.
 
 ### Why Use a Database?
+
 > Before we just jump into a new technology we should pause and ask ourselves if we have a simpler option available? One option we always have available is reading & writing from a text or JSON file. Let's imagine storing a school's database of students in text files. We could store one file per student, naming each file with the student's school id number:
 
 ```
@@ -35,13 +37,7 @@ Each file might contain the student's entire school record:
     "state": "IL",
     "zip": "60657"
   },
-  "classes": [
-    "CS 101",
-    "HIST 107",
-    "SPAN 210",
-    "PHYS 218",
-    "ART 118"
-  ]
+  "classes": ["CS 101", "HIST 107", "SPAN 210", "PHYS 218", "ART 118"]
 }
 ```
 
@@ -100,33 +96,33 @@ Translation: Existing hierarchical tree approaches to persisting & organizing da
 
 The relational approach to our student record system means we'll be storing our data in tables with columns & rows. Each table will store a different type of record. We'd likely design our schema of tables like so:
 
-**students** |
---- |
-id |
-first_name |
-last_name |
-birthdate |
-address_id |
+| **students** |
+| ------------ |
+| id           |
+| first_name   |
+| last_name    |
+| birthdate    |
+| address_id   |
 
-**addresses** |
---- |
-line_1 |
-city |
-state |
-zipcode |
+| **addresses** |
+| ------------- |
+| line_1        |
+| city          |
+| state         |
+| zipcode       |
 
-**classes** |
---- |
-id |
-name |
-credits |
+| **classes** |
+| ----------- |
+| id          |
+| name        |
+| credits     |
 
-**enrollments** |
---- |
-id |
-student_id |
-class_id |
-grade |
+| **enrollments** |
+| --------------- |
+| id              |
+| student_id      |
+| class_id        |
+| grade           |
 
 In contrast with our earlier hierarchical approach, an RDBMS approach is flat. While there are connections between rows in different tables (these are called foreign keys), there isn't a fixed final form. We're able to retrieve records from one or more tables, mixing the data to fit the question we're trying to answer.
 
@@ -153,6 +149,7 @@ SELECT count(*) FROM STUDENTS WHERE birthdate >= 2017/01/01 AND birthdate <= 201
 ```
 
 ### Additional RDBMS Benefits
+
 > A modern RDBMS (Postgres, MySql, MS SQL, Oracle, etc) can do more than just store our data. Additional benefits include:
 
 - Scaling. A Modern database server can allow multiple users to query & update records at the same time so our programs can scale. Additionally, multiple individual database servers can be grouped together into a cluster, which allows even more people to query our data simultaneously.
@@ -161,18 +158,18 @@ SELECT count(*) FROM STUDENTS WHERE birthdate >= 2017/01/01 AND birthdate <= 201
 - Filtering & Searching. Things we take for granted today like only returning records that match a certain criteria or summing a particular column are all standard features of database servers.
 
 ### SQL Syntax Basics
+
 > Now that we understand the problem that a relational database is intended to solve, let's take a quick look at the [basics of SQL syntax](https://docs.google.com/presentation/d/1_bzAJyf6sQBI2BGMhv2RbAvbCaeL3_4jbt1ZQgcFR14/edit#slide=id.p).
 
 ## External Resources
+
 - [psql guide](https://www.postgresguide.com/utilities/psql/)
 
 ## Assignments
+
 - Reading Assignment: [Databases/SQL](https://learn.coderslang.com/0118-introduction-to-relational-databases-and-sql/)
-- [Install Postgres](https://github.com/sierraplatoon/install-postgres)
+- [Install Postgres](https://github.com/tangoplatoon/install-postgres)
 
-- [SQL Basics](https://github.com/sierraplatoon/sql-basics)
-- Read [SQL Queries](https://github.com/sierraplatoon/curriculum/blob/main/page-resources/sql-queries.md)
-- [SQL Queries](https://github.com/sierraplatoon/sql-queries)
-
-
-
+- [SQL Basics](https://github.com/tangoplatoon/sql-basics)
+- Read [SQL Queries](https://github.com/tangoplatoon/curriculum/blob/main/page-resources/sql-queries.md)
+- [SQL Queries](https://github.com/tangoplatoon/sql-queries)

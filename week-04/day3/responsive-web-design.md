@@ -219,6 +219,6 @@
 
 	
 ## Assignments
-- [Styling with Bootstrap](https://github.com/sierraplatoon/html-bootstrap)
+- [Styling with Bootstrap](https://github.com/tangoplatoon/html-bootstrap)
 
 

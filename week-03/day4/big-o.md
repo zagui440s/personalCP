@@ -22,15 +22,15 @@ When analyzing the time complexity of an algorithm, we measure how the total num
 
 Here are some common complexities that you'll encounter:
 
-| Notation | Complexity | Summary | Description |
-| --- | --- | --- | --- |
-| O(1) | Constant Time | Instant | The relative runtime does not change relative to the input size increasing |
-| O(log N) | Logarithmic Time | Quick | The relative runtime increases slowly relative to the input size increasing |
-| O(N) | Linear Time | Proportional | The relative runtime increases proportionally relative to the input size increasing |
-| O(N log N) | Log-Linear Time | Slow | The relative runtime increases quickly relative to the input size increasing |
-| O(N^2) | Quadratic Time | Very Slow | The relative runtime increases quadratically relative to the input size increasing |
-| O(2^N) | Exponential Time | Ridiculously Slow | The relative runtime increases exponentially relative to the input size increasing |
-| O(N!) | Factorial Time | The Universe Will End First | The relative runtime increases factorially relative to the input size increasing |
+| Notation   | Complexity       | Summary                     | Description                                                                         |
+| ---------- | ---------------- | --------------------------- | ----------------------------------------------------------------------------------- |
+| O(1)       | Constant Time    | Instant                     | The relative runtime does not change relative to the input size increasing          |
+| O(log N)   | Logarithmic Time | Quick                       | The relative runtime increases slowly relative to the input size increasing         |
+| O(N)       | Linear Time      | Proportional                | The relative runtime increases proportionally relative to the input size increasing |
+| O(N log N) | Log-Linear Time  | Slow                        | The relative runtime increases quickly relative to the input size increasing        |
+| O(N^2)     | Quadratic Time   | Very Slow                   | The relative runtime increases quadratically relative to the input size increasing  |
+| O(2^N)     | Exponential Time | Ridiculously Slow           | The relative runtime increases exponentially relative to the input size increasing  |
+| O(N!)      | Factorial Time   | The Universe Will End First | The relative runtime increases factorially relative to the input size increasing    |
 
 Let's take a look at some simple examples below:
 
@@ -47,7 +47,7 @@ append_to_list(small_list, 77) # just adds on to end, not impacted by size of li
 append_to_list(large_list, 77) # just adds on to end, not impacted by size of list
 ```
 
-O(log N): Logarithmic Time [Binary Search](https://github.com/sierraplatoon/algo-binary-search)
+O(log N): Logarithmic Time [Binary Search](https://github.com/tangoplatoon/algo-binary-search)
 
 O(N): Linear Time
 

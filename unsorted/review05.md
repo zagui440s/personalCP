@@ -1,6 +1,7 @@
 # Review Day
 
 Today we're going to review the Django topics from the week. We'll aim to go over:
+
 - Setting up a Django Project
 - Setting up view handlers/routing
 - Creating templates / base templates
@@ -16,30 +17,29 @@ We need to create a new page that uses an HTML form to capture user input:
 ```html
 <!-- pages/student_new.html -->
 
-{% extends 'base/html' %}
-
-{% block main-content %}
-  <h2>Add Student</h2>
-  <form method="POST">
-    {% csrf_token %} <!-- don't forget your csrf token here inside your form! -->
-    <label for="name">Student Name</label>
-    <input type="text" name="name" placeholder="name" />
-    <br />
-    <label for="age">Age</label>
-    <input type="text" name="age" placeholder="age" />
-    <br />
-    <label for="id">School Id</label>
-    <input type="text" name="id" placeholder="#id#" />
-    <br />
-    <label for="password">Password</label>
-    <input type="password" name="password" placeholder="password" />
-    <br />
-    <button type="submit">Add Student</button>
-  </form>
+{% extends 'base/html' %} {% block main-content %}
+<h2>Add Student</h2>
+<form method="POST">
+  {% csrf_token %}
+  <!-- don't forget your csrf token here inside your form! -->
+  <label for="name">Student Name</label>
+  <input type="text" name="name" placeholder="name" />
+  <br />
+  <label for="age">Age</label>
+  <input type="text" name="age" placeholder="age" />
+  <br />
+  <label for="id">School Id</label>
+  <input type="text" name="id" placeholder="#id#" />
+  <br />
+  <label for="password">Password</label>
+  <input type="password" name="password" placeholder="password" />
+  <br />
+  <button type="submit">Add Student</button>
+</form>
 {% endblock %}
 ```
 
-Then we need to process the form (POST request to the same view), create our new data, and redirect to a proper page. 
+Then we need to process the form (POST request to the same view), create our new data, and redirect to a proper page.
 
 ```python
 # views.py
@@ -59,21 +59,22 @@ def student_new(request):
           "password": request.POST["password"],
           "role": "Student"
         }
-        
+
         # create new internal data object
         new_student = Student(**form_data)
-        
+
         # add to internal data collection and write out new data to csv
-        my_school.add_student(new_student) 
-        
+        my_school.add_student(new_student)
+
         # redirect to a new page
         return redirect(reverse('student_detail', args=(new_student.school_id,)))
-        
+
     ## GET request
     return render(request, "pages/student_new.html")
 
 ```
 
 ## Assignments
+
 - Reading Assignment: [Databases/SQL](https://learn.coderslang.com/0118-introduction-to-relational-databases-and-sql/)
-- [Install Postgres](https://github.com/sierraplatoon/install-postgres)
+- [Install Postgres](https://github.com/tangoplatoon/install-postgres)

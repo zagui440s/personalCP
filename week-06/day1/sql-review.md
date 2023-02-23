@@ -1,13 +1,13 @@
 # SQL Review Day
 
-
 ### SQL Queries
 
-We use SQL commands to interact with our data in our database tables. 
+We use SQL commands to interact with our data in our database tables.
 
 - SELECT
+
   - Used to extract data records from a table
-  
+
   ```sql
   -- retrieve all students whose first name begins with the letter 'A'
   SELECT students.first_name, students.last_name -- sepficy the fields to display in the result
@@ -16,8 +16,9 @@ We use SQL commands to interact with our data in our database tables.
   ```
 
 - INSERT
+
   - Used to insert data records into a table
-  
+
   ```sql
   -- insert a few new students
   INSERT INTO students (first_name, last_name, birth_date, locker_id) --specify which fields to add values into
@@ -27,32 +28,38 @@ We use SQL commands to interact with our data in our database tables.
     ('Cassie', 'Cage', '2007-07-07', 6),
     ('David', 'Derby', '2008-08-08', 8);
   ```
+
 - UDPATE
+
   - Used to update data records in a table
-  
+
   ```sql
   -- reassign student with id 77 to a new locker with id 101
   UPDATE students -- speficy which table to search and update
   SET locker_id = 101 -- specify the new field value
   WHERE student.id = 77; --specify the condition our to-be-updated record(s) much satisfy
   ```
+
 - DELETE
-  - Used to delete data records in a table 
-  
+
+  - Used to delete data records in a table
+
   ```sql
   -- delete all students with the last name of 'Cage'
   DELETE FROM students -- speficy which table to search and update
   WHERE student.last_name = 'Cage'; --specify the condition our to-be-deleted record(s) much satisfy
   ```
+
 - JOIN
+
   - Used to link data records from two different tables together
   - Often used on Foreign Key related fields
-  
+
   ```sql
   -- display the student id, locker number, and locker combination for all students
   SELECT S.id, L.number, L.combination
   FROM students S
-  JOIN lockers L ON S.locker_id = L.id; -- link the student record with their corresponding locker record, matching the locker_id field from the student record with the primary id from the locker record 
+  JOIN lockers L ON S.locker_id = L.id; -- link the student record with their corresponding locker record, matching the locker_id field from the student record with the primary id from the locker record
   ```
 
 ### Constraints
@@ -79,6 +86,7 @@ We create constraints in our database tables so that the data records within tho
 We create relationships between our database tables to model our application's data in a correct manner.
 
 - One-to-One
+
   - Example: Students & Lockers
     - Each student can have only ONE locker
     - Eack locker can be only used by ONE student
@@ -103,6 +111,7 @@ We create relationships between our database tables to model our application's d
   ```
 
 - One-to-Many
+
   - Example: Professors & Courses
     - Each professor can teach MANY different courses
     - Each course can only have ONE professor teaching it
@@ -127,12 +136,13 @@ We create relationships between our database tables to model our application's d
   ```
 
 - Many-to-Many
+
   - Example: Students & Courses
     - Each student can be enrolled in MANY different courses
     - Each course can have MANY different students enrolled in it
   - Solution: Create a Join Table
     - Create a new table, which should contain a Foreign Key "student_id" field, referencing the Students table, and a Foriegn Key "course_id" field, referencing teh Courses table
-    - This new table allows us to sastify our many-to-many relationship without having to duplicate record data in other tables 
+    - This new table allows us to sastify our many-to-many relationship without having to duplicate record data in other tables
 
   ```sql
   -- join table to combine students with courses in a many-to-many relation
@@ -144,7 +154,7 @@ We create relationships between our database tables to model our application's d
     UNIQUE(student_id, course_id) -- unique key relation (prevent a student from being enrolled in the same course more than once)
   );
   ```
-  
+
 ### Final Schema
 
 ```sql
@@ -246,19 +256,21 @@ VALUES
   (4, 2, NULL);
 ```
 
-
 - display student name, course name(s) for the student with locker combination '17-27-37'
 
-## Resources 
+## Resources
 
 ### SQL Workshop
-- [Links to video and materials repo](https://github.com/sierraplatoon/curriculum/blob/main/week-05/day5/sql-workshop.md)
+
+- [Links to video and materials repo](https://github.com/tangoplatoon/curriculum/blob/main/week-05/day5/sql-workshop.md)
 
 ### Working with SQL in python
+
 - [Executing SQL using a python library (psycopg)](https://www.youtube.com/watch?v=BThxg1U-p08&list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&index=7)
 - [Transactions](https://youtu.be/BThxg1U-p08?list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&t=2911)
 - [From CSV to database](https://youtu.be/BThxg1U-p08?list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&t=5665)
 
 ## Assignments
-- [SQL Zoo](http://sqlzoo.net/) 
-- [PG Exercises](https://pgexercises.com/questions/basic/) 
+
+- [SQL Zoo](http://sqlzoo.net/)
+- [PG Exercises](https://pgexercises.com/questions/basic/)

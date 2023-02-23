@@ -1,20 +1,18 @@
 # Django-ORM
 
-
 ## Topics Covered / Goals
+
 - Be able to create a new Django project within your virtual enviornment
 - Understand how to create a database and models
 - Know how to communicate with your database using Python and Django ORM
 
 ## Lesson
 
-
 **Connecting Django to Postgresql using Django ORM**
 
-> Recently, we learned how to query postgreSQL, which stores data in relational tables. Before that, we learned about Django servers, which store much of their data in python objects. It can be tricky to write a python application that queries a SQL database, since these are different ways of storing data. To help us translate between these formats, developers often use an Object-Relational Mapping library (ORM). Fortunately, Django includes a very useful ORM, creatively called Django-ORM. 
+> Recently, we learned how to query postgreSQL, which stores data in relational tables. Before that, we learned about Django servers, which store much of their data in python objects. It can be tricky to write a python application that queries a SQL database, since these are different ways of storing data. To help us translate between these formats, developers often use an Object-Relational Mapping library (ORM). Fortunately, Django includes a very useful ORM, creatively called Django-ORM.
 
 > When using Django-ORM, we won't write raw SQL anymore. Instead, we'll define Classes, called `models`, from which Django-ORM can automatically create tables in postgres. Instances of these classes will be used to represent individual rows of our tables. Django-ORM provides other useful features too, such as helping us manage changes to our database schema, known as `migrations`.
-
 
 **Starting a New Django Project**
 
@@ -99,7 +97,7 @@ class Student(models.Model):
 $ python manage.py makemigrations attendance
 ```
 
-> A folder was just generated called `migrations`. Look inside there and take a look at the Django code that was generated for us to put our tables into the database. If we were not using an ORM, we would have to write these migrations ourselves, by hand, so let's take a moment to appreciate all the time and effort that Django-ORM is saving us. Next, let's `migrate` our database, so that it reflects the current state of our models.  
+> A folder was just generated called `migrations`. Look inside there and take a look at the Django code that was generated for us to put our tables into the database. If we were not using an ORM, we would have to write these migrations ourselves, by hand, so let's take a moment to appreciate all the time and effort that Django-ORM is saving us. Next, let's `migrate` our database, so that it reflects the current state of our models.
 
 ```bash
 $ python manage.py migrate
@@ -135,6 +133,7 @@ INSERT into students (name, email) VALUES ('Jon', 'jon@jon.com')
 In [3]: Student.objects.all()
 ## SELECT * from students;
 ```
+
 > You should get back a query object. Exit the shell by typing `exit`. Let's confirm that our new record got saved in our Postgres db.
 
 ```bash
@@ -152,6 +151,7 @@ school= \d
  ...
 
 ```
+
 > Django creates our database tables with the app name first, followed by the app name. Before we even wrote our own models, there were many built-in tables here, named after the built-in apps in Django, such as `admin`, `auth`, and `sessions`. Also, take note of the `django-migrations` table, which django manages automatically in order to keep track of which migrations have already been run. Our app's table is `attendance_app_student`. Let's query for the records in that table and see what we get.
 
 ```bash
@@ -163,10 +163,9 @@ school=
 (1 row)
 ```
 
-
 **Communicating with the Front-end**
 
-> So far, we've interacted with our database using PSQL or the django shell. For a real application, queries to the database will be handled in our views, initiated by user requests. There are many ways that this might work, but for our first project using Django-ORM, let's simply display all of our students on the home page, and then create a form that allows the user to add more students. 
+> So far, we've interacted with our database using PSQL or the django shell. For a real application, queries to the database will be handled in our views, initiated by user requests. There are many ways that this might work, but for our first project using Django-ORM, let's simply display all of our students on the home page, and then create a form that allows the user to add more students.
 
 ```python
 def index(request):
@@ -183,9 +182,9 @@ def index(request):
 <h1>Class Roster</h1>
 
 <ul>
-    {% for student in students %}
-    <li>{{student.name}} - {{student.email}}</li> 
-    {% endfor %}
+  {% for student in students %}
+  <li>{{student.name}} - {{student.email}}</li>
+  {% endfor %}
 </ul>
 ```
 
@@ -195,7 +194,7 @@ def index(request):
 @csrf_exempt
 # this function creates a cartItem / updates a cartItem quantity
 def add_student(request):
-    body = json.loads(request.body) 
+    body = json.loads(request.body)
 
     new_student = Student(name = body['name'], email = body['email'])
     new_student.save()
@@ -206,29 +205,28 @@ def add_student(request):
 > Finally, we'll build a form that users can use to specify a new student's name and email.
 
 ```js
-function add_student(event)  {
-    event.preventDefault() 
-    // 'name' is already globally defined in js, so I'm using 'username' here just to be extra safe.
-    const username = document.getElementById('username').value
-    const email    = document.getElementById('email').value
+function add_student(event) {
+  event.preventDefault();
+  // 'name' is already globally defined in js, so I'm using 'username' here just to be extra safe.
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
 
-    axios({
-        method: 'POST',
-        url: '/student/',
-        data: {
-            // when our django server receives this data, it will be called 'name' instead of 'username'
-            name: username,
-            email: email,
-        }
-    }).then(function (response){
-        console.log(response.data)
-    })
+  axios({
+    method: "POST",
+    url: "/student/",
+    data: {
+      // when our django server receives this data, it will be called 'name' instead of 'username'
+      name: username,
+      email: email,
+    },
+  }).then(function (response) {
+    console.log(response.data);
+  });
 }
 ```
 
-
-
 ## External Resources
+
 - [Django Docs](https://docs.djangoproject.com/en/2.2/)
 - [Django Models Intro Docs](https://docs.djangoproject.com/en/2.2/topics/db/models/)
 - [Django Queries Cheat Sheet](https://github.com/chrisdl/Django-QuerySet-Cheatsheet)
@@ -236,4 +234,5 @@ function add_student(event)  {
 - [Database Diagramer](https://www.quickdatabasediagrams.com/)
 
 ## Assignments
-- [Django Queries](https://github.com/sierraplatoon/django-queries)
+
+- [Django Queries](https://github.com/tangoplatoon/django-queries)

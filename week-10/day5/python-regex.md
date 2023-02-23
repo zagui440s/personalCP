@@ -7,6 +7,7 @@
 ## Lesson
 
 ### Regular Expressions (Regex)
+
 - Regular Expressions, or regex, is the ability to use patterns to match character combinations. While every language has slightly different patterns to match these combinations, they fundamentally work the same
 - It basically works like this:
   - A user inputs some text
@@ -18,6 +19,7 @@
 - It's recommended for you to use `raw strings` instead of regular Python strings by prepending your string with `r` (e.g., `r("Hello\n\n")`). These raw strings will interpret the escaped characters as literally escaped characters, rather than Python's usual treatment of them as new line characters. **Let's get started on this**:
 
 ### Common usecases
+
 - match a literal string
 - require at least a certain number of characters (password length)
 - validate SSN is valid (may or may not have dashes)
@@ -32,7 +34,9 @@ print(re.search(regex_pattern, string)) # returns a `match` object with the thin
 print(re.match(regex_pattern, string)) # same as above, but this matches the string starting from the beginning. only returns the first match
 print(re.findall(regex_pattern, 'June 24 August 1 December 22')) # this returns a list of all matches
 ```
+
 - Another example:
+
 ```python
 import re
 regex = r"[a-zA-Z]+ \d+"
@@ -48,6 +52,7 @@ print(re.sub(regex, r"\2 of \1", "June 24, August 9, Dec 12")) # 24 of June, 9 o
 ```
 
 ## External Resources
+
 - [Great Tutorial](https://www.datacamp.com/community/tutorials/python-regular-expression-tutorial)
 - [Pythex](https://pythex.org/) Test your Python regex with this online tool.
 - [Regex101](https://regex101.com)
@@ -58,6 +63,6 @@ print(re.sub(regex, r"\2 of \1", "June 24, August 9, Dec 12")) # 24 of June, 9 o
 - [Google's writeup on Python Regex](https://developers.google.com/edu/python/regular-expressions)
 
 ## Assignments
-- [RegexOne](https://regexone.com/python) - highly recommended
-- [Phone Numbers](https://github.com/sierraplatoon/algo-validate-phone) in Python Regular Expressions
 
+- [RegexOne](https://regexone.com/python) - highly recommended
+- [Phone Numbers](https://github.com/tangoplatoon/algo-validate-phone) in Python Regular Expressions
