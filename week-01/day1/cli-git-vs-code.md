@@ -315,4 +315,3 @@ Some good git advice:
 - [Deaf Grandma](https://github.com/tangoplatoon/algo-deaf-grandma) in JS
 
 - [Terminal Commands In Depth](https://github.com/tangoplatoon/misc-command-line) ...nothing to submit here but necessary reading
-- [Incoming Student Survey](https://docs.google.com/forms/d/e/1FAIpQLSePRzeiSCe1hqzud7btr--Xxm791zqCe_RqA_9mGxEIUN_IwQ/viewform)

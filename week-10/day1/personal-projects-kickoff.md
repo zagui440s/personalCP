@@ -17,8 +17,6 @@ For this assessment you must:
 - Implement proper styling, presentation, and site navigation
 - Implement a feature-rich application demonstrating proper web design principles
 
+\*\*This project will end in a presentation (this is how they will be graded)
 
-**This project will end in a presentation (this is how they will be graded)
-
-
-### [Personal Projects Description](https://github.com/sierraplatoon/assessment-5)
+### [Personal Projects Description](https://github.com/tangoplatoon/assessment-5)

@@ -1,18 +1,20 @@
 # Backend APIs
 
 ## Topics Covered / Goals
+
 - Using APIs from the backend
-    - Many APIs cannot be used easily like we did in week 4 (front end -> api -> front end), for security reasons
-    - Send requests from front end -> back end -> api > back end -> front end
+  - Many APIs cannot be used easily like we did in week 4 (front end -> api -> front end), for security reasons
+  - Send requests from front end -> back end -> api > back end -> front end
 
 ## Lesson
 
 > One reason why we might need to use an API from the back end is that many APIs require users to be authenticated to use the API, so you need to send the request from the back end, where you can keep your credentials secret.
+
     - secret management
         - Never put keys or other secrets in github!
         - use environment variables to supply credentials to your app
 
-> Another reason is because some APIs are inaccessible from the front end, due to the Same Origin Policy (SOP) and lack of Cross Origin Resource Sharing (CORS). This is intended to be a security feature, but it can sometimes be frustrating to work around. 
+> Another reason is because some APIs are inaccessible from the front end, due to the Same Origin Policy (SOP) and lack of Cross Origin Resource Sharing (CORS). This is intended to be a security feature, but it can sometimes be frustrating to work around.
 
 > by default, when you send an AJAX request, browsers only will use responses from servers in the same origin
 
@@ -45,9 +47,7 @@ response = requests.get(endpoint, auth=auth)
 responseJSON = response.json()
 ```
 
-
-
-> There's a lot of content here! In the browser, it was easier to dig into large data structures, but it's not quite as easy to read large data structures in python due to how they print in the terminal. I'm going to use a built-in python module, pprint (pretty print) that'll help me read the responses from the API. 
+> There's a lot of content here! In the browser, it was easier to dig into large data structures, but it's not quite as easy to read large data structures in python due to how they print in the terminal. I'm going to use a built-in python module, pprint (pretty print) that'll help me read the responses from the API.
 
 ```python
 import pprint
@@ -60,7 +60,7 @@ responseJSON = response.json()
 pp.pprint(responseJSON)
 ```
 
-> Now that we can get a response from the API, let's use that data in a template that we send to the client. 
+> Now that we can get a response from the API, let's use that data in a template that we send to the client.
 
 > There's one last problem we need to solve before I commit this in github. Currently, my private key is visible in the code, so if I pushed it up to github, other people might steal my credentials. We need to use environment variables, which are not committed in git, to supply credentials to our app. We could use actual env variables in BASH, but it's common practice to use a .env file, which looks a little like this:
 
@@ -71,7 +71,7 @@ apikey=******
 secretkey=*****
 ```
 
- To help us read it, we'll use a python package called `python-dotenv`.
+To help us read it, we'll use a python package called `python-dotenv`.
 
 ```bash
 pip install python-dotenv
@@ -87,5 +87,6 @@ print(os.environ['apikey'])
 ```
 
 ## Assignments
-- [Django Pokemon Theme Team](https://github.com/sierraplatoon/django-pokemon-theme-team)
-- [API Show and Tell](https://github.com/sierraplatoon/API-show-and-tell)
+
+- [Django Pokemon Theme Team](https://github.com/tangoplatoon/django-pokemon-theme-team)
+- [API Show and Tell](https://github.com/tangoplatoon/API-show-and-tell)

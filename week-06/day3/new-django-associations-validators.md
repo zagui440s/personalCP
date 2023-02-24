@@ -87,6 +87,7 @@ INSTALLED_APPS = [
 ```
 
 **General steps for creating database models**
+
 - create models
 - add validators
 - makemigrations
@@ -182,12 +183,11 @@ p = Professor.objects.get(pk=c.professor.id)
 print(p.courses.all()) # accessing ALL of the courses that this professor teaches (the relate_name value is used in this manner)
 ```
 
-
 ## Adding Validators
 
-Django has very common validators built-in to the Django Framework. [Built in validators](https://docs.djangoproject.com/en/4.1/ref/validators/#built-in-validators). 
+Django has very common validators built-in to the Django Framework. [Built in validators](https://docs.djangoproject.com/en/4.1/ref/validators/#built-in-validators).
 
-For example, if we want to validate a minimum (or maximum) integer we can use the built-in validator `MinValueValidator()`. 
+For example, if we want to validate a minimum (or maximum) integer we can use the built-in validator `MinValueValidator()`.
 
 ```py
 ## models.py
@@ -197,19 +197,17 @@ class User(models.Model):
 	first_name = models.CharField(max_length=255)
 	last_name = models.CharField(max_length=255)
 	email = models.EmailField(max_length=100)
-	age = models.IntegerField(validators=[v.MinValueValidator(13)]) 
+	age = models.IntegerField(validators=[v.MinValueValidator(13)])
 	account_type = models.CharField(max_length=4)
 ```
 
-
->Validators will run when we run `model_instance.full_clean()`
->[object validation docs](https://docs.djangoproject.com/en/4.1/ref/models/instances/#validating-objects)
+> Validators will run when we run `model_instance.full_clean()` >[object validation docs](https://docs.djangoproject.com/en/4.1/ref/models/instances/#validating-objects)
 
 We can also create our own validators...
 
 Our Locker model has a `combination` field but with our school app, we only want to allow combinations with the a format like `'10-20-30' `. However, our `combination` field allows for any combination to get entered and saved into the database.
 
-We can create a **validator** which is a method to check for a valid locker combination. 
+We can create a **validator** which is a method to check for a valid locker combination.
 
 Let's create a new file `validators.py` inside our `school_app` folder
 
@@ -246,6 +244,7 @@ def validate_locker_combination(combination):
 ```
 
 ## Making Migrations
+
 We've created Python classes that directly correlates to a database table (i.e., a model). Next, let's tell Django to create the necessary code for us to get this table into the database:
 
 ```bash
@@ -262,13 +261,11 @@ $ python manage.py migrate
 
 We should have tables named `school_app_<model_name>` in our db for each one of our models. Check it out with `psql school_db`
 
-
-
 ## Testing Our Models
 
 - **Using Tests**
 
-	In our `school_app` directory, inside the `tests.py` file we can write our unit tests.
+  In our `school_app` directory, inside the `tests.py` file we can write our unit tests.
 
 ```py
 from django.test import TestCase
@@ -296,7 +293,7 @@ To run your tests execute the command `python manage.py test` in the terminal.
 
 You can create any python file with queries to the database and run it in the shell provided by django
 
-Let's say we created a file named `test_data.py` inside of our `school_app` folder, we could run that file against the shell using 
+Let's say we created a file named `test_data.py` inside of our `school_app` folder, we could run that file against the shell using
 
 ```sh
 python manage.py shell < school_app/test_data.py
@@ -325,5 +322,5 @@ Then you can log into the admin site `http://localhost:8000/admin` with credenti
 
 ## Assignments
 
-- [Django Validations](https://github.com/sierraplatoon/django-validations)
-- [Django Associations](https://github.com/sierraplatoon/django-associations)
+- [Django Validations](https://github.com/tangoplatoon/django-validations)
+- [Django Associations](https://github.com/tangoplatoon/django-associations)

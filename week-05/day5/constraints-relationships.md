@@ -1,14 +1,14 @@
 # Constraints and Relationships
 
-
 ## Topics Covered / Goals
+
 - Database Constraints
 - Database Relationships
 - Database Schema Design
 
 ## Lesson
 
-The larger your application, the more tables you will have, and the more ways they will intersect. Database schema design is especially important for fullstack applications. Today, we'll talk about types of constraints you can add to database tables, types of relationships you can create between database tables, and how to put it all together to create a database schema design that works for our application needs. 
+The larger your application, the more tables you will have, and the more ways they will intersect. Database schema design is especially important for fullstack applications. Today, we'll talk about types of constraints you can add to database tables, types of relationships you can create between database tables, and how to put it all together to create a database schema design that works for our application needs.
 
 ### Constraints
 
@@ -47,12 +47,12 @@ CREATE TABLE courses (
 
 ALTER TABLE courses
 ADD CONSTRAINT fk_course_professors
-FOREIGN KEY (professor_id) 
+FOREIGN KEY (professor_id)
 REFERENCES professors (id);
 ```
 
-- Unique Key (UQ) 
-  - Establishes column(s) whose values must be unique across all records 
+- Unique Key (UQ)
+  - Establishes column(s) whose values must be unique across all records
   - UQ column values can be NULL
 
 ```sql
@@ -62,16 +62,16 @@ CREATE TABLE lockers (
 );
 ```
 
-
 ### Relationships
 
 Entities (i.e. tables) in our database can have one of three main relationships with one another:
+
 - One-to-One
   - A relationship where AT MOST one record from Table-A can ever be referenced by a record from Table-B
   - This is usually a rare relationship to find in most database models
   - This is achieved in one of two ways:
     - A primary key + foreign key
-    - A foreign key + unique key   
+    - A foreign key + unique key
 - One-To-Many
   - A relationship where one record from Table-A may be referenced by one or more records from Table-B
   - This is achieved by creating a foreign key on a column in Table-B, to reference the PK in Table-A
@@ -83,70 +83,67 @@ Entities (i.e. tables) in our database can have one of three main relationships 
 
 Let's use Facebook as a simple example to understand how to create a database schema that satisfies our needs, and incorporates using some of the constraints and relationships we talked about above. We're going to try to model the concept of having users who can write posts, write comments, or react to posts on Facebook. Here are the main tables we would need to create:
 
+| **user_accounts** |
+| ----------------- |
+| id                |
+| username          |
+| password          |
+| last_login_date   |
 
-**user_accounts** |
----|
-id |
-username |
-password |
-last_login_date |
+| **user_profiles** |
+| ----------------- |
+| id                |
+| user_id           |
+| profile_photo_url |
+| about_me          |
+| personal_quote    |
 
+| **posts** |
+| --------- |
+| id        |
+| content   |
+| user_id   |
 
-**user_profiles** |
----|
-id |
-user_id |
-profile_photo_url |
-about_me |
-personal_quote |
-
-**posts** |
----|
-id |
-content |
-user_id |
-
-**comments** |
----|
-id |
-content |
-user_id |
-post_id |
+| **comments** |
+| ------------ |
+| id           |
+| content      |
+| user_id      |
+| post_id      |
 
 **reaction_types**
 ---|
 id |
 type |
 
-
 Now let's talk about some relationships that we'd want to establish here between our tables...
 
 **What is the relationship between `user_accounts` and `user_profiles`?**
 
 ...Can a user have more than one profile? **No.**  
-...Can a profile have more than one user? **No.**  
+...Can a profile have more than one user? **No.**
 
 This is a one-to-one relationship!
 
-- *Solution:* Create a FK + UQ constraint for column `user_id` in table `user_profiles`
+- _Solution:_ Create a FK + UQ constraint for column `user_id` in table `user_profiles`
 
 **What is the relationship between `user_accounts` and `posts`?**
 
 ...Can a user create more than one post? **Yes.**  
-...Can a post be created by more than one user? **No.**  
+...Can a post be created by more than one user? **No.**
 
 This is a one-to-many relationship!
 
-- *Solution:* Create a FK constraint for column-`user_id` in table-`posts`
+- _Solution:_ Create a FK constraint for column-`user_id` in table-`posts`
 
 **What is the relationship between `posts` and `reaction_types`?**
 
 ...Can a post have more than one reaction (i.e. "LIKE")? **Yes.**  
-...Can a reaction ("LIKE") be made to more than posts? **Yes.**  
+...Can a reaction ("LIKE") be made to more than posts? **Yes.**
 
 This is a many-to-many relationship!
 
-- *Solution:* Create a new join table (using FKs) between table-`posts` and table-`reaction_types`, called table-`post_reactions`:
+- _Solution:_ Create a new join table (using FKs) between table-`posts` and table-`reaction_types`, called table-`post_reactions`:
 
 **post_reactions**
 ---|
@@ -155,12 +152,12 @@ post_id |
 reaction_id |
 user_id |
 
-In this new table, column-`post_id` would have a FK to table-`posts`, column-`reaction_id` would have a FK to table-`reaction_types`, and colunm-`user_id` would have a FK to table-`user_accounts`. 
+In this new table, column-`post_id` would have a FK to table-`posts`, column-`reaction_id` would have a FK to table-`reaction_types`, and colunm-`user_id` would have a FK to table-`user_accounts`.
 
-Additionally, we may want to create a UQ for column-`post_id` + column-`user_id` because the same user is not allowed to have multiple reactions to the same post. 
+Additionally, we may want to create a UQ for column-`post_id` + column-`user_id` because the same user is not allowed to have multiple reactions to the same post.
 
 ## Assignments
-- [Schema Design](https://github.com/sierraplatoon/sql-schema-design)
-- [Schema Script](https://github.com/sierraplatoon/sql-schema-script)
-- [Schema Modifications](https://github.com/sierraplatoon/sql-schema-modifications)
 
+- [Schema Design](https://github.com/tangoplatoon/sql-schema-design)
+- [Schema Script](https://github.com/tangoplatoon/sql-schema-script)
+- [Schema Modifications](https://github.com/tangoplatoon/sql-schema-modifications)

@@ -1,7 +1,7 @@
 # Django Associations and Validators
 
-
 ## Topics Covered / Goals
+
 - Know how to write Django Validators
 - Know how to create Django Associations (relationships between models)
 
@@ -10,12 +10,15 @@
 **Connecting Django to Postgresql using Django ORM**
 
 ##### 1. Create your virtual environment
+
 `python -m venv <envname>`
 
 ##### 2. Start your virtual environment
+
 `source <envname>/bin/activate`
 
 ##### 3. Eject from your virtual environment (once you're done - this is run at the very end of development)
+
 `deactivate`
 
 **Starting a New Django Project**
@@ -67,6 +70,7 @@ $ python manage.py startapp twitter_app
 ```
 
 Next, we need to add the `twitter_app` app to our `settings.py` file in our school folder.
+
 ```python
 ## school/settings.py
 
@@ -212,6 +216,7 @@ To run your tests execute the command `python manage.py test` in the terminal.
 ## Django Associations
 
 As with database schema design, we can create relationships between our Django models to reflect certain requirements. Django provides some model fields to make achived this task much simpler:
+
 - models.OneToOneField()
 - models.ForiengKeyField()
 - models.ManyToManyField()
@@ -222,13 +227,13 @@ Let's take a look at how we could create a foreign key relationship:
 class Professor(models.Model):
 	# ...other fields
 	pass
-	
+
 class Course(models.Model):
 	# ...other fields
 	professor = models.ForeignKey(Professor, on_delete=models.CASCADE, related_name="courses")
 ```
 
-The models.ForeignKey() field takes in the model you want to reference, the deletion behavior, and the alias field we want *on the the side* of the relationship.
+The models.ForeignKey() field takes in the model you want to reference, the deletion behavior, and the alias field we want _on the the side_ of the relationship.
 The `related_name` field is optional... if we do not provide a value for it, Django provides some default naming for the field.
 
 Creating a foreign key field relationship here does the same thing that we would expect for in a database: We reference another model and there must be a matching entry in the corresponding model's table. Additional, using models.ForeignKey() essentially creates a new field on the other side of the relationship, for convenience:
@@ -325,17 +330,17 @@ def validate_locker_combination(combination):
 			error,
 			params={'combination': combination},
 		)
-		
+
 	return combination
 ```
 
 ## External Resources
+
 - [Django Docs](https://docs.djangoproject.com/en/2.2/)
 - [Django Queries Cheat Sheet](https://github.com/chrisdl/Django-QuerySet-Cheatsheet)
 - [Django Validators Resource](https://docs.djangoproject.com/en/2.2/ref/validators/)
 
 ## Assignments
-- [Django Validations](https://github.com/sierraplatoon/django-validations)
-- [Django Associations](https://github.com/sierraplatoon/django-associations)
 
-
+- [Django Validations](https://github.com/tangoplatoon/django-validations)
+- [Django Associations](https://github.com/tangoplatoon/django-associations)

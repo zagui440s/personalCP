@@ -246,8 +246,8 @@ Hints:
 **Debugging CSS**
 
 ## Resources
-- [Front End Intro](https://github.com/sierraplatoon/html-front-end-intro)
+- [Front End Intro](https://github.com/tangoplatoon/html-front-end-intro)
 
 ## Assignments
-- [Top Ten](https://github.com/sierraplatoon/html-top-ten)
+- [Top Ten](https://github.com/tangoplatoon/html-top-ten)
 
