@@ -1,8 +1,26 @@
 # Review Day
 
 ## Topics Covered / Goals
-- Review Day
+- Data structures review
+- Linked list implementation and iteration
+- BST implementation and iteration
 
 
+## Assignments
+These exercises will likely need an account in leetcode / geeksforgeeks to run them in the browser
 
+You may choose any exercises to work on and in any order. The goal is to practice using some of the new data structures
 
+### Trees
+- [Delete a node from a bst](https://practice.geeksforgeeks.org/problems/delete-a-node-from-bst/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
+- [Convert a sorted array to BST](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
+- [Search a BST](https://leetcode.com/problems/search-in-a-binary-search-tree/)
+- [Validate a BST](https://leetcode.com/problems/validate-binary-search-tree/)
+- [Invert a BST](https://leetcode.com/problems/invert-binary-tree/)
+
+### Linked Lists
+- [Sort a linked list](https://leetcode.com/problems/sort-list/)
+- [Remove nodes from LL](https://leetcode.com/problems/remove-nodes-from-linked-list/)
+- [Reverse a LL](https://leetcode.com/problems/reverse-linked-list/)
+- [Swapping nodes in a LL](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)
+- [Add two numbers (From today's review)](https://leetcode.com/problems/add-two-numbers/)
