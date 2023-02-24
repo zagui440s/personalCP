@@ -11,6 +11,9 @@ These exercises will likely need an account in leetcode / geeksforgeeks to run t
 
 You may choose any exercises to work on and in any order. The goal is to practice using some of the new data structures
 
+### Stacks
+- [valid parentheses](https://leetcode.com/problems/valid-parentheses/)
+
 ### Trees
 - [Delete a node from a bst](https://practice.geeksforgeeks.org/problems/delete-a-node-from-bst/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article)
 - [Convert a sorted array to BST](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
