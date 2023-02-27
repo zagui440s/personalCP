@@ -250,4 +250,9 @@ Hints:
 
 ## Assignments
 - [Top Ten](https://github.com/tangoplatoon/html-top-ten)
+- Use the html and css you were introduced to today to start a portfolio website for yourself. This does not have to be completed today but it's good to start one so you can keep adding to it the more you learn. 
+  Sections to include:
+    - About me: a little paragraph about you
+    - projects: links to github projects 
+    - any other sections you'd like to add
 
