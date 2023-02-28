@@ -324,13 +324,16 @@ a:hover {
   background-color: yellow;
 }
 ```
+> The above code would cause links on the page to change colors only when hovered upon by the cursor.
 
 ## External Resources
 - [Learn Layout](https://learnlayout.com/)
+- [Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
-> The above code would cause links on the page to change colors only when hovered upon by the cursor.
 
 ## Assignments
 - [LinkedIn](https://github.com/tangoplatoon/html-linkedin.git)
+
+- [Learn Flexbox with flexbox froggy](https://flexboxfroggy.com)
 
 
