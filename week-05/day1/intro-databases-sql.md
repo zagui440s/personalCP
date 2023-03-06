@@ -163,14 +163,13 @@ SELECT count(*) FROM STUDENTS WHERE birthdate >= 2017/01/01 AND birthdate <= 201
 > Now that we understand the problem that a relational database is intended to solve, let's take a quick look at the [basics of SQL syntax](https://docs.google.com/presentation/d/1_bzAJyf6sQBI2BGMhv2RbAvbCaeL3_4jbt1ZQgcFR14/edit#slide=id.p).
 
 ## External Resources
-
+- [Install Postgres](https://github.com/tangoplatoon/install-postgres)
 - [psql guide](https://www.postgresguide.com/utilities/psql/)
 
 ## Assignments
 
 - Reading Assignment: [Databases/SQL](https://learn.coderslang.com/0118-introduction-to-relational-databases-and-sql/)
-- [Install Postgres](https://github.com/tangoplatoon/install-postgres)
-
 - [SQL Basics](https://github.com/tangoplatoon/sql-basics)
-- Read [SQL Queries](https://github.com/tangoplatoon/curriculum/blob/main/page-resources/sql-queries.md)
-- [SQL Queries](https://github.com/tangoplatoon/sql-queries)
+
+- Read about [SQL Queries](https://github.com/tangoplatoon/curriculum/blob/main/page-resources/sql-queries.md)
+- [SQL Zoo](http://sqlzoo.net/)

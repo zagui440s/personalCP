@@ -272,5 +272,5 @@ VALUES
 
 ## Assignments
 
-- [SQL Zoo](http://sqlzoo.net/)
 - [PG Exercises](https://pgexercises.com/questions/basic/)
+- [SQL Queries practice](https://github.com/tangoplatoon/sql-queries)
