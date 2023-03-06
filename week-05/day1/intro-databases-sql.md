@@ -106,6 +106,7 @@ The relational approach to our student record system means we'll be storing our 
 
 | **addresses** |
 | ------------- |
+| id            |
 | line_1        |
 | city          |
 | state         |
