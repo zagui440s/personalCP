@@ -293,4 +293,4 @@ Create queries in SQL and execute them to get a Python object back. Using those 
 - [SQL Injection](https://xkcd.com/327/)
 
 ## Assignments
-- [Chicago Salaries](https://github.com/romeoplatoon/sql-city-of-chicago)
+- [Chicago Salaries](https://github.com/tangoplatoon/sql-city-of-chicago)
