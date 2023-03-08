@@ -10,7 +10,7 @@ We use SQL commands to interact with our data in our database tables.
 
   ```sql
   -- retrieve all students whose first name begins with the letter 'A'
-  SELECT students.first_name, students.last_name -- sepficy the fields to display in the result
+  SELECT students.first_name, students.last_name -- specify the fields to display in the result
   FROM students -- specify which table to search
   WHERE students.first_name ILIKE 'A%'; --specify the condition our to-be-retrieved records much satisfy
   ```
