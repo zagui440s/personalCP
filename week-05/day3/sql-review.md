@@ -29,7 +29,7 @@ We use SQL commands to interact with our data in our database tables.
     ('David', 'Derby', '2008-08-08', 8);
   ```
 
-- UDPATE
+- UPDATE
 
   - Used to update data records in a table
 
