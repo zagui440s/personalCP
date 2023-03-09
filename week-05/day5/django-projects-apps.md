@@ -165,7 +165,7 @@ Visit those routes with `question_id` as 1 and see what you get!
 
 ### Data
 
-We haven't learned about databases yet, so for today's demo we'll simulate having a database by using a list of dictionaries. Add the following data to `views.py`:
+We will see soon how to use a database with our Django application. For today we'll simulate having a database by using a list of dictionaries. Add the following data to `views.py`:
 
 ```python
 latest_question_list = [
