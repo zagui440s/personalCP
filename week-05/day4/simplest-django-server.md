@@ -135,4 +135,3 @@ urlpatterns = [
 ## Assignments
 
 - [Hello Django](https://github.com/tangoplatoon/hello-django)
-- [Simple To-do](https://github.com/tangoplatoon/html-simple-to-do)
