@@ -247,7 +247,7 @@ from django.http import HttpResponse
 
 def index(request):
     data = { 'latest_question_list': latest_question_list }
-    return render(request, 'polls/index.html', data)
+    return render(request, 'polls_app/index.html', data)
 
 def detail(request, question_id):
     return HttpResponse(f"You're looking at question {question_id}.")
