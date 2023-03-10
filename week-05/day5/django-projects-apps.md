@@ -2,13 +2,13 @@
 
 ## Topics Covered / Goals
 
-- For the reminder of this course, and possibly in future projects, you will be using Django to handle the backend (and sometimes the frontend) of any web apps you build.
-- Respond to clients by rendering templates instead of sending raw HTML
-- Learn how to handle static files using Django, to add CSS, JS, and images
+- More Django project setup & organizing our project with Django Apps. 
+- Using Django templates.
+- How to handle static files using Django, to add CSS, JS, and images to our Django templates. 
 
 ## Lesson
 
-> Today, we're going to get started with using Django as a full stack framework, handling both the front and back end of our application. Later, we'll learn how to run Django just as an API (backend) layer and use it in conjunction with React on the frontend.
+> Today, we're going to get started with using Django as our backend web server, and, use Django templates to construct our HTML pages which the browser will fetch and display to the user. Later, we'll learn how to run Django just as an API (backend) layer and use it in conjunction with React on the frontend, which will replace Django Templates.
 
 ### Start Our Project
 
