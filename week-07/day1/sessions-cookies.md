@@ -227,9 +227,6 @@ def log_in(request):
 
 - [Django view-counter](https://github.com/tangoplatoon/django-view-counter)
 
-## Preview Tutorials: Django Authentication & Login
+## Stretch Goals
 
-If you want, do these tutorials for a preview of tomorrow's lesson and to go deeper into Django's built-in tools for handling user accounts, login, and authentication.
-
-- [WS Vincent Authentication Tutorial](https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/)
-- [WS Vincent Password Reset Tutorial](https://wsvincent.com/django-user-authentication-tutorial-password-reset/)
+[Look ahead](https://github.com/tangoplatoon/curriculum/blob/main/week-07/day2/django-auth.md) at tomorrow's lesson on using Django's built-in authentication and try it's assignments. 
