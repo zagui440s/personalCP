@@ -1,3 +1,5 @@
 .vscode
 # general file name for showing examples
 scratchpad.*
+.DS_Store
+node_modules
