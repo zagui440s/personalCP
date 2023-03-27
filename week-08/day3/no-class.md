@@ -1,3 +1,0 @@
-# NO CLASS: Thanksgiving Break
-
-
