@@ -32,13 +32,14 @@ Functional programming at it's heart boils down to the recognition that the majo
 In it's most abstract form, *state* refers to the *context* in which your function/program executes. This isn't a concept unique to React, it exists in all programming languages. For example, consider this function:
 
 ```js
-function xPlusY(x, y) {
+function xPlusY_Pure(x, y) {
     return x + y;
 }
 
-xPlusY(1, 2); // 3
-xPlusY(4, 6); // 10
-xPlusY(1, 2); // 3
+const result = xPlusY_Pure(1, 2);
+const result2 = xPlusY_Pure(1, 2);
+
+result === result2
 ```
 
 This function we just created `xPlusY` is what is known as a 'stateless' or 'pure' function. What makes a function pure?
@@ -54,14 +55,17 @@ What's the alternative?
 ```js
 let x = 0;
 
-function xPlusY(y) {
+function xPlusY_Stateful(y) {
     x++;
     return x + y;
 }
 
-xPlusY(2); // 3
-xPlusY(4); // 6
-xPlusY(2); // 5
+const result = xPlusY_Stateful(2);
+const result2 = xPlusY_Stateful(2);
+
+result !== result2;
+
+
 ```
 
 Now our function `xPlusY` references some state outside of itself, and the value of this state changes over time. This means our function is no longer pure. In academic jargon the quality we have lost is known as *referential transparency*. What does this mean?
@@ -130,7 +134,6 @@ export default function Profile() {
     </>
   );
 }
-}
 ```
 
 This takes no inputs, and it's output is always the same, so it is naturally pure. Input entirely determines output, and calling it multiple times in a row will always return the same result, regardless of what happened between consecutive calls.
@@ -144,12 +147,11 @@ export default function Profile({ name, imgUrl }) {
     </>
   );
 }
-}
 ```
 
 This is still pure, because our input (props) entirely determine the output. Same props will always result in same output.
 
-This is a good quality to have because it means React only needs to render the component once, and only rerender it if a prop changes. Additionally, it is by default *memoized*, meaning that once a set of input parameters have been used to produce an output, it is forever remembered and rerunning the function is unnecessary. This is only possible because we have this guarantee of purity. We can these 'pure' or 'dumb' components - dumb because they dpn't need to be aware of any context outside of themselves.
+This is a good quality to have because it means React only needs to render the component once, and only rerender it if a prop changes. Additionally, it is by default *memoized*, meaning that once a set of input parameters have been used to produce an output, it is forever remembered and rerunning the function is unnecessary. This is only possible because we have this guarantee of purity. We can these 'pure' or 'dumb' components - dumb because they don't need to be aware of any context outside of themselves.
 
 ### React's re-render policy
 

@@ -558,10 +558,8 @@ We won't see this ourselves likely but sometimes the callback to `useEffect` req
 
 For video store today we will use the OMDB api to pull data in from an api instead of using a local .json file
 
-## Additional Resources
-
-lorem
-
 ## Assignments
 
-lorem
+As for all of the react lectures the assignment for today is to build out the video store using the OMDB api (starting point is yesterday or the canonical solution in demos-and-notes/w8d2) or alternatively to build out the website design of your choice using a public api of your choice.
+
+> Note: when choosing an api just look for free one's that are simple to integrate with for the sake of learning. Most Google APIs for example require a fancy form of authentication that can take a week to get set up, so choose something like pokeAPI or OMDB or Github's api (there are many others)
