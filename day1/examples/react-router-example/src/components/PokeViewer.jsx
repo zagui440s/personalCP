@@ -1,21 +1,17 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
+export async function pokeLoader({ params }) {
+    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${params.pokeId}`)
+    return response.data;
+}
 
 export default function PokeViewer() {
-    const [pokeData, setPokeData] = useState(null);
-    const { pokeId } = useParams();
+    const pokeData = useLoaderData();
 
     const pokeImgs = pokeData ?
         Object.values(pokeData.sprites)
             .filter(sprite => typeof sprite === "string") : null;
-
-    console.log(pokeData)
-    useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
-            .then(response => setPokeData(response.data));
-    }, []);
 
     return (
         <div>
