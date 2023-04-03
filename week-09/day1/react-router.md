@@ -40,7 +40,7 @@ Perhaps this worked okay when using seperate HTML pages (or Django templates) wh
   ]  
 ```
 
-But React bundles everything together in a Single Page App represented by a single HTML page, so this doesn't quite work. This is one reason why we might want to create some kind of **client side routing** system. What does this mean?
+But React bundles everything together in a Single Page App represented by a single HTML page (demonstrate this witg `npm run build`), so this doesn't quite work. This is one reason why we might want to create some kind of **client side routing** system. What does this mean?
 
 ### Client Side Routing
 
@@ -112,7 +112,24 @@ export default router;
 
 This creates a BrowserRouter object. Notice how we can define a path/component match at the top-level and also provide nested routes in the form of the children array.
 
-3) Update `<App />` to use this component like so:
+3) Update `main.jsx` to use the RouterProvider component and pass it our created router object
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+)
+```
+
+The Provider component is now the top level component and makes it so all the components below it are Router aware and can use react-router specific hooks.
+
+4) Update `<App />` to use this component like so:
 
 ```js
 import { Link, Outlet } from 'react-router-dom';
@@ -175,7 +192,7 @@ and
 ```py
 # index.html would be the output of calling `npm run build` on our vite project
 def react_app(request):
-        return render(request, 'index.html', {}) 
+        return render(request, 'index.html') 
 ```
 
 We might even want to set up our `urlpatterns` so that we serve up the react app in all cases but an `/api/*` url
