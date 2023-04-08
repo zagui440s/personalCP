@@ -101,7 +101,8 @@ describe("HomePage.jsx", () => {
     // There is no dom when we run our tests so we have to mock our useLoaderData function to return a fake value
     // specify what we'd like to mock
     vi.mock("react-router-dom", async () => {
-      // we only want to mock a specific part of our router so we can specify here to still utilize the react-router-dom library but fake one element within it.
+      // we only want to mock a specific part of our router so we can specify here to 
+    //   still utilize the react-router-dom library but fake one element within it.
       const actual = await vi.importActual("react-router-dom");
       return {
         ...actual,
@@ -115,7 +116,10 @@ describe("HomePage.jsx", () => {
 
     // Finally we can begin rendering our HomePage and turning it into JSON to run our assertions
     const homePage = TestRenderer.create(
-      // Again there's no DOM when running tests so 'react-router-dom' gives us a MemoryRouter to utilize for testing purposes. If necessary you can specify what route MemoryRouter should pretend to currently reside at in the initialEntries argument.
+        // Again there's no DOM when running tests so 'react-router-dom' gives us a 
+        // MemoryRouter to utilize for testing purposes. 
+        // If necessary you can specify what route MemoryRouter should pretend to 
+        // currently reside at in the initialEntries argument.
       <MemoryRouter initialEntries={["/"]}>
         // If theres a context provider ensure it goes here as a parent of the
         commponent/page
@@ -155,7 +159,7 @@ describe("getPokemonData()", () => {
     // we don't want to actually send the request so lets mock axios
     vi.mock("axios");
     // specify the mocked value for the specific method
-    const data = { name: "squirtle", type: "water", moves: [], sprites: [] };
+    const data ={data : { name: "squirtle", type: "water", moves: [], sprites: [] }};
     axios.get.mockResolvedValue(data);
     const pokemonData = await getPokemonData();
 
