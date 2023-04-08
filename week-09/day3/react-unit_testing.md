@@ -1,19 +1,19 @@
 # Unit Testing with React + Vitest
 
-In this lesson we will cover how to write unit tests for React.js functions and components with the Vitest testing framework. Before we start the lesson lets talk about what exactly are unit tests. There is three types of tests End-to-End tests which typically utilize puppeteer to open a browser and actively interact with your project as if it was an actual user. Secondly we have Integration tests which test one specific function but only touches both the Front-End and Back-End logic of said function. Lastly we have Unit tests which are our fastest form of test because it only tests one specific function and tests wither it's Front-End or Back-End logic but not both. By the end of this class you'll be able to build Front-End Unit Tests for your React Projects Components, Pages, and Utilities.
+In this lesson we will cover how to write unit tests for React.js functions and components with the Vitest testing framework. Before we start the lesson lets talk about what exactly are unit tests. There is three types of tests End-to-End tests which typically utilize puppeteer to open a browser and actively interact with your project as if it was an actual user. Secondly we have Integration tests which test one specific function and interacts with both the Front-End and Back-End logic of said function. Lastly we have Unit tests which are our fastest form of test because it only tests one specific function and only interacts with either the Front-End or Back-End logic but not both. By the end of this class you'll be able to build Front-End Unit Tests for your React Projects Components, Pages, and Utilities.
 
 ## Installing Vitest
 
-Before we go into the meet of testing our React applicaiton we will need to install both `vitest` and `TestRenderer`. To do so run the following commands:
+Before we go into the meat of testing our React applicaiton we will need to install both `vitest` and `TestRenderer`. To do so run the following commands:
 
 ```bash
     npm install vitest
     npm install react-test-renderer
 ```
 
-Now that we have installed our testing frameworks we can cover some common testing functions, what they do, and how to best utilize them.
+Now that we have installed our testing frameworks we can cover some common testing methods, what they do, and how to best utilize them.
 
-- Vitest functions
+- Vitest methods
   - `describe` is a method utilized to write a quick reference as to what is being tested (function, component, page, etc.)
   - `it` is a method to specify the specific element within the function or component is being testes.
   - `expect` is a method utilized to run assertions within our `it` blocks
@@ -136,7 +136,7 @@ The last thing we will cover today is handling unit tests with functions that at
 ```js
 import axios from "axios";
 
-const getPokemonData = async () => {
+export const getPokemonData = async () => {
   let response = await axios.get("https://pokeapi.co/api/v2/pokemon/ditto");
   return response.data;
 };
