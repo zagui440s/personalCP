@@ -40,24 +40,3 @@
    - Learn to anticipate that sometimes it’s more than one bug at the same time. 
 
 10. Once you fix the bug, do a postmortem – what can I do in the future to avoid reproducing that bug? What parts of my debugging process were successful, and what could I have done differently to better identify & fix the bug?
-
-
-## An example
-
-Here is some python code to read from a `.csv` file (it is a solution to our [csv reader programming assignment](https://github.com/tangoplatoon/csv-reader)
-
-```python
-import csv
-animal_type = input("cats or dogs?\n")
-
-try:
-
-    data = open(f'./datas/{animal_type}.csv')
-    reader = csv.DictReader(data)
-
-    for row in reader:
-        print(f"{row['name']} is a {row['age']} year old {row['breed']}.")
-        data.close()
-except:
-    print(f"Sorry, we don't have any {animal_type} here.")
-```
