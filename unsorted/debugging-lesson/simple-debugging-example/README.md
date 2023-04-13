@@ -103,7 +103,9 @@ Our entire program should now work. You can refer to [the complete correct solut
 
 The big takeaway here is -- get good error messages! Exceptions, unless they are returning data which a user will see, should return meaningful error information. The actual error message itself is best.
 
-The other takeaway is -- hardcoded strings (our `data/` path) are easy to get wrong by making typos! Double-check and when possible use the DRY principle with hardcoded data like this. This particular error, for this specific problem, is a harder one to come up with a "process improvement" step for.
+What's also important is to recognize that **multiple issues** are common. It is normal to discover that there are several errors in your code, each hidden behind the last. One way to avoid this is to work in small chunks & always run your code after doing a bit of work to always keep your code in a "good state".
+
+Another takeaway is -- hardcoded strings (our `data/` path) are easy to get wrong by making typos! Double-check and when possible use the DRY principle with hardcoded data like this. This particular error, for this specific problem, is a harder one to come up with a "process improvement" step for.
 
 Finally -- read the docs. The `skipinitialspace` option of Python's csv `DictReader` is super useful. And, remember that with `.csv` files issues like this are common in the data and to anticipate these sorts of problems & always examine data files when we can, before writing code.
 
