@@ -84,7 +84,7 @@ This also works. Using this process of **simplification**, we realize eventually
 print(f"{row['name']} is a {row['age']} year old {row['breed']}.")
 ```
 
-Our entire program should now work. You can refer to [the complete correct solution here](solution.md)
+Our entire program should now work. You can refer to [the complete correct solution here](solution.py)
 
 ## Postmortem
 
