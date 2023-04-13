@@ -24,7 +24,7 @@
 
 7. Be pragmatic - can I simplify things? Do I need this bit of code at all? If I am stuck, can I work on something else?
 
-8. Ask for a second set of eyes on your code, or practice some rubber-duck debugging.
+8. Ask for a second set of eyes on your code, or practice some [rubber-duck debugging](https://rubberduckdebugging.com/).
 
 9. Start to classify your errors:
     - Silent failures (no error messages)
