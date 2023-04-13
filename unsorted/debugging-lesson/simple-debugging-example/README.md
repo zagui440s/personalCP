@@ -78,7 +78,20 @@ Now our program works! Let's add in a bit more of the desired behavior to that l
 print(f"{row['name']}") 
 ```
 
-This also works. Using this process of **simplification**, we realize eventually that the issue is the **leading whitespace** in the second property in our csv, the `age` property. With some online research we can determine that this is the correct line of code:
+This also works. Using this process of **simplification**, we realize eventually that the issue is the **leading whitespace** in the our csv file headers -- `name, age, breed`. With some online research we can determine that we can use the `skipinitialspace` argument of Python's csv DictReader class to handle our dirty data.
+
+We need to change this:
+```python
+    reader = csv.DictReader(data)
+```
+
+... to this:
+
+```python
+    reader = csv.DictReader(data, skipinitialspace=True)
+```
+
+Let's run that and make sure it works. Then, let's add in the full behavior we want for print statement we've been simplifying:
 
 ```python
 print(f"{row['name']} is a {row['age']} year old {row['breed']}.")
