@@ -4,7 +4,7 @@
 
 First walk through the [ten debugging tips](ten-debugging-tips.md). This is general debugging advice and a decent intro / provides actionable advice.
 
-**NOTE: The class should have previously done the "CSV Reader" programming problem because it is used in the debugging example. The "CSV Reader" problem is included in "simple debugging example code".**
+**NOTE: The class should have previously done the "CSV Reader" programming problem because it is used in the debugging example. The "CSV Reader" problem is included in the "simple debugging example code".**
 
 Then, walk through the [simple debugging example](simple-debugging-example/README.md)
 
