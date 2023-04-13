@@ -43,7 +43,7 @@ try:
     for row in reader:
         print(f"{row['name']} is a {row['age']} year old {row['breed']}.")
         
-        data.close()
+    data.close()
 
 except Exception:
     traceback.print_exc()
