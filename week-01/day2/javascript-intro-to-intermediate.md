@@ -43,13 +43,13 @@ JavaScript was an instant hit because it suddenly allowed websites to do much mo
 
 #### The solution - ECMAScript
 
-ECMA stands for 'European Computer Manufacturers Association' - it's a standard body that decided to define explicitly what JavaScript looks like, henceforth to be known as ECMAScript, though nobody wanted to start calling it by a new name so JavaScript stuck. The goal was to improve cross browser compatibility and, over time, to improve the core language. But importantly, as mentioned above, old, odd features could never be removed for the sake of compatibility, only new ones added and the recommendation to use the new ones over the old ones. This led to a couple of conferences where companies with a stake in 'web browser technologies' (Microsoft, Google, Mozilla, Apple) argued over how they wanted the language to evolve. This ultimately culminated in what's reffered to as ES5, or ECMAScript 5, the new standard that added some very essential features, followed by ES6, followed by a new update every year or two they don't even actively number, it's just ES2020 or whatever the latest is.
+ECMA stands for 'European Computer Manufacturers Association' - it's a standard body that decided to define explicitly what JavaScript looks like, henceforth to be known as ECMAScript, though nobody wanted to start calling it by a new name so JavaScript stuck. The goal was to improve cross browser compatibility and, over time, to improve the core language. But importantly, as mentioned above, old, odd features could never be removed for the sake of compatibility, only new ones added and the recommendation to use the new ones over the old ones. This led to a couple of conferences where companies with a stake in 'web browser technologies' (Microsoft, Google, Mozilla, Apple) argued over how they wanted the language to evolve. This ultimately culminated in what's referred to as ES5, or ECMAScript 5, the new standard that added some very essential features, followed by ES6, followed by a new update every year or two they don't even actively number, it's just ES2020 or whatever the latest is.
 
 The end result is JavaScript is a very useful language at this point. The downside is all the [old stuff](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with) is still there, and sometimes you have to understand it, including the very odd behavior of the `this` keyword (which we will not cover today) and certain odd things like variable declarations going from a keyword named `var` to one named `let/const` that seems on the surface identical but differs in certain special situations.
 
 #### Node
 
-JavaScript was initially intended to simply be the language that allowed web browsers to be interactive, but there's nothing stopping anyone from implementing it as a general purpose language, and thats exactly what someone named Ryan Dahl did with the creation of [Node.js](https://nodejs.org/en/). Node was an implementation of JavaScript for the same of writing backends in it as well, and because of one of the core (odd) design decisions of JavaScript (the [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)) it actually is a good fit for writing efficient web servers that can handle many requests simultaneously. That's beyond the scope of this course (we use Python and Django for our backend purposes) but it's important to know this exists simply so that we understand how it is we are executing JavaScript code outside of a web browser.
+JavaScript was initially intended to simply be the language that allowed web browsers to be interactive, but there's nothing stopping anyone from implementing it as a general purpose language, and thats exactly what someone named Ryan Dahl did with the creation of [Node.js](https://nodejs.org/en/). Node was an implementation of JavaScript for the purposes of using JS to write backend services and interact with an OS, something browser JS does not support. Additionally, because of one of the core design decisions of JavaScript (the [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)) it actually is a great fit for writing efficient web servers that can handle many requests simultaneously. That's beyond the scope of this course (we use Python + Django for our backend purposes) but it's important to know this exists simply so that we understand how it is we are executing JavaScript code outside of a web browser.
 
 ```bash
 $ node # open Node in REPL (Read-Evaluate-Print-Loop) mode
@@ -63,7 +63,7 @@ $ node example.js # execute a specific JavaScript file
 
 A lot of what we are about to run through was covered in the pre-work, but we want to do a quick overview if there is any confusion. Please do call it out and ask questions on a topic you feel weak on, as these are your core 'tools' in the language and you want to make sure you understand them well before moving on to more advanced parts of the language.
 
-> This is a good lecture to try stuff out as we are going. I like to make a file called `playground.js` and just test out code snippets to see what they do. It's important to actually test stuff out because even MDN's website is not the final arbiter of correctness, it's the actual program that runs your code (in this case a specific version of `node`) and the only way to know for sure what a given line of code does is to run it.
+> This is a good lecture to try stuff out as we are going. I like to make a file called `scratchpad.js` and just test out code snippets to see what they do. It's important to actually test stuff out because even MDN's website is not the final arbiter of correctness, it's the actual program that runs your code (in this case a specific version of `node`) and the only way to know for sure what a given line of code does is to run it.
 
 #### Data Types
 
@@ -75,148 +75,152 @@ A lot of what we are about to run through was covered in the pre-work, but we wa
 
 #### Primitive Data Types
 
-- Strings
+##### Strings
 
-  - Anything enclosed in single, double quotes, or back ticks
+- Anything enclosed in single, double quotes, or back ticks
 
-  ```js
-  "I am a string";
-  "Me too, and I make doing 'this' look easy";
-  `Back ticks give you string interpolation: ${4 + 44}`;
-  ```
+```js
+"I am a string";
+"Me too, and I make doing 'this' look easy";
+`Back ticks give you string interpolation: ${4 + 44}`;
+```
 
-  - Interpolation is when you substitute a variable/expression into a string.
+- Interpolation is when you substitute a variable/expression into a string.
 
-  ```js
-  const firstName = "Tom";
-  console.log(`My first name is ${firstName}`);
-  ```
+```js
+const firstName = "Tom";
+console.log(`My first name is ${firstName}`);
+```
 
-  - Like in Python, string are immutable, so you cannot change a string once created.
+- Like in Python, string are immutable, so you cannot change a string once created.
 
-  ```js
-  const name = "benjamin";
-  name[0] = "B";
-  console.log(name); // "benjamin"
-  ```
+```js
+const name = "benjamin";
+name[0] = "B";
+console.log(name); // "benjamin"
+```
 
-  - Even though they are immutable, you can still use the value of one string to create a brand new string. String are ultimately objects in JavaScript (most things are) so they support a lot of useful methods, documented on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) to aid in this process.
+- Even though they are immutable, you can still use the value of one string to create a brand new string. String are ultimately objects in JavaScript (most things are) so they support a lot of useful methods, documented on [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) to aid in this process.
 
-  ```js
-  const name = "benjamin";
-  const properName = name[0].toUpperCase() + name.slice(1);
-  ```
+```js
+const name = "benjamin";
+const properName = name[0].toUpperCase() + name.slice(1); // "Benjamin"
+```
 
-- Numbers
+##### Numbers
 
-  - We aren't going to discuss numbers in depth, you know how numbers work, but it's an important point that in JavaScript there is not 'int' vs 'float' distinction, they are all numbers. You can confirm a values type with:
+- We aren't going to discuss numbers in depth, you know how numbers work, but it's an important point that in JavaScript there is not 'int' vs 'float' distinction, they are all of type `number`. You can confirm a values type with:
 
-  ```js
-  typeof 5; // 'number'
-  typeof -5.231e10; // 'number'
-  ```
+```js
+typeof 5; // 'number'
+typeof -5.231e4; // 'number' 
+// The suffix 'e4' is shorthand to represent a big number, it means '* 10^4'
+```
 
-- Booleans
+##### Booleans
 
-  - Booleans are `true` or `false` and all the boolean operators work as expected
+- Booleans are `true` or `false` and all the boolean operators work as expected
 
-  ```js
-  true || false; // true
-  ```
+```js
+true || false; // true
+```
 
-  - **Short-circuiting**. This is likely a new idea. When JavaScript evaluates a boolean expression, it will only evaluate as much as it needs to to know the result. So for the example above, after looking at `true` and seeing the comparsion is an `||`, it knows that statement must be `true` (because `true || <anything>` === `true`) so the `false` value is never read. Why is this important? First another idea:
+- **Short-circuiting**. This is likely a new idea. When JavaScript evaluates a boolean expression, it will only evaluate as much as it needs to to know the result. So for the example above, after looking at `true` and seeing the comparsion is an `||`, it knows that statement must be `true` (because `true || <anything>` === `true`) so the `false` value is never read. Why is this important? First another idea:
 
-  - **truthiness**. Because JavaScript is dynamically typed, values are 'implicitly coerced' from one type to another when it makes sense. For example:
+- **truthiness**. Because JavaScript is dynamically typed, values are 'implicitly coerced' from one type to another when it makes sense. For example:
 
-  ```js
-  1 || false; // 1
-  ```
+```js
+1 || false; // 1
+```
 
-  This not only doesn't break, it treats the 1 as 'truth-y' and, instead of returning true, it returns the original value, `1`.
+This not only doesn't break, it treats the 1 as 'truth-y' and, instead of returning true, it returns the original value, `1`.
 
-  These two ideas are commonly used together, so for example, if you are writing a function and are unsure if a value really exists or not and you want to give it a default in the case it doesn't you could write:
+These two ideas are commonly used together, so for example, if you are writing a function and are unsure if a value really exists or not and you want to give it a default in the case it doesn't you could write:
 
-  ```js
-  function areTheyCool(name) {
-    name = name || "Jason";
-    console.log(`${name} is cool!`);
-  }
+```js
+function areTheyCool(name) {
+  name = name || "Jason";
+  console.log(`${name} is cool!`);
+}
 
-  areTheyCool(); // Jason is cool!
-  areTheyCool(""); // Jason is cool!
-  areTheyCool("Sarah"); // Sarah is cool!
-  ```
+areTheyCool(); // Jason is cool!
+areTheyCool(""); // Jason is cool!
+areTheyCool("Sarah"); // Sarah is cool!
+```
 
-  This may seem pointless and obtsue but when we get to React you will see that `||` and `&&` are often used in this way to display a component only if some precondition was met.
+This may seem pointless and obtsue but when we get to React you will see that `||` and `&&` are often used in this way to display a component only if some precondition was met.
 
-> I noticed some people using `==` in their examples this morning vs `===`, this is a good time to discuss that.
+- **equality (`==` vs `===`)**. You may have seen both of these operators for comparing two values by truthiness. The different is subtle:
+  - `==` will perform implicit type cooercion, so `1 == '1'` evaluates to `true`.
+  - `===` will *not* perform such cooercions, so `1 === '1'` evaulates to `false`.
+  - Prefer `===` unless you have a very specific reason to use `==`, as that coercion behavior is almost never what you really want and it makes it easy to create odd type-based bugs.
 
-- `undefined`
+##### `undefined`
 
-  - A way to represent something with no meaningful value yet. This is what unassigned variables hold by default.
+- A way to represent something with no meaningful value yet. This is what unassigned variables hold by default.
 
-  ```js
-  let babyName;
-  console.log(babyName); // undefined
-  ```
+```js
+let babyName;
+console.log(babyName); // undefined
+```
 
 - `null`
 
-  - Almost identical in purpose and meaning to `undefined` but specifically use to represent a non-existing object (as opposed to an uninitiated variable)
+- Almost identical in purpose and meaning to `undefined` but specifically use to represent a non-existent object (as opposed to an uninitiated variable)
 
 #### Complex Data Types
 
-- Arrays
+##### Arrays
 
-  - Holds an ordered list of values. These values can be anything: strings, numbers, objects, even other arrays!
+- Holds an ordered list of values. These values can be anything: strings, numbers, objects, even other arrays!
 
-  - You can access the values in the array by reference to its 'index', which is 0-based.
+- You can access the values in the array by reference to its 'index', which is 0-based.
 
-  ```js
-  const daysOfTheWeek = ["mon", "tues", "wed"];
-  daysOfTheWeek[0] = "sun";
-  console.log(daysOfTheWeek); // ["sun", "tues", "wed"]
-  ```
+```js
+const daysOfTheWeek = ["mon", "tues", "wed"];
+daysOfTheWeek[0] = "sun";
+console.log(daysOfTheWeek); // ["sun", "tues", "wed"]
+```
 
-  - Like strings, arrays have many great methods to help you with manipulating them effectively. Reference [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- Like strings, arrays have many great methods to help you with manipulating them effectively. Reference [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
-  ```js
-  const daysOfTheWeek = ["mon", "tues", "wed"];
-  daysOfTheWeek.push("thurs");
-  console.log(daysOfTheWeek); // ["mon", "tues", "wed", "thurs"];
-  ```
+```js
+const daysOfTheWeek = ["mon", "tues", "wed"];
+daysOfTheWeek.push("thurs");
+console.log(daysOfTheWeek); // ["mon", "tues", "wed", "thurs"];
+```
 
-- Objects
+##### Objects
 
-  - It's a collection of key/value pairs. You can't access it by `index` like with arrays because objects do not have an order, but you can access it by `key`
+- It's a collection of key/value pairs. You can't access it by `index` like with arrays because objects do not have an order, but you can access it by `key`
 
-  - Useful for holding many details about a single entity, accessed through a unique key (like an id number)
+- Useful for holding many details about a single entity, accessed through a unique key (like an id number)
 
-  ```js
-  // objects can be nested
-  const database = {
-    457: {
-      name: "Tom",
-      age: 34,
-    },
-    57782: {
-      name: "Sally",
-      age: 42,
-    },
-  };
+```js
+// objects can be nested
+const database = {
+  457: {
+    name: "Tom",
+    age: 34,
+  },
+  57782: {
+    name: "Sally",
+    age: 42,
+  },
+};
 
-  // an objects value can be referenced by key using [] syntax
-  const tomEntry = database[457];
+// an objects value can be referenced by key using [] syntax
+const tomEntry = database[457];
 
-  // if the key is a string, you can also use . syntax
-  console.log(tomEntry.name); // "Tom"
+// if the key is a string, you can also use . syntax
+console.log(tomEntry.name); // "Tom"
 
-  // You can re-assign a key's value (mutable)
-  tomEntry.age = tomEntry.age + 1;
+// You can re-assign a key's value (mutable)
+tomEntry.age = tomEntry.age + 1;
 
-  // this update changes the value at any reference (mutable)
-  console.log(database); // { ... 457: { ..., age: 35 } }
-  ```
+// this update changes the value at any reference (mutable)
+console.log(database); // { ... 457: { ..., age: 35 } }
+```
 
 #### Functions and primitive vs complex data types
 
@@ -286,307 +290,381 @@ console.log(newObject); // { name: "Tom", age: 35 };
 console.log(myObject); // { name: "Tom", age: 34 };
 ```
 
+#### Regular Expressions
+
+JavaScript has a number of built in complex data types that are ultimately just specifc kinds of objects. One very useful data type of this sort is called `RegExp` in JS, which stands for 'regular expression'. First let's create one and then see how they work.
+
+```js
+const re = /ab*c/g; // this is 'regular expression literal' syntax, just run with it
+const str = "abc ac abbbbbc ab abbc abbbb";
+const matches = str.match(re);
+console.log(matches); // [ 'abc', 'ac' 'abbbbbc', 'abbc' ]
+```
+
+Ok what the heck is this?! A [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) is a kind of very compact way of describing what sort of strings you want to 'match' and and what you don't. It's a very powerful tool with more details than we can cover in this lecture, but it ends up being a very powerful tool when trying to filter something by string name.
+
+The most important characters to know are:
+- literal characters: literal characters will match themselves. 
+  - Ex: `/abc/` matches the string `'abc'` but not `'Abc'`
+
+- `.`: `.` matches any character, including whitespace 
+  - Ex: `/a.c/` matches `'abc'`, `'azc', `'a c'` but not `'ac'`
+
+- `\.`: `\` before another character will 'escape' it, meaning you can represent a 'special' character like `.` in a regular expression as its literal form
+  - Ex: `/index\.js/` will match `'index.js'` but not `'indexZjs'`
+
+- `*`, `+`: `*` means 0 or more of the character preceeding it. `+` means 1 or more. 
+  - Ex: `/a*b+/` will match `'b'`, `'ab'`, `'abb'`, `'aabb'` etc. but not `'a'`
+
+- `?`: means the preceeding character is optional.
+  - Ex: `/abc?/` will match `'ab'` and `'abc'` but not `abd`
+
+- `/abc/g`: `g` is a flag that modifies how the RegExp search works. `g` means 'global', so it matches all instances of a match, whereas no `g` means it only matches the first.
+  - Ex: `"aac abc acc adc aec";.match(/a.c/g)` will return `['aac', 'abc', 'acc', 'adc', 'aec']` whereas `"aac abc acc adc aec";.match(/a.c/)` will simply return `'aac'`
+
+It is impossible to teach all of RegExp and it's a very advanced tool that if learnt throroughly can solve most pattern matching problems involving strings.
+
+The [cheat sheet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions/Cheatsheet) covers *everything* it can do.
+
+In terms of the practivally of why/when you will use it, it is mostly useful for matching against certain file names. So for example, if I had a list of files in my folder and I wanted to match only the javascript files (`file.js`) and React-files (`file.jsx`) it might look like:
+
+```js
+// in a real world situation this would be read from the operating system but this is for demo sake
+const listOFiles = [
+  'abc.js',
+  'def.js',
+  'ghi.py',
+  'jkl.txt',
+  'mno.ts',
+  'pqr.png',
+  'stu.jsx',
+  'vwx.jpq',
+  'yzz.jsx'
+];
+
+const validFiles = [];
+
+for (const file of listOFiles) {
+  if (file.match(/.*\.jsx?/)) {
+    validFiles.push(file);
+  }
+}
+
+console.log(validFiles); // [ 'abc.js', 'def.js', 'stu.jsx', 'yzz.jsx' ]
+```
+
+To break it down a bit more, because RegExp can be very obtuse due to their compact form:
+
+`/.*\.jsx?/` means
+
+`.*`: match any character 0 or more times (essentially match everything)
+`\.`: match a `.` specifically
+`js`: always match the letters `js` specifically
+`x?`: optionally match an x
+
+Altogether `/.*\.jsx?/` therefore represents all possible files of any name with the extension `js` or `jsx`.
+
 ### Intermediate JavaScript
 
 Just about everything we are going to discuss from this point on is what is referred to as 'syntactic sugar'. The ideas presented above are the core of the language, it defines everything it can do, and to use an academic term, it is already 'Turing complete' - ie it is provably as powerful as any other 'full power' programming language. Syntactic sugar on the other hand just provides a way for a programmer to more neatly and concisely express an idea that was already possible without it, but perhaps unecessary verbose or otherwise inconvenient.
 
-- Variables
+#### Variables
 
-  Variables are named labels/identifiers for storing values. There are three ways to declare/create a variable in Javascript:
+Variables are named labels/identifiers for storing values. There are three ways to declare/create a variable in Javascript:
 
-  ```js
-  // const can not be reassigned
-  const num = 1;
-  num = 42; // Uncaught TypeError: Assignment to constant variable
+```js
+// const can not be reassigned
+const num = 1;
+num = 42; // Uncaught TypeError: Assignment to constant variable
 
-  // Note that complex types don't honor this 'constant' guarantee, only the variable itself
-  const obj = { num: 1 };
-  obj.num = 42; // kosher
-  obj = 42; // Uncaught TypeError: Assignment to constant variable
-  ```
+// Note that complex types don't honor this 'constant' guarantee, only the variable itself
+const obj = { num: 1 };
+obj.num = 42; // kosher
+obj = 42; // Uncaught TypeError: Assignment to constant variable
+```
 
-  ```js
-  // let can be reassigned
-  let num = 1;
-  num = 42; // kosher
-  ```
+```js
+// let can be reassigned
+let num = 1;
+num = 42; // kosher
+```
 
-  Prefer `const` to `let` initially and then make it a `let` if it truly needs to be varaible.
+Prefer `const` to `let` initially and then make it a `let` if it truly needs to be varaible.
 
-  So what about `var`? `var` is the original keyword that preceded `let` or `const`. It has certain tricky behavior that is unexpected and the reason `let`/`const` are the new normal. You will never need to use `var` again, but in case yousee it in the future, or are curious why it's weird, here goes:
+So what about `var`? `var` is the original keyword that preceded `let` or `const`. It has certain tricky behavior that is unexpected and the reason `let`/`const` are the new normal. You will never need to use `var` again, but in case yousee it in the future, or are curious why it's weird, here goes:
 
-  ```js
-  console.log(name); // ReferenceError: Cannot access 'name' before initialization
+```js
+console.log(name); // ReferenceError: Cannot access 'name' before initialization
 
-  const name = 42;
-  ```
+const name = 42;
+```
 
-  ```js
-  console.log(name); // undefined
+```js
+console.log(name); // undefined
 
-  var name = 42;
-  ```
+var name = 42;
+```
 
-  This is because `var` is 'hoisted', meaning, as far as node is concerned, this code is indetical to:
+This is because `var` is 'hoisted', meaning, as far as node is concerned, this code is indetical to:
 
-  ```js
-  var name;
+```js
+var name;
 
-  console.log(name); // undefined
+console.log(name); // undefined
 
-  name = 42;
-  ```
+name = 42;
+```
 
-  Terrible, what were they thinking?! The other (terrible) behavior: `var` obeys 'function scope' where `let`/`const` obey 'block scope'. So for example:
+Terrible, what were they thinking?! The other (terrible) behavior: `var` obeys 'function scope' where `let`/`const` obey 'block scope'. So for example:
 
-  ```js
-  function sumWithVar(n) {
-    var sum = 0;
+```js
+function sumWithVar(n) {
+  var sum = 0;
 
-    for (var i = 0; i < n; i++) {
-      sum += i;
-    }
+  for (var i = 0; i < n; i++) {
+    sum += i;
+}
 
-    console.log(
-      `Hey can I still access ${i}? Yup it exists for the entire life of the function!`
-    );
+  console.log(
+    `Hey can I still access ${i}? Yup it exists for the entire life of the function!`
+  );
 
-    return sum;
+  return sum;
+}
+
+function sumWithLet(n) {
+  let sum = 0;
+
+  for (let i = 0; i < n; i++) {
+    sum += i;
   }
 
-  function sumWithLet(n) {
-    let sum = 0;
+  console.log(
+    `Hey can I still access ${i}? No of course not, why would that be useful behavior?`
+  );
 
-    for (let i = 0; i < n; i++) {
-      sum += i;
-    }
+  return sum;
+}
 
-    console.log(
-      `Hey can I still access ${i}? No of course not, why would that be useful behavior?`
-    );
+sumWithVar(5); // 15
+sumWithLet(5); // ReferenceError: i is not defined
+```
 
-    return sum;
-  }
+#### Functions
 
-  sumWithVar(5); // 15
-  sumWithLet(5); // ReferenceError: i is not defined
-  ```
+You should be familiar with ordinary JS functions by now
 
-- Functions
+```js
+makeFullName("Benjamin", "Cohen"); // "Benjamin Cohen"
 
-  You should be familiar with ordinary JS functions by now
+function makeFullName(firstName, lastName) {
+  return `${firstName} ${lastName}`;
+}
+```
 
-  ```js
-  makeFullName("Benjamin", "Cohen"); // "Benjamin Cohen"
+Note that you were able to call the function (seemingly) before it was declared. This is because of a feature in JS called 'hoisting'.
 
-  function makeFullName(firstName, lastName) {
-    return `${firstName} ${lastName}`;
-  }
-  ```
+#### 'Arrow' functions
 
-  Note that you were able to call the function (seemingly) before it was declared. This is because of a feature in JS called 'hoisting'.
+Functions are not only syntactic structures in JS but also 'first class' values, meaning they can be assigned to a variable and passed around. This is very useful and modern JS makes this simple to do with what are called 'arrow functions'.
 
-- 'Arrow' functions
+```js
+const makeFullName = (firstName, lastName) => `${firstName} ${lastName}`;
 
-  Functions are not only syntactic structures in JS but also 'first class' values, meaning they can be assigned to a variable and passed around. This is very useful and modern JS makes this simple to do with what are called 'arrow functions'.
+makeFullName("Benjamin", "Cohen"); // "Benjamin Cohen"
+```
 
-  ```js
-  const makeFullName = (firstName, lastName) => `${firstName} ${lastName}`;
+This seems about identical but note that:
 
-  makeFullName("Benjamin", "Cohen"); // "Benjamin Cohen"
-  ```
+1. it is a normal variable, so had to be defined before referencing/calling it.
+2. The function itself is anonymous - it has no name. To name it, you need to store it in a variable.
+3. the return statement was implicit, perfect for one-liners. (arrow functions can also have full bodies but this is the default behavior)
 
-  This seems about identical but note that:
+This is incredibly useful when using a 'higher order function', ie a function that takes another function as a paremeter. The classic example is `map`, and Array method that allows you to create a new array based on the original with the help of a 'mapper' function. Like so:
 
-  1. it is a normal variable, so had to be defined before referencing/calling it.
-  2. The function itself is anonymous - it has no name. To name it, you need to store it in a variable.
-  3. the return statement was implicit, perfect for one-liners. (arrow functions can also have full bodies but this is the default behavior)
+```js
+const nums = [1, 2, 3];
 
-  This is incredibly useful when using a 'higher order function', ie a function that takes another function as a paremeter. The classic example is `map`, and Array method that allows you to create a new array based on the original with the help of a 'mapper' function. Like so:
+const doubles = nums.map((x) => x * 2);
 
-  ```js
-  const nums = [1, 2, 3];
+console.log(doubles); // [2, 4, 6]
+```
 
-  const doubles = nums.map((x) => x * 2);
+Consider how much more convenient and concise that is than the below example:
 
-  console.log(doubles); // [2, 4, 6]
-  ```
+```js
+const nums = [1, 2, 3];
 
-  Consider how much more convenient and concise that is than the below example:
+const doubles = nums.map(doubler);
 
-  ```js
-  const nums = [1, 2, 3];
+console.log(doubles); // [2, 4, 6]
 
-  const doubles = nums.map(doubler);
+function doubler(x) {
+  return x * 2;
+}
+```
 
-  console.log(doubles); // [2, 4, 6]
+It's not night and day but it's a useful feature for writing short functions that doesn't litter your codebase with one off named functions.
 
-  function doubler(x) {
-    return x * 2;
-  }
-  ```
+#### Ternary operator
 
-  It's not night and day but it's a useful feature for writing short functions that doesn't litter your codebase with one off named functions.
+You may or may not have encountered this before. This is a way to nest an if/else statement inline that _returns a value_ (if else normally doesn't). This is very useful for conditionally setting a variable. So instead of writing something like:
 
-- Ternary operator
+```js
+const age = 24;
+let canDrink;
 
-  You may or may not have encountered this before. This is a way to nest an if/else statement inline that _returns a value_ (if else normally doesn't). This is very useful for conditionally setting a variable. So instead of writing something like:
+if (age < 21) {
+  canDrink = "nope!";
+} else {
+  canDrink = "yup!";
+}
+```
 
-  ```js
-  const age = 24;
-  let canDrink;
+You could condense it to:
 
-  if (age < 21) {
-    canDrink = "nope!";
-  } else {
-    canDrink = "yup!";
-  }
-  ```
+```js
+const age = 24;
+const canDrink = age < 21 ? "nope!" : "yup!";
+```
 
-  You could condense it to:
+Not only was this more condensed, but this way that canDrink variable could be set as const if that's what was desired.
 
-  ```js
-  const age = 24;
-  const canDrink = age < 21 ? "nope!" : "yup!";
-  ```
+#### Iteration (Loops)
 
-  Not only was this more condensed, but this way that canDrink variable could be set as const if that's what was desired.
+Loops are an essential tool when working with complex data structures. The original `for` loop accomplishes this well enough:
 
-- Iteration (Loops)
+```js
+let myNumbers = [1, 44, 72];
+for (let i = 0; i < myNumbers.length; i++) {
+  console.log(myNumbers[i]);
+}
+```
+
+That works but it would be nice if it just understood this was an array and we wanted to see each value once. This is where `for ... of` syntax comes in:
+
+```js
+let myNumbers = [1, 44, 72];
+for (let num of myNumbers) {
+  console.log(num);
+}
+```
+
+Ok that's useful enough. But the idea is actually even more sophisticated, so Objects can be iterated through as well with the Object class static method `Object.entries()`:
+
+```js
+const database = {
+  457: {
+    name: "Tom",
+    age: 34,
+  },
+  57782: {
+    name: "Sally",
+    age: 42,
+  },
+};
 
-  Loops are an essential tool when working with complex data structures. The original `for` loop accomplishes this well enough:
-
-  ```js
-  let myNumbers = [1, 44, 72];
-  for (let i = 0; i < myNumbers.length; i++) {
-    console.log(myNumbers[i]);
-  }
-  ```
-
-  That works but it would be nice if it just understood this was an array and we wanted to see each value once. This is where `for ... of` syntax comes in:
-
-  ```js
-  let myNumbers = [1, 44, 72];
-  for (let num of myNumbers) {
-    console.log(num);
-  }
-  ```
-
-  Ok that's useful enough. But the idea is actually even more sophisticated, so Objects can be iterated through as well with the Object class static method `Object.entries()`:
-
-  ```js
-  const database = {
-    457: {
-      name: "Tom",
-      age: 34,
-    },
-    57782: {
-      name: "Sally",
-      age: 42,
-    },
-  };
-
-  for (let entry of Object.entries(database)) {
-    console.log(entry); // [ '457', { name: 'Tom', age: 34 } ]
-  }
-  ```
-
-  The main thing to note when iterating through an object is there is no guarantee of order. You will see all of them, but not necessarily in the order you added them or in the order that they will print when logged (objects are fundamentally unordered as compared to arrays).
-
-- Destructuring
-
-  Destructuring is a modern syntax tool that allows the programmer to 'pick off' useful values from an array or object. Consider these two approaches to creating varaibles from a complex data type:
-
-  ```js
-  const myArray = ["x", "y", "z"];
-  const x = myArray[0];
-  const y = myArray[1];
-  const z = myArray[2];
-
-  const myObject = { a: 45, b: "hello", c: true };
-  const a = myObject.a;
-  const b = myObject.b;
-  const c = myObject.c;
-  ```
-
-  As compared to:
-
-  ```js
-  const [x, y, z] = ["x", "y", "z"];
-
-  const { a, b, c } = { a: 45, b: "hello", c: true };
-  ```
-
-  A lot of these ideas work well with each other, so considering the previous iteration example, how much better does this read:
-
-  ```js
-  const database = {
-    457: {
-      name: "Tom",
-      age: 34,
-    },
-    57782: {
-      name: "Sally",
-      age: 42,
-    },
-  };
-
-  for (let [key, value] of Object.entries(database)) {
-    console.log(key); // '457'
-    console.log(value); // { name: 'Tom', age: 34 }
-  }
-  ```
-
-- The 'spread' operator (`...`)
-
-  Often you will want to copy an array or object into another, and this isn't so easy to accomplish by default. Without modern JS we would still be able to do this with:
-
-  ```js
-  const arr = [1, 2, 3];
-  const obj = { x: 1, y: 2, z: 3 };
-
-  const arrCopy = arr.slice(0);
-  const objCopy = Object.assign({}, obj);
-
-  arrCopy[0] = 42;
-  objCopy.x = 42;
-
-  console.log(arr);
-  console.log(arrCopy);
-  console.log(obj);
-  console.log(objCopy);
-  ```
-
-  This works and the originals are preserved as expected. But a cleaner modern approach to this is:
-
-  ```js
-  const arr = [1, 2, 3];
-  const obj = { x: 1, y: 2, z: 3 };
-
-  const arrCopy = [...arr];
-  const objCopy = { ...obj };
-
-  arrCopy[0] = 42;
-  objCopy.x = 42;
-
-  console.log(arr);
-  console.log(arrCopy);
-  console.log(obj);
-  console.log(objCopy);
-  ```
-
-  For objects this can even be combined with destructuring nicely, as long as you remember that an object can only have one of each key and the latest one takes precedence. So to copy and update an object in one go we could write:
-
-  ```js
-  const obj = { x: 1, y: 2, z: 3 };
-
-  const objCopy = { ...obj, x: 42 };
-
-  console.log(obj);
-  console.log(objCopy);
-  ```
-
-  We end up using the spread operator all the time when doing React so it's good to be familiar with it.
+for (let entry of Object.entries(database)) {
+  console.log(entry); // [ '457', { name: 'Tom', age: 34 } ]
+}
+```
+
+The main thing to note when iterating through an object is there is no guarantee of order. You will see all of them, but not necessarily in the order you added them or in the order that they will print when logged (objects are fundamentally unordered as compared to arrays).
+
+#### Destructuring
+
+Destructuring is a modern syntax tool that allows the programmer to 'pick off' useful values from an array or object. Consider these two approaches to creating varaibles from a complex data type:
+
+```js
+const myArray = ["x", "y", "z"];
+const x = myArray[0];
+const y = myArray[1];
+const z = myArray[2];
+
+const myObject = { a: 45, b: "hello", c: true };
+const a = myObject.a;
+const b = myObject.b;
+const c = myObject.c;
+```
+
+As compared to:
+
+```js
+const [x, y, z] = ["x", "y", "z"];
+
+const { a, b, c } = { a: 45, b: "hello", c: true };
+```
+
+A lot of these ideas work well with each other, so considering the previous iteration example, how much better does this read:
+
+```js
+const database = {
+457: {
+  name: "Tom",
+    age: 34,
+  },
+  57782: {
+    name: "Sally",
+    age: 42,
+  },
+};
+
+for (let [key, value] of Object.entries(database)) {
+  console.log(key); // '457'
+  console.log(value); // { name: 'Tom', age: 34 }
+}
+```
+
+#### The 'spread' operator (`...`)
+
+Often you will want to copy an array or object into another, and this isn't so easy to accomplish by default. Without modern JS we would still be able to do this with:
+
+```js
+const arr = [1, 2, 3];
+const obj = { x: 1, y: 2, z: 3 };
+
+const arrCopy = arr.slice(0);
+const objCopy = Object.assign({}, obj);
+
+arrCopy[0] = 42;
+objCopy.x = 42;
+
+console.log(arr);
+console.log(arrCopy);
+console.log(obj);
+console.log(objCopy);
+```
+
+This works and the originals are preserved as expected. But a cleaner modern approach to this is:
+
+```js
+const arr = [1, 2, 3];
+const obj = { x: 1, y: 2, z: 3 };
+
+const arrCopy = [...arr];
+const objCopy = { ...obj };
+
+arrCopy[0] = 42;
+objCopy.x = 42;
+
+console.log(arr);
+console.log(arrCopy);
+console.log(obj);
+console.log(objCopy);
+```
+
+For objects this can even be combined with destructuring nicely, as long as you remember that an object can only have one of each key and the latest one takes precedence. So to copy and update an object in one go we could write:
+
+```js
+const obj = { x: 1, y: 2, z: 3 };
+
+const objCopy = { ...obj, x: 42 };
+
+console.log(obj);
+console.log(objCopy);
+```
+
+We end up using the spread operator all the time when doing React so it's good to be familiar with it.
 
 ### What Else?
 
