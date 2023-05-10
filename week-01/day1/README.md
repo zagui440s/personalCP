@@ -3,15 +3,18 @@
 ## Topics Covered / Goals
 
 - Get your local machine set up to start the course
-- Operating Sytem / UNIX ideas
-- Be able to navigate your computer using the command line
-- Create and manage git repositories using the command line
+- Operating Sytems / UNIX
+    - History of UNIX
+    - Core architecture
+    - Files & Folders
+- Learn the most essential commands for interacting with your OS
+- Create and manage git/Github repositories using the command line
 
 ## Lesson
 
 ### Computer Setup (Mac, Linux, & Windows)
 
-Before we get started, just know that this will be chaos. Your goal is to get a working environment. Please follow along closely!
+Before we get started, just know that this can be chaotic. Your goal is to get a working environment. Please follow along closely!
 
 - [Slack](https://slack.com/downloads) - for all communication purposes
 - [Zoom](https://zoom.us/support/download)
@@ -19,35 +22,37 @@ Before we get started, just know that this will be chaos. Your goal is to get a 
 
 #### Mac Setup
 
-- [Complete Installfest (MacOS)](../../page-resources/installfest_mac.md)
+- [Complete Installfest (MacOS)](./page-resources/installfest_mac.md)
 
 #### Ubuntu Linux Setup
 
-- [Complete Installfest (Ubuntu Linux)](../../page-resources/installfest_ubuntu.md)
+- [Complete Installfest (Ubuntu Linux)](./page-resources/installfest_ubuntu.md)
 
 #### Windows Setup
 
-- [Complete Installfest (Windows)](../../page-resources/installfest_windows.md)
+- [Complete Installfest (Windows)](./page-resources/installfest_windows.md)
 
 ### Intro to UNIX
 
 #### What is UNIX?
 
-Whether you are on an actual Linux system, MacOS or Windows with WSL, we are going to refer to all of these environments as 'UNIX', or just 'the command line'. So what is UNIX? Without getting deep into the details: **UNIX is an operating system architecture and set of tools that allows a user to interact with that operating system through a command line interface**. It is the lingua-franca of operating systems, i.e. it is the language you can expect (almost) any operating system to speak and allows you to interact with it in a predictable way.
+Whether you are on an actual Linux system, MacOS or Windows with WSL, we are going to refer to all of these environments as 'UNIX', or just 'the command line interface' ('cli' for short).
+
+**So what is UNIX?** Without getting too deep into the weeds early on: **UNIX is an operating system architecture and set of tools that allows a user to interact with that operating system through a command line interface**. It is the lingua-franca of operating systems, i.e. it is the language you can expect (almost) any operating system to speak and allows you to interact with it in a predictable way.
 
 #### The Details
 
-In reality, UNIX started as a specific OS invented at Bell Labs in the 1960s, by some of the same people who invented the C language. It was very popular, but also open-source, so different operating systems copied the concept but there was poor compatibility between different implementations (a common theme in the history of software development). Complicating things further, software used to be deeply coupled with hardware and made to fit an individual product, so even within a given company there wasn't a single OS that unified the experience across devices.
+In reality, UNIX started as a specific OS invented at Bell Labs in the 1960s, by some of the same people who invented the C language. It was very popular, but also open-source, so different operating systems copied the concept. However there was poor compatibility between different implementations, a common theme in the history of software development. Complicating things further, software used to be deeply coupled with hardware and made to fit an individual product, so even within a given company there wasn't a single OS that unified the experience across devices.
 
-That changed in the 80s with the invention of the personal computer and Apple and Microsoft becoming it's most significant major players. MacOS based it's OS architecture on UNIX, whereas Microsoft went it's own way entirely with Windows and MSDOS. Then in the 90s Linux was invented as an open source OS and defined the core 'kernel' that all other Linux distributions (or 'flavors') are based on. Linux is odd in that sense in that it is open-source, so there isn't one Linux, there's just a few popular 'flavors' but a million others that are jsut as 'legitimate', just not widely used. That means that in the modern age we have:
+That changed in the 80s with the invention of the personal computer and Apple and Microsoft becoming the most significant players in that emerging market. MacOS based it's OS architecture on UNIX, whereas Microsoft went it's own way entirely with Windows and MSDOS. Then in the 90s Linux was invented as an open source OS and defined the core 'kernel' that all other Linux distributions (or 'flavors') are based on. Linux is odd in that sense in that it is open-source, so there isn't one Linux, there are a few popular 'flavors', but a million others that are just as legitimate, just not widely used. That means that in the modern age we have:
 
-**Linux** - most closely based on UNIX, but may differ slightly based on the 'flavor' you go with (Ubuntu and Debian are the major players).
+**Linux** - most closely based on UNIX, but may differ slightly based on the 'flavor' you go with (Ubuntu and Debian are the major flavors).
 
 **MacOS** - very UNIX-_like_, but will differ in small ways. Really just a specific flavor of Linux but one that Apple uniquely controls and is closed-source as a result. Also Apple has a habit of making breaking updates whenever they please.
 
-**Windows** - Windows is built on a fundamentally different architecture, and you will see this if you try to put UNIX commands into Command Prompt or Windows PowerShell - most will simply not be recognized (even basic ones like `ls`!) However this was such a pain point for developers on Windows that they eventually relented, and the modern solution is WSL - Windows Subsystem for Linux. Essentially, if you are on Windows, the suggestion is to use WSL, which means you have an entire Linux system (defaulting to the flavor Ubuntu) within your Windows system, and, with rare exceptions, it will work just like the flavor of Linux that your WSL environment uses.
+**Windows** - Windows is built on a fundamentally different architecture, and you will see this if you try to put UNIX commands into Command Prompt or Windows PowerShell - most will simply not be recognized (even basic ones like `ls`!) However this was such a pain point for developers on Windows that they eventually relented, and the modern solution is WSL - *Windows Subsystem for Linux*. Essentially, if you are on Windows, the suggestion is to use WSL, which means you have an entire Linux OS (defaulting to the flavor Ubuntu) *within* your Windows OS, and, with rare exceptions, it will work just like the flavor of Linux that your WSL environment uses.
 
-The major take home is: no matter the OS we can all be on _basically_ the same environment, **_but_** there will always be small differences that will make the bahevior of Windows/MacOS/Linux different, and even one version of MacOS (for example) will differ ever so slightly from another, and this is what makes environment setup so dofficult, we simply can't anticipate every issue that you will encounter given all the permutations of that determine what makes your environment unique.
+The major take home is: no matter the OS we can all be on _basically_ the same environment, **_but_** there will always be small differences that will make the behavior of Windows/MacOS/Linux different, and even one version of MacOS (for example) will differ ever so slightly from another, and this is what makes environment setup so difficult, we simply can't anticipate every issue that you might encounter given all the permutations that determine what makes your environment unique.
 
 #### Architecture
 
@@ -55,7 +60,7 @@ On a basic level, a computer can only run a single program at a time, so an OS i
 
 UNIX (or any OS) can therefore be thought of in terms of the following set of layers:
 
-![Unix architecture](./../../page-resources/shell-diagram.jpeg)
+![Unix architecture](./page-resources/shell-diagram.jpeg)
 
 These are the essential components of your OS and the concentric circles represent what is built 'on top' of what. From the inside out, the 4 components are:
 
@@ -66,6 +71,12 @@ These are the essential components of your OS and the concentric circles represe
 3. The **Shell**. So named because it wraps the kernel. This is how you interact with the underlying hardware at a level of abstraction that is 'safe' for the average user. The shell is a command-line (i.e. text based) interface and set of basic commands and programs that will allow you to do common tasks a computer user cares to accomplish. This is the layer we will focus on most of this lecture. But finally of course there is the last layer of ...
 
 4. **Applications**. No OS would be complete without the ability to run arbitrary applications. The command 'python' is itself an application, one that can read and execute text documents that follow the Python programming syntax. An application is any program that isn't essential to the OS and therefore isn't built directly into the shell, but a modern shell generally provides an interface for downloading and running such applications.
+
+Extending the car analogy we could say the 4 layers of a car are:
+1. Hardware - the physical body of the car
+2. Kernel - the engine and other essential pieces that the average user cannot work with/repair themselves
+3. Shell - the steering wheel and gear shaft, how a normal user (who knows how to drive a car) interacts with the complex machine under-the-hood
+4. Applications - the GPS or radio, not essential to the car, swappable with other similar products, but extends the car's functionality beyond it's out-of-the-box capabilities.
 
 #### Files and Folders
 
@@ -147,11 +158,11 @@ In order to use the shell at all we need to know how to navigate it. Some essent
 
 - `sudo <command_name>`
 
-  - 'super user do'. We will get into this in more depth in the lecture on permissions, but it's good to know about even early on. Some commands won't work if you don't have the right permissions, and `sudo` is a command that let's you temporarily elevate your permissions status to run such a command. Be careful anytime you need to use `sudo`, it's a sign you are likely doing something powerful and irreversable.
+  - 'super user do'. Understanding `sudo` deeply is an advanced topic that requires you to learn about 'user permissions', but a basic understanding of the command is necessary. The essence: some commands won't work if you don't have the right permissions, and `sudo` is a command that let's you temporarily elevate your permissions status to run such a command. Be careful anytime you need to use `sudo`, it's a sign you are likely doing something powerful and irreversable.
 
 - `clear`
 
-  - Clear the screen of content. `cmd+k` is a keyboard shortcut that does the same on most systems.
+  - Clear the screen of content. `cmd+k` is a keyboard shortcut that does the same on MacOS.
 
 #### File Navigation (Nice to Know)
 
@@ -172,7 +183,7 @@ You will use these less commonly as on a modern system you will have access to b
   - `b` moves up a page
   - `q` quits
 
-- `vi`/`vim`
+- `vim`
 
   - A text editor you will generally get by default. It's very powerful but awkward to use as a beginner. The basics for if you ever have to use it are:
   - press `i`. Enters 'insert' (write) mode
@@ -182,7 +193,6 @@ You will use these less commonly as on a modern system you will have access to b
   - or type `q!` to quit without saving
   - Like I said, extremely awkward. Some love it but I avoid it like the plague.
 
-  > The difference between `vi` and `vim` is just that `vi` was xcreated first and is less feature-rich, but `vim` is the standard built-in UNIX text editor at this point.
 
 #### Interrupts (Nice to Know)
 
@@ -244,66 +254,9 @@ This section is small but worth mentioning. An 'interrupt' is a way of communica
   - Kind of dangerous unless you know the two commands can be run simultaneously with no guarantee as to who is done first
 
 - `&&`
-- runs one command, waits for it to finish, then begins running the next command
-- Ex: `touch file1.txt & code file1.txt`
-- Not dangerous, just a way of chaining commands together in one line
-
-### Git
-
-Git is another shell command that may or may not be built-in to a system, but it's the de-facto 'version control system', in other words, it's the means by which you can save a file with it's history intact, so if you need to 'rewind' to an earlier point, you can. It ends up being a very complex tool (it is essentially solving the problem of managing/merging/splitting multiple timelines, which is fundamentally complex) but it's a necessary tool to know at a basic level and you will notice how it follows many of the same patterns as standard UNIX commands.
-
-Also note: **Git is not Github**! Git is the earlier invention, and is open-source, it is designed to manage versioning for a local filesystem, with the possibility of backing it up externally, but by default it all lives on your one computer. Github is a modern product/company (now owned by Microsoft) that aims to be the de-facto place to back up your local filesystem externally, and offers lots of related tools to the concern of version control.
-
-- `git init`
-
-  - Create a new git repo (essential a hidden `.git` folder tracking all of the versioning details)
-
-- `git status`
-
-  - the current 'status' of your repo
-  - files are either:
-    - 'untracked' (a new file git doesn't know what to do with yet)
-    - tracked but not staged for commit (a file it knows about that was recently changed)
-    - staged for commit (marked as ready to be 'committed' in the next commit)
-
-- `git add .`
-
-  - Stage a file (usually `.`, or everything) for commit
-
-- `git commit -m 'i did work'`
-
-  - Creates a new commits, ie saves all the files and marks it as a unqiue 'version'
-  - -m adds a (required) message inline, otherwise you'll find yourself in vim
-
-- `git log`
-
-  - Shows the version history
-  - Github is usually going to provide a nicer visualization of this
-
-- `git remote add origin https://github.com/username/reponame`
-
-  - Set up a remote (external) location to push your commits
-
-- `git push origin main`
-
-  - 'push' the current state of the branch 'main' to the remote location named 'origin'
-  - Once setup the first time `git push` will suffice
-
-- `git pull origin main`
-
-  - 'pull' the current state of the remote location origin at the branch 'main' to the matching local branch 'main'
-  - Once setup the first time `git pull` will suffice
-
-- `git clone https://github.com/username/reponame`
-  - Create a new git repo locally and populate it with the state of the remote location in the url
-
-Unfortunately git is a far too complex tool to teach at this stage, and yet necessary to get started. Struggling with git is normal and most people (myself included) end up learning it the hard way when something goes very wrong.
-
-Some good git advice:
-
-1. Be careful when using a visual git tool, as it is running commands behind the scenes, many of which you may not understand.
-2. **Never** use a git command you copied off the internet and don't fully understand. You will only run into even greater complications.
-3. Run `git status` between every other command you run. It will tell you what the state of the system is and the main way you get familiar with the concepts git uses.
+  - runs one command, waits for it to finish, then begins running the next command
+  - Ex: `touch file1.txt & code file1.txt`
+  - Not dangerous, just a way of chaining commands together in one line
 
 ## Resources
 
@@ -311,7 +264,8 @@ Some good git advice:
 
 ## Assignments
 
-- [99 Bottles](https://github.com/tangoplatoon/algo-99-bottles) in JS
-- [Deaf Grandma](https://github.com/tangoplatoon/algo-deaf-grandma) in JS
+- [Git Essentials](https://github.com/Code-Platoon-Uniform/git-essentials) **READ FIRST**
 
-- [Terminal Commands In Depth](https://github.com/tangoplatoon/misc-command-line) ...nothing to submit here but necessary reading
+- [99 Bottles](https://github.com/Code-Platoon-Uniform/algo-99-bottles)
+
+- [CLI Practice](https://github.com/Code-Platoon-Uniform/cli-practice)
