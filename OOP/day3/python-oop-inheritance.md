@@ -481,7 +481,7 @@ Please Start with School Interface I. Then follow with the Boggle exercise, and 
 
 > **Note:** Today in particular has several larger assignments! It is OK if you don't finish them all today.
 
-- [School Interface I](https://github.com/tangoplatoon/oop-school-interface-i)
-- [Boggle I](https://github.com/tangoplatoon/oop-boggle-i)
-- [App Users III](https://github.com/tangoplatoon/oop-app-users-iii) in Python
-- [Boggle II](https://github.com/tangoplatoon/oop-boggle-ii)
+- [School Interface I](https://github.com/Code-Platoon-Assignments/oop-school-interface-i)
+- [Boggle I](https://github.com/Code-Platoon-Assignments/oop-boggle-i)
+- [App Users III](https://github.com/Code-Platoon-Assignments/oop-app-users-iii) in Python
+- [Boggle II](https://github.com/Code-Platoon-Assignments/oop-boggle-ii)
