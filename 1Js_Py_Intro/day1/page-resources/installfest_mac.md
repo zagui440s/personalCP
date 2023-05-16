@@ -37,7 +37,7 @@ Whether you're on an older or modern Mac, we recommend you download a piece of s
 This command is more easily copy/pasted from [oh-my-zsh's own site](https://ohmyz.sh/#install) but it is reproduced below:
 
 ```bash
-$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 > It isn't important to understand the details but `sh` is a specific shell (the default on older macs) and `curl` is a program that allows us to install a file from a url.
@@ -59,11 +59,11 @@ This installs the Command Line Tools package via the Terminal application. This 
 
 ```bash
 # to simply open VSCode from the command line, type 'code'
-$ code
+code
 # to open a specific file, specify it as the first argument to `code`
-$ code myfile.txt
+code myfile.txt
 # to open the current folder
-$ code .
+code .
 ```
 
 Test that this `code` command actually works before moving on. You may need to close and reopen your terminal.
@@ -75,7 +75,7 @@ Test that this `code` command actually works before moving on. You may need to c
 [Homebrew](https://brew.sh/) is a package manager for MacOS. You can install it by running the following command (more easily copy/pasted from their website):
 
 ```bash
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 > It isn't important to understand the details but `bash` is a specific shell (the default on older macs) and `curl` is a program that allows us to install a file from a url.
@@ -85,7 +85,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 Let's check if we've installed homebrew correctly. You may need to close and reopen your terminal first.
 
 ```bash
-$ brew
+brew
 ```
 
 If you see a list of further options it is working. If you are getting a message that the command is not found something went wrong.
@@ -94,19 +94,19 @@ Homebrew is going to do a lot of work for us in that it manages our software ver
 
 ```bash
 # grabs a list of all the current packages you can install
-$ brew update
+brew update
 ```
 
 then:
 
 ```bash
-$ brew doctor
+brew doctor
 ```
 
 `brew doctor` may tell you a lot of stuff and if it's complex you will want to reach out to one of us. We're ideally shooting for a message like this:
 
 ```bash
-$ brew doctor
+brew doctor
 # Your system is ready to brew.
 ```
 
@@ -117,7 +117,7 @@ Warnings are good to read but are not mandatory to fix, so continue on for now a
 A recent MacOS update altered things slightly so that, even though Homebrew has been installed correctly, the place where it installs software will not be 'picked up' by default anymore. To fix this, let's open and modify the file `~/.zshrc` which allow you to customize how your shell is configured on startup. Open it with:
 
 ```bash
-$ code ~/.zshrc
+code ~/.zshrc
 ```
 
 Because we downloaded `oh-my-zsh` earlier, this file should already be prepopulated, with a lot of comments (lines starting with `#`) and a few actual lines of code. This is in a language called `bash` or 'shell script' and you aren't expected to understand it, so copy/pasting will suffice.
@@ -133,7 +133,7 @@ Now close VSCode and restart your terminal.
 > Alternatively, you don't need to close your terminal but you can run the below command to force your terminal to rerun `~/.zshrc`
 >
 > ```bash
-> $ source ~/.zshrc
+> source ~/.zshrc
 > ```
 
 ## Python
@@ -141,7 +141,7 @@ Now close VSCode and restart your terminal.
 Python3 actually comes pre-installed on modern Macs but you won't be able to control the version of this copy, so we are going to use Homebrew to get a copy we do have complete control over. First, run the following code below and note the output:
 
 ```bash
-$ which python3
+which python3
 ```
 
 `which` is a command that tells us where a given command is located in the filesystem. The result should be '/usr/bin/python3'.
@@ -149,13 +149,13 @@ $ which python3
 Now, install an up-to-date version of Python3 from your terminal by running:
 
 ```bash
-$ brew install python
+brew install python
 ```
 
 Test that you have the correct version asscoiated with the command `python3` by running the code below:
 
 ```bash
-$ which python3
+which python3
 ```
 
 The result should be '/usr/local/bin/python3'. If it's not, speak to an instructor or TA because your Homebrew installations are not being correctly picked up.
@@ -163,13 +163,13 @@ The result should be '/usr/local/bin/python3'. If it's not, speak to an instruct
 This install should also include python's package manager, `pip`. To test this enter the command:
 
 ```bash
-$ python3 -m ensurepip
+python3 -m ensurepip
 ```
 
 If it wasn't, the above command will download it. Now type:
 
 ```bash
-$ pip3
+pip3
 ```
 
 As long as the `pip3` command is recognized, you are good.
@@ -179,13 +179,13 @@ As long as the `pip3` command is recognized, you are good.
 Python uses the concept of a 'virtual envrionment' to install packages through pip uniquely for a given project. Create a new project with a Python virtual environment like so:
 
 ```bash
-$ python3 -m venv test_project
+python3 -m venv test_project
 ```
 
 If it works this will create a new folder in your current directory called 'test_project'. Inside that folder we should see a bin folder holding an `activate` script, a `pip` script, and several others. Ensure both the `activate` and `pip` scripts are present. Do so with:
 
 ```bash
-$ ls test_project/bin
+ls test_project/bin
 ```
 
 To delete the `test_project` folder at this point type:
@@ -200,11 +200,11 @@ In this section, we'll use Homebrew to install `npm`, the default package manage
 
 ```bash
 # use apt to install npm
-$ brew install npm
+brew install npm
 # use npm to install n (-g means globally, as opposed to in a specific project/folder)
-$ sudo npm install -g n
+sudo npm install -g n
 # use n to install the latest stable version of node
-$ sudo n stable
+sudo n stable
 ```
 
 Close and reopen your terminal if necessary and test that both the commands `node` and `npm` are recognized.
@@ -214,14 +214,14 @@ Close and reopen your terminal if necessary and test that both the commands `nod
 Git may or may not be install by default on your system, but to make sure use `brew` to install it.
 
 ```bash
-$ brew install git
+brew install git
 ```
 
 Next, we'll configure Git with sensible defaults:
 
 ```bash
-$ git config --global user.name "<YOUR_NAME>"
-$ git config --global user.email "<YOUR_EMAIL>"
+git config --global user.name "<YOUR_NAME>"
+git config --global user.email "<YOUR_EMAIL>"
 ```
 
 We also want to make sure that when committing we open the commit message prompt in VSCode (default will be `vim` and you will not like it):
@@ -233,7 +233,7 @@ git config --global core.editor code
 You can confirm git is configured correctly by running
 
 ```bash
-$ git config --global -l
+git config --global -l
 ```
 
 You should see that your username, email, and editor are all listed.
@@ -243,25 +243,25 @@ You should see that your username, email, and editor are all listed.
 Github's preferred way you interact with it now is a command line tool called `gh`. First, you will need a github account to continue, then, in your terminal type:
 
 ```bash
-$ brew install gh
+brew install gh
 ```
 
 Once downloaded type:
 
 ```bash
-$ gh auth login
+gh auth login
 ```
 
 and follow the wizard steps to complete the authentication process (the default choices are what you want). When done you should be able to clone a repo like so:
 
 ```bash
-$ gh repo clone codeplatoon-fullstack/installfest
+gh repo clone codeplatoon-fullstack/installfest
 ```
 
 This will install that repo in your current directory. Assuming this is successful if you want to delete it afterwards type:
 
 ```bash
-$ rm -rf installfest
+rm -rf installfest
 ```
 
 ## Alisases
@@ -271,7 +271,7 @@ We are going to modify `~/.zshrc` again so that we don't need to type `python3` 
 Open `~/.zshrc` in VSCode like so:
 
 ```bash
-$ code ~/.zshrc
+code ~/.zshrc
 ```
 
 VSCode should open the document. At the bottom of the file add the lines:
@@ -292,7 +292,7 @@ If `<COMMAND>` is an alias, it will tell you what it points to. If `<COMMAND>` i
 These aliases won't automatically be applied in your current terminal, but they will take effect in any new terminal windows you open. Alternatively if you don't want to close/open your terminal you can force the terminal to re-read the newly updated file with:
 
 ```bash
-$ source ~/.zshrc
+source ~/.zshrc
 ```
 
 ## PostgreSQL
@@ -300,20 +300,20 @@ $ source ~/.zshrc
 We will now install PostgreSQL by running the following command:
 
 ```bash
-$ brew install postgresql
+brew install postgresql@14
 ```
 
 Start a PostgreSQL instance (in the background) like so:
 
 ```bash
-$ brew services restart postgresql@14
+brew services restart postgresql@14
 ```
 
 To enter PostgreSQL we will switch our shell user to one named `postgres`, and then we can enter the running PostgreSQL instance.
 
 ```bash
 # connect to the running PostgreSQL instance as the user 'postgres'
-$ psql postgres
+psql postgres
 ```
 
 If your terminal now looks like it does below, you have succesfully installed PostgreSQL:
