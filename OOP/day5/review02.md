@@ -1,8 +1,9 @@
 # Review Day
 
 ## Topics Covered / Goals
+
 - Review Object Oriented Programming in Python
-    - Understand Class Objects, Instance Variables, and Instance Methods
+  - Understand Class Objects, Instance Variables, and Instance Methods
 
 ### Lesson
 
@@ -26,9 +27,9 @@ class Person:
         return f"My age is {self.age}."
 ```
 
-
 ## Optional assignments (**if you finish the assessment early**)
+
 - [School Interface III](https://github.com/tangoplatoon/oop-school-interface-iii)
 - [Bowling](https://github.com/tangoplatoon/oop-bowling)
 
-
+## **Assessment-1**
