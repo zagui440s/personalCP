@@ -205,7 +205,7 @@ print(dictionary)
 
 ### Try-Except
 
-> When building an application, your code doesn't always run the way you expect it to, and sometimes it throws an error! We can use try/except to write code that we think might throw an error, and then prepare an alternate plan in case the code fails. 
+> When building an application, your code doesn't always run the way you expect it to, and sometimes it throws an error! We can use try/except to write code that we think might throw an error, and then prepare an alternate plan in case the code fails.
 
 ```python
 try:
@@ -272,7 +272,7 @@ Example:
 
 **Note the difference in slashes used.
 
-In python, the `os` library helps us access some of the operating system's functions and gives us some methods that make it easier for us to access the path. 
+In python, the `os` library helps us access some of the operating system's functions and gives us some methods that make it easier for us to access the path.
 
 ```py
 import os
@@ -317,7 +317,7 @@ with open(abs_path, 'r') as file:
         print(line)
 ```
 
-To write to a file, change the flag to `'w'` to write over the entire file or `'a'` to append to the end of the file. 
+To write to a file, change the flag to `'w'` to write over the entire file or `'a'` to append to the end of the file.
 
 ## Resources
 
