@@ -23,14 +23,19 @@ Before we get started, just know that this can be chaotic. Your goal is to get a
 #### Mac Setup
 
 - [Complete Installfest (MacOS)](./page-resources/installfest_mac.md)
+- [Youtube Walkthrough](https://youtu.be/IfL3jBGn1hA)
 
 #### Ubuntu Linux Setup
 
 - [Complete Installfest (Ubuntu Linux)](./page-resources/installfest_ubuntu.md)
+- [Youtube Walkthrough](https://youtu.be/9-v-0xRHWb8)
+> we don't have a Linux video walkthrough as there are too many versions of Linux to possibly account for but in addition to the guide above you can use the Windows/WSL link to see a similar walkthrough for Installfest on Windows using WSL + Ubunutu, so if your flavor of Linux is Ubuntu this should help
 
-#### Windows Setup
+
+#### Windows (WSL) Setup
 
 - [Complete Installfest (Windows)](./page-resources/installfest_windows.md)
+- [Youtube Walkthrough](https://youtu.be/9-v-0xRHWb8)
 
 ### Intro to UNIX
 
