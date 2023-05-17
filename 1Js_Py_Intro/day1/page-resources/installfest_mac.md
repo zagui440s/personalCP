@@ -68,8 +68,6 @@ code .
 
 Test that this `code` command actually works before moving on. You may need to close and reopen your terminal.
 
-> A note about extensions: You are free to install any/all extensions you find on the VSCode marketplace as they suit you and we will be recommending some throughout the course. That said, I want to strongly advise you to _not_ install any AI code-completion tool like Github Copilot or Micrsoft's IntelliCode. Your goal in this course is to learn to program and these tools tend to interfere with that process by giving you regular autocompletion options that are not accurate solutions to the problem at hand. These tools have their place, but it is generally a bad habit to copy/paste code you do not understand yourself and these tools make that a seamless process, so please do avoid them for the duration of this course.
-
 ## Package Management
 
 [Homebrew](https://brew.sh/) is a package manager for MacOS. You can install it by running the following command (more easily copy/pasted from their website):
@@ -176,23 +174,19 @@ As long as the `pip3` command is recognized, you are good.
 
 ### Python Virtual Environment
 
-Python uses the concept of a 'virtual envrionment' to install packages through pip uniquely for a given project. Create a new project with a Python virtual environment like so:
+Python uses the concept of a 'virtual envrionment' to install packages through pip uniquely for a given project. While you can make virtual environments for a given project it is also wise to have a default virtual environment, which we will create now. Open a new terminal and ensure you are in the home folder (`~`) and then run:
 
 ```bash
-python3 -m venv test_project
+python3 -m venv default
 ```
 
-If it works this will create a new folder in your current directory called 'test_project'. Inside that folder we should see a bin folder holding an `activate` script, a `pip` script, and several others. Ensure both the `activate` and `pip` scripts are present. Do so with:
+If it works this will create a new folder in your current directory called 'default'. Inside that folder we should see a bin folder holding an `activate` script. Run that script with:
 
 ```bash
-ls test_project/bin
+source ~/default/bin/activate
 ```
 
-To delete the `test_project` folder at this point type:
-
-```bash
-rm -rf test_project
-```
+After running the above you should see the name of the venv ('default') represented somewhere in your command line. Close the terminal and reopen it and you will see this name is no longer there. That is because the venv needs to be set every time you open your terminal. Because it is easy to forget to do this we will make it happen on startup by adding it to our `.zshrc` file later, but first, let's install node.
 
 ## Node
 
@@ -255,13 +249,13 @@ gh auth login
 and follow the wizard steps to complete the authentication process (the default choices are what you want). When done you should be able to clone a repo like so:
 
 ```bash
-gh repo clone codeplatoon-fullstack/installfest
+gh repo clone lodash/lodash
 ```
 
 This will install that repo in your current directory. Assuming this is successful if you want to delete it afterwards type:
 
 ```bash
-rm -rf installfest
+rm -rf lodash
 ```
 
 ## Alisases
@@ -277,22 +271,19 @@ code ~/.zshrc
 VSCode should open the document. At the bottom of the file add the lines:
 
 ```bash
+# Aliases
+
 alias python='python3'
 alias pip='pip3'
 ```
 
-Aliases are what they sound like, simply a new name that points to an existing command. If you are ever in doubt what a given alias points to type:
+Aliases are what they sound like, simply a new name that points to an existing command.
 
-```bash
-which <COMMAND>
-```
+We are also going to add another line to our `.zshrc` to make sure we are using our default Python venv everytime we open the terminal. So below your aliases within `.zshrc` add:
 
-If `<COMMAND>` is an alias, it will tell you what it points to. If `<COMMAND>` is a real command it will tell you what its full path is in the file system.
-
-These aliases won't automatically be applied in your current terminal, but they will take effect in any new terminal windows you open. Alternatively if you don't want to close/open your terminal you can force the terminal to re-read the newly updated file with:
-
-```bash
-source ~/.zshrc
+```sh
+# activate default python venv
+source $HOME/default/bin/activate
 ```
 
 ## PostgreSQL

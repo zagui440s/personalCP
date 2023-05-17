@@ -89,23 +89,21 @@ Python uses the concept of a 'virtual envrionment' to install packages through p
 sudo apt-get install python3.10-venv
 ```
 
-Now create a new project with a Python virtual environment like so:
+While you can make virtual environments for a given project it is also wise to have a default virtual environment, which we will create now. Open a new terminal and ensure you are in the home folder (`~`) and then run:
 
 ```bash
-python3 -m venv test_project
+python3 -m venv default
 ```
 
 If it works this will create a new folder in your current directory called 'test_project'. Inside that folder we should see a bin folder holding an `activate` script, a `pip` script, and several others. Ensure both the `activate` and `pip` scripts are present. Do so with:
 
-```bash
-ls test_project/bin
-```
-
-If you would like to delete it at this point type:
+If it works this will create a new folder in your current directory called 'default'. Inside that folder we should see a bin folder holding an `activate` script. Run that script with:
 
 ```bash
-rm -rf test_project
+source ~/default/bin/activate
 ```
+
+After running the above you should see the name of the venv ('default') represented somewhere in your command line. Close the terminal and reopen it and you will see this name is no longer there. That is because the venv needs to be set every time you open your terminal. Because it is easy to forget to do this we will make it happen on startup by adding it to our `.bash_profile` file later, but first, let's install node.
 
 ## Node
 
@@ -162,13 +160,13 @@ gh auth login
 and follow the wizard steps to complete the authentication process. When done you should be able to close a repo like so:
 
 ```bash
-gh repo clone codeplatoon-fullstack/installfest
+gh repo clone lodash/lodash
 ```
 
 This will install that repo in your current directory. Assuming this is successful if you want to delete it afterwards type:
 
 ```bash
-rm -rf installfest
+rm -rf lodash
 ```
 
 ## Alisases
@@ -194,18 +192,13 @@ alias python='python3'
 alias pip='pip3'
 ```
 
-Aliases are what they sound like, simply a new name that points to an existing command. If you are ever in doubt what a given alias points to type:
+Aliases are what they sound like, simply a new name that points to an existing command.
 
-```bash
-which <COMMAND>
-```
+We are also going to add another line to our `.bash_profile` to make sure we are using our default Python venv everytime we open the terminal. So below your aliases within `.bash_profile` add:
 
-If `<COMMAND>` is an alias, it will tell you what it points to. If `<COMMAND>` is a real command it will tell you what its full path is in the file system.
-
-These aliases won't automatically be applied in your current terminal, but they will take effect in any new terminal windows you open. Alternatively if you don't want to close/open your terminal you can force the terminal to re-read the newly updated file with:
-
-```bash
-source ~/.bash_profile
+```sh
+# activate default python venv
+source $HOME/default/bin/activate
 ```
 
 ## PostgreSQL
@@ -219,7 +212,7 @@ sudo apt-get install postgresql@14 postgresql-contrib
 Start a PostgreSQL instance (in the background) like so:
 
 ```bash
-sudo service postgresql@14 start
+sudo service postgresql@14 restart
 ```
 
 To enter PostgreSQL we will switch our shell user to one named `postgres`, and then we can enter the running PostgreSQL instance.

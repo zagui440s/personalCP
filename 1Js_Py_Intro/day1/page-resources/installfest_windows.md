@@ -125,23 +125,19 @@ Python uses the concept of a 'virtual envrionment' to install packages through p
 sudo apt-get install python3.10-venv
 ```
 
-Now create a new project with a Python virtual environment like so:
+While you can make virtual environments for a given project it is also wise to have a default virtual environment, which we will create now. Open a new terminal and ensure you are in the home folder (`~`) and then run:
 
 ```bash
-python3 -m venv test_project
+python3 -m venv default
 ```
 
-If it works this will create a new folder in your current directory called 'test_project'. Inside that folder we should see a bin folder holding an `activate` script, a `pip` script, and several others. Ensure both the `activate` and `pip` scripts are present. Do so with:
+If it works this will create a new folder in your current directory called 'default'. Inside that folder we should see a bin folder holding an `activate` script. Run that script with:
 
 ```bash
-ls test_project/bin
+source ~/default/bin/activate
 ```
 
-If you would like to delete it at this point type:
-
-```bash
-rm -rf test_project
-```
+After running the above you should see the name of the venv ('default') represented somewhere in your command line. Close the terminal and reopen it and you will see this name is no longer there. That is because the venv needs to be set every time you open your terminal. Because it is easy to forget to do this we will make it happen on startup by adding it to our `.bash_profile` file later, but first, let's install node.
 
 ## Node
 
@@ -206,13 +202,13 @@ and follow the wizard steps to complete the authentication process. When done yo
 > Note: On Windows using WSL it is likely not going to be able to open the link for you automatically so you may need to enter it manually into a browser but that isn't something to be concerned about.
 
 ```bash
-gh repo clone codeplatoon-fullstack/installfest
+gh repo clone lodash/lodash
 ```
 
 This will install that repo in your current directory. Assuming this is successful if you want to delete it afterwards type:
 
 ```bash
-rm -rf installfest
+rm -rf lodash
 ```
 
 ## Alisases
