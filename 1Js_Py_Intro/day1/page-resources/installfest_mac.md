@@ -343,3 +343,7 @@ and when you hover over the print function with your mouse pointer VSCode gives 
 ### Live Share
 
 Live Share is another official Microsoft extension that will allow us as instructors and TAs to collaborate with you VSCode in real-time, which can be very helpful when troubleshooting a tricky bug. Search the extensions store for 'Live Share' and make sure it is published by Microsoft and download it. We won't expect you to set it up at this point but it is good enough to have it already installed for now.
+
+### Live Server
+
+Live Server is an extension that makes it simple to spin up a server to work with a website using HTML/CSS/JS without having to write your own basic server in Python/Django. This is useful when learning frontend.
