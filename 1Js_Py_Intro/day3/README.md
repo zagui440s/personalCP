@@ -675,8 +675,6 @@ We could honestly keep doing this for a long time, and it's unclear if I wrote w
 > Some of you may be wondering what `exports` is on the Javascript files. The Javascript folders will sometimes have prewritten spec (test) files and in order for the spec file to read the contents of the corresponding Javascript files where your code is written, it must be attached to the `export` Javascript object. To ensure that you are writing correct code, run `node WHATEVER_CHALLENGE_NAME_Spec.js` in the `js` folder. Don't run `node WHATEVER_CHALLENGE_NAME.js` as it will blow up.
 
 - [Roman Numerals](https://github.com/tangoplatoon/algo-roman-numerals) in JS
-- [Git Practice](http://learngitbranching.js.org/)
-
 - [Factorial](https://github.com/tangoplatoon/algo-factorial) in JS
 - [Fibonacci](https://github.com/tangoplatoon/algo-fibonacci) in JS
 - [Linear Search](https://github.com/tangoplatoon/algo-linear-search) in JS

@@ -61,3 +61,4 @@ Some good git advice:
 
 ## Assignments
 - [Git Practice](https://github.com/Code-Platoon-Curriculum/git-practice)
+- [Learn Git Branching](http://learngitbranching.js.org/)
