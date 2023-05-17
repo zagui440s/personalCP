@@ -58,3 +58,6 @@ Some good git advice:
 1. Be careful when using a visual git tool, as it is running commands behind the scenes, many of which you may not understand.
 2. **Never** use a git command you copied off the internet and don't fully understand. You will only run into even greater complications.
 3. Run `git status` between every other command you run. It will tell you what the state of the system is and the main way you get familiar with the concepts git uses.
+
+## Assignments
+- [Git Practice](https://github.com/Code-Platoon-Curriculum/git-practice)
