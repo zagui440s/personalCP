@@ -269,8 +269,8 @@ This section is small but worth mentioning. An 'interrupt' is a way of communica
 
 ## Assignments
 
-- [Git Essentials](https://github.com/Code-Platoon-Uniform/git-essentials) **READ FIRST**
+- [Git Essentials](https://github.com/Code-Platoon-Curriculum/git-essentials) **READ FIRST**
 
-- [99 Bottles](https://github.com/Code-Platoon-Uniform/algo-99-bottles)
+- [99 Bottles](https://github.com/Code-Platoon-Curriculum/algo-99-bottles)
 
-- [CLI Practice](https://github.com/Code-Platoon-Uniform/cli-practice)
+- [CLI Practice](https://github.com/Code-Platoon-Curriculum/cli-practice)
