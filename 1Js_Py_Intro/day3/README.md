@@ -52,11 +52,11 @@ The end result is JavaScript is a very useful language at this point. The downsi
 JavaScript was initially intended to simply be the language that allowed web browsers to be interactive, but there's nothing stopping anyone from implementing it as a general purpose language, and thats exactly what someone named Ryan Dahl did with the creation of [Node.js](https://nodejs.org/en/). Node was an implementation of JavaScript for the purposes of using JS to write backend services and interact with an OS, something browser JS does not support. Additionally, because of one of the core design decisions of JavaScript (the [Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)) it actually is a great fit for writing efficient web servers that can handle many requests simultaneously. That's beyond the scope of this course (we use Python + Django for our backend purposes) but it's important to know this exists simply so that we understand how it is we are executing JavaScript code outside of a web browser.
 
 ```bash
-$ node # open Node in REPL (Read-Evaluate-Print-Loop) mode
+  node # open Node in REPL (Read-Evaluate-Print-Loop) mode
 ```
 
 ```bash
-$ node example.js # execute a specific JavaScript file
+  node example.js # execute a specific JavaScript file
 ```
 
 ### Overview of Intro JavaScript
@@ -304,16 +304,17 @@ console.log(matches); // [ 'abc', 'ac' 'abbbbbc', 'abbc' ]
 Ok what the heck is this?! A [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) is a kind of very compact way of describing what sort of strings you want to 'match' and and what you don't. It's a very powerful tool with more details than we can cover in this lecture, but it ends up being a very powerful tool when trying to filter something by string name.
 
 The most important characters to know are:
-- literal characters: literal characters will match themselves. 
+
+- literal characters: literal characters will match themselves.
   - Ex: `/abc/` matches the string `'abc'` but not `'Abc'`
 
-- `.`: `.` matches any character, including whitespace 
-  - Ex: `/a.c/` matches `'abc'`, `'azc', `'a c'` but not `'ac'`
+- `.`: `.` matches any character, including whitespace
+  - Ex: `/a.c/` matches `'abc'`, `'azc'`, `'a c'` but not `'ac'`
 
 - `\.`: `\` before another character will 'escape' it, meaning you can represent a 'special' character like `.` in a regular expression as its literal form
   - Ex: `/index\.js/` will match `'index.js'` but not `'indexZjs'`
 
-- `*`, `+`: `*` means 0 or more of the character preceeding it. `+` means 1 or more. 
+- `*`, `+`: `*` means 0 or more of the character preceeding it. `+` means 1 or more.
   - Ex: `/a*b+/` will match `'b'`, `'ab'`, `'abb'`, `'aabb'` etc. but not `'a'`
 
 - `?`: means the preceeding character is optional.
@@ -508,7 +509,7 @@ It's not night and day but it's a useful feature for writing short functions tha
 
 #### Ternary operator
 
-You may or may not have encountered this before. This is a way to nest an if/else statement inline that _returns a value_ (if else normally doesn't). This is very useful for conditionally setting a variable. So instead of writing something like:
+You may or may not have encountered this before. This is a way to nest an if/else statement inline that *returns a value* (if else normally doesn't). This is very useful for conditionally setting a variable. So instead of writing something like:
 
 ```js
 const age = 24;
@@ -674,7 +675,7 @@ We could honestly keep doing this for a long time, and it's unclear if I wrote w
 
 > Some of you may be wondering what `exports` is on the Javascript files. The Javascript folders will sometimes have prewritten spec (test) files and in order for the spec file to read the contents of the corresponding Javascript files where your code is written, it must be attached to the `export` Javascript object. To ensure that you are writing correct code, run `node WHATEVER_CHALLENGE_NAME_Spec.js` in the `js` folder. Don't run `node WHATEVER_CHALLENGE_NAME.js` as it will blow up.
 
-- [Roman Numerals](https://github.com/tangoplatoon/algo-roman-numerals) in JS
-- [Factorial](https://github.com/tangoplatoon/algo-factorial) in JS
-- [Fibonacci](https://github.com/tangoplatoon/algo-fibonacci) in JS
-- [Linear Search](https://github.com/tangoplatoon/algo-linear-search) in JS
+- [Roman Numerals](https://github.com/Code-Platoon-Curriculum//algo-roman-numerals) in JS
+- [Factorial](https://github.com/Code-Platoon-Curriculum//algo-factorial) in JS
+- [Fibonacci](https://github.com/Code-Platoon-Curriculum//algo-fibonacci) in JS
+- [Linear Search](https://github.com/Code-Platoon-Curriculum//algo-linear-search) in JS

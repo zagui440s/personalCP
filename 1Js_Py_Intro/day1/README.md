@@ -4,9 +4,9 @@
 
 - Get your local machine set up to start the course
 - Operating Sytems / UNIX
-    - History of UNIX
-    - Core architecture
-    - Files & Folders
+  - History of UNIX
+  - Core architecture
+  - Files & Folders
 - Learn the most essential commands for interacting with your OS
 - Create and manage git/Github repositories using the command line
 
@@ -29,8 +29,8 @@ Before we get started, just know that this can be chaotic. Your goal is to get a
 
 - [Complete Installfest (Ubuntu Linux)](./page-resources/installfest_ubuntu.md)
 - [Youtube Walkthrough](https://youtu.be/9-v-0xRHWb8)
-> we don't have a Linux video walkthrough as there are too many versions of Linux to possibly account for but in addition to the guide above you can use the Windows/WSL link to see a similar walkthrough for Installfest on Windows using WSL + Ubunutu, so if your flavor of Linux is Ubuntu this should help
 
+> we don't have a Linux video walkthrough as there are too many versions of Linux to possibly account for but in addition to the guide above you can use the Windows/WSL link to see a similar walkthrough for Installfest on Windows using WSL + Ubunutu, so if your flavor of Linux is Ubuntu this should help
 
 #### Windows (WSL) Setup
 

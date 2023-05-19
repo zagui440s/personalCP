@@ -1,7 +1,7 @@
 # Intro to Python
 
-​
 ## Topics Covered / Goals
+
 - Understand basic Python syntax
 - Understand variable types
 - Understand basic data types
@@ -14,14 +14,15 @@
   - for-loops
   - while-loops
 - Understand some common built-in methods
-    - built-in methods for strings, lists, dicts, etc
-    - destructive vs non-destructive methods
+  - built-in methods for strings, lists, dicts, etc
+  - destructive vs non-destructive methods
 
 ## Lesson
 
 > In python, like all programming languages, we will manipulate various different types of data, such as numbers and lists. If you want to understand how you can manipulate your data, and compare it to other data, the most important thing to understand is the TYPE of your data. Many of these data types are similar to the data types we use in javascript, but there are some important differences I'll point out. There are two types of types: primitive types, which are just a single value, and non-primitive types, which can contain other data.
 
 ### **Primitive Types**
+
 ### Numbers
 
 > The first type we'll learn about are numbers. Let's create a number literal and assign it to a variable.
@@ -59,12 +60,13 @@ print(f"Let's go {activity} on {day} afternoon.") # This is sometimes called an 
 
 ### Booleans
 
-> The last primitive type in python is boolean. There are only two boolean values, `True` and `False`. These work the same as in javascript, except that we spell them with capital letters. 
+> The last primitive type in python is boolean. There are only two boolean values, `True` and `False`. These work the same as in javascript, except that we spell them with capital letters.
 
 ### **Non-Primitive Types**
+
 ### Lists
 
-> The most fundamental non-primitive type in python is a list. A python list is roughly equivalent to a javascript array, but lists in python are a bit more flexible. 
+> The most fundamental non-primitive type in python is a list. A python list is roughly equivalent to a javascript array, but lists in python are a bit more flexible.
 
 ```python
 berries = ['grape', 'tomato', 'cucumber', 'eggplant', 'banana', 'watermelon', 'pumpkin']
@@ -78,7 +80,7 @@ print(berries[2:]) # slice from index 2 to the end
 
 ### Tuples
 
-> A tuple in python is like a list, but it is defined with parentheses instead of brackets. It is used for storing mulTiPLE pieces of data in one data structure. Unlike a list, a tuple is immutable, meaning that it cannot be mutated. You cannot add, remove, or modify items in a tuple. You should use a tuple if you want to make sure that the items in your list never change. For example, you might use a tuple to store the seven days of the week, because there's no reason for that to change. You might also store geographical (lat,long) coordinates in a tuple, because the two numbers together refer to one thing, one specific place. It doesn't make sense to modify just one number in a coordinate pair. Instead, you would just create a new coordinate pair. 
+> A tuple in python is like a list, but it is defined with parentheses instead of brackets. It is used for storing mulTiPLE pieces of data in one data structure. Unlike a list, a tuple is immutable, meaning that it cannot be mutated. You cannot add, remove, or modify items in a tuple. You should use a tuple if you want to make sure that the items in your list never change. For example, you might use a tuple to store the seven days of the week, because there's no reason for that to change. You might also store geographical (lat,long) coordinates in a tuple, because the two numbers together refer to one thing, one specific place. It doesn't make sense to modify just one number in a coordinate pair. Instead, you would just create a new coordinate pair.
 
 ```python
 days_of_the_week = ('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday')
@@ -87,7 +89,7 @@ days_of_the_week[6] = 'Caturday' # this throws an error! we can't assign to a tu
 
 ### Dictionaries
 
-> A dictionary in python is like an object in javascript (though python objects are more complex than javascript objects). It's used to store pairs of data, a key with its value. For example, you might use a dictionary to store information about a person. Unlike in javascript, we must use quotation marks for defining string keys, and we must use bracket notation for accessing values in a dictionary. 
+> A dictionary in python is like an object in javascript (though python objects are more complex than javascript objects). It's used to store pairs of data, a key with its value. For example, you might use a dictionary to store information about a person. Unlike in javascript, we must use quotation marks for defining string keys, and we must use bracket notation for accessing values in a dictionary.
 
 ```python
 jeff = {
@@ -155,8 +157,8 @@ def who_am_i(**kwargs):
 who_am_i(name='dan', age=20, job='skydiving instructor')
 ```
 
-
 ### If-statements
+
 > If-statements in python work the same as in javascript, except that instead of `&&`, `||`, and `!`, we use `and`, `or`, and `not`.
 
 ```python
@@ -175,7 +177,8 @@ print(can_drink_beer(18, 'Canada'))
 
 ```
 
-**for-loop**
+#### **for-loop**
+
 ```python
 ## looping over list elements
 my_list = ["a", "b", "c"]
@@ -202,7 +205,8 @@ for v in my_dict.values():
     print(v) # same output as the previous loop
 ```
 
-**while-loop**
+#### **while-loop**
+
 ```python
 x = 9
 while x > 0:
@@ -215,10 +219,11 @@ while x > 0:
     print("la la la") 
 ```
 
+#### **Built-in Methods**
 
-**Built-in Methods**
-> Most types of values in python have built-in methods that you can use to manipulate that value. a method is simply a function that belongs to an object. There are two types of methods that you should be aware of: destructive and non-destructive methods. 
+> Most types of values in python have built-in methods that you can use to manipulate that value. a method is simply a function that belongs to an object. There are two types of methods that you should be aware of: destructive and non-destructive methods.
 > Destructive methods are those that change the original data where non-destructive methods are those that do not change the original data. You have to be careful with the methods that you use as there isn't a clear indication in Python or JS as to which are destructive and which aren't. Let's take a look at the example below:
+
 ```python
 first_name = 'jonathan'
 first_name.capitalize() # this is a string method that converts the first character to upper case
@@ -237,13 +242,14 @@ staff # my original has been changed yet again!
 ```
 
 ## Resources
-- https://www.pythoncheatsheet.org/cheatsheet/basics
+
+- [Python Basics](https://www.pythoncheatsheet.org/cheatsheet/basics)
+
 ## Assignments
-- [99 Bottles](https://github.com/tangoplatoon/algo-99-Bottles) in Python
-- [Deaf Grandma](https://github.com/tangoplatoon/algo-deaf-grandma) in Python
-- [Roman Numerals](https://github.com/tangoplatoon/algo-roman-numerals) in Python
-- [Fibonacci](https://github.com/tangoplatoon/algo-fibonacci) in Python
-- [Factorial](https://github.com/tangoplatoon/algo-factorial) in Python
-- [Linear Search](https://github.com/tangoplatoon/algo-linear-search) in Python
 
-
+- [99 Bottles](https://github.com/Code-Platoon-Curriculum//algo-99-Bottles) in Python
+- [Deaf Grandma](https://github.com/Code-Platoon-Curriculum//algo-deaf-grandma) in Python
+- [Roman Numerals](https://github.com/Code-Platoon-Curriculum//algo-roman-numerals) in Python
+- [Fibonacci](https://github.com/Code-Platoon-Curriculum//algo-fibonacci) in Python
+- [Factorial](https://github.com/Code-Platoon-Curriculum//algo-factorial) in Python
+- [Linear Search](https://github.com/Code-Platoon-Curriculum//algo-linear-search) in Python
