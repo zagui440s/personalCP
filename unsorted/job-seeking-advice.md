@@ -1,1 +1,0 @@
-https://www.linkedin.com/posts/activity-7046780925229080576-pnM4?utm_source=share&utm_medium=member_desktop

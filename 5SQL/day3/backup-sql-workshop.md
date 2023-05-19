@@ -9,8 +9,3 @@
 - [Video from previous cohort](https://www.youtube.com/watch?v=CZBZr-fi58I&list=PLu0CiQ7bzwEQknl3vI9wEMwgNBzcg9kOs&index=3)
 
 - [Workshop materials](https://github.com/jwworth/sql-workshop)
-
-
-
-
-

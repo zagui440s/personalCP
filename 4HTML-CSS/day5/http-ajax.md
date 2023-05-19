@@ -93,5 +93,5 @@ const myPromise = new Promise((resolve, reject) => {
 
 ## Assignments
 
-- [Pokemon Theme Team](https://github.com/tangoplatoon/pokemon-theme-team)
+- [Pokemon Theme Team](https://github.com/Code-Platoon-Curriculum//pokemon-theme-team)
 - Find an api that interests you and build a simple web page that utilizes axios to call the api and then displays the data on the page. Get creative and have fun with it! :)

@@ -60,5 +60,6 @@ Some good git advice:
 3. Run `git status` between every other command you run. It will tell you what the state of the system is and the main way you get familiar with the concepts git uses.
 
 ## Assignments
+
 - [Git Practice](https://github.com/Code-Platoon-Curriculum/git-practice)
 - [Learn Git Branching](http://learngitbranching.js.org/)
