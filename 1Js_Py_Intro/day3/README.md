@@ -117,6 +117,9 @@ typeof -5.231e4; // 'number'
 // The suffix 'e4' is shorthand to represent a big number, it means '* 10^4'
 ```
 
+> For reference: [Strings](./code-examples/strings.js)
+
+
 ##### Booleans
 
 - Booleans are `true` or `false` and all the boolean operators work as expected
@@ -155,6 +158,8 @@ This may seem pointless and obtsue but when we get to React you will see that `|
   - `===` will *not* perform such cooercions, so `1 === '1'` evaulates to `false`.
   - Prefer `===` unless you have a very specific reason to use `==`, as that coercion behavior is almost never what you really want and it makes it easy to create odd type-based bugs.
 
+> For reference: [Booleans](./code-examples/booleans.js)
+
 ##### `undefined`
 
 - A way to represent something with no meaningful value yet. This is what unassigned variables hold by default.
@@ -190,6 +195,8 @@ daysOfTheWeek.push("thurs");
 console.log(daysOfTheWeek); // ["mon", "tues", "wed", "thurs"];
 ```
 
+> For reference: [Arrays](./code-examples/arrays.js)
+
 ##### Objects
 
 - It's a collection of key/value pairs. You can't access it by `index` like with arrays because objects do not have an order, but you can access it by `key`
@@ -221,6 +228,8 @@ tomEntry.age = tomEntry.age + 1;
 // this update changes the value at any reference (mutable)
 console.log(database); // { ... 457: { ..., age: 35 } }
 ```
+
+> For reference: [Objects](./code-examples/objects.js)
 
 #### Functions and primitive vs complex data types
 
@@ -289,6 +298,9 @@ console.log(newObject); // { name: "Tom", age: 35 };
 // preserved original
 console.log(myObject); // { name: "Tom", age: 34 };
 ```
+
+> For reference: [Pass by value](./code-examples/pass-by-value.js)
+> For reference: [Pass by reference](./code-examples/pass-by-reference.js)
 
 #### Regular Expressions
 
@@ -364,6 +376,8 @@ To break it down a bit more, because RegExp can be very obtuse due to their comp
 `x?`: optionally match an x
 
 Altogether `/.*\.jsx?/` therefore represents all possible files of any name with the extension `js` or `jsx`.
+
+> For reference: [RegExp](./code-examples/regular-expressions.js)
 
 ### Intermediate JavaScript
 
@@ -450,6 +464,8 @@ function sumWithLet(n) {
 sumWithVar(5); // 15
 sumWithLet(5); // ReferenceError: i is not defined
 ```
+
+> For reference: [Variables](./code-examples/var-vs-let.js)
 
 #### Functions
 
@@ -675,7 +691,8 @@ We could honestly keep doing this for a long time, and it's unclear if I wrote w
 
 > Some of you may be wondering what `exports` is on the Javascript files. The Javascript folders will sometimes have prewritten spec (test) files and in order for the spec file to read the contents of the corresponding Javascript files where your code is written, it must be attached to the `export` Javascript object. To ensure that you are writing correct code, run `node WHATEVER_CHALLENGE_NAME_Spec.js` in the `js` folder. Don't run `node WHATEVER_CHALLENGE_NAME.js` as it will blow up.
 
-- [Roman Numerals](https://github.com/Code-Platoon-Curriculum//algo-roman-numerals) in JS
-- [Factorial](https://github.com/Code-Platoon-Curriculum//algo-factorial) in JS
-- [Fibonacci](https://github.com/Code-Platoon-Curriculum//algo-fibonacci) in JS
-- [Linear Search](https://github.com/Code-Platoon-Curriculum//algo-linear-search) in JS
+- [Regular Expressions](https://github.com/Code-Platoon-Assignments/regular-expression-js) in JS
+- [Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in JS
+- [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in JS
+- [Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in JS
+- [Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in JS

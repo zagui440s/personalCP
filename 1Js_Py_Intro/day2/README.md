@@ -329,5 +329,5 @@ Some good general git advice:
 
 ## Assignments
 
-- [Git Practice](https://github.com/Code-Platoon-Curriculum/git-practice)
+- [Git Practice](https://github.com/Code-Platoon-Assignments/git-practice)
 - [Learn Git Branching](http://learngitbranching.js.org/)

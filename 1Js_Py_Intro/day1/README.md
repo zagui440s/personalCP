@@ -268,8 +268,10 @@ This section is small but worth mentioning. An 'interrupt' is a way of communica
 
 ## Assignments
 
-- [Git Essentials](https://github.com/Code-Platoon-Curriculum/git-essentials) **READ FIRST**
+- [Git Essentials](https://github.com/Code-Platoon-Assignments/git-essentials) **READ FIRST**
 
-- [CLI Practice](https://github.com/Code-Platoon-Curriculum/cli-practice)
+- [CLI Practice](https://github.com/Code-Platoon-Assignments/cli-practice)
 
-- [99 Bottles](https://github.com/Code-Platoon-Curriculum/algo-99-bottles)
+- [99 Bottles](https://github.com/Code-Platoon-Assignments/algo-99-bottles)
+
+- [Deaf Grandma](https://github.com/Code-Platoon-Assignments/algo-deaf-grandma) in JS
