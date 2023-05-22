@@ -4,9 +4,6 @@
 
 - Get your local machine set up to start the course
 - Operating Sytems / UNIX
-  - History of UNIX
-  - Core architecture
-  - Files & Folders
 - Learn the most essential commands for interacting with your OS
 - Create and manage git/Github repositories using the command line
 
@@ -23,7 +20,7 @@ Before we get started, just know that this can be chaotic. Your goal is to get a
 #### Mac Setup
 
 - [Complete Installfest (MacOS)](./page-resources/installfest_mac.md)
-- [Youtube Walkthrough](https://youtu.be/IfL3jBGn1hA)
+- [Youtube Walkthrough](https://youtu.be/q5jYwG8jylU)
 
 #### Ubuntu Linux Setup
 
@@ -91,6 +88,8 @@ There are only two types of 'things' as far as a UNIX environment is concerned: 
 - A `folder` (also called a 'directory') can _contain_ 0 or more _things_, i.e. other files or folders.
 
 As it turns out, these are the only two concepts you need to have a fully functional OS.
+
+![Unix Filesystem](./page-resources/unix_filesystem.png)
 
 ### UNIX Commands
 
@@ -260,7 +259,7 @@ This section is small but worth mentioning. An 'interrupt' is a way of communica
 
 - `&&`
   - runs one command, waits for it to finish, then begins running the next command
-  - Ex: `touch file1.txt & code file1.txt`
+  - Ex: `touch file1.txt && code file1.txt`
   - Not dangerous, just a way of chaining commands together in one line
 
 ## Resources
@@ -271,6 +270,6 @@ This section is small but worth mentioning. An 'interrupt' is a way of communica
 
 - [Git Essentials](https://github.com/Code-Platoon-Curriculum/git-essentials) **READ FIRST**
 
-- [99 Bottles](https://github.com/Code-Platoon-Curriculum/algo-99-bottles)
-
 - [CLI Practice](https://github.com/Code-Platoon-Curriculum/cli-practice)
+
+- [99 Bottles](https://github.com/Code-Platoon-Curriculum/algo-99-bottles)
