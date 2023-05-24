@@ -241,7 +241,7 @@ const myPromise = new Promise((resolve, reject) => {
 
 Essentially, a Promise is a specific type of object that takes a single parameter, a function that itself takes two parameters, themselves also functions, called resolve and reject. The promise begins in the state 'pending' and irrevocably moves to either the 'resolved' or 'rejected' state based on which one of those functions is called, along with a 'payload' of some data or alternatively error info.
 
-![promises](/page-resources/promises.webp)
+![promises](./page-resources/promises.webp)
 
 While you arent usually making your own promises, the value is in the API that allows you to work with Promises, `.then` and `.catch` (as well as `.finally`):
 
@@ -560,6 +560,18 @@ For video store today we will use the OMDB api to pull data in from an api inste
 
 ## Assignments
 
-As for all of the react lectures the assignment for today is to build out the video store using the OMDB api (starting point is yesterday or the canonical solution in demos-and-notes/w8d2) or alternatively to build out the website design of your choice using a public api of your choice.
+As for all of the react lectures the assignment for today is to build out the latest iteration of video store using the OMDB api (starting point is yesterday or the canonical solution on the `pt-3-start` branch) or alternatively to build out the website design of your choice using a public api of your choice.
 
 > Note: when choosing an api just look for free one's that are simple to integrate with for the sake of learning. Most Google APIs for example require a fancy form of authentication that can take a week to get set up, so choose something like pokeAPI or OMDB or Github's api (there are many others)
+
+Video store repo is located here: https://github.com/Code-Platoon-Assignments/video-store
+
+Assuming you forked + cloned the repo as of day 1 (refer to day 1's instructions if not) you should have a local copy of video-store on your computer.
+
+If you want to continue from your own `main` branch, continue to work from it, though you may want to first take a look at the official starting point (`pt-3-start`) or canonical solution branch (`pt-3-end`). The nature of our 'dummy data' (`inventory.json`) has evolved, so take a look at that.
+
+If you want to start over from the official `pt-3-start` starting point and are willing to lose your work from day 1 (you can always save it in a new branch) then use the following commands:
+
+```sh
+git reset --hard origin/pt-3-start
+```

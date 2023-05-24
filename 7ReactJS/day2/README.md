@@ -566,11 +566,18 @@ export default function Component() {
 > - When user clicks on a video, display video details (on same screen, no modal, + dismissable)
 > - Simple checkout/return buttons for videos (update root state)
 
-
-## Additional Resources
-
-lorem
-
 ## Assignments
 
-Building Day 2 features and add statefulness (not persisted) to your app where valid
+We want you to rebuild the steps we did with Video Store pt 2 and add to it if desired. We will continue to build upon this project over the next few days and will provide checkpoints along the way.
+
+Video store repo is located here: https://github.com/Code-Platoon-Assignments/video-store
+
+Assuming you forked + cloned the repo as of yesterday (refer to yesterday's instructions if not) you should have a local copy of video-store on your computer.
+
+If you want to continue from your own `main` branch, continue to work from it, though you may want to first take a look at the official starting point (`pt-2-start`) or canonical solution branch (`pt-2-end`). The nature of our 'dummy data' (`inventory.json`) has evolved, so take a look at that.
+
+If you want to start over from the official `pt-2-start` starting point and are willing to lose your work from day 1 (you can always save it in a new branch) then use the following commands:
+
+```sh
+git reset --hard origin/pt-2-start
+```

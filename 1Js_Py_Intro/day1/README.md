@@ -158,6 +158,19 @@ In order to use the shell at all we need to know how to navigate it. Some essent
 
 > DO NOT TYPE THIS IN! `rm -rf /`. This will remove all files/folders, recursively and forcefully, starting at the root. In other words it will destroy your entire filesystem, no questions asked! This is included to demonstrate the power of these small commands, and the power you have as a user (and why such an idea as 'permissions' matters).
 
+- `ln -s <directory> <shortcut-name>`
+  
+  - This is how you make a 'symlink', the equivalent of a shortcut in UNIX
+  - if I have a folder buried deeply in my filesystem but want to surface it more conveniently I can do that like so:
+
+  ```sh
+  ln -s ~/src/codeplatoon/uniform/curriculum ~/curriculum
+  ```
+
+  - this command would give me a 'shortcut' to the curriculum repo in my home directory without having to move it from where it rightfully belongs
+
+  > Note: if you move the location of the original folder, any symlink to it will no longer work. You can remove a symlink with `rm` like it was any other file
+
 #### Miscellaneous (Essential)
 
 - `sudo <command_name>`
@@ -168,7 +181,18 @@ In order to use the shell at all we need to know how to navigate it. Some essent
 
   - Clear the screen of content. `cmd+k` is a keyboard shortcut that does the same on MacOS.
 
-#### File Navigation (Nice to Know)
+#### Interrupts (Nice to Know)
+
+This section is small but worth mentioning. An 'interrupt' is a way of communicating with the operating system to override it's current task (literally, to interrupt the running process).
+
+- `<control-C>`
+
+  - What do you do if you run a command and it's taking forever to finish? `<control-C>` sends an 'interrupt' signal to the shell telling it to quit the currently running operation.
+
+- `<control-D>`
+  - Similar to the above but more powerful. This sends an 'interrupt' signal to the OS to quit the currently running shell. Sometimes you will be running a shell within a shell and `<control-C>` won't be enough to cancel the current operation. This is a powerful (but dangerous) escape hatch. A general rule of thumb is: if the shell is 'stuck' in a frozen state and `<control-C>` isn't helping, try a `<control-D>`.
+
+#### File Navigation (Nice to Know but less relevant if you have access to VSCode)
 
 You will use these less commonly as on a modern system you will have access to better ways to view and edit files (like VSCode)
 
@@ -197,17 +221,6 @@ You will use these less commonly as on a modern system you will have access to b
   - or type `q!` to quit without saving
   - Like I said, extremely awkward. Some love it but I avoid it like the plague.
 
-
-#### Interrupts (Nice to Know)
-
-This section is small but worth mentioning. An 'interrupt' is a way of communicating with the operating system to override it's current task (literally, to interrupt the running process).
-
-- `<control-C>`
-
-  - What do you do if you run a command and it's taking forever to finish? `<control-C>` sends an 'interrupt' signal to the shell telling it to quit the currently running operation.
-
-- `<control-D>`
-  - Similar to the above but more powerful. This sends an 'interrupt' signal to the OS to quit the currently running shell. Sometimes you will be running a shell within a shell and `<control-C>` won't be enough to cancel the current operation. This is a powerful (but dangerous) escape hatch. A general rule of thumb is: if the shell is 'stuck' in a frozen state and `<control-C>` isn't helping, try a `<control-D>`.
 
 #### Others Worth Mentioning (Non-essential)
 
