@@ -8,7 +8,8 @@
     - Arrays
     - Linked Lists
     - Stacks and Queues 
-    - Hash Table
+    - Hash Tables
+    - Binary Search Trees
 
 
 ## Lesson
