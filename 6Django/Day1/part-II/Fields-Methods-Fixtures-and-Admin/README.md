@@ -208,3 +208,7 @@ Finally we are ready to enter our Admin Site and interact with our `Pokemon Mode
 ```
 
 > Once your server is running, open up your browser and go to [http:localhost:8000/admin](http:localhost:8000/admin), log in and you'll have a well constructed user interface to interact with your models. Press `ctrl + C` to kill your server and free your terminal.
+
+## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

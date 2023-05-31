@@ -218,3 +218,7 @@ class Test_urls(TestCase):
 ```bash
     python manage.py test tests
 ```
+
+## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

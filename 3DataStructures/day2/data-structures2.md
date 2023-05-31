@@ -1,4 +1,4 @@
-# Recursion
+https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg# Recursion
 
 ## Link to Slide Deck
 
@@ -231,5 +231,5 @@ What might be an optimal guessing strategy for such a game? How does this relate
 
 ## Assignments
 
-- [Recursion](https://github.com/tangoplatoon/algo-recursion)
-- [Binary Search](https://github.com/tangoplatoon/algo-binary-search)
+- [Recursion](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Binary Search](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

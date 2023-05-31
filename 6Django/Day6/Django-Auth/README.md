@@ -212,3 +212,7 @@ class Trainer_pokemon(APIView):
 ## External Resources
 
 - [django auth docs](https://docs.djangoproject.com/en/4.0/topics/auth/default/)
+
+## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

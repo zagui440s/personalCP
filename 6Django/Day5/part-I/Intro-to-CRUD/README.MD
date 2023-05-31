@@ -118,3 +118,7 @@ def test_005_update_pokemon_data(self):
     # updated_pokemon would be the same information we received from Postman
     self.assertEquals(response_body, updated_pokemon)
 ```
+
+## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

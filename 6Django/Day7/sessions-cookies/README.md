@@ -217,7 +217,7 @@ def log_in(request):
 
 ## Assignments
 
-- [Django view-counter](https://github.com/tangoplatoon/django-view-counter)
+- [Django view-counter](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 
 ## Stretch Goals
 

@@ -1,7 +1,7 @@
 # Postgres in Python and CSVs
 
-
 ## Topics Covered / Goals
+
 - Use the Psycopg library to create and update rows in a database
 - Read and clean rows from a CSV, and insert those rows into a Postgres database
 - Understand transactions in SQL, and how to use them in your code.
@@ -10,6 +10,7 @@
 ## Lesson
 
 ### Postgres and Python
+
 > We have spent the past 3 days learning about SQL and have used the Postgres flavor in our challenges. We've learned how to create/read/update/destroy databases, database columns, and database rows. This is the foundation of all programming. It doesn't matter if you're doing development on the frontend, backend, server, mobile, desktop, etc., everything comes down to data persistence. A solid understanding of SQL will pay off huge dividends over the course of your career, so go back and ensure that you understand as much as you can!
 
 > We will often use SQL within the context of other programming languages and today, we are going to connect Python and Postgres together. The Python library that allows us to connect to our database is called [Psycopg](http://initd.org/psycopg/). We're going to write Python code that can execute SQL commands. Let's test this out.
@@ -27,6 +28,7 @@ $ createdb class_roster
 ```
 
 ### Creating a database
+
 Inside `class_roster.py`, let's import the Python library and start executing SQL commands:
 
 ```python
@@ -287,10 +289,11 @@ With this data out of the CSV and in the database, you can query it and get some
 
 Create queries in SQL and execute them to get a Python object back. Using those results and your knowledge of Python, answer the questions above.
 
-
 ## External Resources
+
 - [Official Documentation](http://initd.org/psycopg/docs/usage.html)
 - [SQL Injection](https://xkcd.com/327/)
 
 ## Assignments
-- [Chicago Salaries](https://github.com/tangoplatoon/sql-city-of-chicago)
+
+- [Chicago Salaries](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

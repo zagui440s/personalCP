@@ -232,4 +232,4 @@
 
 ## Assignments
 
-- [Styling with Bootstrap](https://github.com/Code-Platoon-Assignments/html-bootstrap)
+- [Styling with Bootstrap](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

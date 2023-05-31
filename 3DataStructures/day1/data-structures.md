@@ -301,16 +301,16 @@ When traversing a tree you typically there are different ways to traverse a tree
 [Read more about graphs and how they're represented in code](https://www.geeksforgeeks.org/graph-and-its-representations/)
 
 ## Resources
+
 - [Data structure visualization](https://cmps-people.ok.ubc.ca/ylucet/DS/Algorithms.html)
 - [Data structures in the indunstry](https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/amp/)
 
-
 ## Assignments
-- [Data Structures](https://github.com/tangoplatoon/algo-data-structures)
+
+- [Data Structures](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 
 If you are done and want more data structures practice let us know!
 
 If you are done and want some more oop practice:
-- [Bank Accounts](https://github.com/tangoplatoon/oop-bank-accounts)
 
-
+- [Bank Accounts](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

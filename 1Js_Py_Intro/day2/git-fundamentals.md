@@ -42,7 +42,7 @@ git init
 
 Before doing anything else, type `git status`. This will tell you the 'status' of the repo, as git sees it. Because we haven't done anything yet you should see something like:
 
-```
+```bash
 On branch main
 
 No commits yet
@@ -51,12 +51,13 @@ nothing to commit (create/copy files and use "git add" to track)
 ```
 
 It's important when starting out to continually type `git status` as reading it's output will teach you what git is actually doing. The status tells us:
-  - the current 'status' of the repo
-  - the branch you are on (more on this later)
-  - what files git knows about and whether they are:
-    - 'untracked' (a new file git doesn't know what to do with yet)
-    - tracked, but not staged for commit (a file it knows about that was recently changed)
-    - staged for commit (marked as ready to be 'committed' in the next commit)
+
+- the current 'status' of the repo
+- the branch you are on (more on this later)
+- what files git knows about and whether they are:
+  - 'untracked' (a new file git doesn't know what to do with yet)
+  - tracked, but not staged for commit (a file it knows about that was recently changed)
+  - staged for commit (marked as ready to be 'committed' in the next commit)
 
 What is this 'commit' business? A 'commit' essentially means a unit of changes that git is aware of. But before we can do this, we need to add some files.
 
@@ -80,7 +81,7 @@ This is just to have some content for git to keep track of. If you saved these f
 
 Now type `git status` again. You should see something like:
 
-```
+```bash
 ...
 
 Untracked files:
@@ -96,7 +97,7 @@ These files exist, but git doesn't know what to think of them. Let's change this
 
 We could add one file at a time with `git add example.txt`, `git add example.py` etc, but this is often more specific then you need. To add all untracked files to git, type `git add .` i.e. 'git add everything in the current folder'. Now type `git status` again. You may notice some visual changes, like red lines becoming green, and an output like:
 
-```
+```bash
 ...
 
 Changes to be committed:
@@ -124,14 +125,14 @@ This will create a new commit with the provided comment directly in the cli. Som
 
 Now type `git status` once again. It should show something like:
 
-```
+```bash
 On branch main
 nothing to commit, working tree clean
 ```
 
 So what happened to the work we just committed? To see this type `git log`. This will output your 'commit history'. Mine looks like:
 
-```
+```bash
 commit 1dcf85ba9c295be3938152711715cfb72925d76b (HEAD -> main)
 Author: Benjamin Cohen <benjamin@codeplatoon.org>
 Date:   Mon May 22 11:42:33 2023 -0600
@@ -145,7 +146,7 @@ Before we can show the next concept (`git checkout`), let's add one more commit 
 
 Now when I type `git log` again mine looks like:
 
-```
+```bash
 commit 03de341e283937972d485d7ebe7ae2227756f1dc (HEAD -> main)
 Author: Benjamin Cohen <benjamin@codeplatoon.org>
 Date:   Mon May 22 11:47:31 2023 -0600
@@ -167,7 +168,7 @@ So let's say I wanted to 'rewind' to the previous commit? I would do this with `
 
 `git checkout` let's me 'check out' a previous commit, using it's hash. Type `git log` an get the previous commit's hash. Mine looks like:
 
-```
+```bash
 commit 1dcf85ba9c295be3938152711715cfb72925d76b
 Author: Benjamin Cohen <benjamin@codeplatoon.org>
 Date:   Mon May 22 11:42:33 2023 -0600
@@ -183,7 +184,7 @@ If you do this you will now be in 'detached HEAD mode' and so looking at previou
 
 We aren't going to dwell on this concept for too long because we ultimately won't use it much, Github will very soon be our chosen tool for looking at the history of our repo. But first, let's get back to our original status.
 
-```
+```bash
 git checkout main
 ```
 
@@ -207,13 +208,13 @@ This gives us some steps for hooking up this remote repo to our local git repo, 
 
 Back on the cli, we want to type:
 
-```
+```bash
 git remote add origin <github-repo-url>
 ```
 
 Which for me is then:
 
-```
+```bash
 git remote add origin https://github.com/AloofBuddha/my-first-git-repo.git
 ```
 
@@ -227,13 +228,13 @@ Now that we have made the connection, let's backup our local work.
 
 First, type `git push` in the cli. This won't work yet, but will give you a helpful message. The first time you push a local repo to a remote repo, it wants you to be more specific. The instructions I got tell me to instead type:
 
-```
+```bash
 git push --set-upstream origin main
 ```
 
 What this means is we are going to push our current branch (`main`) to the remote repo named `origin` and we are using the flag `--set-upstream` to link them, so in the future `git push` will suffice. The output of that command for me looks like:
 
-```
+```bash
 Enumerating objects: 8, done.
 Counting objects: 100% (8/8), done.
 Delta compression using up to 8 threads
@@ -259,7 +260,7 @@ What we have done so far will suffice for working on your own, but there are a f
 
 Now, if we want to make a new branch, type `git checkout -b <name-of-new branch>`. This will create, then immediately checkout the new branch. I wrote:
 
-```
+```bash
 git checkout -b dev
 ```
 
@@ -269,7 +270,7 @@ I am now on a new branch called `dev` and can confirm this with `git status`. No
 
 Now let's make a change and commit it:
 
-```
+```bash
 <Changed contents of example.js>
 git add .
 git commit -m 'changed example.js'
@@ -279,7 +280,7 @@ Now let's share this change with the remote repo with `git push`.
 
 If you do this, you will see a message like before - git needs to know the connection initially, so we need a more involved command like:
 
-```
+```bash
  git push --set-upstream origin dev
 ```
 
@@ -287,7 +288,7 @@ Now that we type this command, our local dev branch will be linked to a Github b
 
 ![dev branch](./page-resources/dev-branch.png)
 
-You may notice the prompt to do a 'pull request' up top. A 'pull request' is a way of 'merging' two branches so the merged into branch represents the combined work of both. Imagine we did a lot of work on `dev` and were ready to have this work added to the stable branch, `main` - this is how we would do that. Let's click this and go through the steps to merge. As we are the only user of this repo this will be simple, but in the real world you will often be collaborating with others, and there could be merge conflicts to fix (ie the two branches overlap in areas that need manual attention to combine correctly) and there are usually permissions so not just anyone can merge to `main` without some kind of code review first. Now that this is done though, `main` now represents the combined changes of `main` and `dev`. 
+You may notice the prompt to do a 'pull request' up top. A 'pull request' is a way of 'merging' two branches so the merged into branch represents the combined work of both. Imagine we did a lot of work on `dev` and were ready to have this work added to the stable branch, `main` - this is how we would do that. Let's click this and go through the steps to merge. As we are the only user of this repo this will be simple, but in the real world you will often be collaborating with others, and there could be merge conflicts to fix (ie the two branches overlap in areas that need manual attention to combine correctly) and there are usually permissions so not just anyone can merge to `main` without some kind of code review first. Now that this is done though, `main` now represents the combined changes of `main` and `dev`.
 
 However this change is only represented on Github, on our remote. How do we sync our local with our remote? `git pull`!
 
@@ -329,5 +330,5 @@ Some good general git advice:
 
 ## Assignments
 
-- [Git Practice](https://github.com/Code-Platoon-Assignments/git-practice)
+- [Git Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 - [Learn Git Branching](http://learngitbranching.js.org/)

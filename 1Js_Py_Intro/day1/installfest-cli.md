@@ -75,6 +75,7 @@ These are the essential components of your OS and the concentric circles represe
 4. **Applications**. No OS would be complete without the ability to run arbitrary applications. The command 'python' is itself an application, one that can read and execute text documents that follow the Python programming syntax. An application is any program that isn't essential to the OS and therefore isn't built directly into the shell, but a modern shell generally provides an interface for downloading and running such applications.
 
 Extending the car analogy we could say the 4 layers of a car are:
+
 1. Hardware - the physical body of the car
 2. Kernel - the engine and other essential pieces that the average user cannot work with/repair themselves
 3. Shell - the steering wheel and gear shaft, how a normal user (who knows how to drive a car) interacts with the complex machine under-the-hood
@@ -281,10 +282,10 @@ You will use these less commonly as on a modern system you will have access to b
 
 ## Assignments
 
-- [Git Essentials](https://github.com/Code-Platoon-Assignments/git-essentials) **READ FIRST**
+- [Git Essentials](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) **READ FIRST**
 
-- [CLI Practice](https://github.com/Code-Platoon-Assignments/cli-practice)
+- [CLI Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 
-- [99 Bottles](https://github.com/Code-Platoon-Assignments/algo-99-bottles)
+- [99 Bottles](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 
-- [Deaf Grandma](https://github.com/Code-Platoon-Assignments/algo-deaf-grandma) in JS
+- [Deaf Grandma](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS

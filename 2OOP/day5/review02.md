@@ -29,7 +29,7 @@ class Person:
 
 ## Optional assignments (**if you finish the assessment early**)
 
-- [School Interface III](https://github.com/tangoplatoon/oop-school-interface-iii)
-- [Bowling](https://github.com/tangoplatoon/oop-bowling)
+- [School Interface III](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Bowling](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 
-## **Assessment-1**
+## [**Assessment-1**](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

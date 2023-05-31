@@ -158,3 +158,5 @@ class pokemon_test(TestCase):
 - [Django Validators Resource](https://docs.djangoproject.com/en/2.2/ref/validators/)
 
 ## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
