@@ -485,3 +485,5 @@ Please Start with School Interface I. Then follow with the Boggle exercise, and 
 - [Boggle I](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 - [App Users III](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in Python
 - [Boggle II](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
