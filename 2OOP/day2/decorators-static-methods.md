@@ -186,3 +186,5 @@ Start with App Users II. Then do Contact List. **The Caesar Cipher is less impor
 - [App Users II](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in Python
 - [Contact List](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in Python
 - [Caesar Cipher](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS/Python
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
