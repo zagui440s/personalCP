@@ -564,3 +564,5 @@ ro
 - [Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in Python
 - [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in Python
 - [Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in Python
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
