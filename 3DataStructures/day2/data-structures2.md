@@ -9,7 +9,7 @@ https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg# Recursion
 - Why? The basic use case for recursion
 - What? Defining the recursive approach
 - How? the call stack and stack overflow
-- Data Structures that compliment recursion: Trees, Binary Trees
+- Data Structures that complement recursion: Trees, Binary Trees
 - Solving Binary Search using a Binary Tree
 
 ## Lesson
