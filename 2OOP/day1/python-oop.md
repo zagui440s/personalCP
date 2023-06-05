@@ -9,9 +9,9 @@
 - **Instantiating objects with __init__ and self**
   - Every class in Python should have an __init__ method, which tells python how to construct instances of that class. The instance to be created is referred to as `self`.
 - **Instance methods and self**
-  - Classes can define methods to be called by instances of that class, which can refer to themselves using the `self` keyword. 
+  - Classes can define methods to be called by instances of that class, which can refer to themselves using the `self` keyword.
 - **Dunder Methods**
-  - These are special methods that are built-in to use within classes, in Python. 
+  - These are special methods that are built-in to use within classes, in Python.
 
 ## Lesson
 
@@ -44,7 +44,7 @@ class Dog: # this is our class definition
 fido = Dog() # this is how we create an instance of our Dog class
 ```
 
-A class can be viewed as a concept, or blueprint, for some idea. When we turn that concept into reality, we create instances (or objects) of the class. It is important to understand this distinction, and become familiar with the terminology being used: A class definition -vs- an instance of a class. 
+A class can be viewed as a concept, or blueprint, for some idea. When we turn that concept into reality, we create instances (or objects) of the class. It is important to understand this distinction, and become familiar with the terminology being used: A class definition -vs- an instance of a class.
 
 ### __init__() method
 
@@ -62,9 +62,9 @@ print(fido.name)
 
 You can add an ```__init__()``` method to your class to allow data to be passed in upon creation of your instance. In our Dog example, we are passing in a ```name``` value and storing it in the instance. We can access the data we've stored in the instance by calling *[instance].[attribute]*, or for our example: ```fido.name```
 
-The ```__init__()``` method also allows us to initialize anything else we may need to for our instance. Keep in mind that Python automatically calls our ```__init__()``` method when we create our instance. You should never be calling the ```__init__()``` method yourself! Also, you MUST name your initialization method "\_\_init\_\_" (two leading underscores, "init", and two trailing underscores) because Python is looking for this method when our object is being initialized. 
+The ```__init__()``` method also allows us to initialize anything else we may need to for our instance. Keep in mind that Python automatically calls our ```__init__()``` method when we create our instance. You should never be calling the ```__init__()``` method yourself! Also, you MUST name your initialization method "\_\_init\_\_" (two leading underscores, "init", and two trailing underscores) because Python is looking for this method when our object is being initialized.
 
-What's up with that `self` parameter though? That's a good question... we'll cover that in a moment. 
+What's up with that `self` parameter though? That's a good question... we'll cover that in a moment.
 
 ### Instance Attributes
 
@@ -114,9 +114,9 @@ fido.fetch("ball")
 
 Some important things to observe about the instance methods we added in the code above:
 
-1. Notice that every instance method (including ```__init__()```) takes in a parameter named "self". This parameter is a reference to the instance calling the instance method. Note that we can name this parameter anything that we want to, but by naming standards, always name it "self". 
+1. Notice that every instance method (including ```__init__()```) takes in a parameter named "self". This parameter is a reference to the instance calling the instance method. Note that we can name this parameter anything that we want to, but by naming standards, always name it "self".
 2. Notice that we do not (and should not) pass in anything for the value of "self" when we call our instance methods (e.g. ```fido.speak()```). Python automatically will pass a reference to the instance for us, and that is why we must provide a "self" parameter to all instance methods
-3. Notice that we are able to make use of instance attributes (and even other instance methods) via the ```self``` object. 
+3. Notice that we are able to make use of instance attributes (and even other instance methods) via the ```self``` object.
 
 ### Other Dunder methods
 
@@ -162,3 +162,5 @@ Dunder methods are not generally meant to be called directly by our code. Python
 - [App Users I](https://github.com/Code-Platoon-Assignments/oop-app-users-i) in Python
 - [Guessing Game](https://github.com/Code-Platoon-Assignments/oop-guessing-game) in Python
 - [CSV Reader](https://github.com/Code-Platoon-Assignments/csv-reader)
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

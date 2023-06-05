@@ -208,3 +208,7 @@ moves = pokemon.moves.all() # Returns a set of related Moves
 ```
 
 and interact with our Models through the [Admin Site](http://localhost:800/admin)
+
+## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

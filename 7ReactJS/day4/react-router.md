@@ -1,7 +1,5 @@
 # React Router
 
-> Remember to use the Slido poll
-
 ## Topics Covered / Goals
 
 - Server-side routing (as we know it)
@@ -454,12 +452,24 @@ This ends up being more concise because we don't need to manually use the useSta
 
 - [react-router docs](https://reactrouter.com/en/main)
 
-### Assignment
-Starting with w8d3's ending point (video-store-pt-3) we want to add the following features:
-    - Add frontend routing so we now have a seperate page for viewing movie details
-    - from the details page we should be able to return to the main page
+
+## Assignments
+
+We want to add the following features:
+- Add frontend routing so we now have a seperate page for viewing movie details
+- from the details page we should be able to return to the main page
 
 Alternatively you can adapt this to your own app, just add routing in some meaningful way.
+
+Assuming you forked + cloned the repo as of day 1 (refer to day 1's instructions if not) you should have a local copy of video-store on your computer.
+
+If you want to continue from your own `main` branch, continue to work from it, though you may want to first take a look at the official starting point (`pt-4-start`) or canonical solution branch (`pt-4-end`). The nature of our 'dummy data' (`src/data`) has evolved, so take a look at that.
+
+If you want to start over from the official `pt-4-start` starting point and are willing to lose your work from day 1 (you can always save it in a new branch) then use the following commands:
+
+```sh
+git reset --hard origin/pt-4-start
+```
 
 
 

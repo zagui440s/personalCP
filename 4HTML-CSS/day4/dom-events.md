@@ -407,6 +407,6 @@ Forms are generally used to send data to another location on the web (usually an
 ## Assignments
 
 - Read the [MDN Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events) and work through it's [Simple Example DOM Events tutorial](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#a_simple_example).
-- [DOM Manipulation](https://github.com/Code-Platoon-Assignments/html-dom-manipulation)
-- [Guess A Number](https://github.com/Code-Platoon-Assignments/html-number-guessing-game)
-- Stretch Challenge: [Create a Static Webpage](https://github.com/Code-Platoon-Assignments/html-static-webpage)
+- [DOM Manipulation](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Guess A Number](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- Stretch Challenge: [Create a Static Webpage](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

@@ -283,3 +283,7 @@ Now in Postman send GET requests to the following url paths:
  http://127.0.0.1:8000/api/v1/pokemon/
  http://127.0.0.1:8000/api/v1/moves/
 ```
+
+## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

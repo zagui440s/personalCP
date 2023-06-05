@@ -228,4 +228,5 @@ class PokeballImgTestCase(TestCase):
 
 ## Assignments
 
-- [API Show and Tell](https://github.com/tangoplatoon/API-show-and-tell)
+- [API Show and Tell](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

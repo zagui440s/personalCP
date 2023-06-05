@@ -257,3 +257,5 @@ pokedex_db=#
 - [Database Diagramer](https://www.quickdatabasediagrams.com/)
 
 ## Assignments
+
+- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

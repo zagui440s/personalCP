@@ -349,5 +349,5 @@ a:hover {
 
 ## Assignments
 
-- [LinkedIn](https://github.com/Code-Platoon-Assignments/html-linkedin.git)
+- [LinkedIn](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
 - [Learn Flexbox with flexbox froggy](https://flexboxfroggy.com)
