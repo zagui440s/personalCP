@@ -558,9 +558,9 @@ To write to a file, change the flag to `'w'` to write over the entire file or `'
 
 ## Assignments
 
-- [99 Bottles](https://github.com/Code-Platoon-Assignments/algo-99-bottles) in Python
+- [99 Bottles](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4ODM1MDAy/details) in Python
 ro
-- [Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in Python
-- [Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in Python
-- [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in Python
-- [Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in Python
+- [Roman Numerals](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5NzgyODQy/details) in Python
+- [Fibonacci](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5NzI4MTcy/details) in Python
+- [Factorial](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5MzQ0OTIx/details) in Python
+- [Linear Search](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5OTg3OTk4/details) in Python

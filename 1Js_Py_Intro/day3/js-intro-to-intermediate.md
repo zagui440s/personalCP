@@ -691,8 +691,8 @@ We could honestly keep doing this for a long time, and it's unclear if I wrote w
 
 > Some of you may be wondering what `exports` is on the Javascript files. The Javascript folders will sometimes have prewritten spec (test) files and in order for the spec file to read the contents of the corresponding Javascript files where your code is written, it must be attached to the `export` Javascript object. To ensure that you are writing correct code, run `node WHATEVER_CHALLENGE_NAME_Spec.js` in the `js` folder. Don't run `node WHATEVER_CHALLENGE_NAME.js` as it will blow up.
 
-- [Regular Expressions](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS
-- [Roman Numerals](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS
-- [Factorial](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS
-- [Fibonacci](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS
-- [Linear Search](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS
+- [Regular Expressions](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5NzI5Njk0/details) in JS
+- [Roman Numerals](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5NzgyODQy/details) in JS
+- [Factorial](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5MzQ0OTIx/details) in JS
+- [Fibonacci](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5NzI4MTcy/details) in JS
+- [Linear Search](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5OTg3OTk4/details) in JS

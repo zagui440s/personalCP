@@ -330,5 +330,5 @@ Some good general git advice:
 
 ## Assignments
 
-- [Git Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Git Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4ODg2NDk5/details)
 - [Learn Git Branching](http://learngitbranching.js.org/)

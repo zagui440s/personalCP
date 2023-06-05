@@ -238,9 +238,9 @@ This was all probably very confusing, as the old way of doing OOP in JavaScript 
 
 Start with School Interface II. Then, Pig Latin. Stock Picker is the stretch assignment for today.
 
-- [School Interface II](https://github.com/Code-Platoon-Assignments/oop-school-interface-ii) in Python
-- [Pig Latin](https://github.com/Code-Platoon-Assignments/algo-pig-latin) in JS/Python
+- [School Interface II](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
+- [Pig Latin](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in JS/Python
 
 Stretch:
 
-- [Stock Picker](https://github.com/Code-Platoon-Assignments/algo-stock-picker) in JS/Python
+- [Stock Picker](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in JS/Python

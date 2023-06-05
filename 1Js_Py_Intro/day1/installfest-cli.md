@@ -282,10 +282,10 @@ You will use these less commonly as on a modern system you will have access to b
 
 ## Assignments
 
-- [Git Essentials](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) **READ FIRST**
+- [Git Essentials](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4MTIyNDk0/details) **READ FIRST**
 
-- [CLI Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [CLI Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4MDg5ODYw/details)
 
-- [99 Bottles](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [99 Bottles](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4ODM1MDAy/details)
 
-- [Deaf Grandma](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in JS
+- [Deaf Grandma](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4NjkzNjU5/details) in JS

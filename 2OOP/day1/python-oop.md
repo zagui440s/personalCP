@@ -159,6 +159,6 @@ Dunder methods are not generally meant to be called directly by our code. Python
 
 ## Assignments
 
-- [App Users I](https://github.com/Code-Platoon-Assignments/oop-app-users-i) in Python
-- [Guessing Game](https://github.com/Code-Platoon-Assignments/oop-guessing-game) in Python
-- [CSV Reader](https://github.com/Code-Platoon-Assignments/csv-reader)
+- [App Users I](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
+- [Guessing Game](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
+- [CSV Reader](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)

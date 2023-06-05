@@ -481,7 +481,7 @@ Please Start with School Interface I. Then follow with the Boggle exercise, and 
 
 > **Note:** Today in particular has several larger assignments! It is OK if you don't finish them all today.
 
-- [School Interface I](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
-- [Boggle I](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
-- [App Users III](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg) in Python
-- [Boggle II](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [School Interface I](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
+- [Boggle I](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
+- [App Users III](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
+- [Boggle II](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)

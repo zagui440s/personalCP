@@ -29,7 +29,7 @@ class Person:
 
 ## Optional assignments (**if you finish the assessment early**)
 
-- [School Interface III](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
-- [Bowling](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [School Interface III](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
+- [Bowling](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
 
 ## [**Assessment-1**](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
