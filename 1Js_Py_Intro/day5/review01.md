@@ -22,3 +22,5 @@ This is open time to ask questions and solidify understanding of what we have wo
 - [Calculate Mode](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQxNDgxNjQy/details) in JS/Python
 - [Pad an Array](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQwMDI3NzMw/details) in JS/Python
 - [Balanced Parentheses](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQxNDM1NDA2/details) in JS/Python
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

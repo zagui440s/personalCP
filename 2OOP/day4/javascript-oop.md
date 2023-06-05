@@ -5,7 +5,7 @@
 - Class-based OOP in JS
   - comparison with Python for syntax differences
 - Prototypes vs Classes
-- The `this` keyword in javaScript
+- The `this` keyword in JavaScript
   - the global object (`window` in the browser vs `global` in node)
   - Using the `function` keyword vs arrow functions
 - Prototypical inheritance in JavaScript
@@ -244,3 +244,5 @@ Start with School Interface II. Then, Pig Latin. Stock Picker is the stretch ass
 Stretch:
 
 - [Stock Picker](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in JS/Python
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

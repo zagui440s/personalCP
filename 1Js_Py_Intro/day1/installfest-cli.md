@@ -289,3 +289,5 @@ You will use these less commonly as on a modern system you will have access to b
 - [99 Bottles](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4ODM1MDAy/details)
 
 - [Deaf Grandma](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4NjkzNjU5/details) in JS
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

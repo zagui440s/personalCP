@@ -564,3 +564,6 @@ ro
 - [Fibonacci](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5NzI4MTcy/details) in Python
 - [Factorial](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5MzQ0OTIx/details) in Python
 - [Linear Search](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5OTg3OTk4/details) in Python
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+

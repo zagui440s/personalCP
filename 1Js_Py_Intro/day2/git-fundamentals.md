@@ -332,3 +332,5 @@ Some good general git advice:
 
 - [Git Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4ODg2NDk5/details)
 - [Learn Git Branching](http://learngitbranching.js.org/)
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

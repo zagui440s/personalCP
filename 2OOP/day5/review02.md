@@ -32,4 +32,6 @@ class Person:
 - [School Interface III](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
 - [Bowling](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
 
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+
 ## [**Assessment-1**](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)

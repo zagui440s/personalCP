@@ -303,7 +303,7 @@ When traversing a tree you typically there are different ways to traverse a tree
 ## Resources
 
 - [Data structure visualization](https://cmps-people.ok.ubc.ca/ylucet/DS/Algorithms.html)
-- [Data structures in the indunstry](https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/amp/)
+- [Data structures in the industry](https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/amp/)
 
 ## Assignments
 
