@@ -1,12 +1,8 @@
 # Code Platoon Curriculum
 
-## Welcome
-
-**Students, welcome to Code Platoon!** Be prepared to push yourself and to work hard towards your new career. We are happy you are here and are here to support you. If you need anything, please don't hesitate to ask. There are many resources available to you on your journey!
-
 ## Getting Started
 
-You can view our cohort's [curriculum calendar](https://docs.google.com/spreadsheets/d/1lz6tc9RM6mBs7Ngq8gWezNM6K2ywbdeD3gwmbNG6eZc/edit#gid=0), which is broken down by weeks and days.
+You can view our cohort's [curriculum calendar](https://docs.google.com/spreadsheets/d/1OFBrYsnRSmpgJOWq7rxwBummdR5eCAnqpWJMeqmm-do/edit#gid=0), which is broken down by weeks and days.
 
 ![Fullstack Development](./page-resources/cp_fullstack_development.png)
 
@@ -33,3 +29,9 @@ It is important for you to have a place to talk about how you are feeling and ho
 ## Video Links
 
 Classroom videos/lectures will be recorded and posted to YouTube. It can take up to a few hours to process the video after recording, so please be patient if you don't see the video available online immediately after a lecture. If you want to refer back to the lecture content before the video is uploaded, you can look at the demo code in github, which is uploaded immediately after lectures finish.
+
+- [Week 1](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQP6Y4igNWNJhSwTkfSMRQA)
+
+## Additional Resources Shared in Class
+
+- [Pass-by-value vs pass-by-reference](https://gist.github.com/AloofBuddha/92ee6749a8be48c984881a4523f533c3)
