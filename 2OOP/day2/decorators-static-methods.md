@@ -1,6 +1,6 @@
 # Decorators, Static Methods vs Instance Methods, Getters and Setters
 
-## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1QaGHHV18LWAl-P9_0K58ji632yJ8w7m74zNn2VpgN8c/edit?usp=sharing)**
+## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1C_v4qWlBS4UiDs4rI35x59igCUscGtzMqaK6bGqzKG4/edit?usp=sharing)**
 
 ## Topics Covered / Goals
 
