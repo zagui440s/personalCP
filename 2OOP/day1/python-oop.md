@@ -1,6 +1,6 @@
 # Python OOP
 
-## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1QaGHHV18LWAl-P9_0K58ji632yJ8w7m74zNn2VpgN8c/edit?usp=sharing)**
+## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1lcYNdojb96cDjZyzhLVolQA_-pOxe8V36bqbH8VEJLg/edit?usp=drive_link)**
 
 ## Topics Covered / Goals
 
