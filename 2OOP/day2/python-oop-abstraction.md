@@ -1,4 +1,4 @@
-# Decorators, Static Methods vs Instance Methods, Getters and Setters
+# Python OOP Abstraction & Encapsulation (Decorators, Static Methods vs Instance Methods, Getters and Setters)
 
 ## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1-BcmDpQ32uS7J7dOLPRVNQei4rAhCI87bz4zJQtmlYs/edit?usp=drive_link)**
 

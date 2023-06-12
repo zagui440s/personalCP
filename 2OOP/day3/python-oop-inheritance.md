@@ -1,4 +1,4 @@
-# Python OOP Inheritance
+# Python OOP Inheritance & Polymorphism
 
 ## Topics Covered / Goals
 
