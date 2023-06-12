@@ -161,9 +161,9 @@ Dunder methods are not generally meant to be called directly by our code. Python
 
 ## Assignments
 
-- [App Users I](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQxODA3Njg2/details) in Python
+- **[App Users I](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQxODA3Njg2/details) in Python**
+
 - [Guessing Game](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQyODY3MTM2/details) in Python
 - [CSV Reader](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQyODgzNjI2/details)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
-

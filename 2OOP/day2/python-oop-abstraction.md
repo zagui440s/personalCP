@@ -186,7 +186,7 @@ print(alice.age)
 Start with App Users II. Then do Contact List. **The Caesar Cipher is less important for today, and is more to practice algorithm-style programming problems. However implementing it as a class is a good opportunity to practice writing classes.**
 
 - [App Users II](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NTIyNzMwNTY5MDIw/details) in Python
-- [Contact List](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NTIyNzMwNjI0MjU1/details) in Python
+- **[Contact List](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NTIyNzMwNjI0MjU1/details) in Python**
 - [Caesar Cipher](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQyNDY2NzI2/details) in JS/Python
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

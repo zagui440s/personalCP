@@ -131,3 +131,7 @@ pytest
 ## Overview
 
 Today we covered why and how to write tests in both JavaScript and Python utilizing Jest and Pytest as our standard testing frameworks. We covered how to read and run tests to ensure our code is behaving correctly and we covered how to interact with failing tests.
+
+## Assignments
+
+- [School Interface II](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
