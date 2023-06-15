@@ -1,5 +1,7 @@
 # Python OOP
 
+## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1lcYNdojb96cDjZyzhLVolQA_-pOxe8V36bqbH8VEJLg/edit?usp=drive_link)**
+
 ## Topics Covered / Goals
 
 - **Intro to Object Oriented Programming**
@@ -159,9 +161,9 @@ Dunder methods are not generally meant to be called directly by our code. Python
 
 ## Assignments
 
-- [App Users I](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
-- [Guessing Game](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
-- [CSV Reader](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
+- **[App Users I](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQxODA3Njg2/details) in Python**
+
+- [Guessing Game](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQyODY3MTM2/details) in Python
+- [CSV Reader](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQyODgzNjI2/details)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
-

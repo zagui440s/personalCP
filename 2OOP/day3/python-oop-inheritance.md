@@ -1,4 +1,6 @@
-# Python OOP Inheritance
+# Python OOP Inheritance & Polymorphism
+
+## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1dTwIEYiR0CBCCq_QPxlKCZXwoZbKXNDWiKTYsiDGCnA/edit?usp=drive_link)**
 
 ## Topics Covered / Goals
 
@@ -483,7 +485,7 @@ Please Start with School Interface I. Then follow with the Boggle exercise, and 
 
 - [School Interface I](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
 - [Boggle I](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
-- [App Users III](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python
+- **[App Users III](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1) in Python**
 - [Boggle II](https://classroom.google.com/w/NjEyMzM5MTczMDQ4/tc/NjEyNjM4NjQwNjk1)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
