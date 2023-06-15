@@ -1,32 +1,76 @@
 # Data Structures
 
-
 ## Topics Covered / Goals
-- Learn what a data structure is and why it matters
 
+- (Meta) What is the purpose of Data Structures week for Code Platoon students?
+  - The tech interview
+  - LeetCode
+- The memory model - how a computer actually works
 - Learn some different data structures and the main operations/methods associated with each
-    - Arrays
-    - Linked Lists
-    - Stacks and Queues 
-    - Hash Tables
-    - Binary Search Trees
-
+  - Arrays
+  - Linked Lists
+  - Stacks
+  - Queues
 
 ## Lesson
 
-### Data Structures
+### Slidedeck
 
-In computer science, a data structure is a way of organizing and storing data in a computer's memory. It provides a means for efficiently accessing and manipulating the data. As you will see, you have been working with data structures all along, so some are already familiar to you, like strings, arrays, and JS objects/Python dictionaries. However there is an important distinction between the data types a specific programming language provides and the 'official' version of the related data structure. So for example, arrays in JavaScript are more powerful then the official concept of an Array in terms of data structures, and the reason for this is because JS is a high-level language and can hide a lot of the complexity under the hood. We will explain these differences when appropriate, but it is good to think of data structures in a language-agnostic way to begin with.
+[Data Structures Slides](https://docs.google.com/presentation/d/1Ua5oUr6mXy04ADOAZFOfy6MTAqNcqbfoOjl7fQG-M6Q/edit?usp=sharing)
 
-### Why does this matter? Why is there more than one data structure?
+### (Meta) What is the purpose of Data Structures week for Code Platoon students?
 
-Different data structures have different characteristics, advantages, and use cases. The choice of a data structure depends on the type of operations to be performed, the efficiency required, and the constraints of the problem at hand. Selecting an appropriate data structure is crucial for designing efficient algorithms and optimizing performance in computer programs.
+It is important to contextualize this week's material a little bit as it can feel somewhat out of place with respect to the rest of the course. Most of what we cover in this course fits into the topic of 'software development' - i.e. the practical dicipline of creating useful software. In the first two weeks you skill up in the main language we work with, Python, and then Week 4 through 10 we learn all the practical tools necessary for fullstack web development, things like:
 
-This idea of measuring performance in the abstract is known as 'complexity analysis', sometimes colloqially known as 'Big O anlysis', which we will eventually go into more depth about later this week.
+- Week 4: HTML/CSS/JS for building a basic (minimally-interactive) frontend
+- Week 5: SQL for databases
+- Week 6-8: Django for building a 'backend' web server and API
+- Week 9: React for building a modern (highly-interactive) frontend
+- Week 10: Deployment
 
-Before we can dive into any specific data structure however, we need to explain how computer memory works.
+So what is Week 3 - **Data Structures** all about?
 
-### Memory
+Unlike the other weeks in which we are really teaching _software development_, **Data Structures** is much more of a pure _computer science_ topic. That means it can seem somewhat technical and seeming impractical. So why are we learning it then?
+
+#### The tech interview
+
+An interview for a software development position will inevitably involved some kind of _technical interview_. This can take a few different forms, sometimes you will merely be asked to talk about a topic ('What is class inheritance in OOP and why is it useful?') and sometimes this will be a practical coding assignment ('Build a navbar in React').
+
+The most classic kind of tech interview however is an example of a 'data structures & algorithms' problem. In such a problem you will be given a self contained prompt and some input => output examples, and asked to program a solution in the language of your choice. Sometimes this is done in person, and in the most extreme cases (read: only Google at this point) you will be asked to solve the problem on a standard whiteboard with no access to a physical computer. So why is it done this way at all?
+
+The answer is that these kinds of interview questions are popular because they are both language-agnostic and domain-agnostic, meaning if you are applying to a role as a game developer working in C++, but you only have experience as a web develop using Python and JavaScript, the same kind of question can be asked, and answered in the language of your choice, while proving some kind of essential technical ability.
+
+#### LeetCode
+
+There are many websites that mock this experience of a tech interview, but the one we tend to use at Code Platoon is [LeetCode](https://leetcode.com). Let's look at a classic example of an 'easy' level problem on LeetCode just to get a sense of what it looks like - [Two Sum](https://leetcode.com/problems/two-sum/).
+
+![Leetcode](./page-resources/leetcode-general.png)
+
+Let's break down this page. On the left you'll see a description of the problem, including input => output examples.
+
+On the right you will see a code editor. Notice in the to left of this section you can select the language of your choice:
+
+![Leetcode language choice](./page-resources/leetcode-language-choice.png)
+
+You will generally be allowed to choose the language you feel most comfortable with, unless explicitly specified otherwise.
+
+From here you can write a solution and test it along the way with the 'Run' button, which will run your solution against some sample cases, including ones you write yourself if desired. Logging to the console will also be output here:
+
+![Leetcode run](./page-resources/leetcode-run.png)
+
+When you feel good about the solution you can hit 'Submit'. This will run your solution against way more test cases, which you cannot see, but it will account for any edge case basically.
+
+![Leetcode run](./page-resources/leetcode-results.png)
+
+If you pass all the test cases you will see a screen like this. Noticed the highlighted section - I am being measured against other passing submissions in terms of both runtime and memory usage. This is an example of the 'analysis' section that comes at the end of a succesful solution - you will be asked to analyze the efficiency of your solution and if you might be able to optimize it. Now let's close this solution panel and go back to the 'Description' tab on the left part of the screen. Scroll down to the 'Follow Up' section:
+
+![Leetcode complexity](./page-resources/leetcode-complexity.png)
+
+That sentence should make no sense to you yet, but it's an example of what is called **complexity analysis**, more often refered to simply as **Big-O**. Part of the concept of data structures and algorithms is this idea of a rigorous, mathematical form of analysis of one's alogrithm. This is actual math, but it's possible to learn how to think about complexity analysis without learning the mathematical details. So when the follow up section says "is it possible to come up with an algorithm that is less than `O(N^2)` time complexity?' that essentially means 'you solved it with nested for loops (looking at N elements for each N elements = N^2, the 'big-O' part means 'in the worst case scenario'), is there some way to do that with a better 'worst case' complexity guarantee? Which transaltes to 'could you solve this with only a single loop through the array, instead of nested loops?' We cover this concept in more depth Day 3 of Data Structures week, but it's important to have a basic familiarity upfront.
+
+### The memory model - how a computer actually works
+
+In order to learn specific Data Structures, it's important we can do a little complexity analysis first. And in order to do this, it's important we understand a little about how memory in a computer actually works on a physical level, as this determines what is and isn't efficient to do on a computer.
 
 Memory in a computer can be thought of as a contiguous block of identically sized 'slots', like so:
 
@@ -66,7 +110,7 @@ nums = [1, 4, 12, 7, 2]
 
 ![num array](./page-resources/num-array.png)
 
-`nums` is a variable that *refers* to the array. In DS-speak we call this a *pointer*. A pointer refers to a specific address in memory, so in this example the pointer `nums` holds the memory address `0`.
+`nums` is a variable that _refers_ to the array. In DS-speak we call this a _pointer_. A pointer refers to a specific address in memory, so in this example the pointer `nums` holds the memory address `0`.
 
 So why is it important that in an Array the values are contiguous blocks of memory all of the same size? Well, let's consider what is actually happening when you index an array.
 
@@ -76,25 +120,34 @@ nums[2] # 12
 nums[4] # 2
 ```
 
-Indexing is actually just a quick mathematical operation. To get the value of `nums[4]` we take the memory location of `nums` (0) and add 4 * sizeof(int). Because we established that an int is 32 bits, that means the memory address of `nums[4]` is: 0 + 4 * 32 = 128. And indeed it is!
+Indexing is actually just a quick mathematical operation. To get the memory location of an index in an array we evaluate an equation like:
+
+```sh
+memory_address_of_beginning_of_arr + index_desired * size_of_each_thing_in_array
+```
+
+So to get the value of `nums[4]` we take the beginning memory location of `nums` and add `4 * sizeof(int)`. Because we established that an int is 32 bits, that means the memory address of `nums[4]` is: `0 + 4 * 32 = 128`. And indeed it is!
 
 This property of the memory being in order and holding same-sized objects is necessary because it's what allows us to 'jump' to the 4-th index without having to actively look through the previous elements.
 
 ### Analysis
 
-This is a good time to explain the basics of complexity analysis. Imagine for a moment we didn't have this property of contiguous + same sized slots. If that were the case we would need to walk from the beginning of the list and count the # of elements one at a time until we got to the fourth. This would be an example of a 'linear time' operation, or in Big-O terms: `O(n)`. This means that, if the array was size n (for any n), the worst case scenario to find a specific index is n operations. So if our array was of size 1000, we might need to look at 1000 elements before we got to the one we want.
+This is a good time to explain the basics of complexity analysis. Imagine for a moment we didn't have this property of contiguous + same sized slots. If that were the case we would need to walk from the beginning of the list and count the # of elements one at a time until we got to the fourth. This would be an example of a _linear time_ operation, or in Big-O terms: `O(N)`. This means that, if the array had length N (for any N), the _worst case scenario_ to find a specific index is N operations. So if our array was of size 1000 and we wanted to see the last element, we would need to look at 1000 elements before we got to the one we want to see.
 
-Luckily this isn't the case though, because of those two properties, it's a simple math formula to reach the correct index in one operation. So for an array of size 1000, to get the 1000th element all we need to do is compute: `startAddress + index * sizeof(int)` and we can immediately jump to that element. This is called 'constant time', or O(1). This is the best guarantee possible - it means no matter how big the size of the data, the time it takes to do the operation remains the same.
+Luckily this isn't the case though, because of those two properties, it's a simple math formula to reach the correct index in one operation. So for an array of size 1000, to get the 1000th element all we need to do is compute: `startAddress + index * sizeof(int)` and we can immediately jump to that element. This is called _constant time_, or `O(1)`. This is the best guarantee possible - it means no matter how big the size of the data, the time it takes to do the operation remains the same.
 
-So in this case we would say the Array has a lookup complexity of O(1).
+So in this case we would say the Array has a lookup complexity of `O(1)`. Note that different operations on a data structure can have different complexity guarantees. So consider the cases of adding or removing something from an array. Assuming you already had the room for it (no need to 'grow' the array):
 
-> An important note: in traditional Arrays, the full size of the Array must be known when defining it. That isn't the case with JS or Python arrays, which you can add to indefinitely. How this actually works under the hood is that, when you try to add an element to an already full array in JS, behind the scenes it will double it's size in memory, copy over all the existing elements, and then add the next one. This is significant because in reality adding an element to an array, even to the end, is not necessarily `O(1)`
+- adding to the end - `O(1)`. Why? Jump to the last index, add one, put it there.
+- adding to the beginning/middle - `O(N)`. Why? Will first need to copy every other element to the index next to it. Middle is just as bad as beginning because we are concerned with 'worst case' behavior.
+
+> An important note: in traditional Arrays, the full size of the Array must be known when defining it. That isn't the case with JS or Python arrays, which you can add to indefinitely. How this actually works under the hood is that, when you try to add an element to an already full array in JS, behind the scenes it will double it's size in memory, copy over all the existing elements, and then add the next one. This is significant because in reality adding an element to an array, even to the end, is not necessarily `O(1)`.
 
 ## Linked lists
 
 After Arrays, Linked Lists are the most common, basic data structure. You often won't see these explciitly in a language, but they are definitely used everywhere under the hood. Once again, let's think of this in the abstract first.
 
-A **Linked List** is a *non-contiguous* data structure, meaning the elements of a linked list are not necessarily next to each other in memory.
+A **Linked List** is a _non-contiguous_ data structure, meaning the elements of a linked list are not necessarily next to each other in memory.
 
 Each element in a linked list is called a node and this node holds a `value` (the data value that we are holding) and a pointer `next` which contains a reference to the next element.
 
@@ -138,7 +191,7 @@ nums = Node(1, Node(4, Node(12, Node(2, Node(7)))))
 
 ### Analysis
 
-OK, we defined a LL, but what is it good for? Well, let's compare it to an Array. What about lookup? Because the memory is non-contiguous, we cant just do a little math to find the 17-th element, for example, we need to walk through the LL, from the beginning, one element at a time, using `next` to traverse.
+OK, we defined a LL, but what is it good for? Well, let's compare it to an Array. What about lookup? Because the memory is non-contiguous, we can't just do a little math to find the 17-th element, for example, we need to walk through the LL, from the beginning, one element at a time, using `next` to traverse.
 
 ```py
 class Node:
@@ -158,7 +211,7 @@ class LL:
             assert current.next != None, "Out of bounds!"
             current = current.next
             current_index += 1
-        
+
         return current.value
 
 
@@ -168,7 +221,7 @@ ll = LL(nums)
 ll.get_by_index(4) # 7
 ```
 
-This is not constant time like with an Array, it is linear time, O(n)!
+This is not constant time like with an Array, it is linear time, `O(n)`!
 
 However consider adding an element to the end of the LL? Unlike an Array, we could do this forever without ever having to change the size of the array, as the memory can be non-contiguous. And we can hold a pointer to the last element, making this constant time:
 
@@ -198,119 +251,25 @@ ll.append(7)
 
 This is constant time! This is the basic trade off for an Array vs a LL:
 
-Array: get/set: O(1), add/remove: O(n)
-LL: get/set: O(n), add/remove: O(1)
+Array:
 
-## Stacks
-A stack is a data structure that only allows adding to the top of the stack (`push()`) and to remove from the top of the stack (`pop()`)
+- get/set: `O(1)`
+- add/remove: `O(n)`
 
-> a stack is like a list in python, if we could only modify it with `push()` and `pop()`. 
+LL:
 
-Stacks process items in LIFO order (last in, first out) and typically have (at minimum) the following API:
+- get/set: `O(n)`
+- add/remove: `O(1)`
 
-- push - add an item to the top
-- pop - remove an item from the top and return that item
-- size - return the number of elements in it
-    
-Sometimes you will also see
+## Additional Reading
 
-- peek - return the value of the item currently on the top
-
-
-## Queues
-A queue is similar to a stack in that 
-> a queue is a like a list, if we could only modify the first item with `enqueue()`, and remove the last item `dequeue()`. 
-A customer service help line would be a good example of a queue
-
-
-
-
-## Hash tables
-Hash tables allow you to create a list of key-value pairs. After creating a pair, you can retrieve a value using the key for that value.
-
-### hashing
-- a hashing function takes some value as input, and returns a hash, an integer in this case. 
-- hashing is a one-way operation. while it's generally fast to hash a value, there is no straightforward way to reverse a hash
-- hashing the same input always produces the same output (no randomness)
-- it is possible, but unlikely, that multiple values will have the same hash (hash collision) 
-
-```py
-
-class HashTable :
-    def __init__(self) :
-        
-        self.table = [[] for i in range(64)]   # creates a list of 64 lists
-
-
-    # given a key, this function should return a numerical index, which we can use to access the table above
-    def _hash(self, key):
-        hash = 0
-        for char in key:
-            hash += ord(char)  # returns an integer representing a unicode character
-
-        return hash % len(self.table)
-
-
-    def set(self, key, value):
-        index = self._hash(key)
-        self.table[index].append([key,value])
-    
-
-    def get(self, key):
-        index = self._hash(key)
-
-        for data in self.table[index]:
-            if data[0] == key  :
-                return data[1]
-            
-
-
-myHash = HashTable()
-
-myHash.set('name', 'alice')
-myHash.set('age', 34)
-myHash.set('mane', 'luxurious') # this key will cause a hash collision with 'name', because they are anagrams
-
-print(myHash.table)
-print(myHash.get('name'))
-print(myHash.get('age'))
-print(myHash.get('mane'))
-
-```
-## Trees
-A tree is a data structure with a root node, which can have many child nodes, which each can have many child nodes.
-
-There are many types of trees each having their own way for organizing and retrieving data but most common
-
-### Binary trees
-A binary tree is a tree where each node has at most two children. 
-
-Typically each node contains a`value`, `left` which is a reference to the left child node, and `right` which is a reference to the right child node.
-
-A `binary search tree` is a binary tree in which each left node is smaller than each right node. This structure can be searched efficiently using binary search. 
-
-When traversing a tree you typically there are different ways to traverse a tree
-
-** Note: a B-Tree is NOT a binary tree. It's similar, but can have more than 2 children per node, depending on the order of the tree (a 4th order tree has at most 4 children per node). These are commonly used in popular databases. 
-
-
-## Other data structures you might hear of
-- AVL-trees - a binary tree that has balanced sub-tree heights
-
-- Graphs - a data structure that represents a graph with vertices and edges connecting those vertices. 
-[Read more about graphs and how they're represented in code](https://www.geeksforgeeks.org/graph-and-its-representations/)
-
-## Resources
-
-- [Data structure visualization](https://cmps-people.ok.ubc.ca/ylucet/DS/Algorithms.html)
-- [Data structures in the industry](https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/amp/)
+[Stacks and Queues](https://stackabuse.com/stacks-and-queues-in-python/) are two data structures that can be implemented using either an Array or a Linked List. Read about them for the sake of understanding, as this will open up another avenue of LeetCode type problems for you to practice.
 
 ## Assignments
 
-- [Data Structures](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Arrays - Two Sum](https://leetcode.com/problems/two-sum/)
+- [Arrays - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (ignore the desired complexity of `O(log n))`)
+- [LinkedList - Remove Elements](https://leetcode.com/problems/remove-linked-list-elements/)
+- [LinkedList - Reverse](https://leetcode.com/problems/reverse-linked-list/)
 
-If you are done and want more data structures practice let us know!
-
-If you are done and want some more oop practice:
-
-- [Bank Accounts](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- Bonus: if you have time, explore Leetcode. Stick to 'easy' problems for now (they are hard enough), but it can be a good way to learn about what types of data structures are out there, as there are many more then our program can cover in this week.
