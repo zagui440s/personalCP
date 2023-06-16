@@ -61,7 +61,7 @@ Actually, this works! This is not a circular definition, though it very nearly i
 
 **Recursion** is simply the idea of defining a function _in terms of itself_.
 
-![mind blown](/page-resources/mind-blown.webp "Mind Blown")
+![mind blown](./page-resources/mind-blown.webp "Mind Blown")
 
 This might sounds trippy and obtuse, but it can actually be a very natural way to solve certain problems.
 
@@ -194,7 +194,7 @@ See! There is a limit! It's a very large number (and you can make it larger if n
 
 Optimal sub-structure is a quality some data structures have in that they can be _defined in terms of themselves_. The canonical example is a Binary Tree!
 
-![binary tree](/page-resources/binary-tree.jpg "Binary Tree")
+![binary tree](./page-resources/binary-tree.jpg "Binary Tree")
 
 A Binary Tree is defined as being either:
 
