@@ -1,8 +1,4 @@
-https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg# Recursion
-
-## Link to Slide Deck
-
-[Recursion Slide Deck](https://docs.google.com/presentation/d/1C5wV3C-Npsg7hxPSZdkTj2y5gxN-rV7kGPAjE6R7Qvc/edit?usp=sharing)
+# Recursion
 
 ## Topics Covered / Goals
 
@@ -13,6 +9,10 @@ https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg# Recursion
 - Solving Binary Search using a Binary Tree
 
 ## Lesson
+
+### Slidedeck
+
+[Recursion Slide Deck](https://docs.google.com/presentation/d/1TCAQQR1Qycs-Tr67YutKmBn0loyxAIT2-CMaOb_wGNA/edit?usp=sharing)
 
 ### Why? The basic use case for recursion
 
@@ -180,7 +180,7 @@ And we're done, now we can return the result!
 
 But here's something to think about: what would happen if we didn't ever hit our base case? The call stack can grow but, importantly, **it cannot grow forever** - the call stack size has a hard limit! This is why the base case is so important, because without it we get a kind of error known as a _stack overflow_ (yes, that's where the tech help forum gets it's name from!).
 
-So here's what does happen if you were to run the code in `3-stack-overflow.js`:
+So here's what does happen if you were to run the code in `code-examples/stack_overflow.js`:
 
 ```
 RangeError: Maximum call stack size exceeded
@@ -206,9 +206,9 @@ This is our base case, a terminating node with no children, or
 
 This is the equivalent of the recursive step
 
-> See `code/4-binary-search-tree.py` to see how we would define such a structure
+> See `code/binary_tree.py` to see how we would define such a structure
 
-### Binary Search Tree
+### Binary Search / Binary Search Tree
 
 A binary search tree is a binary tree with some additional properties, namely:
 
@@ -222,14 +222,20 @@ This is the same logic as some asking you to 'pick a number between 1 and 100' a
 
 What might be an optimal guessing strategy for such a game? How does this relate to Binary Search Trees?
 
-> see `code/5-binary-search.py` to see binary search implemented
+> see `code/binary_search.py` to see binary search implemented for a binary tree
 
 ## External Resources
 
 - [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
+
   - This tool breaks down code step by step, allowing you to see the Call Stack in real-time.
+
+- [BFs vs DFS](https://medium.com/nothingaholic/depth-first-search-vs-breadth-first-search-in-python-81521caa8f44)
+  - There are two main ways to traverse a tree, Depth-first Search (look at the children of children of children ... first) and Breadth-first Search (look at all child nodes at a given level before descending to the next level). These use the concept of stacks and queues from the previous days reading.
 
 ## Assignments
 
-- [Recursion](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
-- [Binary Search](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
+- [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (you did this yesterday, but can now solve it with the `O(log n))` solution)
+- [Binary Tree - Maximum Depth](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+  - the main idea here is that you can 'descend' the tree to the bottom using recursion and 'bubble up' the answer using return statements
