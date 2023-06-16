@@ -9,8 +9,6 @@
 - Learn some different data structures and the main operations/methods associated with each
   - Arrays
   - Linked Lists
-  - Stacks
-  - Queues
 
 ## Lesson
 
@@ -261,9 +259,9 @@ LL:
 - get/set: `O(n)`
 - add/remove: `O(1)`
 
-## Additional Reading
+## Additional Learning
 
-[Stacks and Queues](https://stackabuse.com/stacks-and-queues-in-python/) are two data structures that can be implemented using either an Array or a Linked List. Read about them for the sake of understanding, as this will open up another avenue of LeetCode type problems for you to practice.
+[Stacks and Queues](https://youtu.be/Zai4ejbY6qQ?t=840) (from 14:00 - 21:00 approximately) are two data structures that can be implemented using either an Array or a Linked List. Watch this video about them for the sake of understanding, as this will open up another avenue of LeetCode type problems for you to practice.
 
 ## Assignments
 
@@ -273,3 +271,5 @@ LL:
 - [LinkedList - Reverse](https://leetcode.com/problems/reverse-linked-list/)
 
 - Bonus: if you have time, explore Leetcode. Stick to 'easy' problems for now (they are hard enough), but it can be a good way to learn about what types of data structures are out there, as there are many more then our program can cover in this week.
+
+> Note: we recognize even the 'easy' problems are not that easy. We want you to get more familiar with Leetcode and what these kinds of challenges involve. The problems often seem contrived but they are a kind of exercise designed to stretch the muscles of your programming brain.
