@@ -31,6 +31,8 @@ It is important for you to have a place to talk about how you are feeling and ho
 Classroom videos/lectures will be recorded and posted to YouTube. It can take up to a few hours to process the video after recording, so please be patient if you don't see the video available online immediately after a lecture. If you want to refer back to the lecture content before the video is uploaded, you can look at the demo code in github, which is uploaded immediately after lectures finish.
 
 - [Week 1](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQP6Y4igNWNJhSwTkfSMRQA)
+- [Week 2](https://www.youtube.com/playlist?list=PLu0CiQ7bzwES2Ct4Lht3AwSRhaDzuc6ZL)
+- [Week 3](https://www.youtube.com/playlist?list=PLu0CiQ7bzwER04ZC27l1EArYJTQnuK9Xn)
 
 ## Additional Resources Shared in Class
 
