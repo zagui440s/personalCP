@@ -8,7 +8,7 @@
 
 ## Lesson
 
-> [Big O Slides](https://docs.google.com/presentation/d/1QtzsFoSPi4Eh4mJKlYk77jJZmHUcfMifWcAC-cyHIYg/edit?usp=sharing)
+> [Big O Slides](https://docs.google.com/presentation/d/15yxGWC2mQjO7glnHj8nqfBrYcJlapb6JMRYKewJ5LUM/edit?usp=sharing)
 
 Big-O ("big O") notation is used in programming to describe the relative performance of a given algorithm. Note that it is not used to describe how much time an algorithm or program will take to run, but rather how it'll be affected by the change in input size. Programmers are generally concerned with how much time an algorithm takes to run based on the input size, as well as how much memory it might require to utilize. However, time efficiency is usually what we are focused on improving.
 
@@ -129,6 +129,8 @@ def find_double_exists(my_list):
     return True
 ```
 
+### Memoization
+
 Other times, we may be able to refactor our algorithm entirely to improve our time complexity:
 
 ```python
@@ -146,7 +148,7 @@ def fibonacci(N):
     return f
 ```
 
-Going from our naive recursive solution to an iterative one for Fibanacci, we've changed our time complexity from O(2^N) (i.e. "terrible") to be O(N)!
+_Memoization_ is a fancy computer science term that means "remembering the results of previous computations so you don't recompute things needlessly", which is what we are doing here. Going from our naive recursive solution to an iterative one for Fibanacci, we've changed our time complexity from O(2^N) (i.e. "terrible") to be O(N)!
 
 ### More Examples
 
@@ -197,6 +199,63 @@ def example_3(my_list):
 
     return yummy_count
 ```
+
+### `dict` (ie HashTable)
+
+## Hash Tables
+
+Hash Tables are a data structure that allows you to create a list of key-value pairs with (near) constant time lookup by key. After creating a pair, you can retrieve a value using the key for that value. Python's `dict` and JS's `object` are both examples of a Hash Table.
+
+### hashing
+
+- a hashing function takes some value as input, and returns a hash, an integer in this case.
+- hashing is a one-way operation. while it's generally fast to hash a value, there is no straightforward way to reverse a hash
+- hashing the same input always produces the same output (no randomness)
+- it is possible, but unlikely, that multiple values will have the same hash (hash collision)
+
+```py
+class HashTable :
+    def __init__(self) :
+
+        self.table = [[] for i in range(64)]   # creates a list of 64 lists
+
+
+    # given a key, this function should return a numerical index, which we can use to access the table above
+    def _hash(self, key):
+        hash = 0
+        for char in key:
+            hash += ord(char)  # returns an integer representing a unicode character
+
+        return hash % len(self.table)
+
+
+    def set(self, key, value):
+        index = self._hash(key)
+        self.table[index].append([key,value])
+
+
+    def get(self, key):
+        index = self._hash(key)
+
+        for data in self.table[index]:
+            if data[0] == key  :
+                return data[1]
+
+
+
+myHash = HashTable()
+
+myHash.set('name', 'alice')
+myHash.set('age', 34)
+myHash.set('mane', 'luxurious') # this key will cause a hash collision with 'name', because they are anagrams
+
+print(myHash.table)
+print(myHash.get('name'))
+print(myHash.get('age'))
+print(myHash.get('mane'))
+```
+
+It isn't important you know how to create a Hash Table but rather to understand enough as to how it can achieve `O(1)` lookup by key.
 
 ## Assignments
 
