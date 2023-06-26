@@ -266,7 +266,7 @@ Hints:
 
 ## Assignments
 
-- [Top Ten](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Top Ten](https://classroom.github.com/a/3buomjOe)
 - Use the html and css you were introduced to today to start a portfolio website for yourself. This does not have to be completed today but it's good to start one so you can keep adding to it the more you learn.
   Sections to include:
   - About me: a little paragraph about you

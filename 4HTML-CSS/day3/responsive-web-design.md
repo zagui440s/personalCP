@@ -232,4 +232,4 @@
 
 ## Assignments
 
-- [Styling with Bootstrap](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Styling with Bootstrap](https://classroom.github.com/a/him-u0Mx)
