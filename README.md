@@ -37,3 +37,4 @@ Classroom videos/lectures will be recorded and posted to YouTube. It can take up
 ## Additional Resources Shared in Class
 
 - [Pass-by-value vs pass-by-reference](https://gist.github.com/AloofBuddha/92ee6749a8be48c984881a4523f533c3)
+- [CSS review](https://youtu.be/8qoOsZy-WbU)
