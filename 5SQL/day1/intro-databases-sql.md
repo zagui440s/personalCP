@@ -167,7 +167,7 @@ SELECT count(*) FROM STUDENTS WHERE birthdate >= 2017/01/01 AND birthdate <= 201
 ## Assignments
 
 - Reading Assignment: [Databases/SQL](https://learn.coderslang.com/0118-introduction-to-relational-databases-and-sql/)
-- [SQL Basics](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [SQL Basics](https://classroom.github.com/a/mPFBqEbK)
 
 - Read about [SQL Queries](https://github.com/tangoplatoon/curriculum/blob/main/page-resources/sql-queries.md)
 - [SQL Zoo](http://sqlzoo.net/)
