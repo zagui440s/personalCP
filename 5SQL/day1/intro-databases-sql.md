@@ -44,22 +44,19 @@ Each file might contain the student's entire school record:
 If the only use case for the school database was retrieving a student's record by their school id, this persistence design might be exactly what we need. In fact the entire lookup program could be written as such:
 
 ```python
-import 'json'
+import json
 
 print("** WELCOME TO THE ACME SCHOOL DATABASE **")
 
-# get student ID from user input
-id = raw_input('Enter a student id: ')
-
 # open the student's data file
-filename = "data".join("#{id[0..3]}-#{id[3..6]}.json")
-student_data = json.loads(open(filename, 'r'))
+filename = "data/321-531.json"
+student_data = json.load(open(filename, 'r'))
 
 # print student's data
 print(f"{student_data['first_name']} {student_data['last_name']}")
-print(f"Birthdate: {student_data["birthdate"]}")
+print(f"Birthdate: {student_data['birthdate']}")
 
-address = student_data["address"]:
+address = student_data["address"]
 print("Mailing Address")
 print(f"{address['line_1']}")
 print(f"{address['city']}, {address['state']}")
