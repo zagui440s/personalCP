@@ -158,6 +158,6 @@ Additionally, we may want to create a UQ for column-`post_id` + column-`user_id`
 
 ## Assignments
 
-- [Schema Design](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
-- [Schema Script](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
-- [Schema Modifications](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Schema Design](https://classroom.github.com/a/KHg3kYR_)
+- [Schema Script](https://classroom.github.com/a/LAfTBpUx)
+- [Schema Modifications](https://classroom.github.com/a/QOfigTWN)
