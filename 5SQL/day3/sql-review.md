@@ -273,4 +273,4 @@ VALUES
 ## Assignments
 
 - [PG Exercises](https://pgexercises.com/questions/basic/)
-- [SQL Queries practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [SQL Queries practice](https://classroom.github.com/a/zCyuqgl3)
