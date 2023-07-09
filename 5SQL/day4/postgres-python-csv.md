@@ -2,300 +2,536 @@
 
 ## Topics Covered / Goals
 
-- Use the Psycopg library to create and update rows in a database
-- Read and clean rows from a CSV, and insert those rows into a Postgres database
-- Understand transactions in SQL, and how to use them in your code.
-- Understand SQL-injection, and how to avoid it.
+- Use the Psycopg library to interact with PostgreSQL from Python
+- Understand the basics of SQL-injection, and how to prevent it
+- Use CSV files to seed a Postgres database
 
 ## Lesson
 
 ### Postgres and Python
 
-> We have spent the past 3 days learning about SQL and have used the Postgres flavor in our challenges. We've learned how to create/read/update/destroy databases, database columns, and database rows. This is the foundation of all programming. It doesn't matter if you're doing development on the frontend, backend, server, mobile, desktop, etc., everything comes down to data persistence. A solid understanding of SQL will pay off huge dividends over the course of your career, so go back and ensure that you understand as much as you can!
+We spent the last few days learning to work with PostgreSQL as our database and interact with it using the language of SQL. To accomplish this we wrote our commands directly inside the `psql` program, or sometimes wrote a script like `create_schema.sql` or `seed_table.sql` to create a reusable sequence of commands we wanted to run against our database.
 
-> We will often use SQL within the context of other programming languages and today, we are going to connect Python and Postgres together. The Python library that allows us to connect to our database is called [Psycopg](http://initd.org/psycopg/). We're going to write Python code that can execute SQL commands. Let's test this out.
+However this approach can still be limited, in particular a `.sql` file doesn't really have the concept of variables or functions, so we end up repeating ourselves a lot. To address this limitation we are going to connect Python and Postgres together using a third-party library called [Psycopg](http://initd.org/psycopg/). We're going to then use the Psycopg library to write Python code that can execute our SQL commands. Let's try this out.
 
-> Let's create a database that holds the records of everyone in our class and connect to it using Python. Let's create a folder to mess around in called `psycopg-example/` and within there, create `psycopg-example/class_roster.py`. We first need to create a virtual environment, and then install `psycopg` by running:
+First we need to create a database to connect to. For the purposes of this lesson let's name the DB `psycopg-test`.
+
+```sh
+createdb psycopg-test
+```
+
+Second create a folder to hold out Python files for this lesson `psycopg-examples/` and within there, create a file `students.py`. 
+
+
+Third let's install `psycopg` as a dependency so we can use it:
 
 ```sh
 $ pip install psycopg
 ```
 
-Next, let's create the database that we are going to connect to:
+> If you did installfest correctly you should by default be in a python virtual environment named 'default'. This works fine for testing things, but in a real world project we might want to keep dependencies seperate for different projects. In that case we could create a venv local to the project like so:
+> ```sh
+> cd psycopg-examples
+> python -m venv psycopg-venv
+> source psycopg-venv/bin/activate
+> ```
+> and then any dependencies installed with pip would be unique to that project. Note however you will need to activate the right environment every time you open the project.
 
-```sh
-$ createdb class_roster
-```
+### Creating a database using `psycopg`
 
-### Creating a database
-
-Inside `class_roster.py`, let's import the Python library and start executing SQL commands:
+Inside `students.py`, let's import the Python library and start executing SQL commands:
 
 ```python
 import psycopg
 
-## Let's connect to our database
-connection = psycopg.connect(f"dbname=class_roster")
+# Let's connect to our database
+connection = psycopg.connect("dbname=psycopg-test")
 
+# Let's make a basic query to create a students table and execute it
+# multi-line strings are useful for working with SQL within Python
+student_table_creation_query = """
+    CREATE TABLE students (
+        id serial PRIMARY KEY, 
+        name varchar(255), 
+        favorite_food varchar);
+"""
 
-## Let's create a query to create a students table and execute it
-student_table_creation_query = "CREATE TABLE students (id serial PRIMARY KEY, name varchar, favorite_food varchar);"
+# execute the query like so
 connection.execute(student_table_creation_query)
+
+# this line 'commits' any executed changes to the databases 
+# (more on this later)
 connection.commit()
+
+# close the connection to the database before exiting
 connection.close()
 ```
 
-> Let's execute this by running:
+We can then execute this Python script with:
 
 ```sh
-python class_roster.py
-psql class_roster
-
-class_roster=# \d students
+python students.py
 ```
 
-> You should see your students table with the columns you created. Continuing on, let's try to add a few records and query the database in `class_roster.py`:
+We can then go into our database with `psql` like normal to check our work:
+
+```sh
+psql psycopg-test
+# inside psql
+psycopg-test=# \d students
+```
+
+You should see your students table with the columns you created. Now let's try to add a few records and query the database in `class_roster.py`:
 
 ### Parameterized Queries
 
-> One of the benefits of using SQL in a programming language like python is that we can insert values into our queries from variables, instead of hard-coding them.
+One of the benefits of using SQL in a programming language like python is that we can insert values into our queries from variables, instead of hard-coding them.
 
 ```python
 import psycopg
 
-## Let's connect to our database
-connection = psycopg.connect(f"dbname=class_roster")
+connection = psycopg.connect("dbname=psycopg-test")
 
-## Let's create a query to create a students table and execute it
+# directly execute a statement
 connection.execute("DROP TABLE IF EXISTS students")
-student_table_creation_query = "CREATE TABLE students (id serial PRIMARY KEY, name varchar, favorite_food varchar);"
-connection.execute(student_table_creation_query)
-# hardcoded values are not very useful
-connection.execute("INSERT INTO students (name, favorite_food) VALUES ('Alice', 'Cake')")
+
+# or define a statement as a string ...
+create_students_table_query = """
+    CREATE TABLE students (
+        id serial PRIMARY KEY, 
+        name varchar(255), 
+        favorite_food varchar(255)
+    );
+"""
+# ... then execute it
+connection.execute(create_students_table_query)
+
+# INSERT INTO example
+connection.execute("""
+    INSERT INTO students (name, favorite_food) 
+    VALUES ('Alice', 'Cake');
+""")
+
+# this gets old fast so let's make a function (DRY)
+def insert_into_students(name, favorite_food):
+    insert_query = f"""
+        INSERT INTO students (name, favorite_food) 
+        VALUES ('{name}', '{favorite_food}');
+    """
+    connection.execute(insert_query)
 
 
-# danger! danger!
-name="Bob"
-food="Lemons"
-connection.execute(f"INSERT INTO students (name, favorite_food) VALUES ('{name}', '{food}')")
+insert_into_students("Bob", "Lemons")
+insert_into_students("Carol", "Tuna")
 
-# SQL injection attack
-# name="Malory', 'apples'); DROP TABLE students;--"
-# food="Pizza"
-# connection.execute(f"INSERT INTO students (name, favorite_food) VALUES ('{name}', '{food}')")
-
-# query params help avoid SQL injection, but they can become hard to read if we have many of them, or if any of them are repeated
-name="Carol"
-food="Tuna"
-connection.execute("INSERT INTO students (name, favorite_food) VALUES (%s, %s)", (name, food))
-
-name="Dan"
-food="Bagels"
-connection.execute("INSERT INTO students (name, favorite_food) VALUES (%(name)s, %(food)s)", {'name':name, 'food':food})
-
+# can also execute SELECT queries within our script and print results
 results = connection.execute("SELECT * FROM students;")
 print(results.fetchall())
 
 connection.commit()
 connection.close()
-
-
 ```
 
 ### Transactions
 
-> You may be wondering why we have to call 'commit' on the connection. The reason is that psycopg is automatically creating a transaction for us when we create a connection, but we still have to close it ourselves.
+You may be wondering why we have to call 'commit' on the connection. The reason is that psycopg is automatically creating a transaction for us when we create a connection, but we still have to close it ourselves.
 
 > In SQL, if you want to group several queries together, you can run them inside of a transaction with the SQL statement `BEGIN TRANSACTION`. Psycopg does this for you automatically when you call `psycopg.connect()`. Then, when all of the related transactions succeed, you can commit the transaction with `COMMIT`. If something goes wrong, you can undo all of the related queries with `ROLLBACK`.
 
-```python
+To see the usefulness of this 'transactional' approach, let's work in a new file `accounts.py`:
 
-# create a table for accounts
+```py
+import psycopg
+
+connection = psycopg.connect("dbname=psycopg-test")
+
 connection.execute("DROP TABLE IF EXISTS accounts")
-account_table_creation_query = "CREATE TABLE accounts (id serial PRIMARY KEY, account_name varchar, balance int);"
+
+account_table_creation_query = f"""
+    CREATE TABLE accounts (
+        id serial PRIMARY KEY, 
+        account_name varchar(255),
+        balance int
+    );
+"""
+
+# create the table
 connection.execute(account_table_creation_query)
 
+# helper function for inserting new rows
+def insert_into_accounts(account_name, balance):
+    insert_query = f"""
+        INSERT INTO accounts (account_name, balance)
+        VALUES ('{account_name}', '{balance}');
+    """
+    connection.execute(insert_query)
+
+
 # create two accounts
-account_name="My Account"
-balance= 100
-connection.execute("INSERT INTO accounts (account_name, balance) VALUES (%(account_name)s, %(balance)s)",
-    {'account_name':account_name, 'balance':balance}
-)
+insert_into_accounts("My Account", 100)
+insert_into_accounts("Your Account", 0)
 
-account_name="Your Account"
-balance = 0
-connection.execute("INSERT INTO accounts (account_name, balance) VALUES (%(account_name)s, %(balance)s)",
-    {'account_name':account_name, 'balance':balance}
-)
-
+# print the current status
 results = connection.execute("SELECT * FROM accounts;")
 print(results.fetchall())
 
 # commit this transaction, adding two accounts
 connection.commit()
 
+# try/except will let us write multiple queries in a context where
+# failure is possible at any point in the process
 try:
-    # transfer money from my account to your account
-    connection.execute("UPDATE accounts SET balance=balance - 25 WHERE account_name = 'My Account';")
+    # transfer money out of my account ...
+    connection.execute(f"""
+        UPDATE accounts 
+        SET balance=balance - 25 
+        WHERE account_name = 'My Account';
+    """)
 
-    # throwing an exception here means that I lose money, but you don't gain it, unless we use a transaction
+    # uncomment the line below simulate an error
+    # Maybe the connection to the internet timed out
+    # For whatever reason, the full transaction
+    # fails mid-way through
+
     # raise Exception('oops!')
-    connection.execute("UPDATE accounts SET balance=balance + 25 WHERE account_name = 'Your Account';")
 
+    # ... and into yours
+    connection.execute(f"""
+        UPDATE accounts 
+        SET balance=balance + 25 
+        WHERE account_name = 'Your Account';
+    """)
+
+    # if we got this far without error, commit anything executed
+    # since the last commit
     connection.commit()
 
 except Exception:
-    # something went wrong, so we should roll back the transaction
+    # something went wrong
     print("Query failed! Roll back.")
+    # so we should 'roll back' the transaction as if it never happened
     connection.rollback()
 
 results = connection.execute("SELECT * FROM accounts;")
 print(results.fetchall())
 
 connection.close()
-
 ```
 
 ### Context Managers using `with`
 
-> The above pattern with try/except is a reliable way to manage transactions, but it can be a bit tedious to manually commit and roll back your transactions all the time. Fortunately, the connection object can be used as a context manager, which means that it can automatically set itself up, and clean up when you're done, by using the `with` keyword.
+The above pattern with try/except is a reliable way to manage transactions, but it can be a bit tedious to manually commit and roll back your transactions all the time. Fortunately, the connection object can be used as a context manager, which means that it can automatically set itself up, and clean up when you're done, by using the `with` keyword.
 
-```python
-with psycopg.connect(f"dbname=class_roster", autocommit=False) as connection:
+```py
+import psycopg
+
+with psycopg.connect("dbname=psycopg-test", autocommit=False) as connection:
     connection.execute("DROP TABLE IF EXISTS accounts")
-    account_table_creation_query = "CREATE TABLE accounts (id serial PRIMARY KEY, account_name varchar, balance int);"
+
+    account_table_creation_query = f"""
+        CREATE TABLE accounts (
+            id serial PRIMARY KEY, 
+            account_name varchar(255),
+            balance int
+        );
+    """
+
     connection.execute(account_table_creation_query)
 
-    # create two accounts
-    account_name="My Account"
-    balance= 100
-    connection.execute("INSERT INTO accounts (account_name, balance) VALUES (%(account_name)s, %(balance)s)",
-        {'account_name':account_name, 'balance':balance}
-    )
+    def insert_into_accounts(account_name, balance):
+        insert_query = f"""
+            INSERT INTO accounts (account_name, balance)
+            VALUES ('{account_name}', '{balance}');
+        """
+        connection.execute(insert_query)
 
-    account_name="Your Account"
-    balance = 0
-    connection.execute("INSERT INTO accounts (account_name, balance) VALUES (%(account_name)s, %(balance)s)",
-        {'account_name':account_name, 'balance':balance}
-    )
-    # transfer money from my account to your account
-    connection.execute("UPDATE accounts SET balance=balance - 25 WHERE account_name = 'My Account';")
+    # create two accounts
+    insert_into_accounts("My Account", 100)
+    insert_into_accounts("Your Account", 0)
+
+    # transfer money from my account ...
+    connection.execute(f"""
+        UPDATE accounts 
+        SET balance=balance - 25 
+        WHERE account_name = 'My Account';
+    """)
 
     # if an error is raised, the transaction is automatically rolled back
     # raise Exception('oops!')
-    connection.execute("UPDATE accounts SET balance=balance + 25 WHERE account_name = 'Your Account';")
+
+    # ... to your account
+    connection.execute(f"""
+        UPDATE accounts 
+        SET balance=balance + 25 
+        WHERE account_name = 'Your Account';
+    """)
+
     results = connection.execute("SELECT * FROM accounts;")
     print(results.fetchall())
 
 # after the with-block, the transaction is committed, and the connection is closed
 ```
 
+### SQL Injection
+
+There is a very tricky flaw to how we have been working with our DB through `psycopg` so far you likely have not noticed yet, so let's take a closer look. Let's add another row into our `students.py` script, like so:
+
+```py
+import psycopg
+
+connection = psycopg.connect("dbname=psycopg-test")
+
+connection.execute("""
+    DROP TABLE IF EXISTS students;
+    CREATE TABLE students (
+        id serial PRIMARY KEY, 
+        name varchar(255), 
+        favorite_food varchar(255)
+    );
+""")
+
+
+def insert_into_students(name, favorite_food):
+    insert_query = f"""
+        INSERT INTO students (name, favorite_food) 
+        VALUES ('{name}', '{favorite_food}');
+    """
+    connection.execute(insert_query)
+
+
+insert_into_students("Alice", "Cake")
+insert_into_students("Bob", "Lemons")
+insert_into_students("Carol", "Tuna")
+
+name = "David"
+favorite_food = "Pizza"
+insert_into_students(name, favorite_food)
+
+results = connection.execute("SELECT * FROM students;")
+print(results.fetchall())
+
+connection.commit()
+connection.close()
+```
+
+I chose to make `name` and `favorite_food` variables to simulate how we will eventually use Python + SQL, as these two variable represent not data we hardcoded ourselves but some user input we received from a website (frontend) that we are now processing on our backend in Python to interact with the DB. As you can see, this works fine right now. But what if our user inputted a really interesting name, not `"David"` but something like: `"David', 'Cauliflower');--"`?
+
+What an interesting name! Before we run this, let's see what our subfunction `insert_into_students` actually does with this:
+
+```py
+insert_into_students("David', 'Cauliflower');--", "Pizza") =>
+
+connection.execute("""
+    INSERT INTO students (name, favorite_food) 
+    VALUES ('David', 'Cauliflower');
+    --', 'Pizza');
+""")
+```
+
+This will actually insert something with values `('David, 'cauliflower')` into the DB and comment out everything else (so it is still valid SQL). If you run this you will see that our student David was saved with `favorite_food` of `'Cauliflower'` and not `'Pizza'`. 
+
+**THIS IS A SQL INJECTION ATTACK!**
+
+But wait, it gets worse. Any/all SQL can be run this way, so David's interesting name could instead have been:
+
+```py
+name = "David', 'Cauliflower'); DROP TABLE students;--"
+favorite_food = "Pizza"
+insert_into_students(name, favorite_food)
+```
+
+Now the `students` table doesn't even exist after running this code! Very dangerous! What do we do?
+
+### Sanitizing input to prevent SQL Injection
+
+Instead of writing the `insert_into_students()` function like we did above, let's create an alternative version:
+
+```py
+def insert_into_students_sanitized(name, favorite_food):
+    insert_query = """
+        INSERT INTO students (name, favorite_food) 
+        VALUES (%s, %s);
+    """
+    connection.execute(insert_query, (name, favorite_food))
+```
+
+What changed? Now the query uses placeholders (`%s`) to represent where some inputs go and then the `connection.execute()` function is passed a second, optional argument - a tuple representing our inputs we want to replace. Done this way, the entire string passed in is placed in it's correct place, so any SQL injection attempt is foiled.
+
+> If you prefer to name your placeholders (useful if you have many) you can do it with the alternate syntax:
+> ```py
+> def insert_into_students_sanitized(name, favorite_food):
+>   insert_query = """
+>       INSERT INTO students (name, favorite_food) 
+>       VALUES (%(name)s, %(food)s);
+>   """
+>
+>   connection.execute(insert_query, { 
+>       'name': name, 
+>       'food': favorite_food 
+>   })
+> ```
+> This way the order of inputs won't matter and you ca rename the input if desired
+
 ### CSV and Databases
 
-Whether you love or hate it, CSV will be around forever. Business people all love Excel and as we've seen, CSV is nothing more than Excel without fanciness. Oftentimes, you'll have to work with CSV and databases together. Let's grab real estate transactions from City of Sacramento and put that information into a database. Click [here](../page-resources/sacramento_re_transactions.csv) to get the dataset.
+CSV (Comma Seperated Values) files are a common way to store large sets of data in a form most spreadsheet programs (Excel/Google Sheets) are able to imported/export into. That means we will want to understand how we can use CSV files to seed an existing database using `psycopg`.
 
-Let's create a database, read the CSV file, clean some data, and insert the rows into the database together.
+The dataset we are working with is in the same folder as today's curriculum doc, [here](./sacramento_re_transactions.csv).
 
-First, let's create a database:
+Let's now use `psycopg` and Python's built-in `csv` library to 
+- create a database
+- read the CSV file
+- sanitize the data
+- and insert the data into the database as rows
+
+First, let's create a new database:
 
 ```sh
-$ createdb sacramento_real_estate
+createdb sacramento_real_estate
 ```
 
-Next, let's create a file called `csv_example.py` and read into the CSV file and clean it up:
+Next, let's create a file called `csv_example.py` to run our code. Remember how to import a csv file and turn it into a Python dict like so:
 
-```python
+```py
 import csv
-import psycopg
 
-with open('../page-resources/sacramento_re_transactions.csv', mode='r') as csv_file:
+with open('../sacramento_re_transactions.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
-        # set a breakpoint here to view the row data
-        pass
+        print(row)
+        # break after the first, we just want to see an example
+        break
 ```
 
-Now, if we run `python csv_example.py`, we stop where the breakpoint is set. If we enter `row`, we get an OrderedDict that we can access like a dictionary:
+Now, if we run `python csv_example.py`, we can see how the csv file was parsed per entry:
 
+```py
+{
+    'street': '3526 HIGH ST', 
+    'city': 'SACRAMENTO', 
+    'zip': '95838', 
+    'state': 'CA', 
+    'beds': '2', 
+    'baths': '1', 
+    'sq__ft': '836', 
+    'type': 'Residential', 
+    'sale_date': '09/09/18', 
+    'price': '59222', 
+    'latitude': 
+    '38.631913', 
+    'longitude': '-121.434879'
+}
 ```
-      6     csv_reader = csv.DictReader(csv_file)
-----> 7     for row in csv_reader:
-      8         pass
 
-{'street': '3526 HIGH ST', 'city': 'SACRAMENTO', 'zip': '95838', 'state': 'CA', 'beds': '2', 'baths': '1', 'sq__ft': '836', 'type': 'Residential', 'sale_date': '09/09/18', 'price': '59222', 'latitude': '38.631913', 'longitude': '-121.434879'}
-ipdb> row['state']
-'CA'
-```
+Notice that `csv.DictReader` reads everything as a string by default. However that's likely not how we want to store all of our data in SQL. Moreover there could be discrepancies between how the csv file names a column and what our database names that same column. That means we have to 'sanitize' (or 'clean up') our data to get it in a format ready to be saved into Postgres.
 
-Notice that CSV reads everything in as a string. That's problematic for us if we want SQL to do any calculations. It applies to most fields. Let's clean it together and then save it into the database:
-
-```python
+```py
 import csv
 import psycopg
-import os
 
 from decimal import Decimal
 from datetime import datetime
 
+connection = psycopg.connect(f"dbname=sacramento_real_estate")
+
+# define our table's schema and create the table
 table_creation_query = """
+    DROP TABLE IF EXISTS properties;
     CREATE TABLE properties (
         id serial PRIMARY KEY,
-        street_address varchar,
-        city varchar,
-        zip_code varchar,
-        state varchar,
+        street_address varchar(255),
+        city varchar(255),
+        zip_code varchar(255),
+        state varchar(255),
         number_of_beds integer,
         number_of_baths integer,
         square_feet integer,
-        property_type varchar,
+        property_type varchar(255),
         sale_date timestamp,
         sale_price integer,
         latitude decimal,
         longitude decimal
     );
 """
-
-def clean_data(csv_row):
-    cleaned = {}
-    cleaned['street_address'] = csv_row['street']
-    cleaned['city'] = csv_row['city']
-    cleaned['zip_code'] = csv_row['zip']
-    cleaned['state'] = csv_row['state']
-    cleaned['number_of_beds'] = int(csv_row['beds'])
-    cleaned['number_of_baths'] = int(csv_row['baths'])
-    cleaned['square_feet'] = int(csv_row['sq__ft'])
-    cleaned['property_type'] = csv_row['type']
-    cleaned['sale_date'] = datetime.strptime(csv_row['sale_date'], '%m/%d/%y')
-    cleaned['sale_price'] = csv_row['price']
-    cleaned['latitude'] = Decimal(csv_row['latitude'])
-    cleaned['longitude'] = Decimal(csv_row['longitude'])
-    return cleaned
-
-connection = psycopg.connect(f"dbname=sacramento_real_estate")
 connection.execute(table_creation_query)
 
-with open('../page-resources/sacramento_re_transactions.csv', mode='r') as csv_file:
+# helper function to clean the data per row
+
+
+def clean_data(csv_row):
+    return {
+        # some columns don't need any changes
+        'city': csv_row['city'],
+        'zip_code': csv_row['zip'],
+
+        # others need to be renamed from csv -> our schema
+        'street_address': csv_row['street'],
+        'state': csv_row['state'],
+        'property_type': csv_row['type'],
+        'sale_price': csv_row['price'],
+
+        # still others need to have the data itself converted to a different format
+        'number_of_beds': int(csv_row['beds']),
+        'number_of_baths': int(csv_row['baths']),
+        'square_feet': int(csv_row['sq__ft']),
+        'latitude': Decimal(csv_row['latitude']),
+        'longitude': Decimal(csv_row['longitude']),
+        'sale_date': datetime.strptime(csv_row['sale_date'], '%m/%d/%y')
+    }
+
+
+# open the csv file for parsing
+with open('../sacramento_re_transactions.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
+        # pass the original row to our clean_data function, returning sanitized data
         cleaned_data = clean_data(row)
-        connection.execute("INSERT INTO properties (street_address, city, zip_code, state, number_of_beds, number_of_baths, square_feet, property_type, sale_date, sale_price, latitude, longitude) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (cleaned_data['street_address'], cleaned_data['city'], cleaned_data['zip_code'], cleaned_data['state'], cleaned_data['number_of_beds'], cleaned_data['number_of_baths'], cleaned_data['square_feet'], cleaned_data['property_type'], cleaned_data['sale_date'], cleaned_data['sale_price'], cleaned_data['latitude'], cleaned_data['longitude']))
+
+        # insert_query associated columns with our cleaned data using named placeholders
+        insert_query = """
+        INSERT INTO properties (
+            street_address, 
+            city, 
+            zip_code, 
+            state, 
+            number_of_beds, 
+            number_of_baths, 
+            square_feet, 
+            property_type, 
+            sale_date, 
+            sale_price, 
+            latitude, 
+            longitude
+        ) VALUES (
+            %(street_address)s, 
+            %(city)s, 
+            %(zip_code)s, 
+            %(state)s, 
+            %(number_of_beds)s, 
+            %(number_of_baths)s, 
+            %(square_feet)s, 
+            %(property_type)s, 
+            %(sale_date)s, 
+            %(sale_price)s, 
+            %(latitude)s, 
+            %(longitude)s
+        );
+        """
+
+        # execute the query with the relevant data
+        connection.execute(insert_query, cleaned_data)
+
+
+results = connection.execute("SELECT * FROM properties;")
+print(results.fetchall())
 
 connection.commit()
 connection.close()
 ```
 
-With this data out of the CSV and in the database, you can query it and get some great insights into it. You can answer questions like:
-
-- Are single family homes or condos more expensive on average?
-- What's the most expensive house and condo sold? What's the cost per square foot?
-- How much does each bedroom cost for a house in Sacramento? What if you wanted to get one more bedroom? What if you wanted one fewer?
-- Same as above, but for bathrooms
-
-Create queries in SQL and execute them to get a Python object back. Using those results and your knowledge of Python, answer the questions above.
-
 ## External Resources
 
-- [Official Documentation](http://initd.org/psycopg/docs/usage.html)
+- [`psycopg` Documentation](https://www.psycopg.org/psycopg3/docs/)
 - [SQL Injection](https://xkcd.com/327/)
 
 ## Assignments
