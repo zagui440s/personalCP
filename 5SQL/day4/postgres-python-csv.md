@@ -132,6 +132,13 @@ connection.commit()
 connection.close()
 ```
 
+> **BREAKOUT ASSIGNMENT**
+> 1) create a db with the name 'psycopg-test'
+> 2) succesfully run `students.py`
+> 3) insert a few more examples into the DB using `insert_into_students`
+> 4) write and print a `SELECT` query to find all students whose favorite_food is "Tuna"
+> 5) write a function that takes a single parameter, 'favorite_food', and uses it to look up all students with the favorite food matching the input
+
 ### Transactions
 
 You may be wondering why we have to call 'commit' on the connection. The reason is that psycopg is automatically creating a transaction for us when we create a connection, but we still have to close it ourselves.
