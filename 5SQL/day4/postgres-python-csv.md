@@ -29,14 +29,6 @@ Third let's install `psycopg` as a dependency so we can use it:
 $ pip install psycopg
 ```
 
-> If you did installfest correctly you should by default be in a python virtual environment named 'default'. This works fine for testing things, but in a real world project we might want to keep dependencies seperate for different projects. In that case we could create a venv local to the project like so:
-> ```sh
-> cd psycopg-examples
-> python -m venv psycopg-venv
-> source psycopg-venv/bin/activate
-> ```
-> and then any dependencies installed with pip would be unique to that project. Note however you will need to activate the right environment every time you open the project.
-
 ### Creating a database using `psycopg`
 
 Inside `students.py`, let's import the Python library and start executing SQL commands:
