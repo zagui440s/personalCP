@@ -228,5 +228,5 @@ class PokeballImgTestCase(TestCase):
 
 ## Assignments
 
-- [API Show and Tell](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
-- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [School API](https://classroom.github.com/a/vP_DvvOV)
+- [Django & API's](https://classroom.github.com/a/V4_OubHX)

@@ -215,4 +215,4 @@ class Trainer_pokemon(APIView):
 
 ## Assignments
 
-- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [Django Auth](https://classroom.github.com/a/E6XQnC5M)

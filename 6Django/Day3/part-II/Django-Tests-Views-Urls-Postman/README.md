@@ -221,4 +221,5 @@ class Test_urls(TestCase):
 
 ## Assignments
 
-- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [School API](https://classroom.github.com/a/vP_DvvOV)
+- [DRF GET](https://classroom.github.com/a/hMk5x8df)

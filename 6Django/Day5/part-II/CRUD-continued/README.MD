@@ -105,3 +105,7 @@ def test_008_deleting_a_pokemon(self):
 ```
 
 > Perfect, we now have a fully CRUD capable pokemon_app lets take what we've learned and apply it to move_app in order to have a CRUD capabilities around our whole API
+
+## Assignments
+
+- [DJANGO CRUD](https://classroom.github.com/a/BtgFtqfz)

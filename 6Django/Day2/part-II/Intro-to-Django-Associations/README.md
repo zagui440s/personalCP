@@ -211,4 +211,6 @@ and interact with our Models through the [Admin Site](http://localhost:800/admin
 
 ## Assignments
 
-- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [School API](https://classroom.github.com/a/vP_DvvOV)
+- [Val & Associations](https://classroom.github.com/a/2PKC68Kh)
+- [Django Validations](https://classroom.github.com/a/Q1OvS1Ws)

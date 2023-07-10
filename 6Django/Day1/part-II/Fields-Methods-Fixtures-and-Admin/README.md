@@ -211,4 +211,5 @@ Finally we are ready to enter our Admin Site and interact with our `Pokemon Mode
 
 ## Assignments
 
-- [School API](https://classroom.google.com/c/NjEyMzM5MTczMDQ4?cjc=vunqfsg)
+- [School API](https://classroom.github.com/a/vP_DvvOV)
+- [ORM Assignments](https://classroom.github.com/a/HfH7CgUJ)
