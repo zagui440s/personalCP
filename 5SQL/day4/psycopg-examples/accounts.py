@@ -42,8 +42,8 @@ connection.commit()
 try:
     # transfer money out of my account ...
     connection.execute(f"""
-        UPDATE accounts 
-        SET balance=balance - 25 
+        UPDATE accounts
+        SET balance=balance - 25
         WHERE account_name = 'My Account';
     """)
 
@@ -56,8 +56,8 @@ try:
 
     # ... and into yours
     connection.execute(f"""
-        UPDATE accounts 
-        SET balance=balance + 25 
+        UPDATE accounts
+        SET balance=balance + 25
         WHERE account_name = 'Your Account';
     """)
 

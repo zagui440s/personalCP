@@ -34,13 +34,13 @@ def clean_data(csv_row):
     return {
         # some columns don't need any changes
         'city': csv_row['city'],
-        'zip_code': csv_row['zip'],
+        'state': csv_row['state'],
 
         # others need to be renamed from csv -> our schema
         'street_address': csv_row['street'],
-        'state': csv_row['state'],
         'property_type': csv_row['type'],
         'sale_price': csv_row['price'],
+        'zip_code': csv_row['zip'],
 
         # still others need to have the data itself converted to a different format
         'number_of_beds': int(csv_row['beds']),
@@ -62,30 +62,30 @@ with open('../sacramento_re_transactions.csv', mode='r') as csv_file:
         # insert_query associated columns with our cleaned data using named placeholders
         insert_query = """
         INSERT INTO properties (
-            street_address, 
-            city, 
-            zip_code, 
-            state, 
-            number_of_beds, 
-            number_of_baths, 
-            square_feet, 
-            property_type, 
-            sale_date, 
-            sale_price, 
-            latitude, 
+            street_address,
+            city,
+            zip_code,
+            state,
+            number_of_beds,
+            number_of_baths,
+            square_feet,
+            property_type,
+            sale_date,
+            sale_price,
+            latitude,
             longitude
         ) VALUES (
-            %(street_address)s, 
-            %(city)s, 
-            %(zip_code)s, 
-            %(state)s, 
-            %(number_of_beds)s, 
-            %(number_of_baths)s, 
-            %(square_feet)s, 
-            %(property_type)s, 
-            %(sale_date)s, 
-            %(sale_price)s, 
-            %(latitude)s, 
+            %(street_address)s,
+            %(city)s,
+            %(zip_code)s,
+            %(state)s,
+            %(number_of_beds)s,
+            %(number_of_baths)s,
+            %(square_feet)s,
+            %(property_type)s,
+            %(sale_date)s,
+            %(sale_price)s,
+            %(latitude)s,
             %(longitude)s
         );
         """

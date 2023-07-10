@@ -12,7 +12,7 @@
 
 We spent the last few days learning to work with PostgreSQL as our database and interact with it using the language of SQL. To accomplish this we wrote our commands directly inside the `psql` program, or sometimes wrote a script like `create_schema.sql` or `seed_table.sql` to create a reusable sequence of commands we wanted to run against our database.
 
-However this approach can still be limited, in particular a `.sql` file doesn't really have the concept of variables or functions, so we end up repeating ourselves a lot. To address this limitation we are going to connect Python and Postgres together using a third-party library called [Psycopg](http://initd.org/psycopg/). We're going to then use the Psycopg library to write Python code that can execute our SQL commands. Let's try this out.
+However this approach can still be limited, in particular a `.sql` file doesn't really have the concept of variables or functions, so we end up repeating ourselves a lot. To address this limitation we are going to connect Python and Postgres together using a third-party library called [Psycopg](https://www.psycopg.org/psycopg3). We're going to then use the Psycopg library to write Python code that can execute our SQL commands. Let's try this out.
 
 First we need to create a database to connect to. For the purposes of this lesson let's name the DB `psycopg-test`.
 
@@ -81,7 +81,7 @@ psql psycopg-test
 psycopg-test=# \d students
 ```
 
-You should see your students table with the columns you created. Now let's try to add a few records and query the database in `class_roster.py`:
+You should see your students table with the columns you created. Now let's try to add a few records and query the database in `students.py`:
 
 ### Parameterized Queries
 

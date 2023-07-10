@@ -20,21 +20,22 @@ def insert_into_students(name, favorite_food):
     connection.execute(insert_query)
 
 
-def insert_into_students_sanitized(name, favorite_food):
-    insert_query = """
-        INSERT INTO students (name, favorite_food) 
-        VALUES (%s, %s);
-    """
-    connection.execute(insert_query, (name, favorite_food))
+# def insert_into_students_sanitized(name, favorite_food):
+#     insert_query = """
+#         INSERT INTO students (name, favorite_food)
+#         VALUES (%(name)s, %(food)s);
+#     """
+#     connection.execute(insert_query, {"food": favorite_food, "name": name})
 
 
-insert_into_students_sanitized("Alice", "Cake")
-insert_into_students_sanitized("Bob", "Lemons")
-insert_into_students_sanitized("Carol", "Tuna")
+insert_into_students("Alice", "Cake")
+insert_into_students("Bob", "Lemons")
+insert_into_students("Carol", "Tuna")
 
-name = "David', 'Cauliflower'); DROP TABLE students;--"
-favorite_food = "Pizza"
-insert_into_students_sanitized(name, favorite_food)
+name = "David"
+# name = "David', 'Cauliflower'); DROP TABLE students CASCADE;--"
+favorite_food = "Tacos"
+insert_into_students(name, favorite_food)
 
 results = connection.execute("SELECT * FROM students;")
 print(results.fetchall())
