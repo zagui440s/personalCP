@@ -92,6 +92,7 @@ operator | description | example |
 BETWEEN | between values | `SELECT * FROM classes WHERE credits BETWEEN 3 AND 4;` |
 LIKE | pattern match, `%` represents wildcard | `SELECT * FROM classes WHERE name like 'SPAN%';` |
 IN | match against a list of values | `SELECT * FROM enrollments WHERE grade IN ('A','B');` |
+LIMIT | limit output returned | `SELECT * FROM enrollments LIMIT 5` |
 
 When a single operator isn't enough you can combine them with `AND` and `OR`:
 
