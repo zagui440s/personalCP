@@ -5,9 +5,11 @@ The Retention module has practice problems for each curriculum module, designed 
 ## SQL
 
 Database Design and Querying:
+
 - [SQL Cars](https://classroom.github.com/a/qGGisLhA)
 
 Schema Design:
+
 - [GrubHub](https://classroom.github.com/a/7H3EF5TN)
 - [Instagram](https://classroom.github.com/a/3Bv9FQUx)
 - [Craigslist](https://classroom.github.com/a/7-EBlDn1)
