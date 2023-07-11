@@ -46,7 +46,7 @@ class Pokemon(models.Model):
     date_encountered = models.DateField(default="2008-01-01")
     # Under the hood DateField is already running a regex funciton to ensure 
     # input is matching the correct date format of "YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]"
-    date_captured = models.DateTimeField(default=timezone.now())
+    date_captured = models.DateTimeField(default=timezone.now)
     # We don't want a pokemon's description to either be too long or too short so
     # lets add both a Max and Min LengthValidators to our TextField to ensure
     # input meets our criteria
