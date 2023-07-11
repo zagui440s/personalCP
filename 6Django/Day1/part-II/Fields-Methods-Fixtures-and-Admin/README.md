@@ -77,7 +77,7 @@ class Pokemon(models.Model):
     level = models.IntegerField(default=1)
     # We are providing a default to someone born Jan 1st 2008
     date_encountered = models.DateField(default="2008-01-01")
-    # If a value is not provided we are stating the last time this pokmon was at school was upon creation of the classes instance.
+    # If a value is not provided we are stating the last time this pokemon was at school was upon creation of the classes instance.
     date_captured = models.DateTimeField(default=timezone.now())
     # If no value is provided the Pokemon description will be "Unkown"
     description = models.TextField(default="Unkown")
@@ -116,7 +116,7 @@ class Pokemon(models.Model):
 
 ```bash
     python manage.py loaddata pokemon_data.json
-    Installed 3 object(s) from 1 fixture(s)
+    Installed 1 object(s) from 1 fixture(s)
 ```
 
 > Now that our existing data has been backed up, we can move forward and apply the new fields we've added to our model.
@@ -132,7 +132,7 @@ class Pokemon(models.Model):
     >>> charizard = Pokemon(name = 'Charizard', level = 25, date_encountered = "2007-04-07", captured = True)
     >>> charizard.save()
 
-    # If I print john now I'll see see a useless Pokemon object
+    # If I print charizard now I'll see see a useless Pokemon object
     >>> print(charizard)
     Pokemon object (2)
     >>> exit()
@@ -164,12 +164,12 @@ We do not need to `makemigrations` for class methods, so lets go back into our D
     >>> from pokemon_app.models import Pokemon
     >>> pokemon = Pokemon.objects.all()
     >>> print(pokemon)
-    # Now we see John Avalos dunder method
+    # Now we see Pikachu and Charizard's dunder methods
     <QuerySet [<Pokemon: Pikachu is yet to be caught>, <Pokemon: Charizard has been captured>]>
-    # lets update his good pokmon status and watch his dunder method change.
+    # lets update his good Pokemon status and watch his dunder method change.
     >>> pokemon[0].change_caught_status(True)
     >>> print(pokemon)
-    # You can see the Dunder method has changed
+    # You can see the value of the dunder method has changed
     <QuerySet [<Pokemon: Charizard has been captured>, <Pokemon: Pikachu has been captured>]>
     # Lets add another Pokemon instance and move onto fixtures
     >>> blastoise = Pokemon(name = 'Blastoise', level = 37)
