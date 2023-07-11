@@ -36,7 +36,7 @@ Let's create a virtual environment whenever we work with Django so that it doesn
 python -m venv <envname>
 
 # 2. Start your virtual environment. Running the script with 'source' applies it to our current shell, instead of a subshell
-# Mac:
+# Mac/WSL:
 source <envname>/bin/activate
 
 # Windows:
@@ -205,7 +205,7 @@ python manage.py shell
 > This should look familiar - the object oriented lessons from weeks 2 and 3 were in preparation for this. Just by writing those two lines of code, we are able to instantiate a pokemon object for us and save it into the database. Under the hood, it's just running:
 
 ```sql
-INSERT into pokemon (name, level) VALUES ("John Avalos", 12)
+INSERT into pokemon (name, level) VALUES ("Pikachu", 12)
 ```
 
 > Now we can query our database using Python and see our new record.
