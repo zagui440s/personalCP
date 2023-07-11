@@ -50,7 +50,7 @@ class Pokemon(models.Model):
     # We don't want a pokemon's description to either be too long or too short so
     # lets add both a Max and Min LengthValidators to our TextField to ensure
     # input meets our criteria
-    description = models.TextField(default="Unkown", validators=[v.MinLengthValidator(25), v.MaxLengthValidator(150)])
+    description = models.TextField(default="Unknown", validators=[v.MinLengthValidator(25), v.MaxLengthValidator(150)])
     # Boolean field is already ensuring to only take in either True or False
     captured = models.BooleanField(default = False)
 ```
