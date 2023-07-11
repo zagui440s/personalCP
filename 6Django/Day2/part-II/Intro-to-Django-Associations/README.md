@@ -18,14 +18,14 @@ So far we've created a pokemon model in our pokemon_app for every pokemon in a P
 
 ## Creating our Moves App and Model
 
-> Lets quickly create a `move_app` and `Move` model to interact with our pokemon.
+> Let's quickly create a `move_app` and `Move` model to interact with our pokemon.
 
 ```bash
   # create our app
   python manage.py startapp move_app
 ```
 
-> Lets quickly add our move_app into `INSTALLED_APPS` in our pokedex_proj/settings.py
+> Let's quickly add our move_app into `INSTALLED_APPS` in our pokedex_proj/settings.py
 
 ```python
   # pokedex_proj/settings.py
@@ -41,7 +41,7 @@ So far we've created a pokemon model in our pokemon_app for every pokemon in a P
   ]
 ```
 
-> Now lets create a `move` model in move_app/models.py and add a couple of validators.
+> Now Let's create a `move` model in move_app/models.py and add a couple of validators.
 
 ```python
 # move_app/models.py
@@ -78,7 +78,7 @@ class Move(models.Model):
         self.maxPP = self.maxPP + increment
         self.save()
 
-    # Lets ensure that when clean is ran against our Model we check that PP is not greater than Max PP
+    # Let's ensure that when clean is ran against our Model we check that PP is not greater than Max PP
     def clean(self):
         if self.pp > self.maxPP:
             raise ValidationError("PP can't be higher than Max PP")
@@ -102,7 +102,7 @@ def validate_move_name(name):
   python manage.py migrate
 ```
 
-> Lets create tests for both proper and improper input
+> Let's create tests for both proper and improper input
 
 ```python
 #move_app/tests.py
@@ -135,7 +135,7 @@ class move_test(TestCase):
                 'Improper Format' in e.message_dict['name'] and "PP can't be higher than Max PP" in e.message_dict['__all__'])
 ```
 
-> To end this process lets utitlize the Django python shell to create a move to make relationships with.
+> To end this process Let's utitlize the Django python shell to create a move to make relationships with.
 
 ```bash
 # enter shell
@@ -147,7 +147,7 @@ python manage.py shell
 >>> exit()
 ```
 
-> Perfect, now we have a pokemon Model and a move Model with a move instance. Lets create some associations!
+> Perfect, now we have a pokemon Model and a move Model with a move instance. Let's create some associations!
 
 ## Creating Model Association
 
@@ -170,17 +170,17 @@ class pokemon(models.Model):
     moves = models.ManyToManyField(Move, default=[1])
     # Creating a MANY pokemon to ONE move relationship and setting Code Platoon as the default value
 
-    # Lets ensure the clean method checks that we can only learn 4 moves
+    # Let's ensure the clean method checks that we can only learn 4 moves
     def clean(self):
         if self.moves.count() > 4:  # Change the maximum number of relationships as needed
                 raise ValidationError("A Pokemon can have at most 4 moves.")
 ```
 
-> Now lets makemigrations and migrate.
+> Now Let's makemigrations and migrate.
 
 ```bash
   python manage.py makemigrations
-  python manage.py migrae
+  python manage.py migrate
 ```
 
 > This many to many field that we have included will not be reflected in PostgreSQL, instead this relationships will be handled by Django itself and will allow you to see these relationships by using the Django query API.
@@ -192,7 +192,7 @@ moves = pokemon.moves.all() # Returns a set of related Moves
 ```
 
 > Many to Many relationships are treated as sets, meaning to add or remove from the set we must utilize the `add` or `remove` methods.
-> Congratulations we have successfully  created and tested our Django Models. Lets register our models onto the admin site
+> Congratulations we have successfully  created and tested our Django Models. Let's register our models onto the admin site
 
 ```python
   #move_app/admin
