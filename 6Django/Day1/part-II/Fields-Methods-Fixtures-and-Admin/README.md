@@ -78,7 +78,7 @@ class Pokemon(models.Model):
     # We are providing a default to someone born Jan 1st 2008
     date_encountered = models.DateField(default="2008-01-01")
     # If a value is not provided we are stating the last time this pokemon was at school was upon creation of the classes instance.
-    date_captured = models.DateTimeField(default=timezone.now())
+    date_captured = models.DateTimeField(default=timezone.now)
     # If no value is provided the Pokemon description will be "Unkown"
     description = models.TextField(default="Unkown")
     # We must catch them all.
