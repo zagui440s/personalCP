@@ -154,7 +154,7 @@ python manage.py shell
 > As with database schema design, we can create relationships between our Django models to reflect certain requirements. Django provides some model fields to make achived this task much simpler:
 
 - models.OneToOneField()
-- models.ForiengKeyField() "many to one"
+- models.ForiegnKeyField() "many to one"
 - models.ManyToManyField()
 
 > Let's take a look at how we could create a Many-To-Many relationship between our Pokemon Model and our Move Model:
@@ -176,7 +176,7 @@ class pokemon(models.Model):
                 raise ValidationError("A Pokemon can have at most 4 moves.")
 ```
 
-> Now Let's makemigrations and migrate.
+> Now let's makemigrations and migrate.
 
 ```bash
   python manage.py makemigrations
