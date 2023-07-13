@@ -1,67 +1,476 @@
-# School API IV
+# School API V
 
 By the end of this assignment you will have a fully serviceable CRUD API with user authentication capabilities that will allow School staff to easily manage students and schollastic equipment.
 
-## Student Model
+## All Students
 
-In this assignment we will extend the application of the Student Models fields by creating a ManyToMany relationship to the Class Model and Grade.
+Build an API enpoint of `http://127.0.0.1:8000/api/v1/students/` that will return all students inside the the database in the following format:
 
-| field              | required | type    | example data         | unique | default    | validator/s                          | related_name |
-| ------------------ | -------- | ------- | -------------------- | ------ | ---------- | ------------------------------------ | ------------ |
-| name               | True     | string  | John W. Watson       | False  | None       | custom regex format                  |              |
-| student_email      | True     | string  | johnnyBoy@school.com | True   | None       | custom regex to end in '@school.com' |              |
-| personal_email     | False    | string  | johnnyBoy@gmail.com  | True   | None       | None                                 |              |
-| locker_number      | True     | int     | 137                  | True   | 110        | MinVal = 1 and MaxVal = 200          |              |
-| locker_combination | True     | string  | 37-68-98             | False  | "12-12-12" | custom regex format                  |              |
-| good_student       | True     | boolean | True                 | False  | True       | None                                 |              |
-| classes            | True     | MtM     | [1,2,3]              | False  | None       | 0 > x < 8                            | students     |
-
-- Validators
-  - clean() method: should also ensure that a Student has more than 0 and less than 8 classes.
-
-## Class Model
-
-In this assignment we will implement the Class Model to allow Students to take classes.
-
-| field     | required | type   | example data    | unique | default   | validator/s         |
-| --------- | -------- | ------ | --------------- | ------ | --------- | ------------------- |
-| subject   | True     | string | Intro to Python | True   | None      | custom regex format |
-| professor | True     | string | Mr. Cahan       | False  | Mr. Cahan | custom regex format |
-| students  | True     | MtM    | [1,2,3]         | False  | None      | 0 > x < 31          |
-
-- Validators
-
-  - validate_subject_format: Ensures only string in Title() format is accepted
-  - validate_professor_name: Ensures only string in the following format "Professor John" is accepted
-  - clean(): Will ensure every class has at least 1 and no more than 30 student
-
-- Methods:
-  - str\_\_ : returns "{subject} - {professor} - {students count}"
-  - add_a_student: Takes in a Students pk||id and adds it to the students relationship
-  - drop_a_student: Takes in a Students pk||id and drops it from the students relationship along with the students grade
-
-## Grades Model
-
-In this assignment we will implement the Grades Model to give each student taking a class and a Grade.
-
-| field   | required | type    | example data | unique | default | validator/s                |
-| ------- | -------- | ------- | ------------ | ------ | ------- | -------------------------- |
-| grade   | True     | decimal | 100          | False  | 100     | MaxVal = 100 && MinVal = 1 |
-| a_class | True     | FKR     | 1            | False  | None    | None                       |
-| student | True     | FKR     | 1            | False  | None    | None                       |
-
-## Creating New Apps
-
-In this assignment we will create 2 new apps:
-
-- class_app
-- grade_app
-
-```bash
-  python manage.py start_app <name_of_app>
+```json
+[
+    {
+        "model": "student_app.student",
+        "pk": 1,
+        "fields": {
+            "name": "Johnny H. Miller",
+            "student_email": "johnny@school.com",
+            "personal_email": "johnny@gmail.com",
+            "locker_number": 1,
+            "locker_combination": "12-12-12",
+            "good_student": true,
+            "classes": [
+                {
+                    "model": "class_app.class",
+                    "pk": 1,
+                    "fields": {
+                        "subject": "Python",
+                        "professor": "Mr. Cahan",
+                        "grade": 98.77
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 2,
+                    "fields": {
+                        "subject": "JavaScript",
+                        "professor": "Mrs. Zaynab",
+                        "grade": 0.0
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 3,
+                    "fields": {
+                        "subject": "Ruby",
+                        "professor": "Mr. Ben",
+                        "grade": 0.0
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 4,
+                    "fields": {
+                        "subject": "Management",
+                        "professor": "Mr. Nick",
+                        "grade": 0.0
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 5,
+                    "fields": {
+                        "subject": "React",
+                        "professor": "Mrs. Naranjo",
+                        "grade": 0.0
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 6,
+                    "fields": {
+                        "subject": "Django",
+                        "professor": "Mrs. Corozco",
+                        "grade": 0.0
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 7,
+                    "fields": {
+                        "subject": "Csharp",
+                        "professor": "Mr. Zack",
+                        "grade": 0.0
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 8,
+                    "fields": {
+                        "subject": "Physical Education",
+                        "professor": "Mr. Dennis",
+                        "grade": 0.0
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "student_app.student",
+        "pk": 2,
+        "fields": {
+            "name": "Michelle B. Maraca",
+            "student_email": "michelle@school.com",
+            "personal_email": "michelle@gmail.com",
+            "locker_number": 110,
+            "locker_combination": "12-12-12",
+            "good_student": true,
+            "classes": [
+                {
+                    "model": "class_app.class",
+                    "pk": 2,
+                    "fields": {
+                        "subject": "JavaScript",
+                        "professor": "Mrs. Zaynab",
+                        "grade": 33.55
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 6,
+                    "fields": {
+                        "subject": "Django",
+                        "professor": "Mrs. Corozco",
+                        "grade": 0.0
+                    }
+                },
+                {
+                    "model": "class_app.class",
+                    "pk": 7,
+                    "fields": {
+                        "subject": "Csharp",
+                        "professor": "Mr. Zack",
+                        "grade": 0.0
+                    }
+                }
+            ]
+        }
+    }
+]
 ```
 
-**Don't forget to add apps into the `INSTALLED_APPS` section in the projects settings.py**
+## All Classes
+
+Build an API enpoint of `http://127.0.0.1:8000/api/v1/classes/` that will return all classes inside the the database in the following format:
+
+```json
+[
+    {
+        "model": "class_app.class",
+        "pk": 1,
+        "fields": {
+            "subject": "Python",
+            "professor": "Mr. Cahan",
+            "grade_average": 98.77,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 2,
+        "fields": {
+            "subject": "JavaScript",
+            "professor": "Mrs. Zaynab",
+            "grade_average": 33.55,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                },
+                {
+                    "model": "student_app.student",
+                    "pk": 2,
+                    "fields": {
+                        "name": "Michelle B. Maraca",
+                        "student_email": "michelle@school.com",
+                        "personal_email": "michelle@gmail.com",
+                        "locker_number": 110,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            2,
+                            6,
+                            7
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 3,
+        "fields": {
+            "subject": "Ruby",
+            "professor": "Mr. Ben",
+            "grade_average": 0,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 4,
+        "fields": {
+            "subject": "Management",
+            "professor": "Mr. Nick",
+            "grade_average": 0,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 5,
+        "fields": {
+            "subject": "React",
+            "professor": "Mrs. Naranjo",
+            "grade_average": 0,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 6,
+        "fields": {
+            "subject": "Django",
+            "professor": "Mrs. Corozco",
+            "grade_average": 0,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                },
+                {
+                    "model": "student_app.student",
+                    "pk": 2,
+                    "fields": {
+                        "name": "Michelle B. Maraca",
+                        "student_email": "michelle@school.com",
+                        "personal_email": "michelle@gmail.com",
+                        "locker_number": 110,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            2,
+                            6,
+                            7
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 7,
+        "fields": {
+            "subject": "Csharp",
+            "professor": "Mr. Zack",
+            "grade_average": 0,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                },
+                {
+                    "model": "student_app.student",
+                    "pk": 2,
+                    "fields": {
+                        "name": "Michelle B. Maraca",
+                        "student_email": "michelle@school.com",
+                        "personal_email": "michelle@gmail.com",
+                        "locker_number": 110,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            2,
+                            6,
+                            7
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 8,
+        "fields": {
+            "subject": "Physical Education",
+            "professor": "Mr. Dennis",
+            "grade_average": 0,
+            "students": [
+                {
+                    "model": "student_app.student",
+                    "pk": 1,
+                    "fields": {
+                        "name": "Johnny H. Miller",
+                        "student_email": "johnny@school.com",
+                        "personal_email": "johnny@gmail.com",
+                        "locker_number": 1,
+                        "locker_combination": "12-12-12",
+                        "good_student": true,
+                        "classes": [
+                            1,
+                            2,
+                            3,
+                            4,
+                            5,
+                            6,
+                            7,
+                            8
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "model": "class_app.class",
+        "pk": 9,
+        "fields": {
+            "subject": "Science",
+            "professor": "Mrs. Alex",
+            "grade_average": 0,
+            "students": []
+        }
+    }
+]
+```
 
 ## Running Tests
 
