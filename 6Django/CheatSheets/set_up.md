@@ -2,7 +2,7 @@
 
 In this markdown file, we will guide you through the process of building a simple Django API using Django and Django REST Framework. We will cover the essential steps required to set up the project, define models, serializers, views, and URLs.
 
-## Step 0: Installing
+## Step 0: Installments
 
 1. Create and activate a Python Virtual Environment
 
