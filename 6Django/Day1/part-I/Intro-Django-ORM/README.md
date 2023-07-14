@@ -5,7 +5,7 @@
 
 We just finished learning about PostgreSQL and have been able to successfully create various Data Bases and Data Tables of varying difficulty. Today we will learn how to create a Django Server and connect it to our PostgreSQL Database to manage our projects data.
 
-- [SLIDES](https://docs.google.com/presentation/d/1MOHQZUkETtVCxeJdieJd_SKhbVYD9Epe5rUIwZAqcVU/edit?usp=share_link)
+- [SLIDES](https://docs.google.com/presentation/d/1FEvm0-sa9gcPR-gXkDgCuzqA7phdII-GnBzpac0edqM/edit?usp=drive_link)
 
 ### TLO's (Testable Learning Objectives)
 

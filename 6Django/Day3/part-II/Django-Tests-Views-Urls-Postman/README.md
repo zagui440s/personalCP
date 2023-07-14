@@ -4,7 +4,7 @@
 
 By the end of this lesson we will have a better undersnding of flexible endpoints and how to implement tests to both urls and views.
 
-- [SLIDES](https://docs.google.com/presentation/d/1G1Qb5ljZbqaT7kWf4-G_VZxtSSZXWjiftVWKIJZF72I/edit?usp=sharing)
+- [SLIDES](https://docs.google.com/presentation/d/1gQKE6PeUa2CiKqJpPm0Ksg4mxkKTcl-jc7-HSSMYxco/edit?usp=drive_link)
 
 ## ELO's (Elective Learning Objectives)
 

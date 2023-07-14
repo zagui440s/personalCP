@@ -4,7 +4,7 @@
 
 So far we've created Pokemon and Moves utilizing Django-ORM with associations, validators, and tests. Although it's been great we still haven't talked about why we are utilizing Django-ORM to interact with our database. Django is a powerful Back-End framework that we will utilize to host our Application Programming Interface for our Full-Stack-Applications. Today we are going to begin creating `url paths` and `views` to allow other applications to interact with our database and grab the information they desire.
 
-- [SLIDES](https://docs.google.com/presentation/d/1pCxg8WgqDT6UTjlUv0TQFb-XFHXVjkW6Uxwo5ZyCQss/edit?usp=sharing)
+- [SLIDES](https://docs.google.com/presentation/d/1Yc5R7Gng_Fk0dHeuMRkiU6xI92jj0paVo9SyyfX5bRw/edit?usp=drive_link)
 
 ### TLO's (Testable Lesson Objectives)
 

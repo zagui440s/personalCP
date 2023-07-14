@@ -4,7 +4,7 @@
 
 Earlier we created a `Pokemon` model, but we only touched the tip of the iceberg when it comes to model fields. Lets take it a step further and take a look at some useful fields and features.
 
-- [SLIDES](https://docs.google.com/presentation/d/1w1wZ5864w-Y2XaSOvSl38m-BAFH9DIQUY3MzdaBH7OQ/edit?usp=share_link)
+- [SLIDES](https://docs.google.com/presentation/d/1o4ntpnNJWVLU4aim7cFFPAV4wzZf2bSr88CBKlLUxcQ/edit?usp=drive_link)
 
 ## TLO's (Testable Learning Objectives)
 

@@ -4,7 +4,7 @@
 
 In this lessson you will learn how to interact with 3rd Party API's, manipulate API data, and how to best utilize API's for your projects.
 
-- [SLIDES](https://docs.google.com/presentation/d/1iG9cvzAByaYHlR9KGod46MN54fe4yYsj4dLhYKiJQpU/edit?usp=sharing)
+- [SLIDES](https://docs.google.com/presentation/d/1zZ9CNmXdtCCYQWiiqNUnwcnqhIUGetn9HrDHZDhz31Q/edit?usp=drive_link)
 
 ## TLO's (Testable Learning Objectives)
 

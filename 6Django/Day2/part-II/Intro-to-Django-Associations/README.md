@@ -4,7 +4,7 @@
 
 So far we've created a pokemon model in our pokemon_app for every pokemon in a Pokedex. Now we need to create a `Moves` model for pokemon. Just like in OOP we want to try and keep the `single responsibility principle` with our apps, meaning that each app should do only ONE thing and do it WELL.
 
-- [SLIDES](https://docs.google.com/presentation/d/1IpSMwwmqcfuw-mhQWXjCM0W6hDJML_OnnIgeMA_P9jk/edit?usp=sharing)
+- [SLIDES](https://docs.google.com/presentation/d/1mYcKl9VxQuqyfC7YM6W7mzopsMYU5ZAl6X6xoRFOU2Y/edit?usp=drive_link)
 
 ## TLO's (Testable Learning Objectives)
 

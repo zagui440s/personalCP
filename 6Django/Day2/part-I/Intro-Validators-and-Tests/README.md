@@ -4,7 +4,7 @@
 
 So far we've been able to create a Pokemon model for our Pokedex, and this model is able to hold quite a bit of information, but, we don't have a method of validating the inputs being passed into our model.
 
-- [SLIDES](https://docs.google.com/presentation/d/1K3yVJfP98Ni4pxlsz_yqrn3m_WpPlPDcqJfIVxJBFgY/edit?usp=sharing)
+- [SLIDES](https://docs.google.com/presentation/d/13tjzN-H3L2669Dq88_Gp3fcJJCfxNw2haX0vwWiiuFQ/edit?usp=drive_link)
 
 ## TLO's (Testable Learning Objectives)
 
