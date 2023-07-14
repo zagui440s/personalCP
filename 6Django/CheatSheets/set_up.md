@@ -35,7 +35,7 @@ CREATE DATABASE <name_of_db>;
 django-admin startproject myapi . #<=== DON'T FORGET THE PERIOD
 ```
 
-2. Connect your PostgreSQL database under `settings.py`
+2. Connect your PostgreSQL database under `myapi/settings.py`
 
 ```python
 DATABASES = {
@@ -79,9 +79,9 @@ python manage.py migrate
 
 ## Step 6: Configure URLs
 
-1. Connect `project/urls.py` to `myapi/urls.py` utilizing `include("myapi.urls")`
+1. Connect `myapi/urls.py` to `myapp/urls.py` utilizing `include("myapp.urls")`
 2. Create and open the `myapi/urls.py` file and add the URL patterns for your API.
-3. Connect the API endpoints to the corresponding views defined in `myapi/views.py`.
+3. Connect the API endpoints to the corresponding views defined in `myapp/views.py`.
 
 ## Step 7: Test the API
 
