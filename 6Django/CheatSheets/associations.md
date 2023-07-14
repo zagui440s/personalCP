@@ -8,10 +8,19 @@ The `OneToOneField` establishes a one-to-one relationship between two models. It
 
 ### Usage
 
+Suppose you are building a user profile system where each user can have a unique profile associated with them. In this case, you would use a OneToOne relationship.
+
 ```python
-class Model1(models.Model):
-    field = models.OneToOneField(Model2, on_delete=models.CASCADE)
+from django.contrib.auth.models import User
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    bio = models.TextField()
+    location = models.CharField(max_length=100)
+
 ```
+
+In this example, the Profile model has a OneToOneField called user, which establishes a one-to-one relationship with the built-in User model provided by Django. Each user can have only one profile, and each profile is associated with a single user.
 
 ### Capabilities and Limitations
 
@@ -27,10 +36,18 @@ The `ForeignKey` establishes a many-to-one relationship between two models. It i
 
 ### Usage
 
+Suppose you are building a blogging application with two models: Author and Post. Each post belongs to a single author, but an author can have multiple posts. In this case, you would use a ForeignKey relationship.
+
 ```python
-class Model1(models.Model):
-    field = models.ForeignKey(Model2, on_delete=models.CASCADE)
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+
+class Post(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
 ```
+In this example, the Post model has a ForeignKey field called author, which establishes the relationship between the Post and Author models. Each post is associated with one author through the author field.
 
 ### Capabilities and Limitations
 
@@ -46,10 +63,19 @@ The `ManyToManyField` establishes a many-to-many relationship between two models
 
 ### Usage
 
+Suppose you are building a music streaming application, where each song can be associated with multiple genres, and each genre can have multiple songs. In this case, you would use a ManyToMany relationship.
+
 ```python
-class Model1(models.Model):
-    field = models.ManyToManyField(Model2)
+class Genre(models.Model):
+    name = models.CharField(max_length=100)
+
+class Song(models.Model):
+    title = models.CharField(max_length=200)
+    genres = models.ManyToManyField(Genre)
+    artist = models.CharField(max_length=100)
 ```
+
+In this example, the Song model has a ManyToManyField called genres, which establishes a many-to-many relationship with the Genre model. Each song can be associated with multiple genres, and each genre can be associated with multiple songs.
 
 ### Capabilities and Limitations
 
