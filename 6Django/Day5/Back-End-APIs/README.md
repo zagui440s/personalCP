@@ -2,7 +2,7 @@
 
 ## Lesson
 
-In this lessson you will learn how to interact with 3rd Party API's, manipulate API data, and how to best utilize API's for your projects.
+In this lesson you will learn how to interact with 3rd Party API's, manipulate API data, and how to hide secret keys through environment variables.
 
 - [SLIDES](https://docs.google.com/presentation/d/1zZ9CNmXdtCCYQWiiqNUnwcnqhIUGetn9HrDHZDhz31Q/edit?usp=drive_link)
 
@@ -19,41 +19,103 @@ In this lessson you will learn how to interact with 3rd Party API's, manipulate 
 - Utilize `python-dotenv`
 - Write Unit Test Mocking 3rd Party API requests.
 
-## 3rd Party API's
+## Why 3rd Party API's from Back-End?
 
-> One reason why we might need to use an API from the back end is that many APIs require users to be authenticated to use the API, so you need to send the request from the back end, where you can keep your credentials secret.
+Handling API requests through a back-end framework like Django offers several advantages:
 
-    - secret management
-        - Never put keys or other secrets in github!
-        - use environment variables to supply credentials to your app
+1. Security: By making API requests from the back-end, you can keep sensitive information like API keys, tokens, and credentials hidden from the client-side code. This helps prevent exposing sensitive data to potential malicious actors.
 
-> Another reason is because some APIs are inaccessible from the front end, due to the Same Origin Policy (SOP) and lack of Cross Origin Resource Sharing (CORS). This is intended to be a security feature, but it can sometimes be frustrating to work around.
-> by default, when you send an AJAX request, browsers only will use responses from servers in the same origin
+2. Authorization and Authentication: Back-end frameworks provide robust mechanisms for handling user authentication and authorization. By integrating API requests within the back-end, you can ensure that only authenticated users with the proper permissions can access and consume the API endpoints.
+
+3. Business Logic: Back-end frameworks allow you to incorporate business logic and data processing before responding to API requests. This flexibility enables you to validate, transform, or aggregate data from the 3rd party API responses, enhancing the functionality and usability of your application.
+
+4. CORS and Security Policies: Cross-Origin Resource Sharing (CORS) policies enforced by web browsers can limit direct API requests made from client-side JavaScript. By making API requests from the back-end, you can avoid CORS-related issues and enforce security policies consistently.
+
+5. Abstraction and Reusability: By encapsulating API requests within your back-end framework, you can create reusable modules or services that handle the interaction with the 3rd party APIs. This abstraction makes it easier to maintain and modify the API integration logic across your application.
+
+> Another reason is because some APIs are inaccessible from the front end, due to the Same Origin Policy (SOP) and lack of Cross Origin Resource Sharing (CORS). This is intended to be a security feature, but it can sometimes be frustrating to work around. By default, when you send an AJAX request, browsers will only use responses from servers in the same origin
+
 > example origin, including protocol (https), subdomain, and tld [here](https://developer.mozilla.org/)
-> a server that is expecting to receive cross-origin requests can set headers on the response (`access-control-allow-origin: *`), meaning that any client is allowed to use the response
+
+> A server that is expecting to receive cross-origin requests can set headers on the response (`access-control-allow-origin: *`), meaning that any client is allowed to use the response
+
+## Getting to know your API
+
 > The process for acquiring and using an API key may be different for different APIs, so be sure to read the documentation. The API Key is a unique key associated with your developer account for billing/usage purposes. You will often have public and/or private API keys - the public key can be used on the front end, since it's not sensitive or private. The private key must be stored securely on the server (using env variables, not in a git repo). If you are getting charged money for using an API, make sure you protect your private key. If anyone gets a hold of your private key, they can impersonate you and you can get charged boatloads of money. Public keys are public - don't worry about protecting these.
+
 > Today, we'll be using the noun project API, but every API is different. [Read the documentation](http://api.thenounproject.com/getting_started.html) in order to know how you're supposed to authenticate and send requests.
+
 > After reading the docs, I want to get an API key. After creating an account, we need to create an 'app', and then we can create a set of keys associated with that app. Before we write any code, we can test our keys in the [api explorer](https://api.thenounproject.com/explorer)
-> Now that we have some idea how the API works, let's build a django project that uses it. The first new thing we'll need for this project is a library that will help us send requests, called `requests`. It's similar to axios, except it's used on the back end with python.
+
+## Set Up
+
+> Let's create an app that will handle these API interactions. We want to try and consolidate any 3rd Party API behavior and/or interaction within a Django app so let's create an `api_app` where we will write all of our logic within the `api_app.views` file.
+
+```bash
+python manage.py startapp api_app
+```
+
+> Make sure to add the `api_app` under the `INSTALLED_APPS` section in the `pokedex_proj.settings`` file
+
+> Link our project.urls to our app.urls utilizing the `include()` method within the projects `urlpatterns`.
+
+```python
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('squares/<int:side>/', square_area_view, name='square'),
+    path('circles/<int:side>/', circle_area_view, name='circle'),
+    path('triangles/base/<int:base>/height/<int:height>/', triangle_area_view, name='triangle'),
+    path('api/v1/pokemon/', include("pokemon_app.urls")),
+    path('api/v1/moves/', include("move_app.urls")),
+    path('api/v1/noun/', include("api_app.urls")),
+]
+```
+
+> Now inside our `api_app.urls` we can create some url patterns and link them to the appropriate CBV
+
+```python
+from django.urls import path
+from .views import Noun_Project
+
+urlpatterns = [
+    path('', Noun_Project.as_view(), name="noun_project"),
+]
+```
+
+## Interacting With 3rd Party API's
+
+> Now that we have some idea how the API works, let's build a django CBV that uses it. The first new thing we'll need for this CBV is a library that will help us send requests, called `requests`. It's similar to axios, except it's used on the back end with python.
 
 ```bash
   pip install requests
   pip install requests_oauthlib
+  pip freeze > requirements.txt
 ```
 
 ```python
-import requests
-from requests_oauthlib import OAuth1
+from rest_framework.views import APIView
+from rest_framework.response import Response
+import requests # <== import requests so we can utilize it within our CBV to make API calls
+from requests_oauthlib import OAuth1 #<== import OAuth1 which will essentially authenticate our keys when we send a request
 
-# public key and private key
-auth = OAuth1("*******************", "**********************")
-endpoint = "http://api.thenounproject.com/icon/1"
 
-response = requests.get(endpoint, auth=auth)
-responseJSON = response.json()
+class Noun_Project(APIView):
+    # In our CBV lets create a method to interact with the NounAPI
+    def get(self, request):
+        # let's grab this body from the `get started` documentation from the NounAPI 
+        auth = OAuth1("your-api-key", "your-api-secret") #<== for now place your corresponding keys here
+        endpoint = "http://api.thenounproject.com/icon/1"
+
+        response = requests.get(endpoint, auth=auth) # notice with axios we had to wait for the promise to be completed, with requests it know to pause the program and wait until it receives a response
+        # print(response.content) # we can see that the content within this response comes back as a binary string lets fix that
+        responseJSON = response.json() # by calling the .json() method we are turning this request into a Python Dictionary that we can manipulate
+        print(responseJSON)
+        return Response(True)
 ```
 
-> There's a lot of content here! In the browser, it was easier to dig into large data structures, but it's not quite as easy to read large data structures in python due to how they print in the terminal. I'm going to use a built-in python module, pprint (pretty print) that'll help me read the responses from the API.
+## Formatting and Manipulating response data
+
+> There's a lot of content here! In the browser, it was easier to dig into large data structures, but it's not quite as easy to read large data structures in python due to how they print in the terminal. Lets use a built-in python module, pprint (pretty print) that'll help us read the responses from the API.
 
 ```python
 import pprint
@@ -66,165 +128,137 @@ responseJSON = response.json()
 pp.pprint(responseJSON)
 ```
 
-> Now that we can get a response from the API, let's use that data in a template that we send to the client.
-> There's one last problem we need to solve before I commit this in github. Currently, my private key is visible in the code, so if I pushed it up to github, other people might steal my credentials. We need to use environment variables, which are not committed in git, to supply credentials to our app. We could use actual env variables in BASH, but it's common practice to use a .env file, which looks a little like this:
+> Now we can visualize our response data and work to return the icon_url in our methods `Response`
+
+```python
+return Response(responseJSON['icon']['icon_url'])
+```
+
+> The last thing we need to do is update our `url` and CBV to accept a `str` parameter of `item` that we can utilize with interpolated string and allow `users` to look for a specific `noun icon_url`.
+
+```python
+#api_app.urls
+from django.urls import path
+from .views import Noun_Project
+
+urlpatterns = [
+    path('<str:item>/', Noun_Project.as_view(), name="noun_project"),
+]
+
+# api_app.views
+class Noun_Project(APIView):
+
+    def get(self, request, item):
+        auth = OAuth1("your-api-key", "your-api-secret") 
+        endpoint = f"http://api.thenounproject.com/icon/{item}"
+        response = requests.get(endpoint, auth=auth)
+        responseJSON = response.json() 
+        pp.pprint(responseJSON)
+        return Response(responseJSON['icon']['icon_url'])
+
+```
+
+> Now that we can get the `icon_url` from our `requests`, we can return this to our Front-End or client and allow them to utilize this information to display an image on the screen.
+
+## Handling Secret Keys
+
+> There's one last problem we need to solve before I commit this to my local git or push it to github. Currently, my private key is visible in the code, so if I pushed it up to github, other people might steal my credentials. We need to use environment variables, which are not committed in git, to supply credentials to our project and apps. We could use actual env variables in BASH, but it's common practice to use a .env file, which looks a little like this:
 
 ```bash
 # my .env file
-env=prod
-apikey=******
-secretkey=*****
+DJANGO_KEY=****** #comes from pokedex_proj/settings.py
+apikey=****** #comes from api_app/views.py
+secretkey=***** #comes from api_app/views.py
 ```
 
-> To help us read it, we'll use a python package called `python-dotenv`.
+> Create a `.env` file at the root level of your project directory and fill in the appropriate variables with their correct values.
+
+> Now our keys are hidden from other people, but they're also hidden from my Django Project. To help my django project read the `.env` variables, we'll use a python package called `python-dotenv`.
 
 ```bash
 pip install python-dotenv
+pip freeze > requirements.txt
 ```
+
+> We will use `python-dotenv's` `dotenv_values` method, in both `api_app.views` and `pokedex_proj.settings`, to turn the contents of our `.env` file into a python OrderedDictionary and use the `.get()` method to grab the values corresponding to each key.
 
 ```python
-from dotenv import load_dotenv
-import os
+from dotenv import dotenv_values
 
-load_dotenv()  # take environment variables from .env.
-print(os.environ['apikey'])
-
+env = dotenv_values(".env") # sets the value of `env` to an OrderedDictionary
+env.get("apikey") # returns the apikey value from the `.env`
 ```
 
-> Lets utilize what we just learned and add an app to our pokedex project that could display icons from the Noun Project. In this case let's utilize this to add Pokeballs to our Pokedex project. Create a pokeball_app and do the following:
+## gitignore
 
-- Add your secret keys to your .env file (Django Secret Key, Noun Project key, Noun Project Secret Key)
-- Install dotenv to load environment keys
-- In pokeball_app create a converters.py file and add the following class
+> Django is now able to read variables from dotenv our `.env` file and function properly, but `git` is still tracking this `.env` file. Let's create a `.gitignore` file that will tell our local `git` to disregard a series of files and directories that we don't want pushed up to github or to be tracked by `git`.
+
+```bash
+#.gitignore
+.venv #<-- python venv if it lives in your project directories
+__pycache__ # <--- python stashed changes 
+.env # <--- .env file holding secret elements
+```
+
+## Testing Requests
+
+- Testing works a bit different with API's since we don't want to actually make the API call every time we run our test. So instead unit tests have the ability to mock API calls.
 
 ```python
-# pokeball_app/converters.py
-from django.urls import converters
-
-# It's still ensuring it's a string so we don't need regex
-class BallTypeConverter(converters.StringConverter):
-    # The types of pokeballs we want to be able to accept
-    allowed_balls = ['masterball', 'pokeball', 'ultraball', 'greatball']
-    # What should Django do when receiving this parameter incorrectly
-    def to_python(self, value):
-        if value.lower() not in self.allowed_balls:
-            raise ValueError('Invalid ball type')
-        return value.lower()
-```
-
-- In pokeball_app/urls.py add a path that utilizes this converter
-
-```python
-#pokeball_app/urls.py
-from django.urls import path, register_converter
-from .converters import BallTypeConverter
-from .views import Pokeball_Img
-
-# register the converter we created so we could utilize it in our paths
-register_converter(BallTypeConverter, 'pokeball')
-
-urlpatterns = [
-    # utilize the registered converter to ensure the parameter is valid
-    path("<pokeball:ball>/", Pokeball_Img.as_view(), name='pokeball'),
-]
-```
-
-- In pokeball_app/views.py we can now create our View that will send an API call to our 3rd Party API
-
-```python
-# pokeball_app/views.py
-from rest_framework.views import APIView, Response #<-- Utilize to handle API behavior
-from requests_oauthlib import OAuth1 # Authenticates a user with public and secret keys
-from dotenv import load_dotenv # Allows us to interact with .env files
-import requests # Pythons user friendly way to make requests to API's
-import pprint # Will format our JSON data
-import os # os will make it possible to grab key value pairs from .env
-
-load_dotenv()
-pp = pprint.PrettyPrinter(indent=2, depth=2)
-
-# Create your views here.
-class Pokeball_Img(APIView):
-
-    def get(self, request, ball):
-        # Grab the url parameter of ball
-        auth = OAuth1(os.environ['NOUN_KEY'], os.environ['NOUN_SECRET_KEY'])
-        # pass in both the public and secret key from the Noun Project
-        endpoint = f"http://api.thenounproject.com/icon/{ball}"
-        response = requests.get(endpoint, auth=auth)
-        # Send API request to the Noun_project
-        responseJSON = response.json()
-        pp.pprint(responseJSON['icon']['preview_url'])
-        return Response(responseJSON['icon']['preview_url'])
-```
-
-- Next connect your pokeball_app/urls.py to the projects/urls.py
-
-```python 
-# pokedex_proj/urls.py
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/v1/pokemon/', include('pokemon_app.urls')),
-    path('api/v1/moves/', include('move_app.urls')),
-    path('api/v1/pokeballs/', include('pokeball_app.urls')),
-]
-```
-
-- Finally in settings.py import your Django Secret key from your .env and add the pokeball_app onto the registered apps.
-
-```python 
-# pokedex_proj/settings.py
-SECRET_KEY = os.environ['SECRET_KEY']
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'pokemon_app',
-    'move_app',
-    'pokeball_app',
-]
-```
-
-- Testing works a bit different with API's since we don't want to actually make the API call everytime we run our test. So instead unit tests have the ability to mock API calls. Create a new testing file for this view called test_apis.py
-
-```python
-# tests/test_apis.py
 import json
 from unittest.mock import patch
 from django.test import TestCase
 from rest_framework.test import APIClient
 from django.urls import reverse
 
-
-class PokeballImgTestCase(TestCase):
+class NounProjectTest(TestCase):
     def setUp(self):
         self.client = APIClient()
-
-    # here we are specifying what specific part of 'requests' we are mocking. In this case we are movking the 
-    # get method from our requests meaning a request will never actually be sent
-    @patch('requests.get')
-    def test_pokeball_img_api_view(self, mock_get):
-        ball = 'pokeball'
-        preview_url = "https://example.com/image.png"
-
-        # Set up mock return response value for requests.get and assign it to the mock_get method
-        mock_response = type('MockResponse', (), {'json': lambda self: {'icon': {'preview_url': preview_url}}})
-        mock_get.return_value = mock_response()
-
-        # Make GET request to Pokeball_Img API view
-        response = self.client.get(reverse('pokeball', args=[ball]))
-        
-        # Check that the response status code is 200
-        with self.subTest():
-            self.assertEqual(response.status_code, 200)
-
-        # Check that the response content is the expected preview URL
-        self.assertEquals(json.loads(response.content), preview_url)
 ```
+
+- The `import` statements include the necessary modules for the test case: `json` for JSON-related operations, `patch` from `unittest.mock` to mock the `requests.get` function, `TestCase` from `django.test` for creating test cases, `APIClient` from `rest_framework.test` to simulate API requests, and `reverse` from `django.urls` for resolving URL paths.
+
+- The `NounProjectTest` class is a subclass of Django's `TestCase`, indicating that this is a test case for the Noun Project functionality.
+
+- The `setUp` method is a special method that runs before each test method in the test case. Here, we create an instance of the `APIClient` to make API requests.
+
+```python
+@patch('requests.get')
+def test_pokeball_img_api_view(self, mock_get):
+    ball = 'pokeball'
+    preview_url = "https://example.com/image.png"
+    mock_response = type('MockResponse', (), {'json': lambda self: {'icon': {'icon_url': preview_url}}})
+    mock_get.return_value = mock_response()
+    response = self.client.get(reverse('noun_project', args=[ball]))
+```
+
+- The `@patch('requests.get')` decorator patches the `requests.get` function, allowing us to intercept and control the API call made by `requests.get` during the test. This prevents the actual API request from being made and replaces it with a mocked response.
+
+- In the `test_pokeball_img_api_view` method, we define the test for the API view that retrieves the image URL for a given ball. Here, we're assuming that the view is registered with the name `noun_project` in the Django URL configuration.
+
+- The `ball` variable holds the ball name to be passed as an argument to the view.
+
+- The `preview_url` variable represents the URL of the image that we expect to receive in the response.
+
+- The `mock_response` line creates a mock response object with a `json` method that returns a dictionary with the expected JSON structure of the response. In this case, it simulates the structure returned by the API.
+
+- `mock_get.return_value = mock_response()` assigns the mock response object to the patched `requests.get` function, making it return the mock response instead of performing an actual API call.
+
+- `response = self.client.get(reverse('noun_project', args=[ball]))` makes a GET request to the `noun_project` URL, passing the `ball` argument as a URL parameter. This triggers the view and allows us to test its behavior.
+
+```python
+with self.subTest():
+    self.assertEqual(response.status_code, 200)
+self.assertEquals(json.loads(response.content), preview_url)
+```
+
+- `with self.subTest():` creates a sub-test block, allowing multiple assertions within a single test method. This helps isolate and identify individual assertions if one of them fails.
+
+- `self.assertEqual(response.status_code, 200)` asserts that the response status code is `200`, indicating a successful API request.
+
+- `self.assertEquals(json.loads(response.content), preview_url)` asserts that the JSON response content, once loaded, is equal to the expected `preview_url`.
+
+By utilizing the `@patch` decorator and `unittest.mock` library, we can intercept and control the behavior of the `requests.get` function during testing. This allows us to simulate different API responses and test the behavior of our Django views without actually making real API calls.
 
 ## Assignments
 
