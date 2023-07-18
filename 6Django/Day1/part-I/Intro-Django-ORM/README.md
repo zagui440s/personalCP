@@ -195,7 +195,7 @@ python manage.py shell
 >>> from pokemon_app.models import Pokemon
 ```
 
-> The shell will allow us to load in our models from Django. Once in the shell, we can create a new student.
+> The shell will allow us to load in our models from Django. Once in the shell, we can create a new pokemon.
 
 ```python
 >>> pikachu = Pokemon(name = 'Pikachu', level = 12)
@@ -236,7 +236,7 @@ pokedex_db=# \d
 
 ```
 
-> Django creates our database tables with the app name first, followed by the app name. Before we even wrote our own models, there were many built-in tables here, named after the built-in apps in Django, such as `admin`, `auth`, and `sessions`. Also, take note of the `django-migrations` table, which django manages automatically in order to keep track of which migrations have already been run. Our app's table is `attendance_app_student`. Let's query for the records in that table and see what we get.
+> Django creates our database tables with the app name first, followed by the app name. Before we even wrote our own models, there were many built-in tables here, named after the built-in apps in Django, such as `admin`, `auth`, and `sessions`. Also, take note of the `django-migrations` table, which django manages automatically in order to keep track of which migrations have already been run. Our app's table is `pokemon_app_pokemon`. Let's query for the records in that table and see what we get.
 
 ```bash
 pokedex_db=# SELECT * FROM pokemon_app_pokemon;
