@@ -127,7 +127,7 @@ class move_test(TestCase):
 from rest_framework import serializers
 from .models import Move
 
-class MoveSerializer(serializers.Serializer):
+class MoveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Move
         fields = ['id', 'power', 'accuracy']
@@ -271,16 +271,39 @@ class pokemon(models.Model):
 > Notice that we were able to access the `Move model` trough a specific pokemon instance, we could replicate this behavior through the `Move` instance by utilizing the related_name. `Move.pokemon.all()` Lets enforce this behavior through our `PokemonSerializer`
 
 ```python
+# pokemon_app/serializers.py
 from rest_framework import serializers
-from move_app.serializers import MoveSerializer
 from .models import Pokemon
 
 class PokemonSerializer(serializers.ModelSerializer):
-    moves = MoveSerializer() # Here we clarify that 'moves' rather than being a list of ID's should be represented by the fields included in the MoveSerializer
-
+    moves = serializers.SerializerMethodField()
+    # here we tell our serializer to utilize the method creating below to and place the methods return value into the 'moves' field
     class Meta:
         model = Pokemon
         fields = ['id', 'name', 'level', 'moves']
+
+    def get_moves(self, instance):
+        moves = instance.moves.all()
+        move_names = [move.name for move in moves]
+        return move_names
+```
+
+```python
+#move_app/serializers.py
+from rest_framework import serializers
+from .models import Move
+
+class MoveSerializer(serializers.ModelSerializer):
+    pokemon = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Move
+        fields = ['id', 'power', 'accuracy', 'pokemon']
+
+    def get_pokemon(self, obj):
+        pokemon = obj.pokemon.all()
+        pokemon = [x.name for x in pokemon]
+        return pokemon
 ```
 
 > Congratulations we have successfully created and tested our Django Models with Associations. Let's dump the `move_app` data and register our models onto the admin site
