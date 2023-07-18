@@ -18,15 +18,21 @@ So far we've been able to create a Pokemon model for our Pokedex, and this model
 ## General steps for creating database models
 
 1. create models
-2. add validators
-3. makemigrations
+2. `add validators`
+3. make migrations
 4. migrate
 5. test models
+
+## What are Validators
+
+> Model validators are functions that take a value as input and perform validation checks on that value. If the value fails the validation, a ValidationError is raised with an appropriate error message.
+> Validators are used to enforce constraints on model fields, such as checking for minimum or maximum values, validating email addresses, or ensuring unique values within a field.
 
 ## Adding Validators
 
 > Django has very common validators built-in to the Django Framework. [Built in validators](https://docs.djangoproject.com/en/4.1/ref/validators/#built-in-validators).
 > For example, if we want to validate a minimum (or maximum) integer we can use the built-in validator `MinValueValidator()`. Let's utilize this information and add some validators onto our pokemon model.
+>To use a validator, you can specify it in the validators argument of a model field. Validators can be specified as a list of callables or functions.
 
 ```py
 # models has many different methods we will utilize when creating our Models
@@ -41,10 +47,10 @@ class Pokemon(models.Model):
     name = models.CharField(max_length=200, blank=False, null=False)
     # Adding both the min and vax value will ensure Pokemon could only go from levels 1-100
     level = models.IntegerField(default=1, validators=[v.MinValueValidator(1), v.MaxValueValidator(100)])
-    # Under the hood DateField is already running a regex funciton to ensure 
+    # Under the hood DateField is already running a regex function to ensure 
     # input is matching the correct date format of "YYYY-MM-DD"
     date_encountered = models.DateField(default="2008-01-01")
-    # Under the hood DateField is already running a regex funciton to ensure 
+    # Under the hood DateField is already running a regex function to ensure 
     # input is matching the correct date format of "YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]"
     date_captured = models.DateTimeField(default=timezone.now)
     # We don't want a pokemon's description to either be too long or too short so
@@ -55,7 +61,10 @@ class Pokemon(models.Model):
     captured = models.BooleanField(default = False)
 ```
 
-> Validators will run when we run `model_instance.full_clean()` >[object validation docs](https://docs.djangoproject.com/en/4.1/ref/models/instances/#validating-objects)
+> Validators will run when we run `model_instance.full_clean()`
+> [object validation docs](https://docs.djangoproject.com/en/4.1/ref/models/instances/#validating-objects)
+
+
 > We can also create our own validators...
 > Our pokemon model has a `name` field but we only want names to be written onto our database in a specific format. However, our `name` field allows for any combination of characters, numbers, and spaces to get entered and saved onto the database.
 > We can create a **validator** which is a method to check for a valid pokemon `name` input.
@@ -107,9 +116,21 @@ class Pokemon(models.Model):
     # Adding both the min and vax value will ensure Pokemon could only go from levels 1-100
 ```
 
-## Testing Our Models
+> We have added all of the necessary validators to our `Pokemon` model and have completed the `validate models` step. Lets `makemigrations` and move onto testing our model.
 
-- **Using Tests**
+## Introduction to Django Tests
+
+> Django's testing framework provides a set of tools and utilities to simplify the process of writing tests. It allows you to create test cases, simulate requests and responses, and perform assertions to verify expected behavior.
+
+
+> Django tests are written using Python's built-in unittest module, which provides a structure for organizing test code and running tests. Django extends unittest with additional functionality specific to web development, making it easier to test Django-specific components like views, models, and forms.
+
+### Creating Django Test Cases
+
+> To start writing tests in Django, you need to create a test case by subclassing Django's django.test.TestCase or unittest.TestCase. The django.test.TestCase provides additional features specific to Django, such as test database access and request/response simulation.
+
+
+> Inside your test case, you can define individual test methods that test specific aspects of your application. Test methods should have names starting with test_ to be discovered and executed by the testing framework.
 
 > In our `pokemon_app` directory, inside the `tests.py` file we can write our unit tests.
 
@@ -150,6 +171,9 @@ class pokemon_test(TestCase):
 ```
 
 > To run your tests execute the command `python manage.py test` in the terminal and we should see a '.' for every test passed, an 'E' for error, and an 'F' for failure.
+
+
+> We've created an [assertions](../../../CheatSheets/test_assertions.md) cheat sheet for you to get further knowledge on the different types of assertions and how to utilize them
 
 ## External Resources
 

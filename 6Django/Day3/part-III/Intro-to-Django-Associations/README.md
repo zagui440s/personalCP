@@ -214,3 +214,23 @@ and interact with our Models through the [Admin Site](http://localhost:800/admin
 - [School API](https://classroom.github.com/a/vP_DvvOV)
 - [Val & Associations](https://classroom.github.com/a/2PKC68Kh)
 - [Django Validations](https://classroom.github.com/a/Q1OvS1Ws)
+
+## Working with Nested Relationships
+
+Serializers handle nested relationships by allowing you to nest serializers inside each other. This enables you to work with related models and their data.
+
+Here's an example of a serializer for a blog post that includes the author's details:
+
+```python
+class AuthorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Author
+        fields = ['name', 'email']
+
+class BlogPostSerializer(serializers.ModelSerializer):
+    author = AuthorSerializer()
+
+    class Meta:
+        model = BlogPost
+        fields = ['title', 'content', 'author']
+```

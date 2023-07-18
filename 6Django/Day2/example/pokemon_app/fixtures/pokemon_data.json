@@ -34,5 +34,17 @@
     "description": "Unkown",
     "captured": false
   }
+},
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 4,
+  "fields": {
+    "name": "Eevee",
+    "level": 25,
+    "date_encountered": "2008-01-01",
+    "date_captured": "2023-07-18T05:11:06.157Z",
+    "description": "Unknown",
+    "captured": false
+  }
 }
 ]
