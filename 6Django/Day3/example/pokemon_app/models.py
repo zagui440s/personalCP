@@ -1,11 +1,8 @@
 # models has many different methods we will utilize when creating our Models
 from django.db import models
 from django.utils import timezone
-
 # import built-in Django Validators
 from django.core import validators as v
-from django.core.exceptions import ValidationError
-
 # import validate_name from our custom validators
 from .validators import validate_name
 from move_app.models import Move
@@ -21,23 +18,23 @@ class Pokemon(models.Model):
     level = models.IntegerField(
         default=1, validators=[v.MinValueValidator(1), v.MaxValueValidator(100)]
     )
-    # Under the hood DateField is already running a regex funciton to ensure
+    # Under the hood DateField is already running a regex function to ensure
     # input is matching the correct date format of "YYYY-MM-DD"
     date_encountered = models.DateField(default="2008-01-01")
-    # Under the hood DateField is already running a regex funciton to ensure
+    # Under the hood DateField is already running a regex function to ensure
     # input is matching the correct date format of "YYYY-MM-DD HH:MM[:ss[.uuuuuu]][TZ]"
-    date_captured = models.DateTimeField(default=timezone.now())
+    date_captured = models.DateTimeField(default=timezone.now)
     # We don't want a pokemon's description to either be too long or too short so
     # lets add both a Max and Min LengthValidators to our TextField to ensure
     # input meets our criteria
     description = models.TextField(
-        default="Unkown",
+        default="Unknown",
         validators=[v.MinLengthValidator(25), v.MaxLengthValidator(150)],
     )
     # Boolean field is already ensuring to only take in either True or False
     captured = models.BooleanField(default=False)
-    # Lets create a many-to-many relationship with moves with a default to the move Psychic
-    moves = models.ManyToManyField(Move, default=[1])
+    moves = models.ManyToManyField(Move, related_name="pokemon")
+    # Creating a MANY pokemon to ONE move relationship and setting Code Platoon as the default value
 
     # DUNDER METHOD
     def __str__(self):
@@ -52,9 +49,3 @@ class Pokemon(models.Model):
     def change_caught_status(self):
         self.captured = not self.captured
         self.save()
-
-    def clean(self):
-        if (
-            self.moves.count() > 4
-        ):  # Change the maximum number of relationships as needed
-            raise ValidationError("A Pokemon can have at most 4 moves.")

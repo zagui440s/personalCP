@@ -14,26 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.http import HttpResponse
-from django.urls import path
-import math
-
-def square_area_view(request, side):
-    area_of_a_square = side ** 2
-    return HttpResponse(area_of_a_square)
-
-def circle_area_view(request, side):
-    area_of_a_circle = math.pi * (side ** 2)
-    return HttpResponse(area_of_a_circle)
-
-def triangle_area_view(request, base, height):
-    print(request.headers)
-    area_of_a_triangle = (base * height)/2
-    return HttpResponse(area_of_a_triangle)
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('squares/<int:side>/', square_area_view, name='square'),
-    path('circles/<int:side>/', circle_area_view, name='circle'),
-    path('triangles/base/<int:base>/height/<int:height>/', triangle_area_view, name='triangle'),
+    path('api/v1/pokemon/', include('pokemon_app.urls')),
+    path('api/v1/moves/', include('move_app.urls')),
+    path('api/v1/pokeballs/', include('pokeball_app.urls')),
+    path('api/v1/trainer/', include('trainer_app.urls')),
 ]
