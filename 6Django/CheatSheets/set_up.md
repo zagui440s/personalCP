@@ -8,6 +8,7 @@ In this markdown file, we will guide you through the process of building a simpl
 
 ```bash
 python -m venv <name_of_env>
+source <name_of_env>/bin/activate
 ```
 
 2. Install all necessary packages
