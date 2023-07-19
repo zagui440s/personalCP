@@ -16,109 +16,149 @@ In this lesson we will cover basic CRUD principles and fundamentals while creati
 ## What is CRUD
 
 > CRUD stands for Create, Read, Update, and Delete. It is a commonly used acronym in software development and database management, referring to the four basic functions that are essential for working with persistent data.
+
 > Create refers to the process of adding new data to a system, such as creating a new record in a database or adding a new item to a list.
+
 > Read refers to the process of retrieving existing data from a system, such as querying a database to retrieve a specific record or displaying a list of items.
+
 > Update refers to the process of modifying existing data in a system, such as editing a record in a database or updating the details of an item.
+
 > Delete refers to the process of removing existing data from a system, such as deleting a record from a database or removing an item from a list.
+
 > Together, these four operations provide a foundation for managing data in a wide range of applications and systems.
 
 ## CRUD in API Design
 
-> The Hypertext Transfer Protocol (HTTP) is a protocol for distributing content that provides a set of methods to declare actions. By convention, REST APIs rely on these methods, so use the appropriate HTTP method for each type of action:
+> The Hypertext Transfer Protocol (HTTP) is a protocol for distributing content that provides a set of methods to declare actions. By convention, REST APIs rely on these methods and it's important to use the appropriate HTTP method for each type of action:
 
 | Purpose of Request                                      | HTTP Method | Rough SQL equivalent | HTTP Response Status |
 |---------------------------------------------------------|-------------|---------------------| ----------------------|
 | Create a new resource                                   | POST        | INSERT              | 201 Created           |
 | Read an existing resource                               | GET         | SELECT              | 200 Success /404 Not Found|
 | Update an existing resource                             | PUT         | UPDATE              | 204 / 200 if something is being returned |
-| Update part of an existing resource                     | PATCH       | UPDATE              | 204 / 200 if something is being returned |
 | Delete an existing resource                             | DELETE      | DELETE              | 204 No content |
-| Returns same HTTP headers as GET, but no body content   | HEAD        |                     |
-| Return the supported HTTP methods for the given URL     | OPTIONS     |                     |
-| Echo back the request                                   | TRACE       |                     |
 
-## Update (PUT) Request
 
-> So far our application has full READ capabilities but we don't have a way to UPDATE, CREATE, OR DELETE information from our database. In this lesson we will concentrate on the update method and integrate it with our pokedex project by giving users the ability to change a Pokemons level, captured status, and moves. We don't want all of these options to be integrated onto our url itself, instead we will have users send this information through request data and have our views extrapolate this information.
-> Inside our views in pokemon_app we already have a `Selected_pokemon` API view that can successfully get a pokemon from our database by either name or id and return it in a Response in JSON format. Now that we want to UPDATE something in the database we will utilize the `PUT` request method to trigger our next set of behavior.
+## Why request.data?
+
+> So far our application has full READ capabilities but we don't have a way to UPDATE, CREATE, OR DELETE information from our database through our API views. In this lesson we will concentrate on the `update` method and integrate it with our pokedex project by giving users the ability to change a Pokemons level, captured status, moves, and description.
+
+> We have seen how to pass parameters through `url paths` but we haven't talked about other methods of receiving information from a user. If we attempted to send all the parameters of a Pokemon through a `url path` we would end up with something ridiculous like this:
+
+```python
+path("pokemon/<int_or_sting:name_or_id>/name/<str:name>/level/<int:level>/captured/<str:status>/move1/<int:move1_id>/move2/<int:move2_id>/move3/<int:move3_id>/move4/<int:move4_id>/")
+```
+
+> We don't want all of these options to be integrated onto our `url paths`, instead we will have users send this information through requests data. Every `request` made to a server comes with an attribute named `body` and is typically interpreted as `binary string`, but, because we are using DRF, that `body` is "translated" into a dictionary that Python can interact with and placed within the request under a new attribute named `data`.
+
+## Implementing the PUT method
+
+> We already have a `A_pokemon` API view in our `pokemon_app.views` that can successfully `get` a pokemon from our database by either name or id and return it in a Response. Now that we want to UPDATE something in the database we will utilize the `PUT` request method to trigger our next set of behavior.
 
 ```python
 # pokemon_app/views.py
+from rest_framework.status import HTTP_204_NO_CONTENT
 class Selected_pokemon(APIView):
-    # lets create a class method to grab a pokemon by id or name
-    # to avoid repeating this logic on every single request method.
-    def get_pokemon(self, id):
-        if type(id) == int:
-            return Pokemon.objects.get(id = id)
-        else:
-            return Pokemon.objects.get(name = id.title())
-        
-    def get(self, request, id):  # <-- Notice id is now a parameter and its value is being pulled straight from our URL
-        pokemon = self.get_pokemon(id)
-        json_pokemon = serialize('json', [pokemon])
-        serialized_pokemon = json.loads(json_pokemon)
-        return Response(serialized_pokemon)
 
-    def put(self, request, id):  # <-- ID is our url parameter
-        # we still want to grab a pokemon either by ID or by name
-        pokemon = self.get_pokemon(id)
+    def put(self, request, id_or_name):  # <-- This should be a direct reflection from the get method
+        # we still want to grab a pokemon either by ID or by name so lets grab that behavior from the get method as well
+        if id_or_name.isnumeric():
+            pokemon = Pokemon.objects.get(id = id_or_name)
+        else:
+            pokemon = Pokemon.objects.get(name = id_or_name.title())
         # Now we have to check the body of our request and check if
-        # the following keys are in our request ['level_up', 'captured', 'moves']
-        if 'level_up' in request.data:
-            # we will level up a pokemon to the desired level
-            pokemon.level_up(request.data['level_up'])
-        if 'captured' in request.data:
-            # a pokemons captured status will be set to this value
-            pokemon.change_caught_status(request.data['captured'])
-        if 'moves' in request.data:
-            # pokemons moves will be set to the following integer list
-            pokemon.moves.set(set(request.data['moves']))
+        # the following keys are in our request ['level_up', 'captured', 'moves', description]
+        if 'level_up' in request.data and request.data['level_up']:
+            pokemon.level_up()
+        if 'captured' in request.data and request.data['captured']:
+            pokemon.change_caught_status()
+        if "moves" in request.data:
+            pokemon.moves.add(request.data.get("moves"))
+        if "description" in request.data:
+            pokemon.description = request.data.get("description")
         # full clean to check our validations
         pokemon.full_clean()
         # save all changes
         pokemon.save()
-        # serialize our updated pokemon and return it as json
-        pokemon = json.loads(serialize('json', [pokemon]))
-        return Response(pokemon)
+        # We've made our necessary changes to the pokemon instance so we can return the appropriate response status of 204 which we will grab from DRF
+        return Response(status=HTTP_204_NO_CONTENT)
 ```
 
-> Now our users have the ability to ping the same url they use to get a pokemon but instead of sending a `GET` request they will be sending a `PUT` request where the body of the request holds a JSON object resembling the following:
+> We've built out our `put` method and have added the appropriate functionality and return the appropriate response. This CBV is still linked to the same `url path` that our `get` method was linked to. The only difference is we now have the ability to send both `PUT` and `GET` requests to the same url pattern. Let's open up `postman` and try sending a put request to our `pokedex_proj`.
+
+> Once `Postman` is opened up update the `request_url` to `http://127.0.0.1:8000/api/v1/pokemon/pikachu/`. Then change the method of the request that we want to send from `GET` to `PUT`. Finally under the `request_url` click on the `Body` tab and select the `raw` option for data. This will populate a blank box where you can write JSON data into and send requests. Past the following data and send the request:
 
 ```json
 {
-    "level_up": 25,
+    "level_up": true,
     "captured" : true,
-    "moves" : [4, 12, 13, 6]
+    "description": "This is Pikachu and it is a surprizingly weak electric type that does not live up to it's name"
 }
 ```
 
-> We ourselves will utilize Postman to do this action. We can choose the `PUT` request method to the following url `http://127.0.0.1:8000/api/v1/pokemon/1/` and then add `raw` data to the `body` of the request. Then we can send the request and receive our UPDATED pokemon data.
+> Once you've submitted your request you'll see that your responses body came back empty. Well if we check on the upper right hand corner of the response area, there's a `Status` header with the code 204 No Content meaning this request was successful and did not receive any content.
+
+> Finally, we can send a get request to the same exact URL and confirm Pikachu has in fact leveled up to confirm our updates were saved onto the database. You should see the following response from your `GET` request:
+
+```JSON
+{
+    "id": 1,
+    "name": "Pikachu",
+    "level": 13, //pikachu was originally level 12 and now we can see it's level has gone up to 13
+    "moves": []
+}
+```
+
+> Everything is working properly but I'm starting to notice that I have a bit of repeated code within my `A_pokemon` CBV. I want to ensure I don't repeat myself so I think I'm going to go back and apply a django shortcut name `get_object_or_404` and create a method that will return a pokemon instance.
+
+```python
+    # create a method that you can utilize through out the entire class
+    def get_a_pokemon(self, pokemon_identifier):
+        pokemon = None
+        if pokemon_identifier.isnumeric():
+            pokemon = get_object_or_404(Pokemon, id = pokemon_identifier)
+        else:
+            pokemon = get_object_or_404(Pokemon, name = pokemon_identifier.title())
+        return pokemon
+
+    # `get_object_or_404` is a method that takes in two arguments. first the method it's looking into and second the conditions it's looking for. This method will return the specific Model instance we are looking for if it exists. If it doesn't find the Model instance that meets our conditions, it will immediately return a 404 error saving us time and server space.
+    
+    def get(self, request, id_or_name):
+        pokemon = self.get_a_pokemon(id_or_name) # utilize newly created method
+    
+    def put(self, request, id_or_name):
+        pokemon = self.get_a_pokemon(id_or_name) # utilize newly created method
+```
 
 ## Testing PUT views
 
-> Now we have created our view corresponding to the `PUT` method, but we want to be able to test it and ensure everything is working correctly through out the development process.
+> Now that we have created our `PUT` method MVC, we want to be able to test it and ensure everything is working correctly through out the development process.
 
 ```python
 # tests/test_views.py
 
 # ensure names are specific to what's going on in the test
-def test_005_update_pokemon_data(self):
-    # Theres a couple of differences in the way we send this request through our client.
-    # 1. Notice that our client is specifically sending a PUT request to our URL
-    # 2. We are no passing a data parameter holding a dictionary that will be passed to the request
-    # 3. By default Django send "application/octet-stream" data in tests so we have to specify that
-    #    we are sending "application/json" data in content_type
-    response = self.client.put(reverse('selected_pokemon', args=['pikachu']), data={
-        "level_up": 25,
-        "captured" : True,
-        "moves" : [4, 12, 13, 6]
-    }, content_type="application/json")
-    # This turns the body of our response onto a JSON object
-    response_body = json.loads(response.content)
-    # updated_pokemon would be the same information we received from Postman
-    self.assertEquals(response_body, updated_pokemon)
+def test_003_update_pokemon_data(self):
+        updated_pokemon = Pokemon(name="Eevee")
+        updated_pokemon.save()
+        # Theres a couple of differences in the way we send this request through our client.
+        # 1. Notice that our client is specifically sending a PUT request to our URL
+        # 2. We are no passing a data parameter holding a dictionary that will be passed to the request
+        # 3. By default Django send "application/octet-stream" data in tests so we have to specify that
+        #    we are sending "application/json" data in content_type
+        response = self.client.put(
+            reverse("a_pokemon", args=["eevee"]),
+            data={
+                "level_up": True,
+                "captured": True,
+                "description": "This is Pikachu and it is a surprizingly weak electric type that does not live up to it's name",
+            },
+            content_type="application/json",
+        )
+        # We don't have response content to assert so instead we will assert the HTTP status_code
+        self.assertEquals(response.status_code, 204)
 ```
 
 ## Assignments
 
-- [School API](https://classroom.github.com/a/vP_DvvOV)
+- Take this project and replicate the behavior we just created for on the `move_app.views.A_move`
