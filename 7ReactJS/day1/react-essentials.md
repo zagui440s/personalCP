@@ -2,94 +2,94 @@
 
 ## Topics Covered
 
-- What is the problem we are trying to solve?
-
-- How have we 'solved' this problem up until now?
-
-- Bootstrapping a React site using Vite
-
-- Intro to React
-
-  - JSX and Components
-  - props and interpolation
-  - Single JSX element rule + React.Fragment
-
+- Review
+  - What is the problem we are trying to solve?
+  - Our current solution
+  - Limitations to HTML + CSS + JS
+  - Why React?
+- Vite
+  - Bootstrapping a React site using Vite
+  - Our first component - `App.jsx`
+  - Rendering `<App />` in `main.jsx`
+- React Essentials
+  - What is a Component?
+  - Components as containers
+  - Rules around returning JSX and React.Fragment
+  - Props and interpolation
 - Common patterns in React
-  - built-in props:
-    - props.children (transclusion)
-    - class -> className
-    - onclick -> onClick
-  - destructuring props
-  - conditional rendering with the ternary operator
-  - interpolating a list with map
+  - props.children
+  - class -> className
+  - onclick -> onClick
+  - Conditional rendering with `&&` and the ternary operator
+  - Interpolating a list with map
 
 ## Lesson
 
-### What is the problem we are trying to solve?
+### Review
 
-We want to create great user interfaces that respond to user-initiated events (clicking, scrolling, typing) and react appropriately. Our ultimate goal is to create a Single Page Application (SPA) - i.e. a website that gives the user an interactive experience that is as enjoyable/seamless to use as a native application running on their own computer (i.e. Microsoft Word). However, the tools we currently have are really suited for creating static sites with only basic interactivity.
+#### What is the problem we are trying to solve?
 
-#### The MVC (Model-View-Controller) Pattern
+We want to create great user interfaces that respond to user-initiated events (clicking, scrolling, typing) and _react_ appropriately. Our ultimate goal is to create a Single Page Application (SPA) - a website that gives the user an interactive experience that is as enjoyable/seamless to use as a native application running on their own computer.
 
-Before we dive into React or even review our current tools, let's discuss developing UIs from a purely conceptual vantage point.
+Let's take a moment to visit a site like [Hacker News](https://news.ycombinator.com/) and consider how we might create a site like this using only HTML/CSS/JS.
 
-![MVC](./page-resources/mvc-structure.png)
+Now take a moment to visit a site like [Google Docs](https://docs.google.com/) and consider how much more complex it might be to create such a highly-interactive site using only HTML/CSS/JS.
 
-**MVC** (Model-View-Controller) is a software pattern for describing how a user interface works by splitting it into 3 components:
+#### Our current solution
 
-1. **Model**: the source of truth of an application. The Model describes the underlying data that represents the state of our page.
+Let's refresh what we know about making UIs with HTML, CSS and JS using a basic example:
 
-2. **View**: the visually rendered page. The View is what the user sees and interacts with, it is the visual representation of the Model.
+> [1-html-css-js-mvc](./examples/1-html-css-js/)
+>
+> NOTE: use the VSCode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to serve up this simple website.
 
-3. **Controller**: the Controller 'handles' events that are triggered from the page (clicking, scrolling, typing) and updates the Model in response.
+What are the components of this site?
 
-The MVC pattern forms a loop - the Model represents the page, the View displays the page, the Controller responds to page events and updates the Model in response.
+1. `index.html`: `index.html` forms the 'skeleton' of our site. It references the other files it wants to pull in (`style.css` and `main.js`) and provides the basic starting structure of the page.
 
-> MVC isn't a specific implementation or library, it's merely a conceptual tool for talking about the basic concerns of a UI and how they relate to one another to form a feedback loop.
+2. `style.css`: the 'style' of our app, it let's the developer associate HTML elements with specific visual properties using the language of selectors (`h1`, `#my-id`, `.my-class`).
 
-Let's explore this better with some tools we have already learnt:
+3. The _DOM_: The DOM is not an explicit file, but it is what the browser creates upon parsing the HTML/CSS/JS files. The DOM is a representation of the entire page as a JS object and is accessible from JS using the built-in variable `document`.
 
-### What we have seen so far
-
-Let's refresh what we know about making UIs with HTML, CSS and JS:
-
-- **HTML**: the 'skeleton' of any website, it provides the structure of the view, but uses default styling as determined by the browser. HTML is a _markup language_, meaning it can represent data, but isn't capable of representing computation.
-
-- **CSS**: the 'style' of our app, it is another _markup language_ that let's the developer modify the visual properties of HTML elements on a webpage.
-
-- **JS**: a _programming language_ that can respond to events and alter the underlying page (DOM).
-
-To explore the idea of MVC, let's look at an example (see [1-html-css-js-mvc](./examples/1-html-css-js-mvc/)
-
-> We will use the VSCode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to serve up this simple website.
-
-Notice the 3 parts:
-
-1. **Model**: the underlying data representing our page - this is the DOM, which we can see in the Chrome dev console under 'Elements'. It is represented in code with the built-in JS variable `document`.
-
-2. **View**: the actual visual representation of the DOM as displayed in the browser. It's starting point is the HTML we served up, which is modified by the styling we provided in the CSS.
-
-3. **Controller**: the JS allows us to respond to events (clicks) and use it to update the Model (`document`) which in turn re-renders the View (the visual page we see in the browser)
+4. `main.js`: a script written in JS that can reference the DOM and modify it. JS is used as the event-driven glue of our site: in our HTML we can reference a JS function using the `onclick` attribute and it will respond to this event but referencing and altering the DOM (`document`). When the DOM is updated the page rerenders, so the user sees an updated view.
 
 #### Limitations to HTML + CSS + JS
 
-The core building blocks of HTML, CSS and JS are enough to create anything we could want on the frontend. However it ends up being a cumbersome approach that doesn't scale well. HTML is our source of truth for what the page looks like, but only initially, as our JS works by modifying the DOM in reaction to events. This works well enough for simple sites, but for a large project this approach doesn't scale well.
+> Q: What are some limitations or pain points of doing front end this way? Can you imagine any alternatives?
 
-React aims to solve this scalability issue by creating a JS library that allows us to (essentially) work with HTML more directly in our JS.
+The core building blocks of HTML, CSS and JS are enough to create anything we could want on the frontend. However it ends up being a cumbersome approach that doesn't scale well. HTML is our source of truth for what the page looks like, but only initially, as our JS works by modifying the DOM in reaction to events.
 
-### Bootstrapping a React site using Vite
+Additionally the HTML and JS are _decoupled_. This means:
 
-Our goal now is to get a 'hello world' (very basic proof of concept) React site up. Don't worry if this all is new, we will cover all the new concepts in a moment, we just want to see it and have a working environment to play around in first.
+1.  we need to reference the JS from within the HTML using the `<script>` tag and using the element attribute `onclick`.
 
-#### Creating a React dev environment using Vite
+2.  we need to reference the HTML from within the JS using the `document` object and looking up elements using selectors defined in the CSS but bound to the element from within the HTML.
+
+This ends up being unnecessarily confusing - we care about 3 types of files, and they all need to reference one another, but they don't implicitly know about each other.
+
+Why is it like this?
+
+![better way](./page-resources/better-way.gif)
+
+**There's got to be a better way!**
+
+#### Why React?
+
+React's main innovation is to solve this decoupling problem of by **_moving HTML into JS_**. In React, we can write and manipulate HTML directly within our JS as if HTML was a primitive type directly built into the language. React ends up offering a lot more than this, but that is the first selling point.
+
+### Vite
+
+#### Bootstrapping a React site using Vite
+
+Our goal now is to get a 'hello world' React app and get it up and running. Because React is more advanced than the basic HTML/CSS/JS approach, setting up a dev environment for it can be somewhat complex. Therefore, we will utilize the front-end scaffolding tool [`vite`](https://vitejs.dev/) to help us in generating the necessary boilerplate.
 
 In your terminal, wherever you want to create the new project, type:
 
 ```sh
-npm create vite@latest
+npm create vite
 ```
 
-This will prompt you with a wizard. Say yes to proceed, choose a project name (it will create a new folder with such a name) and select React as the framework and JavaScript as the variant. This is necessary because Vite works with many different frontend tools and so we need to specify what we plan to use.
+This will prompt you with a wizard. Say yes to proceed, choose a project name (it will create a new folder with such a name) and select React as the framework and JavaScript as the language. This is necessary because Vite works with many different frontend tools and so we need to specify what we plan to use.
 
 Once done you should have a new folder, I named mine `2-example-vite-project`. Now:
 
@@ -101,71 +101,99 @@ npm run dev
 
 This will install any dependencies (Vite assumes some already for React) and then runs a script to serve the site.
 
-#### Why does React need such heavy duty tooling to make a basic project?
+`vite`'s starting output is a bit more complex than we need right now, so I created a simplified example of a default vite project in [./examples/2-example-vite-project/](./examples/2-example-vite-project/). Let's explore that file to understand the basics of how React is bootstrapped.
+
+#### Our first component - `App.jsx`
 
 React environment setup ends up being relatively complicated because of a feature it uses called `jsx`.
 
-`jsx` is a file extension/format, like `js`, but with the additional caveat that you can now write HTML within your JS as if it was natively supported in the language, like so:
+`jsx` is a file extension/format, like `js`, but with the additional ability to write HTML directly within your JS. Let's take a look at `src/App.jsx` in the example project:
 
 ```jsx
-function MyFirstReactComponent() {
-  return <h1>JSX means you can just write html directly in JS!</h1>;
+function App() {
+  const myJsx = <h1>Hello World</h1>;
+
+  return myJsx;
 }
+
+export default App;
 ```
 
-To accomplish this however `.jsx` code needs to be 'transpiled' to become normal JS that can run on a browser. Instead of trying to set up all of this scaffolding from scratch, we use the env setup/build tool [`Vite`](https://vitejs.dev/).
+To be explicit I saved the jsx part in it's own variable called `myJsx`. Note how we were able to write an HTML element directly in our code and it's considered valid. We call such a file a `jsx` file and the file extension is therefore `.jsx`. However, sometimes the term `jsx` is used to refer specifically to the part of the code that is HTML-like, not the entire file.
 
-#### Exploring Vite's scaffolding
+The rest of the file consists of a single function, `App`, which takes no input, and returns some `jsx` as the output. We call a function that returns `jsx` a _Component_.
 
-Vite set up a fair amount for us to start.
+At the very end we export the function, in this case a default export, which means it's the 'main' thing this file exports.
 
-First, notice the root-level file `index.html`. Just like in a normal project, this represents your main page.
+> Note: I wrote it this way to be explicit about what's happening at each step, but a more concise (but equivalent) implementation could be written as:
+>
+> ```jsx
+> export default function App() {
+>   return <h1>Hello World</h1>;
+> }
+> ```
 
-> See [2-example-vite-project/index.html](./examples/2-example-vite-project/index.html)
+Now let's see how we render this component to the page.
 
-Note that there's very little content in the body, just two things, a `<div>` with `id="root"` and a js script pointing `/src/main.jsx`.
+#### Rendering `<App />` with `index.html` and `main.jsx`
 
-#### Rendering your root component (how React is 'bootstrapped')
+First, let's look at `index.html`. When `vite` serves up our site, the only file it serves is `index.html`. Just like with the traditional HTML/CSS/JS approach, this is the entry point to our site. Let's look at the body:
 
-`/src/main.jsx` is where React hooks in to the HTML. It does this by grabbing an existing HTML element (`#root`) and rendering a React Component as it's innerHTML.
-
-> See [2-example-vite-project/src/main.jsx](./examples/2-example-vite-project/src/main.jsx)
-
-Some things to note:
-
-1. CSS can be directly imported into JS now, no need for `<link>` elements in your HTML
-
-2. React uses a sibling library called `ReactDOM` to bootstrap itself. Essentially we use vanilla JS to grab the element we care about by ID (`"root"`) and then _render_ our top-level React component, `<App>` (ignore the `<React.StrictMode>`, it's simply a wrapper to give you good warnings).
-
-### Intro to React
-
-### Our First Component
-
-So what is `<App>`? App is our 'root component' that represents our React app, it's source is located at `/src/App.jsx`. As it is the default Vite definition of App is too complicated, so let's replace the contents of `App.jsx` with:
-
-```jsx
-export default function App() {
-  return <h1>Hello World</h1>;
-}
+```html
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
 ```
 
-Now if you refresh the page you should see 'Hello World' in big letters.
+The only thing this html file does is create an empty div with id `root` and invoke a js file at `src/main.jsx`, so let's look there next. The contents of `main.jsx` are as follows:
 
-This function `App()` is what we call a **Component**, the most basic building block in React. It is simply a function (currently taking 0 arguments) that returns some HTML (which we can do because we are writing `jsx`). We then (default) export this function so it can be used in `main.jsx`.
+```js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
-In `main.jsx` we import this function, but importantly, we don't call it as if it was a function, we use it in a syntax similar to HTML: `<App />`
+const rootElement = document.getElementById("root");
 
-This is the core idea of React, creating fully customizable HTML-like Components that can be used to create a user interface. There's a lot more to it, which we will now explore, but you can already see the most basic upgrade: we used to be limited to HTML itself, but now we can effectively make our _own_ HTML elements within JS!
+const reactRoot = ReactDOM.createRoot(rootElement);
 
-> At this point I recommend you remove any extranneous files/references from the React project for simplicity. So delete any `.css` file and any reference to it, and the assets folder. When done your `src` file should just contain `main.jsx` and `App.jsx`.
+reactRoot.render(<App />);
+```
+
+> This can more concisely be defined like:
+>
+> ```js
+> ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+> ```
+
+What is this doing?
+
+1. First, we grab that `#root` element like we normally would
+2. ReactDOM is used to create a _root_ for our React app, and associate it with the element we just grabbed
+3. we call `render` on that root to render our `<App />` component.
+
+This is the basic way that a React component (representing the entrypoint to your React app) is linked up to your actual HTML, and once this setup is done you generally won't need to modify it again.
+
+The most important thing to notice here is that we can reference the exported function `App` from `src/App.jsx` as an HTML-like element `<App />` (or `<App>...</App>` if it wasn't self closing). This is why we call it a component, because that function is equivalent to an HTML-like element now.
+
+The other important point to note is that CSS files can now be directly included in our project directly from JS. This actually isn't a feature of React but of `vite`.
+
+> Other things to note:
+>
+> 1. React uses a sister library called `ReactDOM` to bootstrap itself. This is basically the only time you will use this library, but it creates a meaningful seperation between React itself and rendering to a webpage. This is done because React can actually be used to render to other platforms like a mobile app screen, using another sister library called [React Native](https://reactnative.dev/)
+>
+> 2. I removed it in my example, but by default `vite` will generate a `src/main.jsx` file that doesn't simply render the component `<App />` but renders it as the child of another component, `<React.StrictMode>`. This is simply a wrapper Component React provides to provide better warnings, but it can sometimes make your work more confusing as it renders everything twice to check for bugs, so I often remove it.
+
+### React Essentials
 
 #### What is a Component?
+
+Components are the core idea of React, letting us create fully customizable HTML-like elements of our own that we can then use as building blocks to create a user interface. We used to be limited to HTML itself, but now we can effectively make our _own_ HTML elements!
 
 So what is a Component? A Component is React's answer to an HTML element. Normally, HTML is a limited set of pre-existing elements, and vanilla JS is used to manipulate those elements over time. With React, we pull _everything_ into the world of JS, so our first task is creating a means of working with HTML in JS, hence the Component.
 
 We implement a component like so:
 
-`./components/MyComponent.jsx`
+`src/components/MyComponent.jsx` (I created a new folder within `src` to house my components)
 
 ```jsx
 export default function MyComponent() {
@@ -175,7 +203,7 @@ export default function MyComponent() {
 
 and reference it like so (in a different component):
 
-`./App.jsx`
+`src/App.jsx`
 
 ```jsx
 import MyComponent from "./components/MyComponent";
@@ -190,15 +218,15 @@ export default function App() {
 }
 ```
 
-`<MyComponent />` is effectively replaced with the HTML it returns.
+`<MyComponent />` is effectively replaced with the jsx it returns.
 
-> Note: the space before the return is like any JS function, feel free to write logic or define functions or variables here
+> Note: the space before the return is like any JS function, so we can write logic or define functions or variables here
 
 #### Components as containers
 
-As seem in the last example, a React component can return more than one line of HTML (/components), which makes it a useful container for a specific visual 'unit'.
+As seem in the last example, a React component can return more than one line of jsx, which makes it a useful, reusable container for a specific visual 'unit'.
 
-`./Profile.jsx`
+`src/components/Profile.jsx`
 
 ```jsx
 export default function Profile() {
@@ -211,153 +239,153 @@ export default function Profile() {
 }
 ```
 
-`./App.jsx`
+`src/App.jsx`
 
 ```js
-import Profile from "./Profile";
+import Profile from "./components/Profile";
 
 export default function App() {
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>Profiles</h1>
+      <Profile />
+      <Profile />
       <Profile />
     </div>
   );
 }
 ```
 
-Note that when we create a component that doesn't fit on a single line (most won't) we return it like so:
+> Note: we write the element representation for Profile as `<Profile />`. If your component has no body, it is the equivalent of a self closing element in HTML, like `<img>`. However React is more strict than HTML and will not accept `<Profile>` but will require `<Profile />` with the explicit self-closing tag.
+
+#### Rules around returning JSX and React.Fragment
+
+Note above that when we created a component that contains multiple other elements we returned it all within a single `<div>`
 
 ```jsx
 return <div>...</div>;
 ```
 
-Also, note how we write the element representation for Profile as `<Profile />`. If your component has no body (they can, we will get to this) it is the equivalent of a self closing element in HTML, like `<img>`. However React is more strict than HTML and will not accept `<Profile>` but will require `<Profile />` with the explicit self-closing tag.
-
-#### Rules around returning JSX and React.Fragment
-
 What if you don't want to return a `<div>` but something like this?
 
 ```jsx
-export default function Profile() {
+export default function App() {
   return (
-    <h2>User Name</h2>
-    <img src="https://via.placeholder.com/600x400" />
+    <h1>Profiles</h1>
+    <Profile />
+    <Profile />
+    <Profile />
   );
 }
 ```
 
-This will cause React to error out with a message that says **"Adjacent JSX elements must be wrapped in an enclosing tag"**. This means all React components must return _exactly one_ element. So what do you do if you don't want to litter your HTML/JSX with unnecessary `<div>` elements? The solution: React.Fragment.
+This will cause React to error out with a message that says **"Adjacent JSX elements must be wrapped in an enclosing tag"**. This means all React components must return _exactly one_ element. So what do you do if you don't want to litter your jsx with unnecessary `<div>` elements? The solution - `React.Fragment`.
 
 ```jsx
-import { Fragment } from "react";
-
-export default function Profile() {
-  return (
-    <Fragment>
-      <h2>User Name</h2>
-      <img src="https://via.placeholder.com/600x400" />
-    </Fragment>
-  );
-}
-```
-
-If you examine this in the chrome dev console you will see there is no additional wrapper element, it's as if you returned the two adjacent elements without a wrapper.
-
-There's also a shorthand version of this that doesn't require you to import anything additional, and it is what you will see most often:
-
-```jsx
-export default function Profile() {
+export default function App() {
   return (
     <>
-      <h2>User Name</h2>
-      <img src="https://via.placeholder.com/600x400" />
+      <h1>Profiles</h1>
+      <Profile />
+      <Profile />
+      <Profile />
     </>
   );
 }
 ```
 
-`<>...</>` is shorthand for Fragment.
+`<>...</>` is what React calls a `Fragment`. It technically wraps multiple components to return a single one, but if you examine the HTML output in the chrome dev console you will see there is no additional wrapper element created, it's as if you returned the adjacent elements without a wrapper.
 
-## What are Props in React?
+#### Props and interpolation
 
-In React, Props (short for "properties") are a mechanism for passing data from one component to another. When a React component is called, it can receive Props as an argument, which are then stored in an object called "props".
+In React, Props (short for "properties") are a mechanism for passing data from one component to another. When a React component is called, it can receive `props` as an argument. This is the equivalent to an attirubte in HTML, and let's us customize the output of a component. Let's update our current working example.
 
-## Using Props in React
-
-There are different ways to use Props in a React component, but one common approach is to pass them as key-value pairs in JSX:
-
-```jsx
-<Profile
-  name={"Benjamin Cohen"}
-  imageUrl={"https://via.placeholder.com/600x400"}
-/>
-```
-
-In the above example, we are passing two Props to a Profile component: `name` with a value of 'Benjamin Cohen', and `imageUrl` with a value of 'https://via.placeholder.com/600x400'.
-
-To access the Props dictionary within the component, we simply need to reference `props`:
-
-```jsx
-export default function Profile(props) {
-  console.log(props);
+```js
+export default function App() {
+  return (
+    <>
+      <h1>Profiles</h1>
+      <Profile name="Benjamin Cohen" width={600} height={400} />
+      <Profile name="Tiny Tim" width={300} height={200} />
+      <Profile name="King Kong" width={1200} height={400 + 400} />
+    </>
+  );
 }
 ```
 
-This will display an object with the keys `name` and `imageUrl` and their corresponding values.
+Just like HTML attributes, we are defining `props` for our Component, `name`, `width`, and `height`. React is a bit smarter than regular HTML though, so we aren't limited just to strings. If we want to interpret some JS value in React, we do so with the interpolation syntax `{ ... }`. This syntax is only valid within your jsx, but it allows you to interpet some line of JS and produce an output that React can work with, so thats why `{ 400 + 400 }` is valid.
+
+Now let's see this referenced in out `<Profile />` component:
+
+```jsx
+export default function Profile(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <img src={} />
+    </div>
+  );
+}
+```
 
 To use the values of Props in your component, you can access them with object notation:
 
 ```jsx
 export default function Profile(props) {
+  console.log(props);
+
+  const imgUrl = `https://via.placeholder.com/${props.width}x${props.height}`;
+
   return (
     <>
       <h2>{props.name}</h2>
-      <img src={props.imageUrl} />
+      <img src={imgUrl} />
     </>
   );
 }
 ```
 
+`props` is the single input to any Component function. It is an object containing all the named props provided to that component from the parent component in which it was referenced.
+
+Note the different between using JS string interpolation syntax (`${}`) and React interpolation syntax (`{}`), which is only valid in the jsx portion of the code.
+
 Props can also be destructured, which can be useful for code clarity:
 
 ```jsx
 export default function Profile(props) {
-  const { name, imageUrl } = props;
+  const { name, width, height } = props;
 
   return (
-    <div>
+    <>
       <h2>{name}</h2>
-      <img src={imageUrl} />
-    </div>
+      <img src={`https://via.placeholder.com/${width}x${height}`} />
+    </>
   );
 }
 ```
 
-Alternatively, you can destructure Props directly in the function definition:
+You can even do the destructuring directly in the function definition:
 
 ```jsx
-export default function Profile({ name, imageUrl }) {
+export default function Profile({ name, width, height }) {
   return (
     <div>
       <h2>{name}</h2>
-      <img src={imageUrl} />
+      <img src={`https://via.placeholder.com/${width}x${height}`} />
     </div>
   );
 }
 ```
 
-> Note: any which way, React Components only take a _single_ parameter `props`.
+Components and Props together define the essential structure that make React components a way to make customizable, reusable HTML-like elements of your own!
 
-### Interpolating variables into React
+### Common patterns in React
 
-curly brackets are `{...}` React's interpolation/'escape' syntax. This is how we evaluate JS code inside the return statement. This JS code could be arbitrary, so I could write `{ 1 + 1 }` and it would evaluate to `2`, but it's most common use case is replacing some aspect of the JSX with data passed in as props.
+In addition to what we have seen so far, there are certain common patterns in React we should take a look at to see how we might work with different kinds of data and in different situations.
 
-Practice: Create your own component that utilizes props and pass some data into it and interpolate with `{...}`
+#### props.children
 
-## The Children Prop
-
-So with props, we have almost a full replacement for HTML in the form of components. But there is still one missing piece: `props.children`.
+With props we have almost a full replacement for HTML in the form of components. But there is still one missing piece: `props.children`.
 
 An HTML element can contain other HTML elements:
 
@@ -367,264 +395,167 @@ An HTML element can contain other HTML elements:
 </div>
 ```
 
-How can we make a React component aware of elements it is wrapping? For example:
+How can we make a React component aware of elements it is wrapping? Let's consider an alternative definition of `<Profile />`:
 
 ```jsx
 export default function App() {
   return (
-    <Profile>
-      <PersonalInfo
-        name="John Doe"
-        imageUrl="https://via.placeholder.com/150"
-      />
-      <Skills />
-      <Contact />
+    <Profile name="Benjamin Cohen">
+      <img src="https://via.placeholder.com/600x400" />
+      <h3>Hobbies</h3>
+      <ul>
+        <li>Pottery</li>
+        <li>Yoga</li>
+        <li>Dancing with the devil in the pale moonlight</li>
+      </ul>
     </Profile>
   );
 }
 ```
 
-In this example, we want the `Profile` component to be able to render the `PersonalInfo`, `Skills`, and `Contact` components, which are wrapped inside it.
-
-We can achieve this using the `children` prop:
-
-```jsx
-import React from "react";
-
-function Profile({ children }) {
-  return (
-    <div className="profile">
-      <div className="profile-header">
-        <h2>Profile</h2>
-      </div>
-      <div className="profile-content">{children}</div>
-    </div>
-  );
-}
-```
-
-In the `Profile` component, we use the `children` prop to render the wrapped components. The `children` prop is a special prop that contains any JSX elements that are passed to the component between its opening and closing tags.
-
-We can also add more components to the example:
-
-```jsx
-function Skills() {
-  return (
-    <div className="skills">
-      <h3>Skills</h3>
-      <ul>
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>HTML</li>
-        <li>CSS</li>
-      </ul>
-    </div>
-  );
-}
-
-function Contact() {
-  return (
-    <div className="contact">
-      <h3>Contact</h3>
-      <ul>
-        <li>Email: example@example.com</li>
-        <li>Phone: 555-555-5555</li>
-        <li>Twitter: @example</li>
-      </ul>
-    </div>
-  );
-}
-
-function PersonalInfo({ name, imageUrl }) {
-  return (
-    <div className="profile-card">
-      <div className="profile-card-header">
-        <img src={imageUrl} alt={name} />
-      </div>
-      <div className="profile-card-content">
-        <h3>{name}</h3>
-        <p>Some additional information about the user.</p>
-      </div>
-    </div>
-  );
-}
-```
-
-In this updated example, we have added a `PersonalInfo` component, a `Skills` component, and a `Contact` component, which can all be rendered inside the `Profile` component using the `children` prop.
-
-We were able to grab the body of Profile (if any) using the built in prop `props.children`.
-
-This now completes the full feature set of HTML! That said, we should note some common built-in props. Often, React will have it's own built-in prop which acts as a wrapper for some standard HTML attribute, often with a slightly different name. So for example:
-
-- `className` - replacement for HTML attribute `class` (reference css)
+How could we render the _body_ of the `<Profile />` component? With `props.children`!
 
 ```js
-export default function Profile({ name, imgUrl, children }) {
+function Profile(props) {
+  return (
+    <>
+      <h2>{props.name}</h2>
+      {props.children}
+    </>
+  );
+}
+```
+
+`children` is a built-in prop that allows you to reference something passed within the body of a component.
+
+#### class -> className
+
+Normally any valid HTML is valid jsx, as are there attributes. However for some attributes, react replaces the original with a 'wrapper' prop that works better with React. An example is the built-in prop `className`:
+
+```js
+export default function Profile(props) {
   return (
     <div className="profile">
-      <h2>{name}</h2>
-      <img src={imgUrl} />
-      {children}
+      <h2>{props.name}</h2>
+      {props.children}
     </div>
   );
 }
 ```
 
-- `onClick` - replacement for HTML attribute `onclick`
+It's the equivalent of writing `class` in HTML to reference a css class, but for complex reasons `className` is preferred.
+
+#### onclick -> onClick
+
+Similarly, we don't use HTML's `onclick` but a React wrapper called `onClick`, which can take a function as input in a more intuitive way.
 
 ```js
-export default function Profile({ name, imgUrl, children }) {
+export default function Profile(props) {
   const onClickHandler = (event) => {
-    alert("You clicked it!");
+    // we don't use the event, but we could
+    console.log(event);
+
+    alert("You clicked me!");
   };
 
   return (
     <div className="profile">
-      <h2>{name}</h2>
-      <img src={imgUrl} />
-      {children}
+      <h2>{props.name}</h2>
+      {props.children}
       <button onClick={onClickHandler}>Click me!</button>
     </div>
   );
 }
 ```
 
-2. you can escape a function to provide it's value to a prop that takes a function. Note that unlike with `onclick` we don't write the function as a string and explicitly executed like `onclick="onClickHandler()"` but rather we interpolate the entire function and _don't_ execute it, so it's `onClick={onClickHandler}`
+#### Conditional rendering with `&&` and the ternary operator
 
-Everything built-in is listed [here](https://react.dev/reference/react-dom/components/common#common-props)
+Sometimes you want to render something only when a certain condition is met, or render two different things depending on the condition. You might want to reach for an `if ... else` statement, but JSX always expects something returned, so it prefers expressions over statements.
 
-> good time for break #2
+Imagine first we wanted our `<Profile />` component to only render if a non-empty name was provided:
 
-### Common patterns in React
-
-What we covered so far is the basic functionality of React that allows us to essentially create our own customized HTML elements.
-
-However, there are certain patterns in React that are worth pointing out explcitly, which basically cover how to manipulate JSX in response to conditional or loop-like logic.
-
-#### conditional rendering
-
-The preferred approach to handling conditional rendering is the ternary operator, used like so:
-
-```js
-export default function Profile({ name, imgUrl }) {
+```jsx
+export default function App() {
   return (
-    <div className="profile">
-      <h2>{name}</h2>
-      {imgUrl && imgUrl.length === 0 ? <img src={imgUrl} /> : null}
-    </div>
+    <>
+      <h1>Profiles</h1>
+      <Profile />
+      <Profile name="" />
+      <Profile name="Benjamin Cohen" />
+    </>
   );
 }
 ```
 
-Two things to notice:
+then we could define `<Profile />` like so:
 
-1. this fit's in far fewer lines and makes the single return statement the one place to look to understand what our component renders and
+```js
+export default function Profile(props) {
+  const { name } = props;
 
-2. React 'escape' expressions can be nested:
+  return (
+    <>
+      {name && (
+        <div className="profile">
+          <h2>{name}</h2>
+        </div>
+      )}
+    </>
+  );
+}
+```
 
-- the first escape executes the ternary
-- if true, it is replaced with the jsx `<img src={imgUrl} />`
-- this itself is evaluated and replaced with `<img src="https://via.placeholder.com/600x400" />`
+First, we wrapped everything in a Fragment so that what was inside would be seen as jsx. Then, we interpolated to execute some JS: `name && (...)`. If name is falsey (ie if it is undefined or the empty string) nothing is rendered. If name is truthy (any non-empty string), the following component is rendered. `(...)` is used just like in the return for when the jsx takes up multiple lines.
+
+Also note that we can nest React interpolation syntax, so first `{ name && (...) }` is interpreted as JS, producing some jsx (inside the `(...)`) and within there we could once again interpolate on `{name}`.
+
+The same logic applies if we want to do something on the fail case, we just use a ternary operator:
+
+```js
+export default function Profile(props) {
+  const { name } = props;
+
+  return (
+    <div className="profile">
+      {name ? <h2>{name}</h2> : <pre>Valar Morghulis</pre>}
+    </div>
+  );
+}
+```
 
 #### Interpolating a list
 
-What about working with lists?
+The final common pattern is list interpolation. Just like with conditional rendering, we don't want to use a `for ... of` loop but a map, as that will return an expression.
 
-```js
-import Profile from './Profile';
+```jsx
+export default function App() {
+  const names = ["Benjamin Cohen", "Tiny Tim", "King Kong"];
 
-export default function ProfileContainer({ profiles }) {
   return (
-    <div>
+    <>
       <h1>Profiles</h1>
-      <div id="profiles_container">
-        { profiles.map({name, imgUrl} => <Profile name={name} imgUrl={imgUrl} />) }
-      </div>
-    </div>
-  )
-}
-```
-
-Much neater!
-
-If you ran this in chrome you probably saw a warning that each child should have a unique 'key' property. This is simply so React can quickly look up an individual component in a list of components by key, ie by a unique identifier. You can do that like so:
-
-```js
-import Profile from "./Profile";
-
-export default function ProfileContainer({ profiles }) {
-  return (
-    <div>
-      <h1>Profiles</h1>
-      <div id="profiles_container">
-        {profiles.map(({ name, imgUrl }, index) => (
-          <Profile key={index} name={name} imgUrl={imgUrl} />
-        ))}
-      </div>
-    </div>
+      {names.map((name, index) => (
+        <Profile key={index} name={name} />
+      ))}
+    </>
   );
 }
 ```
 
-Note that it was fine to introduce more whitespace in our escaped react by using parantheses.
+We use `.map()` to return a list of components and fill in each with the appropriate name. Note the addition of the second map parameter, index. We use this to pass another prop to `<Profile />` called `key`. This is used by React to efficiently work with lists, and you will get a warning if you don't include it. The only requirment is that the key represents a unique value, so index works, but so would some unique id.
 
-We now have everything we need to build basic sites in React. React likely appears strange however, and it would be good to talk about that for a second to try and understand why it takes the approach it does.
-
-### Discussion: why does React do things this way?
-
-I wanted to leave some open time to discuss the 'weirdness' of React. There are answers for why it does things the way it does, and why it prefers ternary to if statements for example, but the discussion is a bit too broad to teach, and amounts to the question of preferring a functional to an imperative style of programming. This section is to field questions on 'why?'
-
-### Video Store
-
-We are going to be building a sample App over the next few days creating the dashboard for a theoretical Blockbuster-like store.
-
-To start we will create a homepage with a basic display of all the videos and their current status (in stock, checked out, # available).
-
-We will eventually connect this to a backend, but for now we will just mock some data on the frontend.
-
-That project can be found [here](./examples/video-store-pt-1)
-
-Steps to recreate:
-
-1. use Vite to scaffold project
-2. install dependencies and run to see it working
-3. remove anything extranneous
-4. use `App.jsx` to reference a new component `HomePage` and pass it data with props
-
-## Additional Resources
+### Additional Resources
 
 - https://react.dev/learn is currently the best resource available for learning React. Look through it thoroughly as it was recently redesigned form the ground up and should be able to answer lots of essential questions about how to accomplish things in React.
 
 - [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) is a Chrome extension that can make exploring your React app from the dev console more natural.
 
-## Assignments
+### Assignment
 
-We want you to rebuild the steps we did with Video Store and add to it if desired. We will continue to build upon this project over the next few days and will provide checkpoints along the way.
+We are going to be building a sample App over the next few days creating the dashboard for a theoretical Blockbuster-like store.
+
+To start we will create a Home Page with a basic display of all the videos and their current status (in stock, checked out, # available).
+
+We will eventually connect this to a real live API, but for now we will just mock some data on the frontend.
 
 Video store repo is located here: https://github.com/Code-Platoon-Assignments/video-store
-
-Fork the repo then clone for a local copy, for example:
-
-```sh
-git clone https://github.com/AloofBuddha/video-store.git
-```
-
-You can merge the pt-1-starting point into main and make main your source of truth for the project with:
-
-```sh
-git pull --all              # pull all branches from origin, not just main
-git checkout main
-git merge pt-1-start
-```
-
-To see the desired end result for part 1:
-
-```sh
-git checkout pt-1-end
-```
-
-If you want to abandon your own work at any point and start over from a canonical starting point you can do so with:
-
-```sh
-git reset --hard origin/pt-2-start
-```
