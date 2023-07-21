@@ -1,32 +1,40 @@
 # Weekly Topics:
-- Creating apps with React  
-- Using JavaScript and the concept of destructuring to organize code efficiently
-- Fetch and JavaScript promises
+
+- Creating Single Page Applications (SPA) with React
+- React hooks for adding functionality (useState, useEffect)
+- Working with APIs in React using `axios`, JavaScript Promises, async/await
+- Front-end routing with `react-router`
+- E2E testing for web apps using `cypress`
 
 # Lecture Videos:
-- [Week 8 Videos](https://www.youtube.com/watch?v=9UbDmPP5veo&list=PLu0CiQ7bzwEQhJQJayKtzr22duTPCvYMP)
 
-# Why is it important?
-- React is a JavaScript library you will use in web development to make elements of your interface that users can interact with—not just view—which is a requirement for most applications and projects you will work on. 
-- React is the most popular and most in-demend front-end framework today and will continue to be since it was developed and supported by Facebook.
-- For real-world applications, which are much larger and more complex than these challenges, JS is necessary to reduce repetative lines of code; the JS expression destructuring assignment syntax will also be helpful for "cleaning-up" your code.
-- Promises is a JS concept that allows us to make calls to web services. Understanding this concept is necessary for using fetch to bring dynamic data from an external source into an app you're building.  
+- [Tango React playlist](https://www.youtube.com/playlist?list=PLu0CiQ7bzwETas45c1DYbNNlkfhaEKfAi)
+
+> NOTE: Updates have since been made so this cohort's curriculum will differ slightly
+
+# Why Is It Important?
+
+- React is a JavaScript library that allows you to build Single Page Applications, or SPAs. An SPA differs from a traditional website in that it expects the user experience to be highly interactive and to _react_ to user changes or API calls seamlessly. This is an upgrade from traditional HTML/CSS/JS apps which assume you are building a static page and support for interactivity is limited.
+
+- React is currently the most popular and most in-demand front-end framework, so it is a very marketable skill.
+
+- React is an advanced JavaScript library so we will also be learning more advanced JS concepts along the way, like import/export syntax, destructuring, Promises and async/await.
 
 # What you'll be able to accomplish after this topic:
-1. Write object oriented programs in JS (classes, constructors, methods, instance variables) 
-2. Create a default React app
-3. Create and use both class-based components and functional components in React apps and translate between the two types of components
-4. Understand and utilize the React concepts of props and state 
-5. Use JS to organize your code efficiently 
-6. Understand the concept of destructuring in JS and use it to declare new variables 
-7. Understand the concept of promises in JS and how they allow us to make calls to web services
-8. Clearly express the history of the web and why we used, but no longer use, AJAX
-9. Use fetch to get asynchronous data from external sources and bring it into a React app
+
+1. use `vite` to bootstrap a React app
+2. create a web frontend built out of React components
+3. Understand and utilize the concepts of props to pass data in React from parent to child components
+4. Understand and utilize the useState hook to maintain local state in your app
+5. Understand and utilize the useEffect hook to communicate with APIs from the frontend
+6. Understand and utilize destructuring in JS and use it to unpack complex objects
+7. Understand how async works in JS and use Promises and async/await syntax to work with asynchronous tasks like making API calls
 
 # Afternoon Breakout Sessions (optional):
-1. React State & Props Review
-2. React Components Review
-3. Anything else?
+
+1. Possible TypeScript session for those interested
+2. Review session for Assessment 4
 
 # Behavioral Question of the Week:
+
 - "Tell me about a time where you had to work with a difficult person"
