@@ -1,0 +1,65 @@
+[
+{
+  "model": "sub_task_app.sub_task",
+  "pk": 1,
+  "fields": {
+    "sub_task_name": "Buy a thunderstone",
+    "completed": false,
+    "parent_task": 7
+  }
+},
+{
+  "model": "sub_task_app.sub_task",
+  "pk": 2,
+  "fields": {
+    "sub_task_name": "Find Evees location",
+    "completed": false,
+    "parent_task": 7
+  }
+},
+{
+  "model": "sub_task_app.sub_task",
+  "pk": 3,
+  "fields": {
+    "sub_task_name": "map out route",
+    "completed": false,
+    "parent_task": 1
+  }
+},
+{
+  "model": "sub_task_app.sub_task",
+  "pk": 4,
+  "fields": {
+    "sub_task_name": "run 5k under 23 minutes",
+    "completed": false,
+    "parent_task": 1
+  }
+},
+{
+  "model": "sub_task_app.sub_task",
+  "pk": 5,
+  "fields": {
+    "sub_task_name": "Plan workout",
+    "completed": true,
+    "parent_task": 2
+  }
+},
+{
+  "model": "sub_task_app.sub_task",
+  "pk": 6,
+  "fields": {
+    "sub_task_name": "Shower",
+    "completed": false,
+    "parent_task": 4
+  }
+},
+{
+  "model": "sub_task_app.sub_task",
+  "pk": 7,
+  "fields": {
+    "sub_task_name": "Arrange tools by size",
+    "completed": true,
+    "parent_task": 9
+  }
+}
+]

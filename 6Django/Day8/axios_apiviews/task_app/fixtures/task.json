@@ -1,0 +1,92 @@
+[
+{
+  "model": "task_app.task",
+  "pk": 1,
+  "fields": {
+    "task_name": "go for a run",
+    "completed": false,
+    "parent_list": 1
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 2,
+  "fields": {
+    "task_name": "workout",
+    "completed": true,
+    "parent_list": 1
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 3,
+  "fields": {
+    "task_name": "walk the dog",
+    "completed": false,
+    "parent_list": 1
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 4,
+  "fields": {
+    "task_name": "sleep",
+    "completed": false,
+    "parent_list": 1
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 5,
+  "fields": {
+    "task_name": "catch mew",
+    "completed": false,
+    "parent_list": 3
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 6,
+  "fields": {
+    "task_name": "catch a ghost type",
+    "completed": false,
+    "parent_list": 3
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 7,
+  "fields": {
+    "task_name": "evolve Evee into Jolteon",
+    "completed": false,
+    "parent_list": 3
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 8,
+  "fields": {
+    "task_name": "sweep the floor",
+    "completed": false,
+    "parent_list": 2
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 9,
+  "fields": {
+    "task_name": "organize tools",
+    "completed": true,
+    "parent_list": 2
+  }
+},
+{
+  "model": "task_app.task",
+  "pk": 10,
+  "fields": {
+    "task_name": "wipe work desk",
+    "completed": false,
+    "parent_list": 2
+  }
+}
+]
