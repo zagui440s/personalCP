@@ -31,6 +31,8 @@ In this lesson we are going to step away from the `Pokedex` exercise for a secon
 > The `path()` function takes two required arguments: `route` and `view`. The `route` argument specifies the URL pattern, while the `view` argument identifies the view function or class that handles the request.
 
 ```python
+// pokedex_proj/urls.py
+
 from django.urls import path
 
 
@@ -53,6 +55,8 @@ urlpatterns = [
 > For example, if a user requests the URL `/squares/`, Django's URL resolver matches it to the `square_area_view` function specified in the `urlpatterns` list.
 
 ```python
+// pokemon_app/views.py
+
 def square_area_view(request):
     area_of_a_square = 2 ** 2
     return HttpResponse(area_of_a_square)
