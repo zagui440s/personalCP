@@ -55,7 +55,7 @@ DATABASES = {
 python manage.py startapp myapp
 ```
 
-2. Register the app in the project's `settings.py` file by adding `'myapp'` to the `INSTALLED_APPS` list.
+2. Register the app in the project's `settings.py` file by adding `'myapp'` to the `INSTALLED_APPS` list, and add `'rest_framework'` to the `INSTALLED_APPS` list.
 
 ## Step 3: Define Models
 
