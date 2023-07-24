@@ -224,7 +224,7 @@ class Info(APIView):
 
 > Exposing user information is very sensitive and should be treated with as many restrictions we can apply. We wouldn't want anyone getting someone else information, so we will implement both `authentication and permission` classes
 
-> The authentication_classes and permission_classes attributes specify that the view requires token authentication (meaning that the request Authorization HEADER holde the users token in the following format `f"Token {token}"`) it then utilizes the token to ensure the user is authenticated and able to access this view.
+> The authentication_classes and permission_classes attributes specify that the view requires token authentication (meaning that the request Authorization HEADER holding the users token in the following format `f"Token {token}"`) it then utilizes the token to ensure the user is authenticated and able to access this view.
 
 > This user already has their token otherwise they wouldn't be able to send the request so we will just return the users email without adding anything else.
 
@@ -280,7 +280,7 @@ from rest_framework.permissions import IsAuthenticated
 
 ## Handling Super Users
 
-> Now that we've created an `AbstractUser` you'll notice you can't log into the Django Admin page to manage your database. This is because Django's default superuser is no longer active for this project. Now we will have to manually handle this by creating a seperate view that will specifically trigger the creation of admin users.
+> Now that we've created an `AbstractUser` you'll notice you can't log into the Django Admin page to manage your database. This is because Django's default superuser is no longer active for this project. Now we will have to manually handle this by creating a separate view that will specifically trigger the creation of admin users.
 > Let's create a view and url path to create a Master_Trainer
 
 ```python
