@@ -322,7 +322,6 @@ export default function Profile(props) {
   return (
     <div>
       <h2>{props.name}</h2>
-      <img src={} />
     </div>
   );
 }
@@ -546,7 +545,7 @@ We use `.map()` to return a list of components and fill in each with the appropr
 
 ### Additional Resources
 
-- https://react.dev/learn is currently the best resource available for learning React. Look through it thoroughly as it was recently redesigned form the ground up and should be able to answer lots of essential questions about how to accomplish things in React.
+- https://react.dev/learn is currently the best resource available for learning React. Look through it thoroughly as it was recently re-designed form the ground up and should be able to answer lots of essential questions about how to accomplish things in React.
 
 - [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) is a Chrome extension that can make exploring your React app from the dev console more natural.
 
@@ -558,4 +557,4 @@ To start we will create a Home Page with a basic display of all the videos and t
 
 We will eventually connect this to a real live API, but for now we will just mock some data on the frontend.
 
-Video store repo is located here: https://github.com/Code-Platoon-Assignments/video-store
+[video-store-pt-1](https://classroom.github.com/a/L6hlZTm2)
