@@ -1,16 +1,19 @@
-import { Component } from "react";
+import { useState } from "react";
 
-export default class Checkbox extends Component {
-    constructor(props) {
-        super(props);
-    }
+export default function Checkbox(props) {
+  const { label } = props;
 
-    render() {
-        return (
-            <>
-                <label>{this.props.label}</label>
-                <input type="checkbox" checked={this.props.isChecked} readOnly />
-            </>
-        )
-    }
+  const [checked, setChecked] = useState(false);
+
+  const onChangeCallback = (event) => {
+    setChecked(!checked);
+  };
+
+  return (
+    <>
+      <label>{label}</label>
+      <input type="checkbox" checked={checked} onChange={onChangeCallback} />
+      <pre>Checked status: {checked ? "checked" : "unchecked"}</pre>
+    </>
+  );
 }

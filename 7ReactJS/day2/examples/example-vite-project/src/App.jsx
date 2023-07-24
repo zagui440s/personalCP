@@ -1,24 +1,40 @@
 import { useState } from "react";
-import Checkbox from './components/Checkbox';
+import Checkbox from "./components/Checkbox";
+import ControlledCheckbox from "./components/ControlledCheckbox";
+import NameList from "./components/NameList";
 import ComplexState from "./components/ComplexState";
-import UndoComponent from "./components/UndoComponent";
+import PropDrilling from "./components/PropDrilling";
+import CheckboxContext from "./contexts/CheckboxContext";
+import ContextAwareCheckbox from "./components/ContextAwareCheckbox";
 
 export default function App() {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const onClickHandler = () => {
-    setIsChecked(!isChecked);
-  }
+  const [checked, setChecked] = useState(false);
 
   return (
     <>
-      <h1>hello world</h1>
-      <button onClick={onClickHandler}>Click me</button>
-      <div>
-        <Checkbox label={"I am a transformer"} isChecked={isChecked} />
-      </div>
-      <ComplexState />
-      <UndoComponent />
+      {/* <div>
+        <Checkbox label="self contained" />
+      </div> */}
+      {/* <div>
+        <ControlledCheckbox
+          label="controlled"
+          checked={checked}
+          setChecked={setChecked}
+        />
+        <pre>Checked status: {checked ? "checked" : "unchecked"}</pre>
+      </div> */}
+      {/* <NameList /> */}
+      {/* <ComplexState /> */}
+      {/* <PropDrilling label="drilled" checked={checked} setChecked={setChecked} /> */}
+      <CheckboxContext.Provider
+        value={{
+          label: "from context",
+          checked,
+          setChecked,
+        }}
+      >
+        <ContextAwareCheckbox />
+      </CheckboxContext.Provider>
     </>
   );
 }
