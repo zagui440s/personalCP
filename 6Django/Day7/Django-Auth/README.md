@@ -293,7 +293,10 @@ from rest_framework.permissions import IsAuthenticated
             master_trainer.is_staff = True
             master_trainer.is_superuser = True
             master_trainer.save()
-            return Response({"sign_up_master": True}, status = HTTP_201_CREATED)
+            token = Token.objects.create(user=trainer)
+            return Response(
+                {"master_trainer": master_trainer.email, "token": token.key}, status=HTTP_201_CREATED
+            )
 ```
 
 > Finally we could create a master_trainer through postman, register the Trainer model onto the admin site, and log into Django Admin.
