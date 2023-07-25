@@ -96,7 +96,7 @@ export default function Profile(props) {
 
 This is still pure, because our inputs (props) entirely determine the output. The same values passed in props will always result in same output.
 
-This is a good quality to have because it means React only needs to render the component once, and only rerender it if a prop changes. Additionally, it is by default _memoized_, meaning that once a set of input parameters have been used to produce an output, it is forever remembered and rerunning the function is unnecessary. This is only possible because we have this guarantee of purity. We can these 'pure' or 'dumb' components. Dumb is a positive quality because here because a dumb component doesn't need to be aware of any context outside of itself!
+This is a good quality to have because it means React only needs to render the component once, and only rerender it if a prop changes. Additionally, it is by default _memoized_, meaning that once a set of input parameters have been used to produce an output, it is forever remembered and rerunning the function is unnecessary. This is only possible because we have this guarantee of purity. We can call these 'pure' or 'dumb' components. Dumb is a positive quality here because a dumb component doesn't need to be aware of any context outside of itself!
 
 ### Components and hooks
 
