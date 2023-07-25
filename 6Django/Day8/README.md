@@ -34,15 +34,19 @@ When using Axios in the frontend:
 
 ```javascript
 // Example of a GET request using Axios
-axios.get('/api/items/')
-  .then((response) => {
-    // Handle the successful response
-    console.log(response.data);
-  })
-  .catch((error) => {
-    // Handle errors
-    console.error('Error fetching data:', error);
-  });
+const getAllLists = () => {
+  axios
+    .get(`http://127.0.0.1:8000/api/lists/`)
+    .then((resp) => {
+      // Handle the successful response
+      console.log(resp.data);
+    })
+    .catch((err) => {
+      // Handle errors
+      console.error(err);
+      alert("Something went wrong getting all lists");
+    });
+};
 ```
 
 #### Data Passing in Axios Requests
@@ -55,20 +59,21 @@ Axios allows you to send data along with the request. This data can be in the fo
 
 ```javascript
 // Example of a POST request with data in the request body
-const newItem = {
-  name: 'New Task',
-  description: 'This is a new task item.',
+const createAList = () => {
+  axios
+    .post(`http://127.0.0.1:8000/api/lists/`, {
+      list_name: document.getElementById("listName").value,
+    })
+    .then((resp) => {
+      // Handle the successful response
+      console.log(resp);
+    })
+    .catch((err) => {
+      // Handle errors
+      console.error(err);
+      alert("Something went wrong creating a list");
+    });
 };
-
-axios.post('/api/items/', newItem)
-  .then((response) => {
-    // Handle the successful response
-    console.log(response.data);
-  })
-  .catch((error) => {
-    // Handle errors
-    console.error('Error creating item:', error);
-  });
 ```
 
 ### Backend: Django Rest Framework APIViews
@@ -85,14 +90,13 @@ DRF APIViews are Python classes that inherit from DRF's built-in view classes. E
 # Example of a DRF APIView to handle a GET request for items
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Item
-from .serializers import ItemSerializer
+from .models import List
+from .serializers import ListSerializer
 
-class ItemList(APIView):
-    def get(self, request):
-        items = Item.objects.all()
-        serializer = ItemSerializer(items, many=True)
-        return Response(serializer.data)
+class  All_lists(APIView):
+  def get(self, request):
+    lists = ListSerializer(List.objects.order_by('id'), many = True)
+    return Response(lists.data)
 ```
 
 #### Data Processing in APIViews
@@ -101,13 +105,12 @@ Within an APIView, you can access request data, such as request parameters, head
 
 ```python
 # Example of a DRF APIView to handle a POST request to create a new item
-class ItemList(APIView):
-    def post(self, request):
-        serializer = ItemSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response(serializer.errors, status=400)
+class  All_lists(APIView):
+  def post(self, request):
+    new_list = List(**request.data)
+    new_list.save()
+    a_list = ListSerializer(new_list)
+    return Response(a_list.data, status=HTTP_201_CREATED)
 ```
 
 #### Database Interaction and Serializer
@@ -115,45 +118,44 @@ class ItemList(APIView):
 If data retrieval or modification is required, APIViews can interact with the database to fetch or update data. After obtaining data from the database or performing any necessary manipulations, the APIView may use a DRF serializer to convert the data into the appropriate format (e.g., JSON) for the API response.
 
 ```python
-# Example of a DRF APIView with database interaction and serializer
-class ItemDetail(APIView):
-    def get_object(self, pk):
-        try:
-            return Item.objects.get(pk=pk)
-        except Item.DoesNotExist:
-            raise Http404
+# Example of a Django Model Serializer
+class ListSerializer(ModelSerializer):
+    tasks = TaskOnlySerializer(many= True)
+    class Meta:
+        model = List
+        fields = ['id', 'list_name', 'tasks']
 
-    def get(self, request, pk):
-        item = self.get_object(pk)
-        serializer = ItemSerializer(item)
-        return Response(serializer.data)
+# Example of a DRF APIView with database interaction and serializer
+    def get(self, request, id):
+        a_list = ListSerializer(get_object_or_404(List, id = id))
+        return Response(a_list.data)
 ```
 
 ## Full-Stack Life Cycle of a Web Application
 
 1. User Interaction
-The life cycle begins when a user interacts with the frontend application. This can include actions like clicking buttons, submitting forms, or any other user-triggered events.
+   The life cycle begins when a user interacts with the frontend application. This can include actions like clicking buttons, submitting forms, or any other user-triggered events.
 
 2. Frontend Axios Request
-When the user performs an action, Axios is utilized in the frontend to send an HTTP request to a specific API endpoint on the backend. The request includes the desired HTTP method and any required data.
+   When the user performs an action, Axios is utilized in the frontend to send an HTTP request to a specific API endpoint on the backend. The request includes the desired HTTP method and any required data.
 
 3. Backend Django View (APIView)
-The Django backend receives the request and routes it to the appropriate DRF APIView based on the URL pattern and HTTP method. The APIView contains the logic to handle the request and perform necessary business operations.
+   The Django backend receives the request and routes it to the appropriate DRF APIView based on the URL pattern and HTTP method. The APIView contains the logic to handle the request and perform necessary business operations.
 
 4. Database Interaction and Serializer
-If data retrieval or modification is needed, the APIView can interact with the database to fetch or update the required data. This interaction depends on the request's purpose and the application's design. After obtaining data from the database or performing any necessary manipulations, the APIView may use a DRF serializer to convert the data into the suitable format for the API response.
+   If data retrieval or modification is needed, the APIView can interact with the database to fetch or update the required data. This interaction depends on the request's purpose and the application's design. After obtaining data from the database or performing any necessary manipulations, the APIView may use a DRF serializer to convert the data into the suitable format for the API response.
 
 5. Backend API Response
-The APIView generates an HTTP response with the processed data or any relevant error messages. The response is then sent back to the frontend as the result of the Axios request.
+   The APIView generates an HTTP response with the processed data or any relevant error messages. The response is then sent back to the frontend as the result of the Axios request.
 
 6. Frontend Axios Response Handling
-In the frontend, Axios receives the API response. If the response is successful, Axios extracts the data and triggers the appropriate actions to update the user interface. In case of errors, Axios handles the errors and provides appropriate feedback to the user.
+   In the frontend, Axios receives the API response. If the response is successful, Axios extracts the data and triggers the appropriate actions to update the user interface. In case of errors, Axios handles the errors and provides appropriate feedback to the user.
 
 7. UI Update
-Based on the API response, the frontend updates the user interface to reflect changes, display data, or show error messages. This step ensures that the user gets an updated and interactive experience.
+   Based on the API response, the frontend updates the user interface to reflect changes, display data, or show error messages. This step ensures that the user gets an updated and interactive experience.
 
 8. User Interaction (Cycle Continues)
-The updated user interface is presented to the user, and the cycle of user interaction, Axios
+   The updated user interface is presented to the user, and the cycle of user interaction, Axios
 
 ## Conclusion
 
