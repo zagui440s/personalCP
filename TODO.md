@@ -1,25 +1,11 @@
 # React TODO
 
-## All days
-
-- split video-project up so it's a seperate repos
-
-## Day 1
-
-- still need to add assignment for day 1
-
-## Day 2
-
-- remove extraneous content on FP and add useContext
-
-## Day 3
-
-- clean up but probably mostly good
-
 ## Day 4
 
-- remove loaders (or leave till the end)
-- add useOutletContext, usearams, useLocation (if not there)
+- content is done
+- need to create cheatsheet and update the assignment
+- Assigment should add client-side routing so we have a seperate page for viewing movie details
+- from the details page we should be able to return to the main page
 
 ## Day 5
 
