@@ -17,6 +17,7 @@ source <name_of_env>/bin/activate
 pip install django #installs django
 pip install "psycopg[binary]" #installs psycopg3 which allows django to talk to postgresql
 pip install djangorestframework #install rest_framework to allow us to utilize Response, APIView, and TokenAuthentication
+pip install django-cors-headers #installs corsheaders
 ```
 
 3. Create DB in PostgreSQL
