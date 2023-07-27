@@ -662,3 +662,7 @@ This not only makes the UX better but it ends up being a bit more concise becaus
 - [react-router tutorial](https://reactrouter.com/en/main/start/tutorial)
 
 ## Assignments
+
+Integrate `react-router` into the results from yesterday's assignment
+
+[video-store-pt-4](https://classroom.github.com/a/ybYNzA1A)
