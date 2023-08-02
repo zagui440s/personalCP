@@ -8,11 +8,11 @@ export default function App() {
     <>
       <h1>Poke image viewer</h1>
       {/* <UseEffectBasic /> */}
-      <PokeViewer name="pikachu" />
+      {/* <PokeViewer name="pikachu" />
       <PokeViewer name="squirtle" />
       <PokeViewer name="bulbasaur" />
-      <PokeViewer name="charizard" />
-      {/* <PokeSearch /> */}
+      <PokeViewer name="charizard" /> */}
+      <PokeSearch />
       {/* <PokeSearchAsyncAwait /> */}
     </>
   );

@@ -9,13 +9,8 @@
 - `useState` pattern
 - Controlled Components
 - `useState` with complex data
-
-  - rules of hooks
-  - different approaches to useState
-
-- Video Store features pt 2:
-  - When user clicks on a video, display video details (on same screen, no modal, + dismissable)
-  - Simple checkout/return buttons for videos (update root state)
+- rules of hooks
+- different approaches to useState
 
 ## Lesson
 

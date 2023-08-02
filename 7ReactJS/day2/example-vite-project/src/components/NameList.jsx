@@ -6,9 +6,7 @@ export default function NameList() {
 
   const addNameHandler = () => {
     // add the name to the list
-    const updatedNames = [...names, inputText];
-    console.log(updatedNames);
-    setNames(updatedNames);
+    setNames([...names, inputText]);
     // reset the input
     setInputText("");
   };
@@ -28,6 +26,7 @@ export default function NameList() {
           <li key={index}>{name}</li>
         ))}
       </ul>
+      <pre>{inputText}</pre>
     </>
   );
 }

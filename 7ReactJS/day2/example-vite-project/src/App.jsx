@@ -5,7 +5,9 @@ import NameList from "./components/NameList";
 import ComplexState from "./components/ComplexState";
 import PropDrilling from "./components/PropDrilling";
 import CheckboxContext from "./contexts/CheckboxContext";
+import DifferentContext from "./contexts/DifferentContext";
 import ContextAwareCheckbox from "./components/ContextAwareCheckbox";
+import Level1 from "./components/Level1";
 
 export default function App() {
   const [checked, setChecked] = useState(false);
@@ -33,7 +35,9 @@ export default function App() {
           setChecked,
         }}
       >
-        <ContextAwareCheckbox />
+        <DifferentContext.Provider value={4}>
+          <Level1 />
+        </DifferentContext.Provider>
       </CheckboxContext.Provider>
     </>
   );

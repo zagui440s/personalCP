@@ -12,6 +12,13 @@ export default function ComplexState() {
     rating: "R",
   });
 
+  function callUseState() {
+    const [x, setX] = useState(1);
+    return [x, setX];
+  }
+
+  const [x, setX] = callUseState();
+
   const addName = () => {
     // guard 1
     if (newNameInput.length === 0) {
@@ -23,7 +30,8 @@ export default function ComplexState() {
     }
     // valid case
     else {
-      setNames([...names, newNameInput]);
+      names.push(newNameInput);
+      setNames(names);
     }
 
     // always reset input
@@ -36,12 +44,9 @@ export default function ComplexState() {
       return;
     }
 
-    setRental({
-      // spread the existing key, value pairs
-      ...rental,
-      // even though title is already within rental, this comes last so will take precedence
-      title: newTitleInput,
-    });
+    rental.title = newTitleInput;
+
+    setRental(rental);
 
     setNewTitleInput("");
   };
@@ -57,11 +62,10 @@ export default function ComplexState() {
       <h3>Add name:</h3>
       <input
         type="text"
+        value={newNameInput}
         onChange={(event) => setNewNameInput(event.target.value)}
       />
-      <button onClick={addName} value={newNameInput}>
-        Add name
-      </button>
+      <button onClick={addName}>Add name</button>
       <h2>Rental</h2>
       <div
         style={{
@@ -77,11 +81,10 @@ export default function ComplexState() {
       <h3>Change title:</h3>
       <input
         type="text"
+        value={newTitleInput}
         onChange={(event) => setNewTitleInput(event.target.value)}
       />
-      <button onClick={changeTitle} value={newNameInput}>
-        Change title
-      </button>
+      <button onClick={changeTitle}>Change title</button>
     </>
   );
 }
