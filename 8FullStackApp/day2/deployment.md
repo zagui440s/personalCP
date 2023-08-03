@@ -1,49 +1,114 @@
 # Deployment
 
-## Topics Covered / Goals
+## 1. Understanding a Deployed Site on the Internet
 
-- Deployment
-  - run your app from a real server on the actual internet (AWS)
-  - learn differences between localhost and a live site (gunicorn+nginx vs `python manage.py runserver`)
-- DNS
-  - understand that DNS is a network of databases, used to translate IP addresses into domain names
-  - understand basic record types (A, CNAME)
-- HTTPS
-  - get a green lock in the url bar so your website looks trustworthy
-  - understand what SSL/TLS and HTTPS are, and the types of attacks it prevents against
-  - access 'powerful features' for the front-end that are only available in secure contexts, such as Geolocation, DeviceOrientation/DeviceMotion, getUserMedia, and WebMIDI
+![Alt Text](../resources/fullstack.png)
 
-## Lesson
+When a user types in "https://codeplatoon.com," "codeplatoon.com" represents the domain name of a website hosted on an AWS EC2 t2.micro instance running Ubuntu (this is essentially just a Virtual Machine). AWS (Amazon Web Services) EC2 is a cloud computing service that provides resizable compute capacity in the cloud. The t2.micro instance is a low-cost, general-purpose instance type suitable for small applications.
 
-> We'll need to make a few changes to our django app to prepare it for deployment.
+To handle the domain name, the website uses Route53, which is AWS's domain name system (DNS) service. Route53 allows users to manage domain names and associate them with the EC2 instance's IP address, enabling users to access the site using the domain name instead of the IP address.
 
-- Set debug=False in settings.py.
-- Set ALLOWED_HOSTS = ['*'] in settings.py
-- Set CSRF_TRUSTED_ORIGINS = ['https://regularsizewebsite.com']
+The "https" in the URL stands for Hypertext Transfer Protocol Secure, indicating that the website uses a secure SSL/TLS (Secure Sockets Layer/Transport Layer Security) connection. To enable SSL on the website and protect data transmitted between the user's browser and the server, the website utilizes an SSL certificate obtained through Certbot. Certbot is a free and open-source tool that automates the process of obtaining and renewing SSL certificates from the Let's Encrypt Certificate Authority.
 
-- install gunicorn: `pip install gunicorn; pip freeze > requirements.txt`
+Once the secure connection is established, the website serves a React application using Nginx as the web server. Nginx is a popular and efficient web server that can handle concurrent requests and serve static files. It acts as a reverse proxy, forwarding requests to the React application and handling the responses.
 
-### AWS EC2
+The React application, running on the client-side in the user's browser, provides a dynamic and responsive user interface. It interacts with the Django API hosted on the same EC2 instance. Django is a high-level Python web framework that facilitates the development of powerful and scalable web applications. The Django API handles various user requests, processes data, interacts with a database, and sends responses back to the React application through HTTP requests.
 
-> Amazon Web Services (AWS) has many services that can be used to build a web application, or other forms of digital infrastructure. We'll be deploying our applications using AWS EC2 (elastic compute cloud), which is the most basic AWS service, upon which many others are based. It's just a basic linux server that we can connect to with SSH and install our application.
-> When you sign up initially, you get free access to many services for your first year. After that, you pay normal AWS rates, which are very competitive compared to other cloud computing providers.
-> After logging in, click on the search bar at the top and type in "ec2". Click through to the EC2 dashboard and click "Launch Instance". Next we'll choose an operating system. There are many options, but we'll be using Ubuntu because it's a very popular choice, and it's probably more similar to our dev environment than the other options.
-> After choosing the operating system, we have to choose the "Instance Type", which refers to the number of CPUs, amount of memory, and network speed for this instance. If we're sticking to the free tier, `t2.micro` is the only option, so this is an easy choice.
-> When we review our instance launch, we must choose an SSH key pair to use for logging in to this instance. We can also create them right here, since we haven't done this before. Download the private key to your local machine, and MAKE SURE YOU DON'T LOSE IT.
-> We need to create a security group for our instance, which is a set of firewall rules. By default, no web traffic is allowed in or out of our instance! Check the boxes to enable traffic on port 22 (SSH), 80 (HTTP), and 443 (HTTPS).
-> The last thing we need to do before we log into our instance is find its IP address. You can find this from the list of instances in your EC2 dashboard.
+To handle the communication between the Nginx server and the Django API, the website uses Gunicorn (Green Unicorn), a Python Web Server Gateway Interface (WSGI) server. Gunicorn acts as a middleman between Nginx and Django, allowing multiple requests to be processed concurrently.
 
-> Now, we can log in to our server with SSH.
+In summary, when a user types in "https://helloworld.com," AWS Route53 translates the domain name to the IP address of the EC2 instance. The SSL certificate obtained through Certbot ensures a secure connection. Nginx serves the React application, which runs in the user's browser, providing a dynamic user interface. The React application communicates with the Django API hosted on the EC2 instance through Gunicorn, enabling data processing and retrieval for a seamless user experience. The combination of these technologies and services allows for a fully functional and secure web application deployed on AWS.
+
+## 2. Configurations and Set Up
+
+### Django
+
+> We'll need to make a few changes to our Django API to prepare it for deployment. First we have to make sure that all of our secret keys are within a `.env` file this way we can prevent any vital information from being exposed.
+
+```python
+# project/settings.py
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
+DEBUG = False
+
+ALLOWED_HOSTS = ["*"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+```
+
+- DEBUG
+
+> The DEBUG setting determines whether Django is in "debug" mode. When DEBUG is set to True, it enables various debugging features like detailed error pages with stack traces and information about the context of errors. This is useful during development for identifying and fixing issues in the code.
+
+> However, for production environments, it is crucial to set DEBUG to False. When in production, Django's debug mode should be disabled to prevent exposing sensitive information to users and potential attackers. When DEBUG is set to False, Django will display generic error pages for exceptions, which helps to protect sensitive information and maintain the security of the application.
+
+- ALLOWED_HOSTS
+
+> The ALLOWED_HOSTS setting specifies a list of hostnames or IP addresses that Django will consider as valid for serving the application. When a request is made to Django, it checks whether the Host header in the request matches any of the values in the ALLOWED_HOSTS list. If it doesn't find a match, Django will raise a "Bad Request (400)" error.
+
+> In the given configuration, the ALLOWED_HOSTS is set to ["*"], which means that any hostname or IP address is allowed to access the application. While this might be convenient for testing purposes or for applications without a specific domain, it is generally not recommended for production environments. For production, it is essential to specify the actual hostnames or IP addresses that should be allowed to access the application, as this helps prevent unauthorized access to the application.
+
+- CORS_ALLOW_ALL_ORIGINS
+
+> The CORS_ALLOW_ALL_ORIGINS setting is related to Cross-Origin Resource Sharing (CORS) policy. CORS is a security feature implemented by web browsers to restrict web pages from making requests to a different domain than the one from which the web page originated. This security measure is in place to prevent cross-site request forgery (CSRF) and other potential security risks.
+
+> In the given configuration, CORS_ALLOW_ALL_ORIGINS is set to True, which means that any origin (domain) is allowed to make requests to the Django application. This effectively disables the CORS policy and allows requests from any domain. Similar to the ALLOWED_HOSTS setting, this configuration should generally be avoided in production environments.
+
+> For production, it is recommended to specify specific origins that are allowed to access the Django application. For example, you can use the CORS_ALLOWED_ORIGINS setting to list the domains that are allowed to make cross-origin requests. This helps to enforce a more secure CORS policy and prevent potential security vulnerabilities.
+
+> We will keep these values to get our project served first and then we will go back and configure these settings to make our application as secure as possible.
+
+## 3. Creating an Ubuntu EC2 t2.micro Instance
+
+To deploy our application, we need an Ubuntu EC2 instance, but what exactly are we creating?
+
+> The "t2.micro" instance type is part of AWS's T2 family of instances, which are designed for general-purpose workloads. The "micro" size denotes that it is one of the smallest instance types available, suitable for low-demand applications or for users who want to get started with AWS on a budget.
+
+> The "t2.micro" instance provides a single virtual CPU (vCPU) and 1 GB of RAM. It also includes a burstable performance feature, which allows the instance to accumulate "CPU credits" during periods of low CPU utilization. When the instance requires more processing power, it can consume these credits to burst its CPU performance temporarily.
+
+> As an Ubuntu t2.micro EC2 instance runs Ubuntu Linux, users have access to a reliable and widely-used operating system with a vast community and extensive documentation. It offers a familiar environment for developers and system administrators who are accustomed to working with Linux distributions.
+
+We'll create a `t2.micro` instance using the AWS Management Console and generate a PEM certificate for SSH access.
+
+1. Sign in to your AWS Management Console.
+2. Navigate to EC2 Dashboard and click "Launch Instance."
+3. Choose "Ubuntu Server 20.04 LTS" as the instance type.
+4. Select "t2.micro" as the instance size and follow the prompts to configure the instance.
+5. In the "Security Group" settings, open ports 22 (SSH), 80 (HTTP), and 443 (HTTPS).
+6. Download the PEM certificate
+7. Launch the instance
+
+**Keep your PEM certificate secure, as it provides access to your EC2 instance**
+
+## 3. Connecting to EC2 Instance via SSH
+
+Now that we have our PEM key and our Ec2 instance launched we can enter our Ubuntu VM through ssh. To connect to the EC2 instance via SSH, use the following command:
 
 ```bash
-ssh -i ~/.ssh/my_private_key.pem ubuntu@<ip_address>
+ssh -i <your_pem_key>.pem ubuntu@<ip_address>
 ```
+
+> Replace `your-aws.pem` with the actual PEM certificate file and `your-ec2-instance-public-ip` with the EC2 instance's public IP address(from AWS-EC2-Instances there's a header named Public IPv4 address).
+
+### Handling PEM Key Permissions
 
 > You might have gotten an error about the permissions on your private SSH key. If so, we might need to change the permissions on our private key to make it more secure.
 
+> **About permissions:** There are 3 things you can do to a file(`r`ead, `w`rite, and e`x`ecute) By running `ls -l` in your terminal, you'll see a list of files in your current directory with their corresponding permissions in the following format: `-rw-r--r--@`.
+
+> Lets take a second to break this down. the first `-rw-` is in reference to the users permissions (who can read and write on this file), the second portion of `r--` is in reference to staff(who are only able to read this file), and the last set of permission is in reference to anyone (who is only able to read this file).
+
+> Now that we know how to read these bootstrapped permission message lets quickly talk about what they mean. Every segment of 3 letters actually represents a binary string under the hood meaning `rw-r--r--` is actually equal to `110-100-100` which in decimal representation (we won't be covering this today) it equates to `644`.
+
+> This means that if I wanted to change a files permissions on my computer to where `I`(the user) can read and write on said file. I would simply run the command `chmod 600`.
+
 ```bash
-sudo chmod 600 ~/.ssh/my_private_key.pem
+# 600 => 110-000-000 => rw------- => (users can read&write)(staff none)(anyone none)
+chmod 600 your-aws.pem
 ```
+
+Once you've done this step you'll notice your terminal looks a bit different... Well that's because you are no longer within your own local machine, you've officially entered a VM hosted on the AWS cloud!!!
+
+## 4. Setting Up Ubuntu's Dependencies
 
 > After we successfully log into the server, we'll need to clone our project repository. Conveniently, git is preinstalled on the server.
 
@@ -51,52 +116,186 @@ sudo chmod 600 ~/.ssh/my_private_key.pem
 git clone <repo_url>
 ```
 
-Unfortunately, many other tools that we need are not installed yet.
+Unfortunately, many other tools that we need are not installed so we will have to install them ourselves manually.
 
 ```bash
+# Update package lists
 sudo apt update
+
+# Install Python 3 package manager
 sudo apt install python3-pip
+
+# Install PostgreSQL database server
 sudo apt install postgresql
+
+# Create a PostgreSQL superuser with your current user name
 sudo -u postgres createuser --superuser $USER
+
+# Install the PostgreSQL development library
 sudo apt install libpq-dev
+
+# Install Nginx web server (core components)
 sudo apt install nginx-core
+
+# Install Python dependencies from requirements.txt
 pip install -r requirements.txt
+
+# Create a PostgreSQL database with a name of your choice
 createdb <database_name>
+
+# Run Django database migrations
 python3 manage.py migrate
 
+# Install Node.js package manager (npm)
 sudo apt install npm
+
+# Install Node.js version manager (n)
 sudo npm install -g n
+
+# Install the latest stable version of Node.js
 sudo n stable
 
+# Install JavaScript dependencies (from package.json)
 npm install
+
+# Build the project using npm (assuming a build script is defined in package.json)
 npm run build
 ```
 
-> Django's built-in webserver is not fit to be a production web server on the public internet. We'll put another web server in front of it, called `nginx` (pronounced engine ex). After installing nginx, we'll need to modify a couple of config files.
+## 5. Getting Nginx to serve our React Application
 
-> The main, global config file for nginx is located at `/etc/nginx/nginx.conf`. The first line of this file specifies the user that nginx runs as. By default, it's `www-data`, but we need to change it to the owner of the application files, `ubuntu`. You could instead change the owner of the application files to `www-data` using the command `chown`, if you prefer that. What matters is that they match.
+Our Vite development server works fine for local development but when it comes to production it seems to struggle in rendering the correct information in a secure, and scalable manner. Instead we want to utilize a `proxy server` named `Nginx` to handle all http traffic that comes through our Ec2 Instance.
 
-> There is a second config file, located in `/etc/nginx/sites-enabled/default`, which contains information specific to the application we want to run. In the config below, nginx will listen on port 80, and then pass those requests to port 9000. Also, any requests that start with `/static/` will be given files from `/build/static` in response.
+### What is Nginx?
 
+> Nginx is a popular and powerful open-source web server, reverse proxy server, and load balancer. It is designed to handle high concurrency, high-performance tasks, and efficiently serve static content while consuming minimal system resources. Nginx is widely used for hosting websites, web applications, and content delivery networks (CDNs).
+
+### Configuring Nginx
+
+> The main, global config file for nginx is located at `/etc/nginx/nginx.conf`. The first line of this file specifies the user that nginx runs as. By default, it's `www-data`, but we need to change it to the owner of the application files, `ubuntu`. We will have to utilize `sudo vim` to be able to access this file and change it's value. You could instead change the owner of the application files to `www-data` using the command `chown`, if you prefer that. What matters is that they match.
+
+```bash
+user www-data; #<--- Change this to ubuntu
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+
+        ##
+        # Basic Settings
+        ##
 ```
+
+> There is a second config file, located in `/etc/nginx/sites-enabled/default`, which contains information specific to the application we want to run. In the config below, nginx will listen on port 80, and then handle the http request by rendering our React application. Let's first set up our `default` file through vim.
+
+```bash
 server {
   listen 80 default_server;
   listen [::]:80 default_server;
-  # listen 443 ssl default_server;
-  # listen [::]:443 ssl default_server;
+
   index index.html index.htm index.nginx-debian.html;
   server_name _;
 
   location / {
-    proxy_pass http://0.0.0.0:9000;
-  }
-  location /static/ {
-    alias /home/ubuntu/deployment-demo-app/news_project/static/;
-  }
+          root /usr/share/nginx/html/dist;
+          try_files $uri $uri/ /index.html;
+        }
 }
 ```
 
-> nginx can listen for requests from the actual public internet, but it doesn't know specifically how to talk with a python application. We're going to use another tool called gunicorn that can receive requests from nginx at port 9000, and then pass them off to django. We installed it earlier, so now let's try running the application with gunicorn: `gunicorn news_project.wsgi --bind 0.0.0.0:9000 --daemon`
+> Currently we are telling `Nginx` that it will find our index.html from our built directory within `/usr/share/nginx/html/dist` but that's not the case. Our `dist` directory is actually living within our `front_end` directory. We could fix this by simply copying the `dist` directory onto `/usr/share/nginx/html` with the following command.
+
+```bash
+cp -r <path_to_dist_dir>/dist /usr/share/nginx/html
+```
+
+> Now lets restart `Nginx` to make sure it recognizes the changes we've made with `sudo service nginx restart`. Finally, if we open up our Chrome browser and type in `http://<ip:address>` we will be able to see our React application being hosted through our Ec2 instance!!!
+
+## 6. Gunicorn and Django
+
+> Django's built-in webserver is not fit to be a production web server on the public internet so we will have to utilize a separate server that can efficiently interact with Python Frameworks. In this case we will utilize Gunicorn.
+
+### What is Gunicorn?
+
+> Gunicorn is a popular production-ready WSGI (Web Server Gateway Interface) server for running Python web applications. It is used to serve Python web applications, such as those built with Django, Flask, or other WSGI-compliant frameworks, in a production environment.
+
+> Gunicorn is designed to efficiently handle concurrent requests and provide high performance for Python web applications. It uses pre-fork worker model, which means it creates multiple worker processes to handle incoming requests. This enables Gunicorn to serve multiple requests simultaneously, improving response times and overall performance.
+
+### Binding Gunicorn to our Django Application
+
+> I'm sure you've noticed all the different files and directories that are automatically created when we create when we create a new django project and unfortunately we can't go in depth into every single one of them but the WSGI within our projects directory becomes crucial at this point.
+
+> The Django project's .wsgi file, often named wsgi.py, serves a crucial role in deploying Django applications using WSGI (Web Server Gateway Interface). WSGI is a standard interface that defines how web servers communicate with Python web applications, allowing Python web frameworks like Django to be compatible with various web servers.
+
+> The primary purpose of the Django project's .wsgi file is to provide the WSGI application object, which acts as an interface between Gunicorn and the Django application. When Gunicorn receives a request, it passes the request to the WSGI application, and the application returns the response back to the server.
+
+> Now that we know how Gunicorn and our Django project communicate lets bind the projects wsgi file to gunicorn with the following command:
+
+```bash
+gunicorn project.wsgi --bind 0.0.0.0:8000 --daemon
+```
+
+> Here we are simply telling `gunicorn` to connect with `projects.wsgi` file and make a connection in the local this virtual machine by binding to the machines port `8000` as a `background` service rather than occupying our entire terminal like `runserver` does.
+
+## 7. Nginx + Gunicorn
+
+> Nginx is our default server interacting with our actual deployed site, meaning that if we want to be able to talk to our Gunicorn server we have to tell Nginx to do so. With that said we are going to go back into `/etc/nginx/sites-enabled/default` file and just add an extra consideration.
+
+```bash
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location /api{
+                proxy_pass http://0.0.0.0:8000;
+        }
+
+        location / {
+                root /usr/share/nginx/html/dist;
+                try_files $uri $uri/ /index.html;
+        }
+}
+```
+
+> When we built our RESTful API we kept in mind best practices and prefaced all `API URL ENDPOINTS` with `/api`. At the time I'm sure it felt meaningless, but now during deployment we can see how it is essential to follow these best practices, otherwise `Nginx` wouldn't be able to handle routing appropriately for us.
+
+> Now we can restart Nginx with `sudo service nginx restart`, go onto Postman and ping our api with `http://<ip.address>/api/users/login/` and we will see a response from our Django API.
+
+## 8. Making back-end calls from our Front-End application
+
+> You'll notice that our application seems to be broken. If we try to sign up a user through our React application on our Ec2 instance we get an error stating our API call failed with a Network Error. Which is True, our Django server no longer exist and currently, all of our API calls are being sent to `http://127.0.0.1:8000` which doesn't exist in our Ec2 instance. Luckily we isolated this behavior so we only have to change it in one place. Inside of utilities.jsx we created an `axios` instance to make all of our Back-End API calls. Now we can simply use vim to update this file and place the correct url in it.
+
+```javascript
+//utilities.jsx
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: "http://<ip.address>/api/",
+});
+```
+
+> Now we've made the update on our React Application, but Nginx doesn't know about this change. We will have to update the dist folder within `/usr/share/nginx/html/` with our new changes.
+
+```bash
+# run the build to update our dist dir
+npm run build
+# copy the build into the correct dir
+sudo cp -r ./dist /usr/share/nginx/html
+# restart nginx
+sudo service nginx restart
+```
+
+> Our Full Stack application is finally on the internet and working properly. Congratulations!!!
 
 ### AWS Route53
 
@@ -118,7 +317,3 @@ sudo certbot --nginx
 ## External Resources
 
 - [certbot](https://certbot.eff.org/instructions)
-
-## Assignments
-
-- [Rock, Paper, Scissors](https://github.com/tangoplatoon/app-rock-paper-scissors)
