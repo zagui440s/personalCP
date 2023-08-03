@@ -36,6 +36,9 @@ Classroom videos/lectures will be recorded and posted to YouTube. It can take up
 - [Week 4](https://www.youtube.com/watch?v=YA4_wrytRzE&list=PLu0CiQ7bzwETbZkRr6BgYxmojMDV1NqsP)
 - [Week 5](https://www.youtube.com/watch?v=ADKYyz6wbTg&list=PLu0CiQ7bzwEQXuzNuKTDTKom3Khv865Ax)
 - [Week 6](https://www.youtube.com/watch?v=nIHkL73r5OE&list=PLu0CiQ7bzwEQMG05cGkqTRovmEnC3LiYv)
+- [Week 7](https://www.youtube.com/playlist?list=PLu0CiQ7bzwET6gDCZHw8usENAmC3jAEJf)
+- [Week 8](https://www.youtube.com/playlist?list=PLu0CiQ7bzwERxKZ2mkx3uHQnB32fJV5NE)
+- [Week 9](https://www.youtube.com/playlist?list=PLu0CiQ7bzwETut512X2e1xRMWl8jGDhib)
 
 ## Additional Resources Shared in Class
 
