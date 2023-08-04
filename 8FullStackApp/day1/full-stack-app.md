@@ -96,7 +96,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "https://example.com", #domain
     "https://sub.example.com", #subdomain
-    "http://localhost:4173/", #development server
+    "http://localhost:5173", #development server
 ]
 ```
 
