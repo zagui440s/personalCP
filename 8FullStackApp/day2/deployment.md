@@ -1,5 +1,19 @@
 # Deployment
 
+## Table of Contents
+
+- [Understanding a Deployed Site on the Internet](#1-understanding-a-deployed-site-on-the-internet)
+- [Configurations and Set Up]
+- [Creating an Ubuntu EC2 t2.micro Instance]
+- [Connecting to EC2 Instance via SSH]
+- [Setting Up Ubuntu's Dependencies](#5-setting-up-ubuntus-dependencies)
+- [Getting Nginx to serve our React Application](#6-getting-nginx-to-serve-our-react-application)
+- [Gunicorn and Django](#7-gunicorn-and-django)
+- [Nginx and Gunicorn](#8-nginx-and-gunicorn)
+- [AWS Route53](#10-aws-route53)
+- [Certbot](#11-certbot)
+
+
 ## 1. Understanding a Deployed Site on the Internet
 
 ![Alt Text](../resources/fullstack.png)
@@ -79,7 +93,7 @@ We'll create a `t2.micro` instance using the AWS Management Console and generate
 
 **Keep your PEM certificate secure, as it provides access to your EC2 instance**
 
-## 3. Connecting to EC2 Instance via SSH
+## 4. Connecting to EC2 Instance via SSH
 
 Now that we have our PEM key and our Ec2 instance launched we can enter our Ubuntu VM through ssh. To connect to the EC2 instance via SSH, use the following command:
 
@@ -108,7 +122,7 @@ chmod 600 your-aws.pem
 
 Once you've done this step you'll notice your terminal looks a bit different... Well that's because you are no longer within your own local machine, you've officially entered a VM hosted on the AWS cloud!!!
 
-## 4. Setting Up Ubuntu's Dependencies
+## 5. Setting Up Ubuntu's Dependencies
 
 > After we successfully log into the server, we'll need to clone our project repository. Conveniently, git is preinstalled on the server.
 
@@ -158,11 +172,11 @@ sudo n stable
 # Install JavaScript dependencies (from package.json)
 npm install
 
-# Build the project using npm (assuming a build script is defined in package.json)
+# Build the project using npm
 npm run build
 ```
 
-## 5. Getting Nginx to serve our React Application
+## 6. Getting Nginx to serve our React Application
 
 Our Vite development server works fine for local development but when it comes to production it seems to struggle in rendering the correct information in a secure, and scalable manner. Instead we want to utilize a `proxy server` named `Nginx` to handle all http traffic that comes through our Ec2 Instance.
 
@@ -217,7 +231,7 @@ cp -r <path_to_dist_dir>/dist /usr/share/nginx/html
 
 > Now lets restart `Nginx` to make sure it recognizes the changes we've made with `sudo service nginx restart`. Finally, if we open up our Chrome browser and type in `http://<ip:address>` we will be able to see our React application being hosted through our Ec2 instance!!!
 
-## 6. Gunicorn and Django
+## 7. Gunicorn and Django
 
 > Django's built-in webserver is not fit to be a production web server on the public internet so we will have to utilize a separate server that can efficiently interact with Python Frameworks. In this case we will utilize Gunicorn.
 
@@ -241,9 +255,9 @@ cp -r <path_to_dist_dir>/dist /usr/share/nginx/html
 gunicorn project.wsgi --bind 0.0.0.0:8000 --daemon
 ```
 
-> Here we are simply telling `gunicorn` to connect with `projects.wsgi` file and make a connection in the local this virtual machine by binding to the machines port `8000` as a `background` service rather than occupying our entire terminal like `runserver` does.
+> Here, we are simply telling `gunicorn` to connect with the projects `wsgi` file and host this connection on port `8000` of this virtual machine. By using `--daemon` we are telling `gunicorn` to run as a `background` service rather than occupying our entire terminal like `runserver` does.
 
-## 7. Nginx + Gunicorn
+## 8. Nginx and Gunicorn
 
 > Nginx is our default server interacting with our actual deployed site, meaning that if we want to be able to talk to our Gunicorn server we have to tell Nginx to do so. With that said we are going to go back into `/etc/nginx/sites-enabled/default` file and just add an extra consideration.
 
@@ -297,11 +311,11 @@ sudo service nginx restart
 
 > Our Full Stack application is finally on the internet and working properly. Congratulations!!!
 
-### AWS Route53
+## 10. AWS Route53
 
 > To get a domain name for our website, we'll need to use another AWS service, Route53, which is used for DNS and routing settings. After registering a domain name, click 'Manage DNS settings' for this domain. DNS is the Domain Name System, a network of servers that are used to convert domain names into IP addresses, so that clients can find the location of servers that they're looking for. We need to create an A Record, which simply maps a domain name to an IP address. The value for the record should be the IP address of our EC2 instance. All other fields can be left at their default settings.
 
-### SSL/TLS
+## 11. Certbot
 
 > The last thing we need when we deploy our website is an SSL certificate, so we can serve traffic over HTTPS. Using HTTPS encrypts your HTTP traffic, which prevents hackers from viewing or modifying the pages your users visit or the forms they submit using a Man-in-the-middle attack (MitM). Using HTTPS also enables certain "powerful features" in the browser, such as hardware access (microphone, camera, accelerometer, GPS, MIDI devices) or notifications.
 > Thankfully, we can get these for free using [certbot](https://certbot.eff.org/instructions). Just select your server and OS (nginx on Ubuntu) and follow the instructions. Certbot will generate an SSL certificate for you, and then automatically change your nginx config file so that your app serves HTTPS traffic on port 443 using that certificate.
@@ -312,7 +326,7 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
 ```
 
-> After you restart the nginx server with `sudo service nginx restart`, your full stack news site should be publicly accessible over HTTPS.
+After you restart the nginx server with `sudo service nginx restart`, your full stack application should be publicly accessible over HTTPS.
 
 ## External Resources
 
