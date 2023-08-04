@@ -27,15 +27,15 @@ import { describe, it, expect } from "vitest";
 import { add, subtract } from "./MathFunctions.js";
 
 describe("My math functions work", () => {
-  it("1 + 1 = 2", {
+  it("1 + 1 = 2", () => {
     expect(add(1, 1)).toEqual(2);
   });
 
-  it("2 + 3 = 5", {
+  it("2 + 3 = 5", () => {
     expect(add(2, 3)).toEqual(5);
   });
 
-  it("1 - 4 = -3", {
+  it("1 - 4 = -3", () => {
     expect(subtract(1, 4)).toEqual(-3);
   });
 });
@@ -69,7 +69,10 @@ import HomePage from "../components/HomePage";
 // export default function HomePage() {
 //   return (
 //     <div>
+//          <div>
 //       <h1>HOME</h1>
+//       <Outlet />
+//          </div>
 //     </div>
 //   );
 // }

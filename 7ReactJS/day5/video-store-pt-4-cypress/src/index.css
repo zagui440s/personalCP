@@ -1,0 +1,77 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  background-color: aqua;
+}
+
+button {
+  width: fit-content;
+}
+
+header {
+  text-align: center;
+  border: 3px dotted black;
+}
+
+main {
+  min-height: 690px;
+}
+
+footer {
+  text-align: center;
+  background-color: red;
+}
+
+.inventory-item {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.inventory-item img {
+  width: 200px;
+  height: 300px;
+}
+
+.item-title {
+  height: 50px;
+}
+
+.num-available {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.page-container {
+  padding: 64px;
+}
+
+.section-container {
+  border: 3px solid black;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5%;
+  padding: 36px;
+  margin: 36px 0;
+}
+
+.container-column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5%;
+}
+
+.container-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5%;
+}
+
+.align-center {
+  align-items: center;
+}
