@@ -327,7 +327,28 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 sudo certbot --nginx
 ```
 
-After you restart the nginx server with `sudo service nginx restart`, your full stack application should be publicly accessible over HTTPS.
+> After you restart the nginx server with `sudo service nginx restart`, your full stack application should be publicly accessible over HTTPS, but you'll notice that your Back-end calls are now broken.
+
+> Axios is currently making back-end calls through HTTP and not HTTPS and is causing a network/security error to be raised. All we have to do to finalize the process is update our axios instance with the new Route53 domain and https values in our url.
+
+```javascript
+//utilities.jsx
+import axios from "axios";
+
+export const api = axios.create({
+  baseURL: "https://<domain_name>/api/",
+});
+```
+
+> We can run the build to get an updated `dist` directory, copy it onto nginx and then restart nginx to host these new values.
+
+```bash
+npm run build
+sudo cp -r <path_to_dist>/dist /usr/share/nginx/html
+sudo service nginx restart
+```
+
+## **Your Site is now officially served through HTTPS!!!!!**
 
 ## External Resources
 

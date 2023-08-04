@@ -1,6 +1,32 @@
 # Full Stack Application
 
-In this lesson, we will cover how to connect a React frontend to a Django backend that uses Django Rest Framework (DRF) for token authentication. We will use Axios to make HTTP requests and obtain tokens from Django APIViews. Additionally, we will address the secure storage of tokens on the frontend.
+![Alt text](../resources/dev-full-stack.png)
+
+## Full-Stack Life Cycle of a Web Application
+
+1. User Interaction
+   The life cycle begins when a user interacts with the frontend application. This can include actions like clicking buttons, submitting forms, or any other user-triggered events.
+
+2. Frontend Axios Request
+   When the user performs an action, Axios is utilized in the frontend to send an HTTP request to a specific API endpoint on the backend. The request includes the desired HTTP method and any required data.
+
+3. Backend Django View (APIView)
+   The Django backend receives the request and routes it to the appropriate DRF APIView based on the URL pattern and HTTP method. The APIView contains the logic to handle the request and perform necessary business operations.
+
+4. Database Interaction and Serializer
+   If data retrieval or modification is needed, the APIView can interact with the database to fetch or update the required data. This interaction depends on the request's purpose and the application's design. After obtaining data from the database or performing any necessary manipulations, the APIView may use a DRF serializer to convert the data into the suitable format for the API response.
+
+5. Backend API Response
+   The APIView generates an HTTP response with the processed data or any relevant error messages. The response is then sent back to the frontend as the result of the Axios request.
+
+6. Frontend Axios Response Handling
+   In the frontend, Axios receives the API response. If the response is successful, Axios extracts the data and triggers the appropriate actions to update the user interface. In case of errors, Axios handles the errors and provides appropriate feedback to the user.
+
+7. UI Update
+   Based on the API response, the frontend updates the user interface to reflect changes, display data, or show error messages. This step ensures that the user gets an updated and interactive experience.
+
+8. User Interaction (Cycle Continues)
+   The updated user interface is presented to the user, and the cycle of user interaction, Axios
 
 ## TLO's (Testable Learning Objectives)
 
