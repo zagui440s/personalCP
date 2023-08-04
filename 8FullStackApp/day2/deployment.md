@@ -18,7 +18,7 @@
 
 ![Alt Text](../resources/fullstack.png)
 
-When a user types in "https://codeplatoon.com," "codeplatoon.com" represents the domain name of a website hosted on an AWS EC2 t2.micro instance running Ubuntu (this is essentially just a Virtual Machine). AWS (Amazon Web Services) EC2 is a cloud computing service that provides resizable compute capacity in the cloud. The t2.micro instance is a low-cost, general-purpose instance type suitable for small applications.
+When a user types in "https://codeplatoon.com", "codeplatoon.com" represents the domain name of a website hosted on an AWS EC2 t2.micro instance running Ubuntu (this is essentially just a Virtual Machine). AWS (Amazon Web Services) EC2 is a cloud computing service that provides resizable compute capacity in the cloud. The t2.micro instance is a low-cost, general-purpose instance type suitable for small applications.
 
 To handle the domain name, the website uses Route53, which is AWS's domain name system (DNS) service. Route53 allows users to manage domain names and associate them with the EC2 instance's IP address, enabling users to access the site using the domain name instead of the IP address.
 
@@ -36,7 +36,7 @@ In summary, when a user types in "https://helloworld.com," AWS Route53 translate
 
 ### Django
 
-> We'll need to make a few changes to our Django API to prepare it for deployment. First we have to make sure that all of our secret keys are within a `.env` file this way we can prevent any vital information from being exposed.
+> We'll need to make a few changes to our Django API to prepare it for deployment. First we have to make sure that all of our secret keys are within a `.env` file so we can prevent any vital information from being exposed.
 
 ```python
 # project/settings.py
@@ -95,7 +95,7 @@ We'll create a `t2.micro` instance using the AWS Management Console and generate
 
 ## 4. Connecting to EC2 Instance via SSH
 
-Now that we have our PEM key and our Ec2 instance launched we can enter our Ubuntu VM through ssh. To connect to the EC2 instance via SSH, use the following command:
+Now that we have our PEM key and our Ec2 instance launched we can enter our Ubuntu VM through SSH. To connect to the EC2 instance via SSH, use the following command:
 
 ```bash
 ssh -i <your_pem_key>.pem ubuntu@<ip_address>
@@ -105,22 +105,22 @@ ssh -i <your_pem_key>.pem ubuntu@<ip_address>
 
 ### Handling PEM Key Permissions
 
-> You might have gotten an error about the permissions on your private SSH key. If so, we might need to change the permissions on our private key to make it more secure.
+> You might have gotten an error about the permissions on your private SSH key. If so, we need to change the permissions on our private key to make it more secure.
 
 > **About permissions:** There are 3 things you can do to a file(`r`ead, `w`rite, and e`x`ecute) By running `ls -l` in your terminal, you'll see a list of files in your current directory with their corresponding permissions in the following format: `-rw-r--r--@`.
 
 > Lets take a second to break this down. the first `-rw-` is in reference to the users permissions (who can read and write on this file), the second portion of `r--` is in reference to staff(who are only able to read this file), and the last set of permission is in reference to anyone (who is only able to read this file).
 
-> Now that we know how to read these bootstrapped permission message lets quickly talk about what they mean. Every segment of 3 letters actually represents a binary string under the hood meaning `rw-r--r--` is actually equal to `110-100-100` which in decimal representation (we won't be covering this today) it equates to `644`.
+> Now that we know how to read these bootstrapped permission message, let's talk about what they mean. Every segment of 3 letters actually represents a binary string under the hood meaning `rw-r--r--` is equal to `110-100-100` which in decimal representation (we won't be covering this today) equates to `644`.
 
-> This means that if I wanted to change a files permissions on my computer to where `I`(the user) can read and write on said file. I would simply run the command `chmod 600`.
+> This means that if I wanted to change a files permissions on my computer to where `I`(the user) can read and write on said file, I'd simply run the command `chmod 600`.
 
 ```bash
 # 600 => 110-000-000 => rw------- => (users can read&write)(staff none)(anyone none)
 chmod 600 your-aws.pem
 ```
 
-Once you've done this step you'll notice your terminal looks a bit different... Well that's because you are no longer within your own local machine, you've officially entered a VM hosted on the AWS cloud!!!
+Once you've done this step you'll notice your terminal looks a bit different... That's because you are no longer within your own local machine, you've officially entered a VM hosted on the AWS cloud!!!
 
 ## 5. Setting Up Ubuntu's Dependencies
 
@@ -229,7 +229,7 @@ server {
 cp -r <path_to_dist_dir>/dist /usr/share/nginx/html
 ```
 
-> Now lets restart `Nginx` to make sure it recognizes the changes we've made with `sudo service nginx restart`. Finally, if we open up our Chrome browser and type in `http://<ip:address>` we will be able to see our React application being hosted through our Ec2 instance!!!
+> Now lets restart `Nginx` to make sure it recognizes the changes we've made with `sudo service nginx restart`. Finally, if we open up our Chrome browser and type in `http://<ip:address>` we will be able to see our React application being hosted through our Ec2 instance!
 
 ## 7. Gunicorn and Django
 
@@ -331,3 +331,4 @@ After you restart the nginx server with `sudo service nginx restart`, your full 
 ## External Resources
 
 - [certbot](https://certbot.eff.org/instructions)
+
