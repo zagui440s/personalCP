@@ -93,7 +93,7 @@ export const api = axios.create({
 
 > Now it's time for the action. Lets run both our Django server and Vite development server to host both of our projects on `separate` ports. Once both of our ports are running, let's take a look around and get familiar with both our Django API and our React front-end.
 
-> Now that we are familiar with our project, we can go into implementing some logic to authenticate users and obtain tokens using Axios in our React frontend. Lets start with the Register page:
+> Now that we are familiar with our project, we can then implement some logic to authenticate users and obtain tokens using Axios in our React frontend. Lets start with the Register page:
 
 ```javascript
 // RegisterPage.jsx
@@ -120,15 +120,13 @@ const signUp = async (e) => {
 // ...
 ```
 
-> That works great and thanks to the `useEffect` we've set up for logging our user onto the console, we are able to see that new user emails populate on the console itself. What about the Token? Where did it go? We are currently in the development stage, so it's ok for us to place the user tokens inside of the Browsers Local Storage... but that raises the question of `What is local storage?`
+> Thanks to the `useEffect` we've set up for logging our user onto the console, we are able to see that new user emails populate on the console itself. What about the Token? Where did it go? We are currently in the development stage, so it's fine for us to place the user tokens inside of the Browsers Local Storage... but `What is local storage?`
 
 #### Local Storage
 
 > Browser localStorage is a crucial web development tool that enables developers to store key-value pairs locally within a web browser. This feature allows web applications to persistently store data on a user's device, even after the user navigates away from the webpage or closes the browser. Understanding the key factors related to localStorage is essential for developers to make the most of this powerful and versatile tool.
 
 Here are a couple of key factors to keep in mind when utilizing `localStorage`:
-
-Sure! Here are the key factors about `localStorage` in Markdown format:
 
 1. **Data Persistence:** `localStorage` enables data to persist across sessions, even after the browser is closed and reopened.
 
@@ -181,7 +179,7 @@ const logIn = async (e) => {
 
 ### Step 4: Deleting Tokens
 
-> Finally, the question of the user being able to sign out. We know our API won't allow the user to do much if they're signed out so we really don't need to worry about the Django side of this, instead let's create a function that will be triggered by an onclick event of our `Log out` button.
+> Finally, the question of the user being able to sign out. We know our API won't allow the user to do much if they're signed out so we really don't need to worry about the Django side of this. Instead, let's create a function that will be triggered by an onclick event of our `Log out` button.
 
 ```javascript
 // App.jsx
@@ -198,13 +196,13 @@ const logOut = async () => {
 };
 ```
 
-> We can see that the user is now being set to back to `null`, the axios `Authorization` header is no longer present, and if we take a look at `localStorage` our token was removed and is no longer available during development.
+> We can see that the user is now being set to back to `null`, the axios `Authorization` header is no longer present, and if we take a look at `localStorage`, our token was removed and is no longer available during development.
 
 ## Part 2: User Authentication Workflow
 
-> Currently our user authentication is happening flawlessly and we are able to see the user changing every time a user logs in and we can see the authentication token being added or removed from our browser's local storage.
+> Currently, our user authentication works, so we are able to see the user changing every time a user logs in and the authentication token being added or removed from our browser's local storage.
 
-> Although this is good for us as developers, for the user this doesn't really change anything for them. They still have access to every page, they can still see the links to Register and Log In and they aren't being automatically routed to the page that will display the users content.
+> Although this is useful for us as developers, the user experience is not affected. Users have access to every page, they can still see the links to Register and Log In, and they aren't being automatically routed to the page that will display the users content.
 
 > Lets fix that with a bit of conditional rendering and useEffect hooks through out our pages.
 
@@ -227,11 +225,11 @@ const logOut = async () => {
 </nav>
 ```
 
-> This will make sure that the user is only able to see the link to the HomePage and the button to Log Out once the user has successfully signed in/up otherwise only the Register or Log In links will be displayed.
+> This will make sure that the user is only able to see the link to the HomePage and the button to Log Out once the user has successfully signed in/up, otherwise only the Register or Log In links will be displayed.
 
 2. Keeping the user signed in and redirected to the correct page
 
-> Today we will be utilizing a new React hook that we haven't talked about `useRef()`. `useRef` is a built-in hook that provides a way to create a mutable reference to a DOM element or a value that persists across renders. In this case we will be utilizing it to keep track of the users last visited location enabling us to reroute the user to their last visited page every time they refresh the page.
+> Today we will be utilizing a new React hook that we haven't talked about: `useRef()`. `useRef` is a built-in hook that provides a way to create a mutable reference to a DOM element or a value that persists across renders. We will be utilizing it to keep track of the users last visited location enabling us to reroute the user to their last visited page every time they refresh the page.
 
 ```javascript
 //App.jsx
@@ -306,7 +304,7 @@ useEffect(() => {
 
 6. **Token Revocation**: Implement token revocation mechanisms on the server-side. This allows you to invalidate tokens if needed, such as when a user logs out or if their account is compromised.
 
-> We will ensure to account most if not all of these aspects as we get closer to our deployment lecture.
+> We will ensure to account for all of these aspects as we get closer to our deployment lecture.
 
 ## Conclusion
 
