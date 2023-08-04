@@ -1,145 +1,313 @@
-# Full-stack App
+# Full Stack Application
 
-## Lesson
-> Today, we'll be building a full-stack application, using React and Django. This is mostly the same as using React or Django separately, but there are a few main things we'll need to do differently.
+In this lesson, we will cover how to connect a React frontend to a Django backend that uses Django Rest Framework (DRF) for token authentication. We will use Axios to make HTTP requests and obtain tokens from Django APIViews. Additionally, we will address the secure storage of tokens on the frontend.
 
-> First, we'll need to `build` our react application, so that our django application can serve it from the static folder. We'll learn how to watch our jsx files for changes, so that they rebuild automatically when you make changes. We're not going to use the dev server any more!
+## TLO's (Testable Learning Objectives)
 
-> Next, we'll add Django REST Framework to our project to use the `@api_view` decorator. DRF has many features, and today, we'll only be using one of them. This decorator changes some default settings for CSRF protection, and replaces the `request` object with one that is more useful. 
+- Handling user Tokens during development
+- Tying Axios requests to DRF CBV's
 
-> Lastly, we'll learn how to include CSRF tokens in AJAX requests, so that our application can be protected against CSRF vulnerabilities. 
+## ELO's (Elective Learning Objectives)
 
+- Controlling user interface flow with authentication
 
-### create django project
+## Part 1: Obtaining Tokens from Django APIViews
 
-> Here's a rough outline of what we'll need to do today, to build a minimal full-stack application. 
+> Currently in the `project` directory we have a fully developed `React` Front-End application and a fully developed `Django` API with Token Authentication. Today we are going to work through the process of handling requests and responses between React and Django.
 
-- create a django project as usual:
-    - `python -m django startproject <project_name>`
-    - set up custom user model
-    - set `AUTH_USER_MODEL` in `settings.py`
-    - create/run migrations
-    - declare `STATICFILES_DIRS` in `settings.py`
-- create a react project: `npm create vite`
-- edit `config.json` and build the react project
-    - vite needs to place static assets in a folder that django will serve them from, and vite needs to write URLs in our `index.html` that our django server will recognize. 
-    - your index.html will be copied from `./index.html` to `<outDir>/index.html`
-    - your compiled static assets (js, css) will minified, concatenated, and copied from `./src/*` to `<outDir>/assets/*`
-    - your uncompiled static assets (images, sounds, videos) will be copied, unmodified, from  `./public/*` to  `./dist/*`
-- rebuild the project
-	- we're no longer using the vite dev-server, we must rebuild the project to see changes to js files
-	- watch the project for changes using a watch script in package.json: `"watch": "vite build --watch",`
-- add Django Rest Framework and use `@api_view()` decorators
-	- changes default CSRF protections to be more reasonable. Only logged-in users should need tokens
-	- lets us declare which request methods a given URL can respond to
-	- automatically parses the body as JSON
-- store the authenticated user in react state
-	- first, we'll need the usual signup, login, logout, whoami routes. 
-	- request the logged in user from `/whoami` in a `useEffect` callback.
-- use the CSRF token to make requests to the backend.
-	- When using DRF, authenticated users must include a CSRF token to make requests other than GET requests
-	- axios can be configured to automatically include this token in all requests
+### Step 0: CORS and Django
 
+- What is CORS?
 
-> Your `config.json` for vite might look a little like this:
+> CORS stands for Cross-Origin Resource Sharing. It is a security feature implemented by web browsers to prevent web pages from making requests to a different domain than the one that served the original web page. This security measure is in place to protect users from potential malicious activities that could occur if a web page gains unauthorized access to resources on other domains.
 
-```javascript
-export default defineConfig({
+- When should I use CORS?
 
-  // vite uses this as a prefix for href and src URLs
-  base: '/static/',
-  build: {
-    // this is the folder where vite will generate its output. Make sure django can serve files from here!
-    outDir: '../shoe_proj/static',
+> When developing web applications using Django, you might encounter CORS-related issues if you want to make AJAX requests from your frontend JavaScript code to a Django backend running on a different domain. By default, web browsers block such cross-origin requests.
 
-    // delete the old build when creating the new build. 
-    // this is the default behavior, unless outDir is outside of the current directory
-    emptyOutDir: true,
-	
-	// vite will generate sourcemaps, which let you see logs and error messages with line numbers from our jsx files, not from the minified js
-	sourcemap: true,
+To enable CORS in a Django application, you need to add the appropriate headers to the HTTP response. Django does not have CORS support built into its core, but you can handle CORS using middleware or external packages like `django-cors-headers`.
 
-  },
-  plugins: [react()]
-})
+- How do I utilize CORS
+
+> The `django-cors-headers` package is a popular choice for handling CORS in Django applications. Once installed and configured, it adds the necessary CORS-related headers to your responses, allowing your frontend code to make cross-origin requests to the Django backend securely.
+
+> Here's a quick overview of the steps to enable CORS using `django-cors-headers`:
+
+1. Install the package:
+
+```bash
+pip install django-cors-headers
 ```
 
+2. Add `'corsheaders'` to your `INSTALLED_APPS` in the Django settings.py file:
 
-> You can configure Axios to automatically send CSRF tokens by setting default headers:
+```python
+#settings.py
+INSTALLED_APPS = [
+    # ...
+    'corsheaders',
+    # ...
+]
+```
+
+3. Add the `CorsMiddleware` to the middleware list in settings.py. Ensure it comes before the `CommonMiddleware`:
+
+```python
+#settings.py
+MIDDLEWARE = [
+    # ...
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    # ...
+]
+```
+
+4. Configure the CORS settings according to your requirements. For example, you can specify which origins are allowed, which headers are allowed in requests, and other options:
+
+```python
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com", #domain
+    "https://sub.example.com", #subdomain
+    "http://localhost:4173/", #development server
+]
+```
+
+> You can find more configuration options in the documentation of [django-cors-headers](https://www.stackhawk.com/blog/django-cors-guide/).
+
+With CORS properly configured in your Django application, your frontend will be able to make cross-origin requests to the backend, provided the allowed origins match those defined in the CORS settings. This helps you maintain security while enabling communication between different parts of your web application.
+
+### Step 1: Axios Requests in React
+
+> We don't want to necessarily write the same URL over and over again since we want to follow the `DRY` (Don't Repeat Yourself) principle. Let's do some basic alterations to `axios` to facilitate our ability to make requests. Let's set up our Axios instance with the appropriate base URL for our Django backend. Since we are currently working in `development`, this URL should match the URL that shows up when you `runserver` in Django:
 
 ```javascript
-const getCSRFToken = ()=>{
-    let csrfToken
+// utilities.jsx
+import axios from "axios";
 
-    // the browser's cookies for this page are all in one string, separated by semi-colons
-    const cookies = document.cookie.split(';')
-    for ( let cookie of cookies ) {
-        // individual cookies have their key and value separated by an equal sign
-        const crumbs = cookie.split('=')
-        if ( crumbs[0].trim() === 'csrftoken') {
-            csrfToken = crumbs[1]
-        }
+export const api = axios.create({
+  baseURL: "http://127.0.0.1:8000/api/",
+});
+```
+
+### Step 2: Authenticating Users and Obtaining Tokens
+
+> Now it's time for the action. Lets run both our Django server and Vite development server to host both of our projects on `separate` ports. Once both of our ports are running, let's take a look around and get familiar with both our Django API and our React front-end.
+
+> Now that we are familiar with our project, we can go into implementing some logic to authenticate users and obtain tokens using Axios in our React frontend. Lets start with the Register page:
+
+```javascript
+// RegisterPage.jsx
+import { api } from "../utilities.jsx";
+// ...
+const navigate = useNavigate();
+
+const signUp = async (e) => {
+  e.preventDefault();
+  let response = await api.post("users/register/", {
+    email: userName,
+    password: password,
+  });
+  let user = response.data.user;
+  let token = response.data.token;
+  // Store the token securely (e.g., in localStorage or HttpOnly cookies)
+  localStorage.setItem("token", token);
+  api.defaults.headers.common["Authorization"] = `Token ${token}`;
+  // set the user using with useContext to allow all other pages that need user information
+  setUser(user);
+  navigate("/home");
+};
+
+// ...
+```
+
+> That works great and thanks to the `useEffect` we've set up for logging our user onto the console, we are able to see that new user emails populate on the console itself. What about the Token? Where did it go? We are currently in the development stage, so it's ok for us to place the user tokens inside of the Browsers Local Storage... but that raises the question of `What is local storage?`
+
+#### Local Storage
+
+> Browser localStorage is a crucial web development tool that enables developers to store key-value pairs locally within a web browser. This feature allows web applications to persistently store data on a user's device, even after the user navigates away from the webpage or closes the browser. Understanding the key factors related to localStorage is essential for developers to make the most of this powerful and versatile tool.
+
+Here are a couple of key factors to keep in mind when utilizing `localStorage`:
+
+Sure! Here are the key factors about `localStorage` in Markdown format:
+
+1. **Data Persistence:** `localStorage` enables data to persist across sessions, even after the browser is closed and reopened.
+
+2. **Key-Value Pairs:** Data is stored in `localStorage` as key-value pairs, with both the key and value represented as strings.
+
+3. **Storage Limit:** Each browser has a storage limit for `localStorage`, usually around 5 to 10 MB per domain.
+
+4. **Single-Origin Policy:** `localStorage` follows the same-origin policy, restricting access to data from other domains.
+
+5. **Data Access:** Accessing data from `localStorage` is done using the `localStorage` object in JavaScript.
+
+6. **No Expiry:** Unlike cookies, `localStorage` data does not have an expiration date and remains stored indefinitely.
+
+7. **Synchronous API:** The `localStorage` API is synchronous, potentially affecting page performance for large or multiple operations.
+
+8. **Security Considerations:** Avoid storing sensitive data in `localStorage` due to potential vulnerabilities like cross-site scripting (XSS) attacks.
+
+9. **Event Mechanism:** `localStorage` lacks a built-in event mechanism, requiring custom event handling or third-party libraries for data change notifications.
+
+10. **Fallback Mechanisms:** Plan for fallback options in case `localStorage` is not supported by some browsers.
+
+Remember to use `localStorage` responsibly, considering security and storage limitations, to enhance the user experience and build efficient web applications.
+
+### Step 3: Logging In
+
+> Now that we are familiar with `localStorage` and how axios is working, we can move on to quickly creating a function for a user to log in and obtain their token rather than signing up.
+
+```javascript
+// LoginPage.jsx
+import { api } from "../utilities.jsx";
+const navigate = useNavigate();
+
+const logIn = async (e) => {
+  e.preventDefault();
+  let response = await api.post("users/login/", {
+    email: userName,
+    password: password,
+  });
+  console.log(response);
+  let token = response.data.token;
+  let user = response.data.user;
+  localStorage.setItem("token", token);
+  api.defaults.headers.common["Authorization"] = `Token ${token}`;
+  setUser(user);
+  navigate("/home");
+};
+```
+
+> It's easy to see that these two functions we've just created are very similar except for the api endpoint they're pinging, so this may be a good place for you to come back to and refactor this logic.
+
+### Step 4: Deleting Tokens
+
+> Finally, the question of the user being able to sign out. We know our API won't allow the user to do much if they're signed out so we really don't need to worry about the Django side of this, instead let's create a function that will be triggered by an onclick event of our `Log out` button.
+
+```javascript
+// App.jsx
+const logOut = async () => {
+  let response = await api.post("users/logout/");
+  if (response.status === 204) {
+    // Remove the token from secure storage (e.g., localStorage)
+    localStorage.removeItem("token");
+    delete api.defaults.headers.common["Authorization"];
+    // set the user using with useContext to allow all other pages that need user information
+    setUser(null);
+    navigate("/login");
+  }
+};
+```
+
+> We can see that the user is now being set to back to `null`, the axios `Authorization` header is no longer present, and if we take a look at `localStorage` our token was removed and is no longer available during development.
+
+## Part 2: User Authentication Workflow
+
+> Currently our user authentication is happening flawlessly and we are able to see the user changing every time a user logs in and we can see the authentication token being added or removed from our browser's local storage.
+
+> Although this is good for us as developers, for the user this doesn't really change anything for them. They still have access to every page, they can still see the links to Register and Log In and they aren't being automatically routed to the page that will display the users content.
+
+> Lets fix that with a bit of conditional rendering and useEffect hooks through out our pages.
+
+1. Fixing the navbar with conditional rendering.
+
+```javascript
+// App.jsx
+<nav>
+  {user ? (
+    <>
+      <Link to="/home">Home</Link>
+      <button onClick={logOut}>Log out</button>
+    </>
+  ) : (
+    <>
+      <Link to="/">Register</Link>
+      <Link to="/login">Log In</Link>
+    </>
+  )}
+</nav>
+```
+
+> This will make sure that the user is only able to see the link to the HomePage and the button to Log Out once the user has successfully signed in/up otherwise only the Register or Log In links will be displayed.
+
+2. Keeping the user signed in and redirected to the correct page
+
+> Today we will be utilizing a new React hook that we haven't talked about `useRef()`. `useRef` is a built-in hook that provides a way to create a mutable reference to a DOM element or a value that persists across renders. In this case we will be utilizing it to keep track of the users last visited location enabling us to reroute the user to their last visited page every time they refresh the page.
+
+```javascript
+//App.jsx
+const navigate = useNavigate();
+const location = useLocation();
+const lastVisited = useRef();
+
+const whoAmI = async () => {
+  // Check if a token is stored in the localStorage
+  let token = localStorage.getItem("token");
+  if (token) {
+    // If the token exists, set it in the API headers for authentication
+    api.defaults.headers.common["Authorization"] = `Token ${token}`;
+    // Fetch the user data from the server using the API
+    let response = await api.get("users/");
+    // Check if the response contains the user data (email field exists)
+    if (response.data.email) {
+      // Set the user data in the context or state (assuming `setUser` is a state update function)
+      setUser(response.data);
+      // If the user is authenticated and there is a stored lastVisited page,
+      // navigate to the lastVisited page; otherwise, navigate to the default homepage "/home"
+      if (lastVisited.current) {
+        navigate(lastVisited.current);
+      } else {
+        navigate("/home");
+      }
     }
-    return csrfToken
-}
-axios.defaults.headers.common['X-CSRFToken'] = getCSRFToken()
-
+  } else {
+    // If no token is found, navigate to the login page
+    navigate("/login");
+  }
+};
 ```
 
+> Applying this logic will make sure that if at any point our user signs out or our user is lost for some reason, our application will redirect the user to the login page or to the last page they visited if we still have the token.
 
-> We can make our front end aware of the logged in user by calling `whoAmI()` in a `useEffect`, and on `logOut`.
+3. Applying the `whoAmI` function.
 
 ```javascript
-  const logOut = function(event){
-    event.preventDefault()
-    axios.post('/logout').then((response)=>{
-        console.log('response from server: ', response)
-        whoAmI()
-    })
-    
+// This useEffect block runs once when the component mounts (due to the empty dependency array [])
+// It calls the whoAmI function to check the user's authentication status and perform redirection accordingly
+useEffect(() => {
+  whoAmI();
+}, []);
+
+// This useEffect block runs whenever the location (pathname) changes
+// It updates the lastVisited ref with the current location pathname
+// This allows the whoAmI function to access the lastVisited page for redirection if needed
+useEffect(() => {
+  if (!user) {
+    // If the user is not authenticated, update the lastVisited ref with the current location pathname
+    lastVisited.current = location.pathname;
   }
-  
-  const whoAmI = async ()=>{
-    const response = await axios.get('/whoami')
-    const user = response.data && response.data[0] && response.data[0].fields
-    console.log('user? ', user)
-    setUser(user)
-  }
+}, [location]);
+```
 
-  useEffect(()=>{
-		whoAmI()
-  }, [])
-  ```
+> Now we can move around our application refresh the page and do anything we want through the application without causing any unexpected behavior.
 
-# Assignment 
+## Part 3: Secure Storage of Tokens in the Frontend
 
-### Setup
-- Create a full stack application. 
- 	- Connect a react project and a django project make sure you are able to see your `App.jsx`code in the browser at `localhost:8000`
+> Tokens are sensitive pieces of information, and their secure storage is crucial to prevent unauthorized access and potential security vulnerabilities. Here are some guidelines on how to securely store tokens on the frontend:
 
-### React Frontend
-***\*Utilize state, and effects**
-- Create a `login page`, a `signup page`, and a `home page` inside your `react router`(you may choose between `HashRouter` and `BrowserRouter`).
-	- `signup`: 
-		- form that takes in firstname, lastname, username(can be email), and password
-		- a submit button that takes the data from the form and saves it
-	- `login`: 
-		- form that takes in username and password
-		- a submit button 
-		 	- takes the data from the form and keeps track of the logged in user `useState()?`
-		 	- reroutes to the `homePage`
-	- `homePage`: 
-		- display username of person logged in  
-		- button to log out
+1. **Avoid Local Storage**: While it's common to store tokens in localStorage for simplicity, it's generally not the most secure option. Malicious scripts could access localStorage, and it makes your application vulnerable to Cross-Site Scripting (XSS) attacks.
 
+2. **HttpOnly Cookies**: Consider using HttpOnly cookies to store your tokens. HttpOnly cookies cannot be accessed by JavaScript, which makes them more secure against XSS attacks. They are automatically sent with each HTTP request, making them suitable for token-based authentication.
 
-### STRETCH: connecting to Django API Server 
-*\* walkthrough [demo](https://www.youtube.com/watch?v=6vBGHBmXKAw&list=PLu0CiQ7bzwESxBdsmsbfRk8Nm4tv5lVgq&index=5) from a previous cohort (includes the project set up as a whole)
+3. **Token Expiry and Refresh**: Implement token expiry and refresh mechanisms to ensure better security. When the token expires, the user will need to authenticate again to obtain a new token. The refresh token can be stored in a more secure manner, such as an HttpOnly cookie.
 
-- create api routes for `login`, `signup`, and `logout` that work with the django user auth model
-- make the three buttons in our react pages from above call the apis that you wrote in your django application 
-  
+4. **CSRF Protection**: Implement Cross-Site Request Forgery (CSRF) protection in your Django backend to prevent CSRF attacks. Django provides built-in CSRF protection that you should enable.
 
-***\*If you are using `browser router` be careful of what you name your react client side routes vs your backend server side API routes**
+5. **Secure Communication**: Ensure that your frontend communicates with the backend over HTTPS to encrypt the data transmitted between them.
 
-***\*the demo should help with any `csrf` issues you may run into**
+6. **Token Revocation**: Implement token revocation mechanisms on the server-side. This allows you to invalidate tokens if needed, such as when a user logs out or if their account is compromised.
+
+> We will ensure to account most if not all of these aspects as we get closer to our deployment lecture.
+
+## Conclusion
+
+In this lesson, we learned how to connect a React frontend to a Django backend with Token Authentication using Axios. We covered how to obtain tokens from Django APIViews and secure storage options for tokens on the frontend. Remember to follow best practices for token security to protect your users and your application from potential security vulnerabilities.

@@ -162,3 +162,7 @@ class ListSerializer(ModelSerializer):
 In this lesson, we explored the concepts of how information is exchanged between Axios requests and DRF APIViews, along with the full-stack life cycle of a web application. Understanding these concepts is crucial for building dynamic and interactive web applications that provide a seamless user experience. By utilizing Axios and DRF APIViews, developers can create powerful web applications that effectively communicate between the frontend and backend components.
 
 Remember to practice and experiment with these technologies to reinforce your understanding and enhance your web development skills. Happy coding!
+
+## Assignment
+
+- [Library Manager](https://classroom.github.com/a/YOn4OCNS)
