@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
+import DetailsPanel from "./components/DetailsPanel";
 
 export default function App() {
   const [feedback, setFeedback] = useState("");
@@ -17,6 +18,8 @@ export default function App() {
         </ul>
       </nav>
       <Outlet context={{ feedback, setFeedback }} />
+
+      <DetailsPanel feedback={feedback} />
     </>
   );
 }

@@ -387,5 +387,3 @@ Some things to note:
 There is no assignment today, instead, use what we learned today to read and run the tests already provided for you in assessment-4.
 
 Assessment-4 is due Monday morning - good luck!
-
-[assessment-4](https://classroom.github.com/a/dsrJFTyx)

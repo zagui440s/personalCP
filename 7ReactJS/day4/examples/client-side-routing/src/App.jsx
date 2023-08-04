@@ -9,6 +9,7 @@ export default function App() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact-us">Contact us</Link>
+          <Link to="/other">Other</Link>
         </ul>
       </nav>
       <Outlet />
