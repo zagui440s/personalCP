@@ -1,5 +1,7 @@
 # Full Stack Application
 
+## [Here is the project we will be using through out this lecture](https://github.com/Code-Platoon-Curriculum/full-stack-exercise.git)
+
 ![Alt text](../resources/dev-full-stack.png)
 
 ## Full-Stack Life Cycle of a Web Application
