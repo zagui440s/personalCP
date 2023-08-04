@@ -3,13 +3,14 @@
 ## Table of Contents
 
 - [Understanding a Deployed Site on the Internet](#1-understanding-a-deployed-site-on-the-internet)
-- [Configurations and Set Up]
-- [Creating an Ubuntu EC2 t2.micro Instance]
-- [Connecting to EC2 Instance via SSH]
+- [Configurations and Set Up](#2-configurations-and-set-up)
+- [Creating an Ubuntu EC2 t2.micro Instance](#3-creating-an-ubuntu-ec2-t2micro-instance)
+- [Connecting to EC2 Instance via SSH](#4-connecting-to-ec2-instance-via-ssh)
 - [Setting Up Ubuntu's Dependencies](#5-setting-up-ubuntus-dependencies)
 - [Getting Nginx to serve our React Application](#6-getting-nginx-to-serve-our-react-application)
 - [Gunicorn and Django](#7-gunicorn-and-django)
 - [Nginx and Gunicorn](#8-nginx-and-gunicorn)
+- [Making back-end calls from our Front-End application](#9-making-back-end-calls-from-our-front-end-application)
 - [AWS Route53](#10-aws-route53)
 - [Certbot](#11-certbot)
 
@@ -285,7 +286,7 @@ server {
 
 > Now we can restart Nginx with `sudo service nginx restart`, go onto Postman and ping our api with `http://<ip.address>/api/users/login/` and we will see a response from our Django API.
 
-## 8. Making back-end calls from our Front-End application
+## 9. Making back-end calls from our Front-End application
 
 > You'll notice that our application seems to be broken. If we try to sign up a user through our React application on our Ec2 instance we get an error stating our API call failed with a Network Error. Which is True, our Django server no longer exist and currently, all of our API calls are being sent to `http://127.0.0.1:8000` which doesn't exist in our Ec2 instance. Luckily we isolated this behavior so we only have to change it in one place. Inside of utilities.jsx we created an `axios` instance to make all of our Back-End API calls. Now we can simply use vim to update this file and place the correct url in it.
 
