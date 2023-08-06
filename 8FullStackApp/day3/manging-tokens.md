@@ -10,11 +10,12 @@ To make token-based authentication more secure and prevent potential security vu
 
 Additionally, we are setting a limited lifespan for the tokens by specifying an expiration date for the cookie. This enhances security by automatically invalidating the token after a certain period, reducing the window of opportunity for potential attackers.
 
-## How it works
+## Configuring Django Settings
 
-### settings.py
+So far our site has been hosted on an AWS Ec2 instance with an SSL certificate from Certbot for standard encryption. Our site is pretty secure but we will be handling user authentication a bit differently now that we are in a production environment.
 
 ```python
+# settings.py
 ALLOWED_HOSTS = ["https://tango-dep.com"]
 
 CORS_ALLOWED_ORIGINS = ["https://tango-dep.com"]
@@ -30,7 +31,7 @@ In the `settings.py` file, we are setting the following configurations:
 
 1. `ALLOWED_HOSTS`: It specifies which hostnames are allowed to access the Django site. In this case, we allow requests from the domain "https://tango-dep.com".
 
-2. `CORS_ALLOW_ALL_ORIGINS`: This allows all origins (front-end domains) to make requests to the Django API. CORS (Cross-Origin Resource Sharing) is needed when the front-end and backend are on different domains.
+2. `CORS_ALLOWED_ORIGINS`: This allows domain "https://tango-dep.com" (front-end domain) to make requests to the Django API. CORS (Cross-Origin Resource Sharing) is needed when the front-end and backend are on different domains.
 
 3. `CORS_ALLOW_CREDENTIALS`: This enables sending and receiving cookies across different domains, essential for token-based authentication.
 
@@ -38,9 +39,105 @@ In the `settings.py` file, we are setting the following configurations:
 
 5. `SESSION_COOKIE_HTTPONLY`: This sets the session cookie to be HTTP-only, making it inaccessible to JavaScript.
 
-### utilities.py
+## Setting Tokens as HTTP cookies
+
+In previous lessons we learned how to set `Tokens` to `local storage` during development. It's worked great and it's very simple to manipulate, or set our tokens with JavaScript in the Front-End.
+
+Well that just happens to be the problem. Our Tokens are not secured at all and are easily manipulated with JavaScript when they're placed withing `local storage`. Instead we want our Back-End server to handle the placement, life span, and removal of our users token and keep it in a location where JavaScript itself can't interact with it.
 
 ```python
+# views.py
+from datetime import datetime, timedelta
+
+class Log_in(APIView):
+    def post(self, request):
+        request.data["username"] = request.data["email"]
+        user = authenticate(**request.data)
+        if user:
+            token, created = Token.objects.get_or_create(user=user)
+            life_time = datetime.now() + timedelta(days=7)
+            format_life_time = life_time.strftime("%a, %d %b %Y %H:%M:%S GMT")
+            response = Response({"user": {"email": user.email}})
+            response.set_cookie(key="token", value=token.key, httponly=True, secure=True, samesite="Lax", expires=format_life_time)
+            return response
+        else:
+            return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
+```
+
+You'll notice two major differences in our `Response`:
+
+We are no longer passing the users `Token` as part of our API response but instead we are passing our token as a cookie. `set_cookie` is a response method that will set cookies to a browser when a secured connection is established (that's why our site has to be served with an SSL certificate otherwise Django would not be able to set cookies for our Front-End). There's a couple of parameters this method takes and we should take the time to break them down.
+
+The key of our cookie (think of a cookie as a dictionary with a key, value pair) is set to "token". This key could be named anything we want it's only a variable and has no hidden meaning to it, but we would like the key to explain it's content. The value of this cookie is set to the actual users Token. The httponly flag is set to True, which means the cookie will not be accessible through JavaScript, adding some security against cross-site scripting (XSS) attacks. The secure flag is set to True, which means the cookie will only be sent over HTTPS connections. The samesite attribute is set to "Lax", which provides some protection against cross-site request forgery (CSRF) attacks. The expires attribute is set to the format_life_time, which is set to mark a cookies (NOT THE TOKENS) expiration date and force the user to sign in after a set amount of time.
+
+Finally on our Front-End axios `api` instance we will need to update it to ensure that cookies are sent with the request by setting the `withCredentials: true` option.
+
+```jsx
+const api = axios.create({
+  baseURL: "https://tango-dep.com/api/",
+  withCredentials: true,
+});
+```
+
+When a user signs in now we can inspect the browsers developer tools cookies section to find the tokens key and value!
+
+## Configuring Token Based Authentication
+
+Currently we are utilizing `DRF's TokenAuthentication` as our authentication class. Let's take a deeper look at how the `TokenAuthentication` class works in authenticating and returning the correct `user` model.
+
+```python
+def authenticate(self, request):
+    # Looks for the Authorization header within the request and turns it into a list
+    # by spliting the string into two elements
+    auth = get_authorization_header(request).split()
+    # if this there is not an Authorization header or the fist work of the value is
+    # not "Token", the authentication class will return None
+    if not auth or auth[0].lower() != self.keyword.lower().encode():
+        return None
+    # If there is an Authorization header and the first word is Token but
+    # there is no second token provided we will get an error stating we did
+    # not provide the proper credentials
+    if len(auth) == 1:
+        msg = _('Invalid token header. No credentials provided.')
+        raise exceptions.AuthenticationFailed(msg)
+    # If there is more than 2 values within the Authorization header we
+    # will see an exception telling us the Token header is "broken"
+    elif len(auth) > 2:
+        msg = _('Invalid token header. Token string should not contain spaces.')
+        raise exceptions.AuthenticationFailed(msg)
+    # the function will now try to grab the provided Token and decode it. If it
+    # fails we will raise an invalid token error
+    try:
+        token = auth[1].decode()
+    except UnicodeError:
+        msg = _('Invalid token header. Token string should not contain invalid characters.')
+        raise exceptions.AuthenticationFailed(msg)
+
+    return self.authenticate_credentials(token)
+
+def authenticate_credentials(self, key):
+    model = self.get_model()
+    # once the token is decoded it is passed to this function where
+    # the get model method will fetch the correct token from our database
+    # and then use that token to grab the user through their related name
+    # fields
+    try:
+        token = model.objects.select_related('user').get(key=key)
+    except model.DoesNotExist:
+        raise exceptions.AuthenticationFailed(_('Invalid token.'))
+    # if the user is not active we will raise an authentication error stating this
+    # user no longer rates a valid token
+    if not token.user.is_active:
+        raise exceptions.AuthenticationFailed(_('User inactive or deleted.'))
+    # finally the tokens user and the token itself is returned to the request.
+    return (token.user, token)
+```
+
+Now that we are aware of how this class authenticates our users, we can use `inheritance` and `polymorphism` to tell `APIViews` to authenticate users by grabbing tokens from HTTP cookies rather than request headers.
+
+```python
+#utilities.py
+
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -67,25 +164,10 @@ The `get_auth_token_from_cookie` method is used to extract the token from the `t
 
 The `authenticate` method uses the extracted token to call the `authenticate_credentials` method of the base class, which handles token validation and user retrieval.
 
-### views.py
+### Applying HTTP Authentication to APIVies
 
 ```python
 from .utilities import HttpOnlyTokenAuthentication
-from datetime import datetime, timedelta
-
-class Log_in(APIView):
-    def post(self, request):
-        request.data["username"] = request.data["email"]
-        user = authenticate(**request.data)
-        if user:
-            token, created = Token.objects.get_or_create(user=user)
-            life_time = datetime.now() + timedelta(days=7)
-            format_time = life_time.strftime("%a, %d %b %Y %H:%M:%S GMT")
-            response = Response({"user": {"email": user.email}})
-            response.set_cookie(key="token", value=token.key, httponly=True, secure=True, samesite="Lax", expires=format_time)
-            return response
-        else:
-            return Response("Something went wrong", status=HTTP_400_BAD_REQUEST)
 
 class Info(APIView):
     authentication_classes = [HttpOnlyTokenAuthentication]
@@ -97,6 +179,18 @@ class Info(APIView):
 class Log_out(APIView):
     authentication_classes = [HttpOnlyTokenAuthentication]
     permission_classes = [IsAuthenticated]
+```
+
+Now you'll when a user signs in and re-renders our site we can see that the `whoAmI` function is working properly with out `Info` view, even though the token is no longer in the requests headers.
+
+## Deleting HTTP Cookies
+
+Our HTTP cookies aren't able to interact with JavaScript so we can't handle the deletion of a cookie through our Front-End. Instead we will have our `Log_out` view send back a response to the browser that will instruct the browser to delete the cookie which will force the user to sign in and request a new token before carrying on.
+
+```python
+class Log_out(APIView):
+    authentication_classes = [HttpOnlyTokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         request.user.auth_token.delete()
@@ -104,39 +198,6 @@ class Log_out(APIView):
         response.delete_cookie("token")
         return response
 ```
-
-In the `views.py` file, we have three views:
-
-1. `Log_in`: This view handles user login. When a user successfully logs in, a token is created for the user, and the token is set as an HTTP-only cookie in the response with a specified expiration time.
-
-2. `Info`: This view provides user information. It requires authentication using the `HttpOnlyTokenAuthentication` class, which checks for the token in the request's cookie.
-
-3. `Log_out`: This view handles user logout. It deletes the user's token from the database and removes the token cookie from the response.
-
-### Log_in.jsx
-
-```jsx
-const logIn = async(e) => {
-    e.preventDefault();
-    let response = await api.post("users/login/", {
-      email: userName,
-      password: password,
-    },{
-        withCredentials:true,
-    });
-    console.log(response)
-    let token = response.data.token
-    let user = response.data.user
-    setUser(user)
-    navigate("/home")
-  };
-```
-
-In the `Log_in.jsx` file (assuming it's a React component), the `logIn` function handles user login. It sends a POST request to the backend API endpoint for user authentication. The `withCredentials: true` option is set to ensure that cookies are sent with the request, including the HTTP-only token cookie.
-
-Upon successful login, the API response contains the token and user data. The token is stored in the `token` variable and the user data is stored in the `user` variable.
-
-Finally, the `setUser` function (not shown in the provided code) updates the React component's state with the logged-in user information, and the user is redirected to the "/home" page using the `navigate` function (assumed to be a routing function).
 
 ## Conclusion
 
