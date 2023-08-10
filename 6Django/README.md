@@ -1,5 +1,7 @@
 # Django
 
+![Alt Text](./Resources/Django.png)
+
 ## Module Topics
 
 - [Intro to Django & Django-ORM](./Day1/part-I/Intro-Django-ORM/README.md)
@@ -13,8 +15,6 @@
 - [Full Stack Life Cycle](./Day8/README.md)
 
 ## What is Django?
-
-![Django Logo](https://www.djangoproject.com/m/img/logos/django-logo-positive.png)
 
 Django is a high-level web framework written in Python that allows developers to build robust and scalable web applications quickly. It follows the Model-View-Controller (MVC) architectural pattern, emphasizing reusability and the "Don't Repeat Yourself" (DRY) principle. Django provides a comprehensive set of tools and libraries that simplify the development process and promote best practices.
 

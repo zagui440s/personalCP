@@ -16,9 +16,9 @@ So far our site has been hosted on an AWS Ec2 instance with an SSL certificate f
 
 ```python
 # settings.py
-ALLOWED_HOSTS = ["https://tango-dep.com"]
+ALLOWED_HOSTS = ["0.0.0.0"]
 
-CORS_ALLOWED_ORIGINS = ["https://tango-dep.com"]
+CORS_ALLOWED_ORIGINS = ["0.0.0.0"]
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -29,9 +29,9 @@ SESSION_COOKIE_HTTPONLY = True
 
 In the `settings.py` file, we are setting the following configurations:
 
-1. `ALLOWED_HOSTS`: It specifies which hostnames are allowed to access the Django site. In this case, we allow requests from the domain "https://tango-dep.com".
+1. `ALLOWED_HOSTS`: It specifies which hostnames are allowed to access the Django site. In this case, we allow requests from the domain "0.0.0.0".
 
-2. `CORS_ALLOWED_ORIGINS`: This allows domain "https://tango-dep.com" (front-end domain) to make requests to the Django API. CORS (Cross-Origin Resource Sharing) is needed when the front-end and backend are on different domains.
+2. `CORS_ALLOWED_ORIGINS`: This allows domain "0.0.0.0" (front-end domain) to make requests to the Django API. CORS (Cross-Origin Resource Sharing) is needed when the front-end and backend are on different domains.
 
 3. `CORS_ALLOW_CREDENTIALS`: This enables sending and receiving cookies across different domains, essential for token-based authentication.
 
