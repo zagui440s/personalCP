@@ -25,7 +25,5 @@ COPY . .
 # Expose port 8000 for Django development server
 EXPOSE 8000
 
-# Migrate migrations
-
 # Start the Django development server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
