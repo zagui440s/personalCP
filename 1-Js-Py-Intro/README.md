@@ -1,24 +1,41 @@
-# Weekly Topics
+# Intro to Unix, TDD, Python, Pytest, JavaScript, Jest, and your Teams
 
-- Git Version Control basics
-- Github
-- JavaScript fundamentals
-- Python fundamentals
+## Instructor Notes & Prerequesites
 
-## Why is it important?
+All students should have Linux set up on their local dev environments. This is usually Mac OS X or for Windows users WSL2 w/its default Ubuntu. Non-Ubuntu distros are fine if the student knows what they are doing.
 
-- Git helps you create different 'save points' in your application.
-- Git simplifies the process of working with other people and makes it easy to collaborate on projects.
-- Team members can work on files and easily merge their changes in with the master branch of the project. This allows multiple people to work on the same files at the same time.
-- Github allows you to host code repositories on the web instead of just on your local machine. Companies host their code on Github (and others) and you'll have to learn how to use it.
-- JavaScript is the language of the web
-- Python is a developer friendly programming language that is very flexible and continues to gain popularity in the tech world.
+## What are we trying to accomplish?
 
-## What you'll be able to accomplish after this topic
+Linux is the most widely-used operating system in the world, from embedded systems, IoT devices, wifi routers, nuclear submarines, and ... web servers and personal computers.
 
-1. Be able to initialize a Git repository
-2. Save a version of your code via Git
-3. Clone code from Github to your local machine
-4. Add your code to Github
-5. Be able to write simple JavaScript applications
-6. Be able to write simple Python applications
+Almost all operating systems are running on some flavor of Linux, this week we will get familiarized with our terminals Command Line Interface by setting up our Linux Development Environment. Additionally we will cover the difference between git and github and how to maximize this tool to boost your personal and professional development throughout the program.
+
+Lastly, we will cover the two most commonly used languages in the industry along with their respective popular test frameworks. This will allow you to understand and exercise Test Driven Development concepts and fundamentals to help you become an essential tool for the industry.
+
+## Lessons
+
+1. [Installfest](./1-installfest/)
+2. [Git Fundamentals](./day2/)
+3. [JavaScript and Jest](./day3/)
+4. [Python and Pytest](./4-python-pytest-intro/)
+5. [Team Kickoff](./5-Team-Kickoff/)
+
+## Module Topics
+
+- Setting Up a Development Environment
+  - Understanding UNIX
+  - Understanding the terminal CLI
+- Git Fundamentals
+  - Cloning Repositories
+  - Forking Repositories
+  - Useful git tools
+- JavaScript and Jest
+  - JavaScript fundamentals
+  - Intermediate JavaScript
+  - Intro to Test Driven Development
+  - TDD with Jest
+- Python and Pytest
+  - Python Fundamentals
+  - Intermediate Python
+  - TDD with Pytest
+- Team Kickoff
