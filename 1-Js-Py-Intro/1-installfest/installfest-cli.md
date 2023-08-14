@@ -1,15 +1,6 @@
 # Installfest
 
-## Topics Covered / Goals
-
-- Get your local machine set up to start the course
-- Operating Sytems / UNIX
-- Learn the most essential commands for interacting with your OS
-- Create and manage git/Github repositories using the command line
-
-## Lesson
-
-### Computer Setup (Mac, Linux, & Windows)
+## Computer Setup (Mac, Linux, & Windows)
 
 Before we get started, just know that this can be chaotic. Your goal is to get a working environment. Please follow along closely!
 
@@ -17,7 +8,7 @@ Before we get started, just know that this can be chaotic. Your goal is to get a
 - [Zoom](https://zoom.us/support/download)
 - Sign up for [Operation Code](https://operationcode.org/join)
 
-#### Mac Setup
+### Mac Setup
 
 - [Complete Installfest (MacOS)](./page-resources/installfest_mac.md)
 - [Youtube Walkthrough](https://youtu.be/q5jYwG8jylU)
@@ -52,7 +43,7 @@ That changed in the 80s with the invention of the personal computer and Apple an
 
 **MacOS** - very UNIX-_like_, but will differ in small ways. Really just a specific flavor of Linux but one that Apple uniquely controls and is closed-source as a result. Also Apple has a habit of making breaking updates whenever they please.
 
-**Windows** - Windows is built on a fundamentally different architecture, and you will see this if you try to put UNIX commands into Command Prompt or Windows PowerShell - most will simply not be recognized (even basic ones like `ls`!) However this was such a pain point for developers on Windows that they eventually relented, and the modern solution is WSL - *Windows Subsystem for Linux*. Essentially, if you are on Windows, the suggestion is to use WSL, which means you have an entire Linux OS (defaulting to the flavor Ubuntu) *within* your Windows OS, and, with rare exceptions, it will work just like the flavor of Linux that your WSL environment uses.
+**Windows** - Windows is built on a fundamentally different architecture, and you will see this if you try to put UNIX commands into Command Prompt or Windows PowerShell - most will simply not be recognized (even basic ones like `ls`!) However this was such a pain point for developers on Windows that they eventually relented, and the modern solution is WSL - _Windows_ Subsystem for _Linux_. Essentially, if you are on Windows, the suggestion is to use WSL, which means you have an entire Linux OS (defaulting to the flavor Ubuntu) _within_ your Windows OS, and, with rare exceptions, it will work just like the flavor of Linux that your WSL environment uses.
 
 The major take home is: no matter the OS we can all be on _basically_ the same environment, **_but_** there will always be small differences that will make the behavior of Windows/MacOS/Linux different, and even one version of MacOS (for example) will differ ever so slightly from another, and this is what makes environment setup so difficult, we simply can't anticipate every issue that you might encounter given all the permutations that determine what makes your environment unique.
 
@@ -222,7 +213,6 @@ You will use these less commonly as on a modern system you will have access to b
   - or type `q!` to quit without saving
   - Like I said, extremely awkward. Some love it but I avoid it like the plague.
 
-
 #### Others Worth Mentioning (Non-essential)
 
 - `echo <string_to_echo>`
@@ -279,15 +269,3 @@ You will use these less commonly as on a modern system you will have access to b
 ## Resources
 
 - When in doubt what a shell command does, [ExplainShell](https://explainshell.com/) can be a very useful tool.
-
-## Assignments
-
-- [Git Essentials](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4MTIyNDk0/details) **READ FIRST**
-
-- [CLI Practice](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4MDg5ODYw/details)
-
-- [99 Bottles](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4ODM1MDAy/details)
-
-- [Deaf Grandma](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM4NjkzNjU5/details) in JS
-
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
