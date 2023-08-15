@@ -11,7 +11,7 @@ Everything in programming is interpreted as a class/object at it's most basic le
     - [App Users I](https://github.com/Code-Platoon-Assignments/oop-app-users-i.git) in Python
     - [Guessing Game](https://github.com/Code-Platoon-Assignments/oop-guessing-game.git) in Python
 
-2. [Getters & Setters](./2-abstraction-get-set.md)
+2. [Getters & Setters](./2-encapsulation-get-set.md)
 
     - [Student Registry](https://github.com/Code-Platoon-Assignments/oop-student-registry.git)
 
