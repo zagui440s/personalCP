@@ -2,45 +2,28 @@
 
 ## **[Lecture PowerPoint](https://docs.google.com/presentation/d/1lcYNdojb96cDjZyzhLVolQA_-pOxe8V36bqbH8VEJLg/edit?usp=drive_link)**
 
-## Topics Covered / Goals
-
-- **Intro to Object Oriented Programming**
-  - Object Oriented Programming (OOP) is a commonly used design paradigm. Python is an object oriented language, and so OOP is an essential piece of understanding Python.
-- **Classes**
-  - Classes are structures in code that allow for developers to create more elaborate data types that can better reflect real-world objects
-- **Instantiating objects with __init__ and self**
-  - Every class in Python should have an __init__ method, which tells python how to construct instances of that class. The instance to be created is referred to as `self`.
-- **Instance methods and self**
-  - Classes can define methods to be called by instances of that class, which can refer to themselves using the `self` keyword.
-- **Dunder Methods**
-  - These are special methods that are built-in to use within classes, in Python.
-
 ## Lesson
 
-- Before we get started, `help(object_name)` will give you a bit of information on what type of object you're dealing with and some methods that are available to call on it
+Object-oriented programming is one of the most effective approaches to writing software. In object-oriented programming you write classes that represent real-world things and situations, and you create objects based on these classes. When you write a class, you define the general behavior that a whole category of objects can have.
 
-- **Object Oriented Programming**
-  - Python is an object-oriented programming language where everything is an object (i.e., booleans, strings, hashes, arrays, integers, everything)
-  - Object Oriented Programming (OOP) is a commonly used design paradigm. It is a method of structuring a program by bundling related properties and behaviors into individual objects.
-  - Objects are simply a collection of attribures (variables) and methods (functions).
-    - For example, imagine you have a dog. Every dog has attributes such as breed or color. Every dog also has methods that it can do such as: speack, fetch, or roll over
+> Before we get started, `help(object_name)` will give you a bit of information on what type of object you're dealing with and some methods that are available to call on it
 
-- **Classes**
-  - Classes are structures in code that allow us to create objects. A class serves as the blueprint or template for that object
-  - Classes are used to combine how data is represented and methods to manipulate that data
+- **Object Oriented Programming:** Python is an object-oriented programming language where everything is an object (i.e., booleans, strings, hashes, arrays, integers, everything) Object Oriented Programming (OOP) is a commonly used design paradigm. It is a method of structuring a program by bundling related properties and behaviors into individual objects.Objects are simply a collection of attributes (variables) and methods (functions). For example, imagine you have a dog. Every dog has attributes such as breed or color. Every dog also has methods that it can do such as: speak, fetch, or roll over
 
-- **Features of OOP**:
-  - Encapsulation = Data access can be restricted based on needs (covered today)
-  - Abstraction = Logic/Complexity is hidden, for simplicity (covered today)
-  - Inheritance = Sharing of similar features and attributes (covered Wednesday)
-  - Polymorphism = Objects can take different forms depending on needs/situation (covered Wednesday)
+- **Classes:** Classes are structures in code that allow us to create objects. A class serves as the blueprint or template for that object. Classes are used to combine how data is represented and methods to manipulate that data
+
+- **Four Pillars of OOP**:
+  - Encapsulation = Data access can be restricted based on needs
+  - Abstraction = Logic/Complexity is hidden, for simplicity
+  - Inheritance = Sharing of similar features and attributes
+  - Polymorphism = Objects can take different forms depending on needs/situation
 
 ### Creating a class and making an instance
 
 Creating a class in Python is as simple as the following:
 
 ```python
-class Dog: # this is our class definition
+class Dog: # this is our class definition/blueprint
   pass
 
 fido = Dog() # this is how we create an instance of our Dog class
@@ -48,18 +31,18 @@ fido = Dog() # this is how we create an instance of our Dog class
 
 A class can be viewed as a concept, or blueprint, for some idea. When we turn that concept into reality, we create instances (or objects) of the class. It is important to understand this distinction, and become familiar with the terminology being used: A class definition -vs- an instance of a class.
 
-### __init__() method
+### \_\_init\_\_() method
 
 The first thing we'll talk about is how to initialize a class with some data. Let's add on to our Dog class:
 
 ```python
 class Dog:
 
-  def __init__(self, name): # this method will be used to intialize our Dog instance
+  def __init__(self, name): # this method will be used to initialize our Dog instance
     self.name = name
 
 fido = Dog("Fido")
-print(fido.name)
+print(fido.name) # output to the terminal will display "Fido"
 ```
 
 You can add an ```__init__()``` method to your class to allow data to be passed in upon creation of your instance. In our Dog example, we are passing in a ```name``` value and storing it in the instance. We can access the data we've stored in the instance by calling *[instance].[attribute]*, or for our example: ```fido.name```
@@ -70,7 +53,7 @@ What's up with that `self` parameter though? That's a good question... we'll cov
 
 ### Instance Attributes
 
-In the example above, `self.name` is what we call an instance attribute (or instance variable). This is data is belongs to the instance of Dog that is created, and is unique to each instance. In other words, every Dog instance that we create will get it's own name. Let's add a few more instance attributes to our Dog class:
+In the example above, `self.name` is what we call an instance attribute (or instance variable). This is data belongs to the instance of Dog that is created, and is unique to each instance. In other words, every Dog instance that we create will get it's own name. Let's add a few more instance attributes to our Dog class:
 
 ```python
 class Dog:
@@ -87,7 +70,7 @@ fido = Dog("Fido", "Pointer", "white", "woof!")
 
 ### Instance Methods
 
-Our Dog class isn't too intersting right now. It currently just stores data for us, allowing us to bundle attributes together in a single object, which is great... but let's make our Dog class a little more exciting by adding in some instance methods.
+Our Dog class isn't too interesting right now. It currently just stores data for us, allowing us to bundle attributes together in a single object, which is great... but let's make our Dog class a little more exciting by adding in some instance methods.
 
 Keep in mind our terminology for classes:
 
@@ -122,7 +105,7 @@ Some important things to observe about the instance methods we added in the code
 
 ### Other Dunder methods
 
-Python classes come with a bunch of built-in methods that we can leverage for our needs. These methods are called "dunder methods". The reason they are called dunder methods, is because of the naming syntax that we use, which consists of leading and trailing **d**ouble **under**scores. We already introduced the ```__init__()``` method earlier, which is one (and most often used) dunder method. We won't be covering every dunder method that exists (because there are many!), but you can read up on more of them here: [dunder methods](https://www.python-course.eu/python3_magic_methods.php)
+Python classes come with a bunch of built-in methods that we can leverage for our needs. These methods are called "dunder methods". The reason they are called dunder methods, is because of the naming syntax that we use, which consists of leading and trailing **double underscores**. We already introduced the ```__init__()``` method earlier, which is one (and most often used) dunder method. We won't be covering every dunder method that exists (because there are many!), but you can read up on more of them here: [dunder methods](https://www.python-course.eu/python3_magic_methods.php)
 
 What happens if we choose to print out our instance to the terminal?
 
@@ -159,11 +142,8 @@ print(lassie)
 
 Dunder methods are not generally meant to be called directly by our code. Python automatically will call the appropriate dunder methods for us, depending on the operation being performed.
 
-## Assignments
+### Conclusion
 
-- **[App Users I](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQxODA3Njg2/details) in Python**
+In this lecture we covered a basic understanding of the following: What is OOP? What are the four pillars of OOP? How to write a Python Class? and how to create an instance of a class?
 
-- [Guessing Game](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQyODY3MTM2/details) in Python
-- [CSV Reader](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjQyODgzNjI2/details)
-
-> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+Now it's time to utilize what you've learned and start interpreting real world objects as Python Classes with attributes and methods to bring them to life within your code. Happy Coding!
