@@ -12,10 +12,11 @@ Object-oriented programming is one of the most effective approaches to writing s
 
 - **Classes:** Classes are structures in code that allow us to create objects. A class serves as the blueprint or template for that object. Classes are used to combine how data is represented and methods to manipulate that data
 
-- **Four Pillars of OOP**:
+- **Five Pillars of OOP**:
   - Encapsulation = Data access can be restricted based on needs
   - Abstraction = Logic/Complexity is hidden, for simplicity
-  - Inheritance = Sharing of similar features and attributes
+  - Inheritance = Sharing of similar features and attributes (Is-a)
+  - Composition = Including other Objects as attributes (Has-a)
   - Polymorphism = Objects can take different forms depending on needs/situation
 
 ### Creating a class and making an instance
@@ -144,6 +145,6 @@ Dunder methods are not generally meant to be called directly by our code. Python
 
 ### Conclusion
 
-In this lecture we covered a basic understanding of the following: What is OOP? What are the four pillars of OOP? How to write a Python Class? and how to create an instance of a class?
+In this lecture we covered a basic understanding of the following: What is OOP? What are the five pillars of OOP? How to write a Python Class? and how to create an instance of a class?
 
 Now it's time to utilize what you've learned and start interpreting real world objects as Python Classes with attributes and methods to bring them to life within your code. Happy Coding!

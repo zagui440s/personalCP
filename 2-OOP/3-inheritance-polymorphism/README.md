@@ -1,0 +1,43 @@
+# Intro to Object Oriented Programming Inheritance and Polymorphism
+
+## What are we trying to accomplish?
+
+By learning inheritance and polymorphism in Python object-oriented programming (OOP), you are gaining the skills necessary to create more organized, modular, and reusable code. Inheritance allows you to create specialized classes that inherit attributes and behaviors from parent classes, reducing code duplication and promoting a hierarchical structure. Polymorphism enables you to design code that can work with different classes through a common interface, promoting flexibility and adaptability in your applications. Ultimately, mastering these concepts enhances your ability to create efficient, scalable, and maintainable Python programs.
+
+## Lectures & Assignment
+
+1. [Inheritance](./1-oop-inheritance.md)
+
+    - [Zoo Manager](https://github.com/Code-Platoon-Assignments/oop-zoo.git)
+
+2. [Polymorphism](./2-oop-polymorphism.md)
+
+    - [Boggle I](https://github.com/Code-Platoon-Assignments/oop-boggle-i.git)
+    - [App Users III](https://github.com/Code-Platoon-Assignments/oop-app-users-iii.git) in Python
+
+3. Stretch Exercises
+
+    - [Boggle II](https://github.com/Code-Platoon-Assignments/oop-boggle-ii.git)
+
+> Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+
+## Topics Covered / Goals
+
+- Understand when and why to use inheritance in your code
+- Understand the relationship between child classes and parent classes
+- Understand the use of `super` in OOP and when to use it
+- Understand different types of multiple inheritance:
+  - one parent with multiple children
+  - one child with multiple parents
+- Composition vs Inheritance
+  - Examples
+
+## Testable Learning Objectives
+
+- Utilize Inheritance to Create Flexible Code
+- Utilize Polymorphism to adjust Inherited Methods
+
+## Elective learning objectives
+
+- Understand the Purpose of OOP Inheritance
+- Understand the Purpose of OOP Polymorphism

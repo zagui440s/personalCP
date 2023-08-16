@@ -1,4 +1,4 @@
-# Intro to Object Oriented Programming with Python
+# Intro to Object Oriented Programming Encapsulation and Abstraction
 
 ## What are we trying to accomplish?
 

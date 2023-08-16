@@ -42,5 +42,5 @@ Everything in programming is interpreted as a class/object at it's most basic le
 ## Elective learning objectives
 
 - Understand the Purpose and Value of OOP
-- Understand the 4 Pillars of OOP
+- Understand the 5 Pillars of OOP
 - Understand the Difference of Class Attributes and Class Methods
