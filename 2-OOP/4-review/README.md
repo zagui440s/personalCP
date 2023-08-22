@@ -15,6 +15,6 @@ For todays review we will be working through a series of exercises to help solid
 
 ## Optional assignments (**if you finish the assessment early**)
 
-- [Bowling](https://github.com/Code-Platoon-Assignments/oop-bowling.git)
+- [Assignment - Bowling](https://github.com/Code-Platoon-Assignments/oop-bowling.git)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!

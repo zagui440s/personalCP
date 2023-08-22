@@ -6,18 +6,18 @@ By learning inheritance and polymorphism in Python object-oriented programming (
 
 ## Lectures & Assignment
 
-1. [Inheritance](./1-oop-inheritance.md)
+1. [Lecture - Inheritance](./1-oop-inheritance.md)
 
-    - [Zoo Manager](https://github.com/Code-Platoon-Assignments/oop-zoo.git)
+    - [Assignment - Zoo Manager](https://github.com/Code-Platoon-Assignments/oop-zoo.git)
 
-2. [Polymorphism](./2-oop-polymorphism.md)
+2. [Lecture - Polymorphism](./2-oop-polymorphism.md)
 
-    - [Boggle I](https://github.com/Code-Platoon-Assignments/oop-boggle-i.git)
-    - [App Users III](https://github.com/Code-Platoon-Assignments/oop-app-users-iii.git) in Python
+    - [Assignment - Boggle I](https://github.com/Code-Platoon-Assignments/oop-boggle-i.git)
+    - [Assignment - App Users III](https://github.com/Code-Platoon-Assignments/oop-app-users-iii.git) in Python
 
 3. Stretch Exercises
 
-    - [Boggle II](https://github.com/Code-Platoon-Assignments/oop-boggle-ii.git)
+    - [Assignment - Boggle II](https://github.com/Code-Platoon-Assignments/oop-boggle-ii.git)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
@@ -36,8 +36,3 @@ By learning inheritance and polymorphism in Python object-oriented programming (
 
 - Utilize Inheritance to Create Flexible Code
 - Utilize Polymorphism to adjust Inherited Methods
-
-## Elective learning objectives
-
-- Understand the Purpose of OOP Inheritance
-- Understand the Purpose of OOP Polymorphism

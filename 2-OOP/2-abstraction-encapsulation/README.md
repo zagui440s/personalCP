@@ -6,18 +6,18 @@ Learning the difference between class and instance attributes, as well as unders
 
 ## Lectures & Assignment
 
-1. [Class vs Instance Attributes](./1-attributes-cls-vs-self.md)
+1. [Lecture - Class vs Instance Attributes](./1-attributes-cls-vs-self.md)
 
-    - [Car Management](https://github.com/Code-Platoon-Assignments/oop-vehicle-shop.git)
+    - [Assignment - Car Management](https://github.com/Code-Platoon-Assignments/oop-vehicle-shop.git)
 
-2. [Class, Instance, and Static Methods](./2-methods-static-cls-self.md)
+2. [Lecture - Class, Instance, and Static Methods](./2-methods-static-cls-self.md)
 
-    - [App Users II](https://github.com/Code-Platoon-Assignments/oop-app-users-ii.git) in Python
-    - [Contact List](https://github.com/Code-Platoon-Assignments/oop-contact-list.git) in Python
+    - [Assignment - App Users II](https://github.com/Code-Platoon-Assignments/oop-app-users-ii.git) in Python
+    - [Assignment - Contact List](https://github.com/Code-Platoon-Assignments/oop-contact-list.git) in Python
 
 3. Stretch Exercises
 
-    - [Caesar Cipher](https://github.com/Code-Platoon-Assignments/algo-caesar-cipher.git) in JS/Python
+    - [Assignment - Caesar Cipher](https://github.com/Code-Platoon-Assignments/algo-caesar-cipher.git) in JS/Python
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 

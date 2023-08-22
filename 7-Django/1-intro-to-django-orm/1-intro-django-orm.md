@@ -1,26 +1,11 @@
 
 # Intro to Django and Django ORM
 
-## Lesson
+## Intro
 
 We just finished learning about PostgreSQL and have been able to successfully create various Data Bases and Data Tables of varying difficulty. Today we will learn how to create a Django Server and connect it to our PostgreSQL Database to manage our projects data.
 
 - [SLIDES](https://docs.google.com/presentation/d/1FEvm0-sa9gcPR-gXkDgCuzqA7phdII-GnBzpac0edqM/edit?usp=drive_link)
-
-### TLO's (Testable Learning Objectives)
-
-- Create a new Django Project
-- Create a new Django Application
-- Link Django Project with Django Application
-- Link Django Project with PostgreSQL
-- Create Django Models to interact with the Database
-
-### ELO's (Elective Learning Objectives)
-
-- Utilize virtual environments in python
-- Manage packages with pip
-- Utilize Psycopg3 to translate models onto Data Tables
-- Utilize the Django Python Console
 
 ## Virtual Environments
 
@@ -32,6 +17,7 @@ We just finished learning about PostgreSQL and have been able to successfully cr
 Let's create a virtual environment whenever we work with Django so that it doesn't mess up the rest of our machine setups. The 3 commands that you need to remember are:
 
 ```bash
+# TERMINAL
 # 1. Create your virtual environment
 python -m venv <envname>
 
@@ -53,7 +39,15 @@ deactivate
 > Up until now, you may have seen a few built-in python modules used, both in python scripts (re, random, math) and at the command line (http, venv). Now, we're going to use `pip` to install Django, a new python module, that we will use both from the command line, and in our scripts.
 
 ```bash
+# TERMINAL
 pip install django
+```
+
+> This may ask you to update your current pip version after installing Django which is perfectly fine. If you are prompted to update your pip, simply run the following command
+
+```bash
+# TERMINAL
+pip install --upgrade pip
 ```
 
 ### Starting a Django Project
@@ -61,20 +55,52 @@ pip install django
 > Now that we've installed Django in our project, let's invoke it at the command line and see what it does.
 
 ```bash
-python -m django
+# TERMINAL
+django-admin
 ```
 
 > You should see a menu of options. You'll learn to use several of these options, but we won't need most of them. Don't worry about the warning about django-settings. We'll fix that in a second. Since we don't have a django project yet, let's start by creating one. Let's imagine we're creating an application for a pokedex, so we'll name our project `pokedex_proj`.
 
+> There's two methods for creating a project, in one you'll create a project nested within a parent directory and in the other you'll create a project at the root levet (within the same folder the command was called in the terminal) Here are some examples:
+
 ```bash
-python -m django startproject pokedex_proj . #<--- DON'T MISS THE PERIOD
+# TERMINAL
+python -m django startproject pokedex_proj . 
 ```
 
-> When we start our project, django will create a folder for the main module of the project, which has the same name. As we progress you'll learn more and more about proper project organization and make other modules, but today we'll just be working with the main module.
-> In addition to creating our main module, starting our django project created a file called `manage.py`. Running this file is almost the same as running `python -m django`, except using the manage.py file also loads some settings specific to this project.
+> The period tells Django that it should create the directory within the terminals current location. Meaning that I'll see a folder structure populate similar to the following:
+
+```bash
+
+ ROOT
+-----
+  |- pokedex_proj
+  |- manage.py
+```
+
+> Well what if I don't want this project to be mixed in with the remainder of my files and instead I want it to create a parent directory for my project. Well in that case I would use the following command
+
+```bash
+django-admin startproject pokedex_proj #<=== Notice this command is missing a period
+```
+
+> This will create the following folder structure
+
+```bash
+ ROOT
+-----
+  |-- pokedex_proj
+  |   ------------
+  |        |- pokedex_proj
+  |        |- manage.py 
+```
+
+> When we start our project, django will create a folder for the main module of the project. As we progress you'll learn more and more about proper project organization and make other modules, but today we'll just be working with the main module.
+> In addition to creating our main module, starting our django project created a file called `manage.py`. Running this file is almost the same as running `django-admin`, except using the manage.py file also loads some settings specific to this project.
 > Before we forget, it's important that we record all of the dependencies used in this project, starting with Django. We can do this by using the command `pip freeze`, and redirecting the output to a file.
 
 ```bash
+# TERMINAL
 pip freeze > requirements.txt
 ```
 
@@ -85,12 +111,13 @@ pip freeze > requirements.txt
 > Django projects are split into many apps (i.e., a project has many apps). Imagine a new _project_ at Amazon where they are selling lots of space on the Moon. That _project_ requires a bunch of different _apps_ in order to run. For example, there might be a billing _app_ to collect money from individuals, a searching _app_ for people to look up lots, a VIP _app_ where they target VIPs, etc. Today, our project will just start with a `pokemon_app` app.
 
 ```bash
+  # TERMINAL
   python manage.py startapp pokemon_app
 ```
 
 > A quick sidebar - we ran `startproject` earlier and we are now running `startapp`. The difference between these two is that a `project` consists of many `apps`. An `app` can belong to many `projects`.
 
-Next, we need to add the `pokemon_app` app to our `settings.py` file.
+> Next, we need to add the `pokemon_app` app to our `settings.py` file.
 
 ```python
 ## pokedex_proj/settings.py
@@ -106,11 +133,13 @@ INSTALLED_APPS = [
 ]
 ```
 
+> This tells Django that this app will be utilized through out the projects existence and it should track any updates made to this app.
+
 ## Linking PostgreSQL with Django
 
 ### **Create a database**
 
-> Now our `pokedex_proj` project needs a database to manage all of its data through Django-ORM (NOT OPERATION RISK MANGEMENT BUT OBJECT RELATIONAL MAPPING). We'll be creating a `pokedex_db` database with one table: `pokemon`.
+> Now our `pokedex_proj` project needs a database to manage all of its data through Django-ORM (NOT OPERATIONAL RISK MANAGEMENT BUT OBJECT RELATIONAL MAPPING). We'll be creating a `pokedex_db` database with one table: `pokemon`.
 > First we will create our database on PostgreSQL to link onto our Django Project.
 
 ```bash
@@ -175,6 +204,7 @@ class Pokemon(models.Model):
 > We've created a Python class that directly maps to a database table (i.e., a model). Next, let's tell Django to create the necessary code for us to get this table into the database:
 
 ```bash
+  # TERMINAL
   python manage.py makemigrations
 ```
 
@@ -184,20 +214,26 @@ class Pokemon(models.Model):
   python manage.py migrate
 ```
 
-> We should have a `pokemon_app_pokemon` table in our db. Check it out with `psql pokedex_db`
+> We should have a `pokemon_app_pokemon` table in our db. Check it by entering our database with `psql pokedex_db` and seeing children data tables with `\d`.
 
 ## Django Console
 
 > While we can interact with our data using Postgres, more often we want to interact with our data using Python. We're going to use a console for our project that will pull in all our Python classes and allow us to query the database directly using Django's ORM.
 
 ```bash
+# Terminal
 python manage.py shell
+# When you run the command above you'll enter a python terminal that is able to interact with your Django project
+Python 3.11.3 (main, Apr  7 2023, 20:13:31) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
 >>> from pokemon_app.models import Pokemon
 ```
 
 > The shell will allow us to load in our models from Django. Once in the shell, we can create a new pokemon.
 
 ```python
+# Python Terminal
 >>> pikachu = Pokemon(name = 'Pikachu', level = 12)
 >>> pikachu.save()
 ```
@@ -208,7 +244,7 @@ python manage.py shell
 INSERT into pokemon (name, level) VALUES ("Pikachu", 12)
 ```
 
-> Now we can query our database using Python and see our new record.
+> Just how we can pass information down to our database, Django can use Psycopg to grab information from the database. In order to do so, we will have to utilize [Django Queries](../CheatSheets/orm_queries.md) to write our SQL Queries in python. Lets take a look:
 
 ```python
 >>> Pokemon.objects.all()
@@ -218,7 +254,9 @@ INSERT into pokemon (name, level) VALUES ("Pikachu", 12)
 <QuerySet [<Pokemon: Pokemon object (1)>]>
 ```
 
-> You should get back a query object. Exit the shell by typing `exit()`. Let's confirm that our new record got saved in our Postgres db.
+> You should get back a list of Query Objects. This may not seem like much but you've actually places data onto PostgreSQL and now have grabbed all entries of that data table through Python.
+
+> Exit the shell by typing `exit()`. Let's confirm that our new record got saved in our Postgres db.
 
 ```bash
 psql pokedex_db
@@ -254,8 +292,4 @@ pokedex_db=#
 - [Django Models Intro Docs](https://docs.djangoproject.com/en/2.2/topics/db/models/)
 - [Django Queries Cheat Sheet](https://github.com/chrisdl/Django-QuerySet-Cheatsheet)
 - [Django Validators Resource](https://docs.djangoproject.com/en/2.2/ref/validators/)
-- [Database Diagramer](https://www.quickdatabasediagrams.com/)
-
-## Assignments
-
-- [School API](https://classroom.github.com/a/vP_DvvOV)
+- [Database Diagrammer](https://www.quickdatabasediagrams.com/)

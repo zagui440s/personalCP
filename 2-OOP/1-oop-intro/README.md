@@ -6,18 +6,18 @@ Everything in programming is interpreted as a class/object at it's most basic le
 
 ## Lectures & Assignment
 
-1. [Intro to Python OOP](./1-intro-python-oop.md)
+1. [Lecture - Intro to Python OOP](./1-intro-python-oop.md)
 
-    - [App Users I](https://github.com/Code-Platoon-Assignments/oop-app-users-i.git) in Python
-    - [Guessing Game](https://github.com/Code-Platoon-Assignments/oop-guessing-game.git) in Python
+    - [Assignment - App Users I](https://github.com/Code-Platoon-Assignments/oop-app-users-i.git) in Python
+    - [Assignment - Guessing Game](https://github.com/Code-Platoon-Assignments/oop-guessing-game.git) in Python
 
-2. [Getters & Setters](./2-encapsulation-get-set.md)
+2. [Lecture - Getters & Setters](./2-encapsulation-get-set.md)
 
-    - [Student Registry](https://github.com/Code-Platoon-Assignments/oop-student-registry.git)
+    - [Assignment - Student Registry](https://github.com/Code-Platoon-Assignments/oop-student-registry.git)
 
 3. Stretch Exercise
 
-    - [CSV Reader](https://github.com/Code-Platoon-Assignments/csv-reader.git)
+    - [Assignment - CSV Reader](https://github.com/Code-Platoon-Assignments/csv-reader.git)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
@@ -38,9 +38,3 @@ Everything in programming is interpreted as a class/object at it's most basic le
 - Constructing Class Attributes
 - Constructing Class Methods
 - Constructing Class Attributes Getters and Setters (Encapsulation)
-
-## Elective learning objectives
-
-- Understand the Purpose and Value of OOP
-- Understand the 5 Pillars of OOP
-- Understand the Difference of Class Attributes and Class Methods
