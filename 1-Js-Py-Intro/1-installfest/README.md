@@ -8,15 +8,10 @@ By the end of this lecture you'll have a `complete` development environment in y
 
 1. [Installfest](./installfest-cli.md)
 
-    - [CLI Practice](https://github.com/Code-Platoon-Assignments/cli-practice.git)
+   - [CLI Practice](https://github.com/Code-Platoon-Assignments/cli-practice.git)
 
 ## Topics Covered / Goals
 
 - Get your local machine set up to start the course
 - Operating Sytems / UNIX
 - Learn the most essential commands for interacting with your OS
-
-## Elective learning objectives
-
-- Development Environment SetUp
-- Terminal CLI in a UNIX OS
