@@ -1,19 +1,10 @@
 # Django Validators & Tests
 
-## Lesson
+## Intro
 
 So far we've been able to create a Pokemon model for our Pokedex, and this model is able to hold quite a bit of information, but, we don't have a method of validating the inputs being passed into our model.
 
 - [SLIDES](https://docs.google.com/presentation/d/13tjzN-H3L2669Dq88_Gp3fcJJCfxNw2haX0vwWiiuFQ/edit?usp=drive_link)
-
-## TLO's (Testable Learning Objectives)
-
-- Utilize Model Field Validators
-
-## ELO's (Elective Learning Objectives)
-
-- Create Custom Django Validators
-- Create Django Tests for Models
 
 ## General steps for creating database models
 
@@ -26,13 +17,14 @@ So far we've been able to create a Pokemon model for our Pokedex, and this model
 ## What are Validators
 
 > Model validators are functions that take a value as input and perform validation checks on that value. If the value fails the validation, a ValidationError is raised with an appropriate error message.
+
 > Validators are used to enforce constraints on model fields, such as checking for minimum or maximum values, validating email addresses, or ensuring unique values within a field.
 
 ## Adding Validators
 
 > Django has very common validators built-in to the Django Framework. [Built in validators](https://docs.djangoproject.com/en/4.1/ref/validators/#built-in-validators).
 > For example, if we want to validate a minimum (or maximum) integer we can use the built-in validator `MinValueValidator()`. Let's utilize this information and add some validators onto our pokemon model.
->To use a validator, you can specify it in the validators argument of a model field. Validators can be specified as a list of callables or functions.
+>To use a validator, you can specify it in the validators argument of a model field. Validators can be specified as a list of functions.
 
 ```py
 # models has many different methods we will utilize when creating our Models
@@ -56,16 +48,22 @@ class Pokemon(models.Model):
     # We don't want a pokemon's description to either be too long or too short so
     # lets add both a Max and Min LengthValidators to our TextField to ensure
     # input meets our criteria
-    description = models.TextField(default="Unknown", validators=[v.MinLengthValidator(25), v.MaxLengthValidator(150)])
+    description = models.TextField(default="Unknown", validators=[v.MinLengthValidator(7), v.MaxLengthValidator(150)])
     # Boolean field is already ensuring to only take in either True or False
     captured = models.BooleanField(default = False)
 ```
 
-> Validators will run when we run `model_instance.full_clean()`
+> Validators will run when we run `<model_instance>.full_clean()`, but what is `full_clean()`? `full_clean()` is actually a built in Django Models function that will test the data input of any new instance before saving it onto our Database. Now we've never utilized before so when is it that this is supposed to be happening? From this moment on forward we will create our Model instances in the following steps:
+
+```python
+ bulbasaur = Pokemon.objects.create(name = "Bulbasaur") # The rest of the fields have default values so we don't need to provide them
+ bulbasaur.full_clean() # Django will grab the information within our Bulbasaur instance and run the data against our Validators. This will raise an error if a validators minimum requirement is not being met
+ bulbasaur.save() # Django will save the new data of Bulbasaur onto our database and create an entry
+```
+
 > [object validation docs](https://docs.djangoproject.com/en/4.1/ref/models/instances/#validating-objects)
 
-
-> We can also create our own validators...
+> We can also create our own validators to meet our specific requirements...
 > Our pokemon model has a `name` field but we only want names to be written onto our database in a specific format. However, our `name` field allows for any combination of characters, numbers, and spaces to get entered and saved onto the database.
 > We can create a **validator** which is a method to check for a valid pokemon `name` input.
 > Let's create a new file `validators.py` inside our `pokemon_app` folder
@@ -116,19 +114,17 @@ class Pokemon(models.Model):
     # Adding both the min and vax value will ensure Pokemon could only go from levels 1-100
 ```
 
-> We have added all of the necessary validators to our `Pokemon` model and have completed the `validate models` step. Lets `makemigrations` and move onto testing our model.
+> We have added all of the necessary validators to our `Pokemon` model and have completed the `validate models` step. Lets `makemigrations` and move onto testing our changes to our Model.
 
 ## Introduction to Django Tests
 
 > Django's testing framework provides a set of tools and utilities to simplify the process of writing tests. It allows you to create test cases, simulate requests and responses, and perform assertions to verify expected behavior.
 
-
 > Django tests are written using Python's built-in unittest module, which provides a structure for organizing test code and running tests. Django extends unittest with additional functionality specific to web development, making it easier to test Django-specific components like views, models, and forms.
 
 ### Creating Django Test Cases
 
-> To start writing tests in Django, you need to create a test case by subclassing Django's django.test.TestCase or unittest.TestCase. The django.test.TestCase provides additional features specific to Django, such as test database access and request/response simulation.
-
+> To start writing tests in Django, you need to create a test case by sub-classing Django's django.test.TestCase or unittest.TestCase. The django.test.TestCase provides additional features specific to Django, such as test database access and request/response simulation.
 
 > Inside your test case, you can define individual test methods that test specific aspects of your application. Test methods should have names starting with test_ to be discovered and executed by the testing framework.
 
@@ -172,7 +168,6 @@ class pokemon_test(TestCase):
 
 > To run your tests execute the command `python manage.py test` in the terminal and we should see a '.' for every test passed, an 'E' for error, and an 'F' for failure.
 
-
 > We've created an [assertions](../../../CheatSheets/test_assertions.md) cheat sheet for you to get further knowledge on the different types of assertions and how to utilize them
 
 ## External Resources
@@ -180,7 +175,3 @@ class pokemon_test(TestCase):
 - [Django Docs](https://docs.djangoproject.com/en/2.2/)
 - [Django Queries Cheat Sheet](https://github.com/chrisdl/Django-QuerySet-Cheatsheet)
 - [Django Validators Resource](https://docs.djangoproject.com/en/2.2/ref/validators/)
-
-## Assignments
-
-- [School API](https://classroom.github.com/a/vP_DvvOV)
