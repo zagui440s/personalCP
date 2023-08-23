@@ -15,8 +15,8 @@ Lastly, we will cover the two most commonly used languages in the industry along
 ## Lessons
 
 1. [Installfest](./1-installfest/)
-2. [Git Fundamentals](./day2/)
-3. [JavaScript and Jest](./day3/)
+2. [Git Fundamentals](./2-git-and-github/)
+3. [JavaScript and Jest](./3-js-jest-intro/)
 4. [Python and Pytest](./4-python-pytest-intro/)
 5. [Team Kickoff](./5-Team-Kickoff/)
 
