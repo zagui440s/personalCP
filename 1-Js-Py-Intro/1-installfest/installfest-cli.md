@@ -13,27 +13,27 @@ Before we get started, just know that this can be chaotic. Your goal is to get a
 - [Complete Installfest (MacOS)](./page-resources/installfest_mac.md)
 - [Youtube Walkthrough](https://youtu.be/q5jYwG8jylU)
 
-#### Ubuntu Linux Setup
+### Ubuntu Linux Setup
 
 - [Complete Installfest (Ubuntu Linux)](./page-resources/installfest_ubuntu.md)
 - [Youtube Walkthrough](https://youtu.be/9-v-0xRHWb8)
 
 > we don't have a Linux video walkthrough as there are too many versions of Linux to possibly account for but in addition to the guide above you can use the Windows/WSL link to see a similar walkthrough for Installfest on Windows using WSL + Ubunutu, so if your flavor of Linux is Ubuntu this should help
 
-#### Windows (WSL) Setup
+### Windows (WSL) Setup
 
 - [Complete Installfest (Windows)](./page-resources/installfest_windows.md)
 - [Youtube Walkthrough](https://youtu.be/9-v-0xRHWb8)
 
-### Intro to UNIX
+## Intro to UNIX
 
-#### What is UNIX?
+### What is UNIX?
 
 Whether you are on an actual Linux system, MacOS or Windows with WSL, we are going to refer to all of these environments as 'UNIX', or just 'the command line interface' ('cli' for short).
 
 **So what is UNIX?** Without getting too deep into the weeds early on: **UNIX is an operating system architecture and set of tools that allows a user to interact with that operating system through a command line interface**. It is the lingua-franca of operating systems, i.e. it is the language you can expect (almost) any operating system to speak and allows you to interact with it in a predictable way.
 
-#### The Details
+### The Details
 
 In reality, UNIX started as a specific OS invented at Bell Labs in the 1960s, by some of the same people who invented the C language. It was very popular, but also open-source, so different operating systems copied the concept. However there was poor compatibility between different implementations, a common theme in the history of software development. Complicating things further, software used to be deeply coupled with hardware and made to fit an individual product, so even within a given company there wasn't a single OS that unified the experience across devices.
 
@@ -72,7 +72,7 @@ Extending the car analogy we could say the 4 layers of a car are:
 3. Shell - the steering wheel and gear shaft, how a normal user (who knows how to drive a car) interacts with the complex machine under-the-hood
 4. Applications - the GPS or radio, not essential to the car, swappable with other similar products, but extends the car's functionality beyond it's out-of-the-box capabilities.
 
-#### Files and Folders
+### Files and Folders
 
 There are only two types of 'things' as far as a UNIX environment is concerned: files and folders.
 
@@ -87,7 +87,9 @@ As it turns out, these are the only two concepts you need to have a fully functi
 
 Many of the commands have difficult to remember acronyms. It's a product of history. At an earlier point in history computers had extremely limited memory and saving even a few characters was worth it. Also, you will be typing these commands _a lot_, so conciseness is appreciated over time, though as a beginner it can be daunting to remember what all these short commands each do.
 
-#### Folder Navigation (Essential)
+### Folder Navigation (Essential)
+
+![filesystem](./page-resources/filesystem.png)
 
 In order to use the shell at all we need to know how to navigate it. Some essential navigation commands include:
 
@@ -113,9 +115,15 @@ In order to use the shell at all we need to know how to navigate it. Some essent
   - `cd ..`. Move one directory up in the hierarchy.
   - `cd .`. This won't do anything (seemingly), because `.` is shorthand for 'the current directory', which is not useful in the case of `cd` but it is useful in general to have a shorthand way of representing the current directory.
 
-> Absolute vs relative filepaths: When speaking of paths, we often speak of the absolute (or full) path to a file, and relative paths. An absolute path starts with a `/`, it is 'relative' to the root fo the entire filesystem, which is the same for all users of that system, so we call that 'absolute'. A relative path is one that starts with `~` or `.` or `..`. If a path starts with `~` it just means 'relative to the current user's home directory', which will be different for every user. If it starts with a `.` it means 'relative to the current directory', and if it starts with `..` that means 'relative to the current directory's parent'. In truth there is only the absolute path as far as the file system is concerned, but `~` and `.` and `..` act similarly to variables in a programming language - they hold a value that can change depending on the context they are evaluated within, but the result is always a full path.
+![moving directories](./page-resources/move-directory.png)
 
-#### File Management (Essential)
+### Absolute vs Relative
+
+Absolute vs relative filepaths: When speaking of paths, we often speak of the absolute (or full) path to a file, and relative paths. An absolute path starts with a `/`, it is 'relative' to the root fo the entire filesystem, which is the same for all users of that system, so we call that 'absolute'. A relative path is one that starts with `~` or `.` or `..`. If a path starts with `~` it just means 'relative to the current user's home directory', which will be different for every user. If it starts with a `.` it means 'relative to the current directory', and if it starts with `..` that means 'relative to the current directory's parent'. In truth there is only the absolute path as far as the file system is concerned, but `~` and `.` and `..` act similarly to variables in a programming language - they hold a value that can change depending on the context they are evaluated within, but the result is always a full path.
+
+![absolute vs relative](./page-resources/absolute-vs-relative.png)
+
+### File Management (Essential)
 
 - `mkdir <directory_name>`
 
@@ -150,20 +158,7 @@ In order to use the shell at all we need to know how to navigate it. Some essent
 
 > DO NOT TYPE THIS IN! `rm -rf /`. This will remove all files/folders, recursively and forcefully, starting at the root. In other words it will destroy your entire filesystem, no questions asked! This is included to demonstrate the power of these small commands, and the power you have as a user (and why such an idea as 'permissions' matters).
 
-- `ln -s <directory> <shortcut-name>`
-  
-  - This is how you make a 'symlink', the equivalent of a shortcut in UNIX
-  - if I have a folder buried deeply in my filesystem but want to surface it more conveniently I can do that like so:
-
-  ```sh
-  ln -s ~/src/codeplatoon/uniform/curriculum ~/curriculum
-  ```
-
-  - this command would give me a 'shortcut' to the curriculum repo in my home directory without having to move it from where it rightfully belongs
-
-  > Note: if you move the location of the original folder, any symlink to it will no longer work. You can remove a symlink with `rm` like it was any other file
-
-#### Miscellaneous (Essential)
+#### Miscellaneous
 
 - `sudo <command_name>`
 
@@ -172,6 +167,19 @@ In order to use the shell at all we need to know how to navigate it. Some essent
 - `clear`
 
   - Clear the screen of content. `cmd+k` is a keyboard shortcut that does the same on MacOS.
+
+- `ln -s <directory> <shortcut-name>`
+
+  - This is how you make a 'symlink', the equivalent of a shortcut in UNIX
+  - if I have a folder buried deeply in my filesystem but want to surface it more conveniently I can do that like so:
+
+  ```sh
+  ln -s ~/src/codeplatoon/uniform/curriculum ~/curriculum
+  ```
+
+  - this command would give me a 'shortcut' to the curriculum repo in my home directory without having to move it from where it really belongs
+
+  > Note: if you move the location of the original folder, any symlink to it will no longer work. You can remove a symlink with `rm` like it was any other file, but it won't remove the original, just the shortcut
 
 #### Interrupts (Nice to Know)
 
@@ -213,28 +221,6 @@ You will use these less commonly as on a modern system you will have access to b
   - or type `q!` to quit without saving
   - Like I said, extremely awkward. Some love it but I avoid it like the plague.
 
-#### Others Worth Mentioning (Non-essential)
-
-- `echo <string_to_echo>`
-
-  - Will literally 'echo' whatever you write to it to the terminal output. This seems useless but you will see the utlity in a moment.
-
-- `sort <filename>`
-
-  - Sort lines of a given file by alphabetical order.
-
-- `find <string_to_match>`
-
-  - Will search a directory recursively for a matching file/folder name, and if found print the found file/folder (and it's contents if it is a folder).
-
-- `grep <string_to_match>`
-
-  - Like `find` but will search the contents of files as well. This becomes very powerful when combined with regular expressions, but that is an advanced topic we won't get into for the moment.
-
-- `man <command_name>`
-
-  - Everything you have seen up until now are essential navigation commands, but there are many more. `man` means 'manual' and is a quick way to see what an unknown command does. That said, at this point in history the internet is usually a better resource (specifically [ExplainShell](https://explainshell.com/)).
-
 #### Operators (Non-essential)
 
 - `*` aka wilcards
@@ -249,22 +235,6 @@ You will use these less commonly as on a modern system you will have access to b
   - These aren't exactly 'commands' but 'operators', and they are what make `echo` useful.
   - Ex: `echo "hello world" > hello.txt` will overwrite (or create) `hello.txt` with the echoed input
   - Ex: `echo "goodbye moon" >> hello.txt` will concatenate `hello.txt` with the echoed input
-
-- `|`
-
-  - 'pipe', another operator, 'pipes' output into another command.
-  - Ex: `less hello.txt | sort` is equivalent to `sort hello.txt`
-
-- `&`
-
-  - runs one command, does not wait for it to finish, then begins running the next command
-  - Ex: `touch file1.txt & touch file2.txt`
-  - Kind of dangerous unless you know the two commands can be run simultaneously with no guarantee as to who is done first
-
-- `&&`
-  - runs one command, waits for it to finish, then begins running the next command
-  - Ex: `touch file1.txt && code file1.txt`
-  - Not dangerous, just a way of chaining commands together in one line
 
 ## Resources
 
