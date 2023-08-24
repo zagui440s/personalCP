@@ -6,16 +6,36 @@ By the end of this lecture you'll learn how to utilize JavaScript to solve progr
 
 ## Lectures & Assignment
 
-1. [JS intro](./1-js-intro-to-intermediate.md)
+1. [JS intro](./1-js-intro-to-js.md)
 
-- [Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in JS
-- [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in JS
+   - [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in JS
 
-2. [Jest](./2-jest-and-testing.md)
+   - [Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in JS
 
-- [Fibonacci](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5NzI4MTcy/details) in JS
-- [Linear Search](https://classroom.google.com/c/NjEyMzM5MTczMDQ4/a/NjEyNjM5OTg3OTk4/details) in JS
+2. [Jest](./2-intermediate-js-and-jest.md)
+
+   - [Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in JS
+   - [Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in JS
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
 ## Topics Covered / Goals
+
+- Basic overview of how the internet works
+- Why JavaScript?
+- What is Node?
+- Variables
+- Functions
+- Primitive Data Types
+- Complex Data Types
+- Pass by value vs Pass by reference
+- the ternary operator
+- loops (`for`, `for ... of`, `Object.entries`)
+- 'Arrow' functions
+- Destructuring
+- The spread operator (`[...]`)
+- `exports/require` syntax
+- `npm` basics
+- Jest as a test runner
+- `expect` as an assertion library
+- skipping tests
