@@ -21,7 +21,7 @@
 
 ## Serializing Data
 
-### Django Serializers
+### Using Django Serializers
 
 > Django core definitely provides the capability to serialize our data and turn our QuerySet onto a JSON readable format that we can "easily" work with. Well lets take a look at how Django handles this behavior by serializing our `Blastoise` Pokemon instance:
 
@@ -99,7 +99,7 @@ from .models import Pokemon # import Pokemon model from models.py
 class PokemonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pokemon # specify what model this serializer is for
-        fields = ['id', 'name', 'level'] # specify the fields you would like this serializer to return
+        fields = ['id', 'name', 'level'] # specify the fields you would like this serializer to return. Alternatively if you would like to cover all fields at once you could use "__all__" within the fields list.
 ```
 
 > Lets open up the Django Python Shell and take a look at how our serializer works
