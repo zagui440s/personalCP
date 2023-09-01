@@ -2,7 +2,8 @@ a_pokemon = {
     "id": 1,
     "name": "Pikachu",
     "level": 12,
-    "moves": []
+    "moves": [],
+    "type": "normal"
 }
 a_move = {
     "id": 1,
@@ -22,13 +23,15 @@ all_pokemon = [
         "level": 37,
         "moves": [
             "Psychich"
-        ]
+        ],
+        "type": "normal"
     },
     {
         "id": 2,
         "name": "Charizard",
         "level": 25,
-        "moves": []
+        "moves": [],
+        "type": "normal"
     },
     {
         "id": 4,
@@ -36,13 +39,15 @@ all_pokemon = [
         "level": 25,
         "moves": [
             "Psychich"
-        ]
+        ],
+        "type": "normal"
     },
     {
         "id": 1,
         "name": "Pikachu",
         "level": 12,
-        "moves": []
+        "moves": [],
+        "type": "normal"
     }
 ]
 
