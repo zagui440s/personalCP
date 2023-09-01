@@ -2,6 +2,8 @@
 
 ## What are we trying to accomplish?
 
+By learning how to integrate third-party APIs with your Django API and securely storing secret keys within `.env` files, you are aiming to enhance the functionality and security of your application. This integration enables your Django application to access external services seamlessly, enriching its features and data sources. Storing sensitive API keys in `.env` files ensures that these credentials are kept confidential and not exposed in your codebase, bolstering the security of your application and protecting sensitive information. This combination of API integration and secure key management empowers your application to provide valuable services to users while safeguarding sensitive data.
+
 ## Lessons and Assignments
 
 - [Lesson - Working with Back-End API's](./1-back-end-apis-and-secrets.md)

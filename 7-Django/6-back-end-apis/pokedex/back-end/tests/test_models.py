@@ -14,7 +14,7 @@ class pokemon_test(TestCase):
             # here we will ensure our instance is actually created
             self.assertIsNotNone(new_pokemon)
         except ValidationError as e:
-            # print(e.message_dict)
+            print(e.message_dict)
             #if it sends an error we want to ensure this test fails
             self.fail()
         
