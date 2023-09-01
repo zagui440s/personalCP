@@ -9,6 +9,12 @@ By learning about the full stack life cycle, Django CORS headers, and utilizing 
 - [Lesson - Creating a Pokedex React Front-End](./1-creating-front-end.md)
 - [Lesson - Axios and API views](./2-axios-apiviews.md)
 
+## Pre-requisites for tomorrows lecture
+
+- [Sign Up for the Noun Project API](https://thenounproject.com/api/)
+
+> We will be utilizing this API during tomorrows lecture and assignments. Please sign up and ensure to verify your email, otherwise you will not have full access to their API and will not be able to complete either the classroom material nor assignments.
+
 ## Topics Covered
 
 - Full Stack Life Cycle
