@@ -42,17 +42,13 @@ Handling API requests through a back-end framework like Django offers several ad
 python manage.py startapp api_app
 ```
 
-> Make sure to add the `api_app` under the `INSTALLED_APPS` section in the `pokedex_proj.settings`` file
+> Make sure to add the `api_app` under the `INSTALLED_APPS` section in the `pokedex_proj.settings` file
 
 > Link our project.urls to our app.urls utilizing the `include()` method within the projects `urlpatterns`.
 
 ```python
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('squares/<int:side>/', square_area_view, name='square'),
-    path('circles/<int:side>/', circle_area_view, name='circle'),
-    path('triangles/base/<int:base>/height/<int:height>/', triangle_area_view, name='triangle'),
-    path('api/v1/pokemon/', include("pokemon_app.urls")),
+    path("..."),
     path('api/v1/moves/', include("move_app.urls")),
     path('api/v1/noun/', include("api_app.urls")),
 ]
@@ -71,13 +67,15 @@ urlpatterns = [
 
 ## Interacting With 3rd Party API's
 
-> Now that we have some idea how the API works, let's build a django CBV that uses it. The first new thing we'll need for this CBV is a library that will help us send requests, called `requests`. It's similar to axios, except it's used on the back end with python.
+> Now that we have some idea how the API works, let's build a django CBV that uses it. The first new thing we'll need for this CBV is a library that will help us send requests, called `requests` (ironic I know). It's similar to axios, except it's used on for Python back end frameworks.
 
 ```bash
   pip install requests
   pip install requests_oauthlib
   pip freeze > requirements.txt
 ```
+
+> Implement the sample code provided in the "Getting Started" API [documentation](https://api.thenounproject.com/getting_started.html#sample-code) within our CBV.
 
 ```python
 from rest_framework.views import APIView
@@ -100,6 +98,8 @@ class Noun_Project(APIView):
         return Response(True)
 ```
 
+> In a browser, we can travel to [http://http://127.0.0.1:8000/api/v1/noun/](http://http://127.0.0.1:8000/api/v1/noun/). This will send a `GET` request to our Django server and trigger our newly created view. All print statements will appear on our terminal not on the DRF template of our Browser.
+
 ## Handling Secret Keys
 
 > There's one last problem we need to solve before I commit this to my local git or push it to github. Currently, my private key is visible in the code, so if I pushed it up to github, other people might steal my credentials. We need to use environment variables, which are not committed in git, to supply credentials to our project and apps. We could use actual env variables in BASH, but it's common practice to use a .env file, which looks a little like this:
@@ -107,27 +107,37 @@ class Noun_Project(APIView):
 ```bash
 # my .env file
 DJANGO_KEY=****** #comes from pokedex_proj/settings.py
-apikey=****** #comes from api_app/views.py
-secretkey=***** #comes from api_app/views.py
+API_KEY=****** #comes from api_app/views.py
+SECRET_KEY=***** #comes from api_app/views.py
 ```
 
 > Create a `.env` file at the root level of your project directory and fill in the appropriate variables with their correct values.
 
-> Now our keys are hidden from other people, but they're also hidden from my Django Project. To help my django project read the `.env` variables, we'll use a python package called `python-dotenv`.
+> To help my django project read the `.env` variables, we'll use a python package called `python-dotenv`. Install it using the following commands:
 
 ```bash
 pip install python-dotenv
 pip freeze > requirements.txt
 ```
 
-> We will use `python-dotenv's` `dotenv_values` method, in both `api_app.views` and `pokedex_proj.settings`, to turn the contents of our `.env` file into a python OrderedDictionary and use the `.get()` method to grab the values corresponding to each key.
+> We will use `python-dotenv's` `dotenv_values` method, in `pokedex_proj.settings`, to turn the contents of our `.env` file into a python OrderedDictionary and use the `.get()` method to grab the values corresponding to each key.
 
 ```python
 from dotenv import dotenv_values
 
 env = dotenv_values(".env") # sets the value of `env` to an OrderedDictionary
-env.get("apikey") # returns the apikey value from the `.env`
+env.get("DJANGO_KEY") # returns the DJANGO_KEY value from the `.env` file
 ```
+
+> Import the `env` variable we declared in `pokedex_proj.settings` to `api_app.views` and use it to get the values of our API_KEY and SECRET_KEY.
+
+```python
+from pokedex_proj.settings import env
+
+auth = OAuth1(env.get("API_KEY"), env.get("SECRET_KEY"))
+```
+
+> All of our keys are currently within a `.env` file... but currently this file is still being tracked by github. Our Django Project doesn't know about the existence of this file, but our local git does, so how do we fix that?
 
 ## gitignore
 
@@ -139,3 +149,5 @@ env.get("apikey") # returns the apikey value from the `.env`
 __pycache__ # <--- python stashed changes 
 .env # <--- .env file holding secret elements
 ```
+
+> In this course all of our Back-End work will be utilizing Python and there are a lot of things that Python scripts may or may not automatically generate when they run. Please follow the Github [gitignore](https://github.com/github/gitignore/blob/main/Python.gitignore) guidelines for python programs and ensure these files are properly ignored by github.
