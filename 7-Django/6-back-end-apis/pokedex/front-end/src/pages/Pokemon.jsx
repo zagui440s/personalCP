@@ -1,6 +1,7 @@
 import Row from "react-bootstrap/esm/Row";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { PokemonItem } from "../components/PokemonItem";
 
 export const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -25,22 +26,7 @@ export const Pokemon = () => {
       <h1 style={{ textAlign: "center" }}>Pokemon</h1>
       <ul>
         {pokemon.map((poke) => (
-          <li
-            key={poke.id}
-            style={{
-              margin: "3vmin",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            Name: {poke.name} <br /> Level: {poke.level}
-            <ul>
-              Moves
-              {poke.moves.map((move, idx) => (
-                <li key={`${poke.id}${idx}`}>{move}</li>
-              ))}
-            </ul>
-          </li>
+          <PokemonItem key={poke.id} pokemon={poke} />
         ))}
       </ul>
     </Row>

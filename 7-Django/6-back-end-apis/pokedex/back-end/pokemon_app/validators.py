@@ -25,3 +25,9 @@ def validate_name(name):
         return name
     else:
         raise ValidationError(error_message, params={ 'name' : name })
+    
+def validate_type(value):
+    allowed_types = ['rock', "normal", 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark', 'fairy', 'unknown', 'shadow']
+    
+    if value.lower() not in allowed_types:
+        raise ValidationError(f"Invalid type: {value}. Please choose from {', '.join(allowed_types)}.")

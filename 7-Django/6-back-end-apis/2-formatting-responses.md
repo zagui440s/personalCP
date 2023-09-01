@@ -28,9 +28,41 @@ return Response(responseJSON['icon']['icon_url'])
 
 ## Displaying Icon URL
 
-> We have the information we need from the Noun Project API now, but we haven't displayed this information to our users. Let's add a `type` field to our Pokemon with some validation adn a default value.
+> We have the information we need from the Noun Project API now, but we haven't displayed this information to our users. Let's add a `type` field to our Pokemon with some validation adn a default value. Let's make our Front-end application render an Icon for each specific pokemon type in the `Pokemon.jsx` page.
 
-> The last thing we need to do is update our `url` and CBV to accept a `str` parameter of `item` that we can utilize with interpolated string and allow `users` to look for a specific `noun icon_url`.
+### Adjusting our Django Back-End
+
+```python
+# pokemon_app.validators
+def validate_type(value):
+    allowed_types = ['rock', "normal", 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark', 'fairy', 'unknown', 'shadow']
+    
+    if value.lower() not in allowed_types:
+        raise ValidationError(f"Invalid type: {value}. Please choose from {', '.join(allowed_types)}.")
+
+# pokemon_app.models
+class Pokemon(models.Model):
+    #...
+    type = models.CharField(default="normal", validators=[validate_type])
+
+#pokemon_app.serializers
+class PokemonSerializer(ModelSerializer):
+    # ...
+
+    class Meta:
+        # ...
+        fields = ['id', 'name', 'level', 'moves', "type"]
+```
+
+> Make sure to migrate our changes to our database with the following commands
+
+```bash
+# TERMINAL
+python manage.py makemigrations
+python manage.py migrate
+```
+
+> The last thing we need to do is update our `url` and CBV to accept a `str` parameter of `types` that we can utilize with interpolated string to look for a specific `noun icon_url`.
 
 ```python
 #api_app.urls
@@ -38,15 +70,15 @@ from django.urls import path
 from .views import Noun_Project
 
 urlpatterns = [
-    path('<str:item>/', Noun_Project.as_view(), name="noun_project"),
+    path('<str:types>/', Noun_Project.as_view(), name="noun_project"),
 ]
 
 # api_app.views
 class Noun_Project(APIView):
 
-    def get(self, request, item):
+    def get(self, request, types):
         auth = OAuth1("your-api-key", "your-api-secret") 
-        endpoint = f"http://api.thenounproject.com/icon/{item}"
+        endpoint = f"http://api.thenounproject.com/icon/{types}"
         response = requests.get(endpoint, auth=auth)
         responseJSON = response.json() 
         pp.pprint(responseJSON)
@@ -54,18 +86,104 @@ class Noun_Project(APIView):
 
 ```
 
-> Now that we can get the `icon_url` from our `requests`, we can return this to our Front-End or client and allow them to utilize this information to display an image on the screen.
+### Adjusting our React Front-End
+
+> Our back end is functional and awaiting requests, but our React application isn't quite ready yet. Let's create a `PokemonItem.jsx` component that will take in a Pokemon object as props and display an icon for a Pokemon Type.
+
+```js
+import { useState, useEffect } from "react"
+import axios from 'axios'
+
+export const PokemonItem = ({pokemon}) => {
+    const [nounProjectIcon, setNounProjectIcon] = useState(null)
+    
+    const getIcon = async() =>{
+        let response = await axios
+            .get(`http://127.0.0.1:8000/api/v1/noun/${pokemon.type}/`)
+            .catch((err)=>{
+                console.log(err)
+                alert("Problems getting Icon")
+            })
+        console.log(response)
+        setNounProjectIcon(response.data)
+    }
+    useEffect(()=>{
+        getIcon()
+    },[])
+
+    return (
+        <li
+            style={{
+              margin: "3vmin",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            Name: {pokemon.name} 
+            <br /> Level: {pokemon.level}
+            <ul>
+            {nounProjectIcon ? <img style={{height:"5vmin", width:"5vmin"}} src={nounProjectIcon}/>: null}
+              Moves
+              {pokemon.moves.map((move, idx) => (
+                <li key={`${pokemon.id}${idx}`}>{move}</li>
+              ))}
+            </ul>
+          </li>
+    )
+}
+```
+
+> Finally lets plug this components onto our `Pokemon.jsx` page and by replacing the list item in our map function for our `PokemonItem.jsx` component.
+
+```js
+import Row from "react-bootstrap/esm/Row";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { PokemonItem } from "../components/PokemonItem";
+
+export const Pokemon = () => {
+  const [pokemon, setPokemon] = useState([]);
+
+  const getAllPokemon = async () => {
+    // request would be sent within this function
+    let response = await axios
+      .get("http://127.0.0.1:8000/api/v1/pokemon/")
+      .catch((err) => {
+        console.log(err);
+        alert("something went wrong");
+      });
+    setPokemon(response.data);
+  };
+
+  useEffect(() => {
+    getAllPokemon();
+  }, []);
+
+  return (
+    <Row style={{ padding: "0 10vmin" }}>
+      <h1 style={{ textAlign: "center" }}>Pokemon</h1>
+      <ul>
+        {pokemon.map((poke) => (
+          <PokemonItem key={poke.id} pokemon={poke} />
+        ))}
+      </ul>
+    </Row>
+  );
+};
+```
+
+> Our users are now able to see an Icon generated by the Noun API for each pokemon type.
 
 ## Testing Requests
 
 - Testing works a bit different with API's since we don't want to actually make the API call every time we run our test. So instead unit tests have the ability to mock API calls.
 
 ```python
-import json
+# tests/test_views.py
 from unittest.mock import patch
-from django.test import TestCase
 from rest_framework.test import APIClient
-from django.urls import reverse
+
+# ...
 
 class NounProjectTest(TestCase):
     def setUp(self):
@@ -114,4 +232,6 @@ self.assertEquals(json.loads(response.content), preview_url)
 
 - `self.assertEquals(json.loads(response.content), preview_url)` asserts that the JSON response content, once loaded, is equal to the expected `preview_url`.
 
-By utilizing the `@patch` decorator and `unittest.mock` library, we can intercept and control the behavior of the `requests.get` function during testing. This allows us to simulate different API responses and test the behavior of our Django views without actually making real API calls.
+> By utilizing the `@patch` decorator and `unittest.mock` library, we can intercept and control the behavior of the `requests.get` function during testing. This allows us to simulate different API responses and test the behavior of our Django views without actually making real API calls.
+
+> Before running the test suite make sure to fix your answers and update fixtures since we added a type field to our Pokemon model. If you've been following along you could just use the fixtures and answers provided in the [example](./pokedex/)

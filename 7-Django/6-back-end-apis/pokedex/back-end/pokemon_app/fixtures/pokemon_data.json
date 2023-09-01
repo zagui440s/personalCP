@@ -9,6 +9,7 @@
     "date_captured": "2023-08-22T15:05:52.618Z",
     "description": "Unknown",
     "captured": true,
+    "type": "normal",
     "moves": []
   }
 },
@@ -22,6 +23,7 @@
     "date_captured": "2023-08-22T15:09:14.356Z",
     "description": "Unknown",
     "captured": true,
+    "type": "normal",
     "moves": []
   }
 },
@@ -35,6 +37,7 @@
     "date_captured": "2023-08-22T15:28:54.699Z",
     "description": "Unknown",
     "captured": false,
+    "type": "normal",
     "moves": [
       1
     ]
@@ -50,6 +53,7 @@
     "date_captured": "2023-08-23T21:09:03.605Z",
     "description": "Unknown",
     "captured": false,
+    "type": "normal",
     "moves": [
       1
     ]

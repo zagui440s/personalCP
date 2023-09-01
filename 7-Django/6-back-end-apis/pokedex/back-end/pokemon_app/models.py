@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 # import built-in Django Validators
 from django.core import validators as v
-from .validators import validate_name
+from .validators import validate_name, validate_type
 from move_app.models import Move
 
 # Create your models here.
@@ -25,6 +25,7 @@ class Pokemon(models.Model):
     # Boolean field is already ensuring to only take in either True or False
     captured = models.BooleanField(default = False)
     moves = models.ManyToManyField(Move, related_name="pokemon")
+    type = models.CharField(default="normal", validators=[validate_type])
 
     # DUNDER METHOD
     def __str__(self):

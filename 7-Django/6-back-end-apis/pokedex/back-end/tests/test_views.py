@@ -7,6 +7,8 @@ from django.urls import reverse
 # we can import all the expected answers from our answer.py file
 from tests.answers import all_pokemon, a_pokemon, all_moves, a_move
 import json
+from unittest.mock import patch
+from rest_framework.test import APIClient
 
 
 class Test_views(TestCase):
@@ -35,3 +37,18 @@ class Test_views(TestCase):
         response_body = json.loads(response.content)
         self.assertEquals(response_body, a_pokemon)
     # REPEAT THE PROCESS FOR THE MOVE_APP
+
+class NounProjectTest(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+
+    @patch('requests.get')
+    def test_pokeball_img_api_view(self, mock_get):
+        types = 'nomal'
+        preview_url = "https://static.thenounproject.com/png/688525-200.png"
+        mock_response = type('MockResponse', (), {'json': lambda self: {'icon': {'preview_url': preview_url}}})
+        mock_get.return_value = mock_response()
+        response = self.client.get(reverse('noun_project', args=[types]))
+        with self.subTest():
+            self.assertEqual(response.status_code, 200)
+        self.assertEquals(json.loads(response.content), preview_url)
