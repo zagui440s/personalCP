@@ -1,7 +1,12 @@
+# Formatting and Displaying Back-End API's
+
+## Intro
+
+In this lesson you'll learn how to format your JSON API responses on your terminal to mimic JSON responses on your Browsers console. This will make it easier for you as a developer to read through your API responses and extrapolate the correct data you need to send back as a response to your React Front-End.
 
 ## Formatting and Manipulating response data
 
-> There's a lot of content here! In the browser, it was easier to dig into large data structures, but it's not quite as easy to read large data structures in python due to how they print in the terminal. Lets use a built-in python module, pprint (pretty print) that'll help us read the responses from the API.
+> Currently, when we travel to [http://http://127.0.0.1:8000/api/v1/noun/](http://127.0.0.1:8000/api/v1/noun/) on our Browser, we can see our API response from the Noun Project displaying on our Terminal. There's a lot of content here! In the browser, it was easier to dig into large data structures, but it's not quite as easy to read large data structures in Python due to how they print in the terminal. Lets use a built-in python module, pprint (pretty print) that'll help us read the responses from the API.
 
 ```python
 import pprint
@@ -9,16 +14,21 @@ import pprint
 # only go 2 levels deep, so we get a general idea of the response without having to look at the whole thing
 pp = pprint.PrettyPrinter(indent=2, depth=2)
 
-response = requests.get(endpoint, auth=auth)
-responseJSON = response.json()
+# within our Noun_project APIView exchange the final print statement for the following
 pp.pprint(responseJSON)
 ```
 
-> Now we can visualize our response data and work to return the icon_url in our methods `Response`
+> Refresh the browser to send a `GET` request to our Django Server once more. Now we can visualize our response data and work to return the icon_url in our get methods `Response`
 
 ```python
 return Response(responseJSON['icon']['icon_url'])
 ```
+
+> Refresh the browser one more time and you'll see the DRF template displaying an image url path that is being returned by our get methods Response.
+
+## Displaying Icon URL
+
+> We have the information we need from the Noun Project API now, but we haven't displayed this information to our users. Let's add a `type` field to our Pokemon with some validation adn a default value.
 
 > The last thing we need to do is update our `url` and CBV to accept a `str` parameter of `item` that we can utilize with interpolated string and allow `users` to look for a specific `noun icon_url`.
 
