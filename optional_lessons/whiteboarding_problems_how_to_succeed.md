@@ -48,7 +48,7 @@ IF YOU DO WELL ... they will push you more in the interview.
 ## Succeeding At Whiteboarding Problems
 
 "The interviewer is not your enemy -- they are your ally"
--- *Sierra Platoon.*
+-- *A Sierra Platoon student.*
 
 Treat the interview like an audition. Preparation and practice are essential.
 
