@@ -9,15 +9,15 @@ By learning how to integrate third-party APIs with your Django API and securely 
 - [Lesson - Working with Back-End API's](./1-back-end-apis-and-secrets.md)
 - [Lesson - Formatting and Displaying BE API's](./2-formatting-responses.md)
 
-## TLO's (Testable Learning Objectives)
-
-- Utilize `requests` to manage API requests in python
-- Utilize `OAuth1` to manage authentication
-- Integrate 3rd Party API's with your project
-
-## ELO's (Elective Lerning Objectives)
+## Topics Covered
 
 - Manage Secret Keys
 - Interact with `.env` files
 - Utilize `python-dotenv`
 - Write Unit Test Mocking 3rd Party API requests.
+
+## TLO's (Testable Learning Objectives)
+
+- Utilize `requests` to manage API requests in Python
+- Utilize `OAuth1` to manage Authentication with 3rd Party API's
+- Integrate 3rd Party API's with your project
