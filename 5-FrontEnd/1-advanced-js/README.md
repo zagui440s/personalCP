@@ -10,7 +10,7 @@ Some previous JS programming experience is required; students should already be 
 
 1. JS Review & Modern functional-style Javascript.
 2. The Joys and Anguish of the node ecosystem - npm, yarn, CommonJS Modules vs ESModules.
-3. An introduction to frontend tooling / build systems - specifically, vite.
+3. An introduction to frontend build tooling & projects - specifically, vite.
 
 ## What are we trying to accomplish?
 
