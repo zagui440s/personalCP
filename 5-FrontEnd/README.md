@@ -6,7 +6,7 @@ Students should be able to comfortably write Javascript programs involving loops
 
 ## Module Topics
 
-1. [Advanced JS - functional-style JS, imports & exports, vite](./1-advanced-js/README.md)
+1. [Modern functional-style JS - functional-style JS, imports & exports, vite](./1-modern-functional-style-js/README.md)
 2. [Intro to React - Components and Props](./2-intro-to-react/README.md)
 3. [React Hooks, Component State, and the Virtual DOM](./3-react-hooks/README.md)
 4. [Responsive Web Design](./4-rwd/README.md)

@@ -1,16 +1,21 @@
-# Advanced Javascript
+# Modern functional-style Javascript
 
 ## Instructor Notes & Prerequesites
 
 Some previous JS programming experience is required; students should already be able to write and run JS programs locally and be comfortable writing programs in JS somewhat beyond the beginner level.
 
+**The instructor should demo the beginning parts of the assignment (video store logic) as a tutorial during class time.**
+
 ## Lectures & Assignments
 
 ### Lectures
 
-1. JS Review & Modern functional-style Javascript.
-2. The Joys and Anguish of the node ecosystem - npm, yarn, CommonJS Modules vs ESModules.
-3. An introduction to frontend build tooling & projects - specifically, vite.
+1. [Intro to the node ecosystem - npm, yarn, node projects, CommonJS Modules vs ESModules](./intro-to-node-ecosystem-modules.md)
+2. [Modern functional-style Javascript](./modern-js.md)
+
+### Assignments
+
+- [Create the logic for a video store using the tools we have learned](https://github.com/Code-Platoon-Assignments/video-store-0-functional-js-and-state)
 
 ## What are we trying to accomplish?
 
@@ -24,13 +29,27 @@ In preparation for working with React.js (a frontend JS UI framework) we will re
 - Able to use `.foreach()`, `.map()`, `.filter()`, `.reduce()`
   - Over arrays with strings, numbers, and booleans
   - Over arrays containing objects or nested arrays - more complex data shapes
+  - Able to do method chaining w/the above
   - Able to use all of the above to write nontrivial programs
+
+### Node projects
+
+- Able to create a new node project with npm and explain the basic project structure to someone else.
+  - Able to add an npm script to `package.json`
+- Familiar with the node package ecosystem (npm, yarn) and able to use npm and install node modules.
+- Able to create a basic `.gitignore` file for a node project 
+
+### Importing / Exporting modules
+
+- Understands that ESModules are best practice
+- Able to set up a node project to use  ESModules
+- Able to import/export with both CommonJS and ESModules
+
 
 ### Node / JS modules
 
 - Familiar with  and able to use `require`
 - Familiar with and able to use `import` and `export`
-- Familiar with the node package ecosystem (npm, yarn, n or nvm) and able to use npm and install node modules
 
 ### Frontend build tooling
 
