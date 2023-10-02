@@ -1,12 +1,10 @@
-# Recursion
+# Recursion & the Call Stack
 
 ## Topics Covered / Goals
 
 - Why? The basic use case for recursion
 - What? Defining the recursive approach
 - How? the call stack and stack overflow
-- Data Structures that complement recursion: Trees, Binary Trees
-- Solving Binary Search using a Binary Tree
 
 ## Lesson
 
@@ -176,9 +174,15 @@ We hit our base case, great! Now the stack will collapse
 
 And we're done, now we can return the result!
 
+### Let's visualize it again with PythonTutor
+
+[PythonTutor](https://pythontutor.com/visualize.html#mode=edit) is a great interactive website that lets you run Python code and visualize the call stack.
+
+Let's put our factorial program in there and step through it again!
+
 ### Stack Overflow
 
-But here's something to think about: what would happen if we didn't ever hit our base case? The call stack can grow but, importantly, **it cannot grow forever** - the call stack size has a hard limit! This is why the base case is so important, because without it we get a kind of error known as a _stack overflow_ (yes, that's where the tech help forum gets it's name from!).
+Here's something to think about: what would happen if we didn't ever hit our base case? The call stack can grow but, importantly, **it cannot grow forever** - the call stack size has a hard limit! This is why the base case is so important, because without it we get a kind of error known as a _stack overflow_ (yes, that's where the tech help forum gets it's name from!).
 
 So here's what does happen if you were to run the code in `code-examples/stack_overflow.js`:
 
@@ -187,55 +191,3 @@ RangeError: Maximum call stack size exceeded
 ```
 
 See! There is a limit! It's a very large number (and you can make it larger if need be), but if you ever see this error, chances are you are simply never hitting your base case!
-
-### Optimal Sub-Structure
-
-`Factorial` is a somewhat contrived example, so when is recursion _actually_ useful 'in the wild', so to speak. Well, recursive algorithms tend to be a natural fit when working with recursive data structures. What does it mean for a data structure to be recursive? This brings us to the concept of **optimal sub-structure**.
-
-Optimal sub-structure is a quality some data structures have in that they can be _defined in terms of themselves_. The canonical example is a Binary Tree!
-
-![binary tree](./page-resources/binary-tree.jpg "Binary Tree")
-
-A Binary Tree is defined as being either:
-
-1.  A Leaf
-
-This is our base case, a terminating node with no children, or
-
-2.  A Node that links to two other Trees
-
-This is the equivalent of the recursive step
-
-> See `code/binary_tree.py` to see how we would define such a structure
-
-### Binary Search / Binary Search Tree
-
-A binary search tree is a binary tree with some additional properties, namely:
-
-1. the value of the left child (and all of it's children) is always _smaller_ than the value of the node itself
-
-2. the value of the right child (and all of it's children) is always _greater_ than the value of the node itself
-
-These two properties combined mean that searching through such a tree for a given value becomes much simpler - if it's not at the given level we always know to look in _either_ the left _or_ right subtree.
-
-This is the same logic as some asking you to 'pick a number between 1 and 100' and then every time they guess you say 'higher' or 'lower'.
-
-What might be an optimal guessing strategy for such a game? How does this relate to Binary Search Trees?
-
-> see `code/binary_search.py` to see binary search implemented for a binary tree
-
-## External Resources
-
-- [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
-
-  - This tool breaks down code step by step, allowing you to see the Call Stack in real-time.
-
-- [BFs vs DFS](https://medium.com/nothingaholic/depth-first-search-vs-breadth-first-search-in-python-81521caa8f44)
-  - There are two main ways to traverse a tree, Depth-first Search (look at the children of children of children ... first) and Breadth-first Search (look at all child nodes at a given level before descending to the next level). These use the concept of stacks and queues from the previous days reading.
-
-## Assignments
-
-- [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)
-- [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (you did this yesterday, but can now solve it with the `O(log n))` solution)
-- [Binary Tree - Maximum Depth](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
-  - the main idea here is that you can 'descend' the tree to the bottom using recursion and 'bubble up' the answer using return statements
