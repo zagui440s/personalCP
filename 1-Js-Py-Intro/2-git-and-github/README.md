@@ -18,6 +18,8 @@ By the end of this lecture you'll understand how to use the command-line program
 
    - [Github Essentials](https://github.com/Code-Platoon-Assignments/git-essentials. Not an assignment but a useful reference for forking/cloning assignments in the future.
 
+[Stretch Assignment - Group Project - Experiment with collaborating on a github repo](./stretch-assignment-github-teams.md)
+
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
 ## Topics Covered / Goals
