@@ -21,7 +21,7 @@ Lastly, these foundations will set you up to continue learning about computing a
 [How Memory Works & Arrays](https://docs.google.com/presentation/d/1KChsMlbIBOfxeHu2QZQ-DLPH2rzCAO813XMKISYEl84/edit?usp=sharing)
 ## Lectures & Assignments
 
-1. [Lecture - How computer memory works & arrays](./1-how-memory-works-arrays/README.md)
+1. [Lecture - How computer memory works & arrays](./1-how-memory-works-arrays.md)
 
     - [Assignment - Arrays - Two Sum](https://leetcode.com/problems/two-sum/)
 
@@ -29,7 +29,7 @@ Lastly, these foundations will set you up to continue learning about computing a
 
     - Assignment - Bonus: if you have time, explore more Leetcode array problems. Stick to 'easy' problems for now (they are hard enough), but it can be a good way to learn about what types of data structures are out there, as there are many more then our program can cover in this week.  *Note: we recognize even the 'easy' problems are not that easy. We want you to get more familiar with Leetcode and what these kinds of challenges involve. The problems often seem contrived but they are a kind of exercise designed to stretch the muscles of your programming brain.*
 
-2. [Lecture - Intro to Complexity Analysis: time complexity, space complexity](./2-intro-complexity-analysis/README.md)
+2. [Lecture - Intro to Complexity Analysis: time complexity, space complexity](./2-intro-complexity-analysis.md)
 
 3. [Lecture - Intro to Big-O](./3-intro-big-o/README.md)
 
