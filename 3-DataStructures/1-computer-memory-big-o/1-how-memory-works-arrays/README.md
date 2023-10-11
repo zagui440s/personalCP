@@ -67,12 +67,3 @@ So to get the value of `nums[4]` we take the beginning memory location of `nums`
 This property of the memory being in order and holding same-sized objects is necessary because it's what allows us to 'jump' to the 4-th index without having to actively look through the previous elements.
 
 > An important note: in traditional Arrays, the full size of the Array must be known when defining it. That isn't the case with JS or Python arrays, which you can add to indefinitely. How this actually works under the hood is that, when you try to add an element to an already full array in JS, behind the scenes it will double it's size in memory, copy over all the existing elements, and then add the next one. This is significant because in reality adding an element to an array, even to the end, is not necessarily `O(1)`.
-
-## Assignments
-
-- [Arrays - Two Sum](https://leetcode.com/problems/two-sum/)
-- [Arrays - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (ignore the desired complexity of `O(log n))`)
-
-- Bonus: if you have time, explore Leetcode. Stick to 'easy' problems for now (they are hard enough), but it can be a good way to learn about what types of data structures are out there, as there are many more then our program can cover in this week.
-
-> Note: we recognize even the 'easy' problems are not that easy. We want you to get more familiar with Leetcode and what these kinds of challenges involve. The problems often seem contrived but they are a kind of exercise designed to stretch the muscles of your programming brain.

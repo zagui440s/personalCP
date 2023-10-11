@@ -256,9 +256,3 @@ print(myHash.get('mane'))
 ```
 
 It isn't important you know how to create a Hash Table but rather to understand enough as to how it can achieve `O(1)` lookup by key.
-
-## Assignments
-
-- [Big O Problems 1](https://classroom.github.com/a/9n1p7KBK)
-- [Bubble Sort](https://classroom.github.com/a/vvj5qYd8) in JS/python
-  - > This one will receive feedback from TAs
