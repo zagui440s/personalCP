@@ -40,6 +40,8 @@ Lastly, these foundations will set you up to continue learning about computing a
 
     - [Assignment - Bubble Sort](https://github.com/Code-Platoon-Assignments/algo-bubble-sort) in Python - > This one will receive feedback from TAs
 
+Optional - [Lecture - More Big O](./more-big-o.md). This reviews the same ground as the Intro to Big O lecture but in a different way and goes a bit more in depth.
+
 ## Topics Covered
 
 - (Meta) What is the purpose of the Data Structures module?
