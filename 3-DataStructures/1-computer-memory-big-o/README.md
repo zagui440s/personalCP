@@ -19,6 +19,9 @@ Lastly, these foundations will set you up to continue learning about computing a
 ### Slidedeck
  
 [How Memory Works & Arrays](https://docs.google.com/presentation/d/1KChsMlbIBOfxeHu2QZQ-DLPH2rzCAO813XMKISYEl84/edit?usp=sharing)
+
+[Intro to Complexity Analysis](./slides-intro-complexity-analysis/README.md)
+
 ## Lectures & Assignments
 
 1. [Lecture - How computer memory works & arrays](./1-how-memory-works-arrays.md)
