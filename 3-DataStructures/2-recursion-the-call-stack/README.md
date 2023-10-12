@@ -22,17 +22,17 @@ Runtime analysis (Big O) of various recursively implemented algorithms is a comm
 
 ## Lectures & Assignments
 
-### Lectures
-
-1. [Intro to Recursion & the Call Stack](./intro-recursion-the-call-stack.md)
-
-### Assignments
-
-1. Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.  
-2. Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
-3. Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
+1. [Lecture: Intro to Recursion & the Call Stack](./intro-recursion-the-call-stack.md)
+  a. Assignment - Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.  
+  b. Assignment - Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
+  c. Assignment - Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+
+### Tutorials
+
+1. [Implement get_max recursively & recursive algorithm design](./tutorial-get-max-recursive.md)
+2. [Divide up the M&Ms - recursively! More recursive algorithm design](./tutorial-divide-eminems-recursively.md)
 
 ### Stretch / Bonus Challenges
 
@@ -43,12 +43,6 @@ These get progressively harder. Consider doing the non-leetcode problems as a gr
 - [Flatten List](https://github.com/echoplatoonew/FlattenList)
 - [Smallest Node](https://github.com/echoplatoonew/smallest-node)
 - [Binary Search](https://github.com/echoplatoonew/binary-search)
-
-
-### Tutorials
-
-1. [Implement get_max recursively & recursive algorithm design](./tutorial-get-max-recursive.md)
-2. [Divide up the M&Ms - recursively! More recursive algorithm design](./divide-eminems-recursively/README.md)
 
 ## TLO's (Testable Learning Objectives)
 

@@ -12,7 +12,7 @@ You’ve just gone out trick-or-treating with a friend of yours. For whatever re
 6. Take the other half…
 
 Here's a very high-end illustration of how that would work with 10 M&Ms:
-![diagram](./readme/steps.png)
+![diagram](./page-resources/steps.png)
 
 By the end, you should have managed to earn yourself a few M&Ms. Speaking of the end, when might that be? Hold that thought. It looks like our procedure is caught in a loop. That’s a good sign we’re dealing with a recursive solution.
 
