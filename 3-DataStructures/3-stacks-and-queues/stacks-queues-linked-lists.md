@@ -1,20 +1,22 @@
 # Data Structures
 
 ## Introduction
+
 We're already familiar with a number of data structures, especially lists (arrays) and dictionaries (objects).  Learning how to choose the right data structure for a given problem is a big part of solving it, and solving it efficiently.
 
 However, there are many more possible data structures besides lists and dictionaries.  We'll look at a few common ones today, namely stacks, queues, and linked lists.  As with any data structure, each of them has its own characteristics which makes it either a more or less appropriate tool for solving a given problem.
 
 ## Stacks
+
 We've seen stacks already.  Any time you run a function you are adding a record to the execution stack, which you can see in the VS Code debugger.  If you try running a recursive function in the debugger, pay attention to how records are added to and removed from the stack.
 
 You should find that records are always added to the top of the stack, and records are always removed from the top of the stack as well.  This is called LIFO, or Last In First Out.  <br/>
 
-![stack](../readme/stack.png)
+![stack](./page-resources/stack.png)
 
 This also means that stacks have only one access point, like some unfortunate animals that have to do two very different things with only one thing: <br/>
 
-![cnidarians](../readme/cnidarians.jpeg)
+![cnidarians](./page-resources/cnidarians.jpeg)
 
 Stacks should have (at minimum) the following API:
 1. push - add an item to the top
@@ -97,9 +99,10 @@ That's all there is to it.  Try running other Python list methods on a `Stack` i
 
 
 ## Queues
+
 Queues are very similar to stacks, except that you insert from the bottom and remove from the top.  This is more like how a line works (or a queue in British English).  A queue is FIFO, or First In First Out.<br/>
 
-![queue](../readme/queue.png)
+![queue](./page-resources/queue.png)
 
 Queues should have (at minimum) the following API:
 1. enqueue - add an item to the beginning
@@ -112,7 +115,7 @@ Stacks and Queues are both simple data structures. Linked Lists, on the other ha
 
 A linked list is composed of a sequence of "nodes."  A node has two properties: a value, and a reference to the next node in the list:<br/>
 
-![linked list](../readme/linked_list.png)
+![linked list](./page-resources/linked_list.png)
 
 A Linked List should have (at minimum) the following API:
 1. insert - add an item to the beginning (or end, depending on the implementation)
@@ -178,6 +181,3 @@ class LinkedList:
 ```
 
 `search` could be implemented either iteratively or recursively.  In either case, a search will have to start at the `head` and continue until either the appropriate node is found, or the end of the linked list is reached.
-
-## Challenges
-[Data Structures I](https://github.com/code-platoon-assignments/data-structures-I)
