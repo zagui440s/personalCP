@@ -20,6 +20,8 @@ The code in this module should be kept as simple as possible to focus on concept
 
 5. [Linked Lists](./5-linked-lists/README.md)
 
+[Review / additional practice assignments: Data Structures / Leetcode](./data-structures-review-and-leetcode-practice.md)
+
 ## What are we trying to accomplish?
 
 You will learn the basics of complexity analysis (Big-O). You will learn the concepts and terms programmers use to evaluate and compare different ways of writing programs (one algorithm versus another, one data structure versus another), and understand the basic tradeoffs involved in making these choices of how you build and design your code.
@@ -27,7 +29,6 @@ You will learn the basics of complexity analysis (Big-O). You will learn the con
 You will learn and become comfortable with the core computer science concept of recursion.
 
 You will learn some of the fundamental building blocks (data structures, algorithms) of programs and computing.
-
 
 ### Why is it important?
 
@@ -38,6 +39,7 @@ Unlike the other weeks in which we are really teaching _software development_, *
 2. Data Structures is the field of 'solved' computer science related problems. We understand how different ways of structuring data can have different performance benefits, and this common ground knowledge tends to be relevant in the tech interview specifically.
 
 3. Recursion is important because it is often the most natural way to model or solve certain problems that would otherwise be practically unobtainable with an imperative approach. Recursion allows us to define a structure or algorithm in terms of itself, which mimics a kind of 'optimal substructure' some ways of modeling data have naturally, like trees.
+
 
 #### A note on the tech interview
 
