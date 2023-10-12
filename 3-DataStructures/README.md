@@ -16,7 +16,7 @@ The code in this module should be kept as simple as possible to focus on concept
 
 3. [Stacks and Queues](./3-stacks-and-queues/README.md)
 
-4. [Intro to Sorting & Searching Algorithms](./4-intro-sorting-searching-algos/README.md)
+4. [Trees & Binary Search](./4-trees/README.md)
 
 5. [Linked Lists](./5-linked-lists/README.md)
 

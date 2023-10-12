@@ -29,7 +29,7 @@ This is our base case, a terminating node with no children, or
 
 This is the equivalent of the recursive step
 
-> See `code/binary_tree.py` to see how we would define such a structure
+> See `code-examples/binary-tree.py` to see how we would define such a structure
 
 ### Binary Search / Binary Search Tree
 
@@ -45,15 +45,9 @@ This is the same logic as some asking you to 'pick a number between 1 and 100' a
 
 What might be an optimal guessing strategy for such a game? How does this relate to Binary Search Trees?
 
-> see `code/binary_search.py` to see binary search implemented for a binary tree
+> see `code-examples/binary-search.py` to see binary search implemented for a binary tree
 
 ## External Resources
 
 - [BFs vs DFS](https://medium.com/nothingaholic/depth-first-search-vs-breadth-first-search-in-python-81521caa8f44)
   - There are two main ways to traverse a tree, Depth-first Search (look at the children of children of children ... first) and Breadth-first Search (look at all child nodes at a given level before descending to the next level). These use the concept of stacks and queues from the previous days reading.
-
-## Assignments
-
-- [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (you did this yesterday, but can now solve it with the `O(log n))` solution)
-- [Binary Tree - Maximum Depth](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
-  - the main idea here is that you can 'descend' the tree to the bottom using recursion and 'bubble up' the answer using return statements
