@@ -18,9 +18,7 @@ The code in this module should be kept as simple as possible to focus on concept
 
 4. [Trees & Binary Search](./4-trees/README.md)
 
-5. [Linked Lists](./5-linked-lists/README.md)
-
-[Review / additional practice assignments: Data Structures / Leetcode](./data-structures-review-and-leetcode-practice.md)
+5. [Intro to Whiteboarding Problems & Technical Interviews, DS Review](./5-intro-whiteboarding-problems-ds-review/README.md)
 
 ## What are we trying to accomplish?
 
