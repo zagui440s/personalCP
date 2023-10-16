@@ -36,7 +36,7 @@ The code example above is an example of an O(1) algorithm. The 1 doesn't mean th
 ## Linear Time - O(N)
 For most algorithms, the amount of work performed is dependent on the inputs. With linear time algorithms, the number of inputs and the amount of work completed have a linear relationship. In other words, as the number of inputs increase or decrease, the amount of work will also increase or decrease at a proportional rate.
 
-![This is a graphical deciption of the difference between O(1) and O(N).](./o(1)o(n).png "Difference between O(1) and O(N)")
+![This is a graphical deciption of the difference between O(1) and O(N).](./page-resources/o(1)o(n).png "Difference between O(1) and O(N)")
 
 In the graph above, notice that as the number of inputs for the O(n) algorithm increases, the number of steps also increase. Notice that with the O(1) algorithm, as the number of inputs increases, the number of steps remains constant. 
 
