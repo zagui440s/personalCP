@@ -106,7 +106,7 @@ print(power(2,5)) #return 32
 Don't let the notation confuse you. O(n log n) simply that the amount of work done grows in proportion to the product of input size n multiplied by input size log n or more simply n * log n. 
 
 > Several sorting algorithms, such as merge sort and heap sort, run in O(n log n) time. Instead of looking at the code (which can be quite long for these algorithms), let's look at an illustrated version of merge sort to understand the runtime. 
-> ![This is a graphical deciption of the merge sort algorithm.](./page-resoureces/mergesort.png)
+> ![This is a graphical deciption of the merge sort algorithm.](./page-resources/mergesort.png)
 
 > Without going into too much detail, notice that the algorithm:
 >> - Divides the array at the midpoint (q) until we are left with subarrays of 0 or 1 elements
