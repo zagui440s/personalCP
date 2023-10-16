@@ -40,9 +40,9 @@ These get progressively harder. Consider doing the non-leetcode problems as a gr
 
 *Stretch Goal -- in leetcode, do the [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) problem again recursively, and, in leetcode implement [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) recursively - this solution should have a O(log n) runtime complexity.*
 
-- [Flatten List](https://github.com/echoplatoonew/FlattenList)
-- [Smallest Node](https://github.com/echoplatoonew/smallest-node)
-- [Binary Search](https://github.com/echoplatoonew/binary-search)
+- [Flatten List](https://github.com/Code-Platoon-Assignments/FlattenList.git)
+- [Smallest Node](https://github.com/Code-Platoon-Assignments/smallest-node.git)
+- [Binary Search](https://github.com/Code-Platoon-Assignments/binary-search.git)
 
 ## TLO's (Testable Learning Objectives)
 
