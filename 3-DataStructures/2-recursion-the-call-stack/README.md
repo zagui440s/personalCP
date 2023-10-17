@@ -23,9 +23,9 @@ Runtime analysis (Big O) of various recursively implemented algorithms is a comm
 ## Lectures & Assignments
 
 1. [Lecture: Intro to Recursion & the Call Stack](./intro-recursion-the-call-stack.md)
-  a. Assignment - Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.  
-  b. Assignment - Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
-  c. Assignment - Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
+  - Assignment - Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.  
+  - Assignment - Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
+  - Assignment - Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
