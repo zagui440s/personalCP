@@ -13,7 +13,7 @@ They are valuable in case they appear on technical interviews, because familiari
 ## Lectures & Assignments
 
 1. [Lecture: Intro to Stacks, Queues, and Linked Lists](./stacks-queues-linked-lists.md)
-    a. Assignment: [Data Structures I](https://github.com/code-platoon-assignments/data-structures-I)
+    - Assignment: [Data Structures I](https://github.com/code-platoon-assignments/data-structures-I)
 
 ## TLO's (Testable Learning Objectives)
 
