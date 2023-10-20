@@ -32,7 +32,7 @@ You may choose any exercises to work on and in any order. The goal is to practic
 - [Remove nodes from LL](https://leetcode.com/problems/remove-nodes-from-linked-list/)
 - [Reverse a LL](https://leetcode.com/problems/reverse-linked-list/)
 - [Swapping nodes in a LL](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)
-- [Add two numbers (From today's review)](https://leetcode.com/problems/add-two-numbers/)
+- [Add two numbers](https://leetcode.com/problems/add-two-numbers/)
 
 ### Trees
 
