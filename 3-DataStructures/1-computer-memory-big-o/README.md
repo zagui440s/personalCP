@@ -34,7 +34,7 @@ Lastly, these foundations will set you up to continue learning about computing a
 
 2. [Lecture - Intro to Complexity Analysis: time complexity, space complexity](./2-intro-complexity-analysis.md)
 
-3. [Lecture - Intro to Big-O](./3-intro-big-o/README.md)
+3. [Lecture - Intro to Big-O](./3-intro-big-o.md)
 
     - [Assignment - Big O Problems 1](https://github.com/Code-Platoon-Assignments/algo-big-o-i)
 

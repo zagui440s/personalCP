@@ -36,7 +36,7 @@ The code example above is an example of an O(1) algorithm. The 1 doesn't mean th
 ## Linear Time - O(N)
 For most algorithms, the amount of work performed is dependent on the inputs. With linear time algorithms, the number of inputs and the amount of work completed have a linear relationship. In other words, as the number of inputs increase or decrease, the amount of work will also increase or decrease at a proportional rate.
 
-![This is a graphical deciption of the difference between O(1) and O(N).](./o(1)o(n).png "Difference between O(1) and O(N)")
+![This is a graphical deciption of the difference between O(1) and O(N).](./page-resources/o(1)o(n).png "Difference between O(1) and O(N)")
 
 In the graph above, notice that as the number of inputs for the O(n) algorithm increases, the number of steps also increase. Notice that with the O(1) algorithm, as the number of inputs increases, the number of steps remains constant. 
 
@@ -106,7 +106,8 @@ print(power(2,5)) #return 32
 Don't let the notation confuse you. O(n log n) simply that the amount of work done grows in proportion to the product of input size n multiplied by input size log n or more simply n * log n. 
 
 > Several sorting algorithms, such as merge sort and heap sort, run in O(n log n) time. Instead of looking at the code (which can be quite long for these algorithms), let's look at an illustrated version of merge sort to understand the runtime. 
-> ![This is a graphical deciption of the merge sort algorithm.](./mergesort.png "Merge Sort Algorithm Illustrated")
+
+![This is a graphical deciption of the merge sort algorithm](./page-resources/mergesort.png)
 
 > Without going into too much detail, notice that the algorithm:
 >> - Divides the array at the midpoint (q) until we are left with subarrays of 0 or 1 elements
@@ -123,4 +124,4 @@ We've covered some of the common time complexities so far. There are others, how
 
 Below is a graph of the time complexities we have covered as well as a few we haven't.
 
-![This is a description of the different time complexities.](./complexities.png "Time Complexities Illustrated")
+![This is a description of the different time complexities.](./page-resources/complexities.png "Time Complexities Illustrated")

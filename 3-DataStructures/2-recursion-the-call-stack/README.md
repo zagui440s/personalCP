@@ -23,9 +23,9 @@ Runtime analysis (Big O) of various recursively implemented algorithms is a comm
 ## Lectures & Assignments
 
 1. [Lecture: Intro to Recursion & the Call Stack](./intro-recursion-the-call-stack.md)
-  a. Assignment - Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.  
-  b. Assignment - Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
-  c. Assignment - Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
+  - Assignment - Do the [recursive loop](https://github.com/Code-Platoon-Assignments/recursive-loop) problem.  
+  - Assignment - Put your "recursive loop" solution into [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
+  - Assignment - Do the [recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
@@ -40,9 +40,9 @@ These get progressively harder. Consider doing the non-leetcode problems as a gr
 
 *Stretch Goal -- in leetcode, do the [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/) problem again recursively, and, in leetcode implement [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) recursively - this solution should have a O(log n) runtime complexity.*
 
-- [Flatten List](https://github.com/echoplatoonew/FlattenList)
-- [Smallest Node](https://github.com/echoplatoonew/smallest-node)
-- [Binary Search](https://github.com/echoplatoonew/binary-search)
+- [Flatten List](https://github.com/Code-Platoon-Assignments/FlattenList.git)
+- [Smallest Node](https://github.com/Code-Platoon-Assignments/smallest-node.git)
+- [Binary Search](https://github.com/Code-Platoon-Assignments/binary-search.git)
 
 ## TLO's (Testable Learning Objectives)
 
