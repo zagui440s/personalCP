@@ -8,7 +8,7 @@ Prequesites are Big O, recursion, and other data structures like stacks, queues,
 
 There is a decent chance that if you get a data structures question in a tech interview, it might involve a tree.
 
-Trees are one of the classic introductory data structures, in addition stacks and queues and linked lists, and are used all the time. A filesystem is a tree. A DOM is a tree.
+Trees are one of the classic introductory data structures, in addition stacks and queues and linked lists, and are used all the time. A filesystem is a tree. [The DOM is a tree as you can see in this excellent visualizer here](https://bioub.github.io/dom-visualizer/).
 
 Trees also can tie together many of the concepts - recursion, big-o, and building data structures - quite nicely.
 
@@ -24,7 +24,7 @@ You will learn about the very powerful concept of a binary search.
 
   - Assignment: [Binary Search - Search Insert Position](https://leetcode.com/problems/search-insert-position/) (you may have done this already, but can now solve it with the `O(log n))` solution)
 
-  - Assignment: [Binary Tree - Maximum Depth](https://leetcode.com/problems/maximum-depth-of-binary-tree/). The main idea here is that you can 'descend' the tree to the bottom using recursion and 'bubble up' the answer using return statements ## TLO's (Testable Learning Objectives)
+  - Assignment: [Binary Tree - Maximum Depth](https://leetcode.com/problems/maximum-depth-of-binary-tree/). The main idea here is that you can 'descend' the tree to the bottom using recursion and 'bubble up' the answer using return statements.
 
   - Assignment: Read [How Data Structures are actually used in the industry](https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/amp/). There is a focus on trees. **Do not skip this.**
 
