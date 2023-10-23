@@ -14,6 +14,7 @@ def read_student_data(filename):
         with open(filename, mode='r', newline='') as file:
             reader = csv.DictReader(file)
             for row in reader:
+                print(row)
                 student = Student(**row)
                 students.append(student)
     except FileNotFoundError:

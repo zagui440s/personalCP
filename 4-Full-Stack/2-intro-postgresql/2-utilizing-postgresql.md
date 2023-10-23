@@ -145,6 +145,74 @@ SELECT * FROM students;
 
 By following these common practices and using the provided SQL script snippet, you can efficiently design a PostgreSQL database schema, insert data, and retrieve information from your database, making you proficient in crafting SQL scripts for PostgreSQL.
 
+### 4. SQL QUERIES
+
+Great, I see you have provided a database schema and some sample data for a table called "students." Let's write a series of SQL queries to retrieve data from this table with explanations for each query:
+
+1. **Select All Students:**
+
+   ```sql
+   SELECT * FROM students;
+   ```
+
+   Explanation: This query retrieves all the rows from the "students" table. The asterisk (*) represents all columns in the table. This is a simple way to view all student records.
+
+2. **Select Specific Columns:**
+
+   ```sql
+   SELECT first_name, last_name FROM students;
+   ```
+
+   Explanation: This query selects only the "first_name" and "last_name" columns from the "students" table. It limits the output to these specific columns, which can be useful when you only need certain information.
+
+3. **Filter Students by Grade:**
+
+   ```sql
+   SELECT * FROM students WHERE grade = 'A';
+   ```
+
+   Explanation: This query retrieves all the students who have a grade of 'A'. The `WHERE` clause filters the rows based on the specified condition.
+
+4. **Count Students by Grade:**
+
+   ```sql
+   SELECT grade, COUNT(*) as grade_count FROM students GROUP BY grade;
+   ```
+
+   Explanation: This query counts the number of students for each grade and groups the results by the "grade" column. The `COUNT(*)` function calculates the number of rows in each group.
+
+5. **Retrieve Students by Age Range:**
+
+   ```sql
+   SELECT * FROM students WHERE age BETWEEN 18 AND 19;
+   ```
+
+   Explanation: This query retrieves students whose age falls within the range of 18 to 19 (inclusive). The `BETWEEN` keyword is used for specifying a range condition.
+
+6. **Sort Students by Last Name:**
+
+   ```sql
+   SELECT * FROM students ORDER BY last_name;
+   ```
+
+   Explanation: This query retrieves all students and orders the result set in ascending order based on the "last_name" column. To sort in descending order, you can use `ORDER BY last_name DESC`.
+
+7. **Limit the Number of Results:**
+
+   ```sql
+   SELECT * FROM students LIMIT 3;
+   ```
+
+   Explanation: This query retrieves the first three rows from the "students" table. The `LIMIT` clause is used to restrict the number of rows returned.
+
+8. **Combine Conditions with AND and OR:**
+
+   ```sql
+   SELECT * FROM students WHERE grade = 'A' AND age > 18 OR grade = 'B';
+   ```
+
+   Explanation: This query retrieves students with a grade of 'A' and an age greater than 18 OR students with a grade of 'B'. The `AND` and `OR` operators are used to combine multiple conditions.
+
 ### 5. Conclusion
 
 Summarize the key takeaways from the lecture, highlighting the significance of PostgreSQL as a powerful RDBMS. You'll understand why PostgreSQL is a preferred choice for a wide range of applications and how to perform essential tasks like importing and exporting data, writing SQL scripts, and designing efficient database schemas. This knowledge forms a solid foundation for your journey into working with PostgreSQL and mastering the art of database management.
