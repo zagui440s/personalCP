@@ -10,7 +10,7 @@ By learning about Relational Database Management Systems (RDBMS), you are aiming
   - Reading Assignment: [Databases/SQL](https://learn.coderslang.com/0118-introduction-to-relational-databases-and-sql/)
   - Read about [SQL Queries](https://github.com/Code-Platoon-Curriculum/curriculum/blob/main/page-resources/sql-queries.md)
 - [Lesson - Utilizing PostgreSQL](./2-utilizing-postgresql.md)
-  - [SQL Basics](https://classroom.github.com/a/mPFBqEbK)
+  - [SQL Basics](https://github.com/Code-Platoon-Assignments/sql-basics)
   - [SQL Zoo](http://sqlzoo.net/)
 
 ## TLO's (Testable Learning Objectives)
