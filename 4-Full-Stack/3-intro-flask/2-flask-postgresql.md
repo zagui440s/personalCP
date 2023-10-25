@@ -4,7 +4,7 @@ In the previous lecture, we created a Flask server that serves student data from
 
 ## Table of Contents
 
-1. [Using SQLAlchemy to Connect Flask and PostgreSQL](#1-using-sqlalchemy-to-connect-flask-and-postgresql)
+1. [Using SQLAlchemy & Psycopg2 to Connect Flask and PostgreSQL](#1-using-sqlalchemy--psycopg2-to-connect-flask-and-postgresql)
 2. [Modifying the Flask Server](#2-modifying-the-flask-server)
 3. [Retrieving Data from PostgreSQL](#3-retrieving-data-from-postgresql)
 
