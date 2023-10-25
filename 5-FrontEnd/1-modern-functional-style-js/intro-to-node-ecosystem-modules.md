@@ -11,7 +11,6 @@ The agony and the ecstasy of:
 - node projects
 - CommonJS vs ESModules, i.e. require vs import/export
 
-
 ---
 
 ## in other words ...
@@ -20,7 +19,86 @@ Modern JS!
 
 ---
 
-## Project scaffolding and setup
+
+## TLO's - Hard Skills
+
+---
+
+### npm & node.js projects
+
+- Create a new node project with npm
+- Install npm modules as dependencies
+- Create and run npm scripts
+- Understand the standard node.js project structure  & best practice
+- Run tests with jest
+- Install & run an existing node.js project 
+
+---
+
+### JS Modules
+
+- Recognize the old CommonJS module if you see it (`require()`)
+- Import / export JS code with the preferred new ESModule
+  - Using relative paths
+  - Can do both named and default exports
+
+---
+
+## ELO's -- Concepts & Contextual Knowledge
+
+---
+
+### node.js
+
+- Explain at a high level what node.js is and what it lets us do
+
+### npm & node.js projects
+
+- Be able to read and understand a package.json file
+
+### JS Modules
+
+- Able to explain why there are two module systems for JS and which one is preferred
+
+---
+
+## Table of Contents
+
+1. What is node.js? Running JS in the browser vs node.js
+2. Creating a new node.js project
+3. Installing npm modules
+4. Adding a test
+4. npm scripts
+5. Project structure & package.json
+6. Tests
+7. JS Modules - Importing and Exporting
+8. Installing & running an existing node.js project
+
+---
+
+## What is npm
+
+Node
+
+Package
+
+Manager
+
+https://docs.npmjs.com/about-npm
+
+---
+
+### npm is 3 things
+
+1. [The website](https://www.npmjs.com/) where you can search for public node.js modules to use. Such as the [uuid module](https://www.npmjs.com/package/uuid)
+2. [The CLI program npm](https://docs.npmjs.com/cli/v10/commands/npm) you use to create node.js projects, install modules, and build/run/manage your projects.
+3. [The registry](https://docs.npmjs.com/cli/v10/using-npm/registry) where all public the node.js module info is stored. This is what you search with the website. 
+
+**The CLI tool npm is what we use most directly**
+
+---
+
+## Creating a new node.js project with npm
 
 ---
 
@@ -37,13 +115,21 @@ First, create your project directory and navigate to it.
 
 ### Initialize the node project
 
-Now run `npm init` in the project root directory to initialize an npm project. Follow all the steps below.
+Run this in our project root directory:
+
+```bash
+> npm init
+``` 
+
+Follow all the steps below.
 
 1. For "package name" put `video-store`,  you will see why shortly.
 2. **When it prompts you for an entry point**, put `app.js`
 3. Just leave everything else blank and hit enter for now. If you want to experiment, feel free, it should not break anything.
 
 ---
+
+### Entry point?
 
 The npm init CLI asked us for an **entry point** -- this is the file path (which includes the file name) that node and npm will use when searching through files for dependencies (other files/modules we are importing, etc).
 
@@ -55,19 +141,198 @@ We set our entry point to `app.js`. Lets create that file now. Run this in your 
 > touch app.js
 ```
 
-Add `console.log('hello, world!)` to line one of `app.js` and then run:
+Add this to `app.js`
+```js
+console.log('hello, world!)
+
+function createStore() {
+  return {
+    customers: [],
+    videos: [],
+  }
+}
+
+console.log('video store is ', createStore())
+```
+
+---
+
+... and then run:
 
 ```bash
 > node app.js
 ```
 
+We should see:
+
+```bash
+hello, world!
+video store is  { customers: [], videos: [] }
+```
+
 ---
 
-It is **always** a good idea to continuously ensure - usually by running code or tests - that your program is in a good state, i.e. that it runs without errors `and does what you are expecting it to do. This is the easiest way to catch typos and programmer error early before they metastasize and suck up hours of debugging. 
+We will discuss more what an "entry point" is later. Now let's talk about ...
 
 ---
 
-### Sidebar 
+### Installing npm modules
+
+1. Look at the module on npmjs and on its github.
+
+2. Look at its docs to see how to use it.
+
+3. Install it with npm **and save it to the package.json file**.
+
+4. Run some code to make sure we can use it correctly.
+
+---
+
+#### 1. Look at the [uuid module on npmjs](https://www.npmjs.com/package/uuid)
+
+![npmjs-site-npm-module](./page-resources/npmjs-site-an-npm-module.png)
+
+---
+
+#### 2. Look at its docs to see how to use it
+
+- The npm page for uuid points us to its github, [which has a quickstart in the README](https://github.com/uuidjs/uuid#quickstart)
+
+- Usually but not always the github page for an npm module has instructions in the README on how to use it.
+
+- Skip this step at your own peril.
+
+---
+
+#### 3. Install it and save it to  the `package.json` file.
+
+```bash
+> npm install --save uuid
+```
+
+![installing-npm-module-anatomy](./page-resources/installing-npm-modules-anatomy.png)
+
+---
+
+#### Sidebar: package.json and node_modules/
+
+- `npm init` creates it.
+- It is a normal JSON file that is treated in a special way by npm.
+- It must always be in the **root directory** of the project.
+- Every node module must have one. Every project where you use npm must have one.
+
+---
+
+- It can do a LOT of stuff. Most critically:
+  - dependencies
+  - scripts
+  - project info
+- npm automatically creates `package-lock.json` when you install a module.
+- package-lock.json has the **specific** version info of a module.
+
+---
+
+- The `node_modules/` directory is where the code of an npm module actually gets installed.
+- Never modify it directly.
+- Don't check it into version control - use a `.gitignore file`
+- Always check `package.json` and `package-lock.json` into version control.
+
+---
+
+#### 4. Run some code to make sure things work
+
+Add this to `app.js`
+
+```javascript
+const uuid = require('uuid');
+
+const uuidv4 = uuid.v4;
+
+console.log('hello, world!') // THIS WAS ALREADY IN OUR CODE
+const myUUID = uuidv4(); // Create a version 4 UUID
+console.log('uuid is ', myUUID);
+
+// ... all our other code is below this line ...
+
+```
+
+- Require or Import statements MUST be at the top of the file.
+- Put the other code right after our 'hello world'. Not required but recommended.
+- The `require` is a CommonJS module way of importing. This is the **old** way. We'll see the new way - ESModules - in a bit.
+
+---
+
+Our output should be:
+
+```bash
+> node app.js
+hello, world!
+uuid is  ce9f46f1-5b50-4ca8-94f5-60146367e847
+video store is  { customers: [], videos: [] }
+```
+
+*Note: Your actual uuid value will be different*
+
+---
+
+Just to wrap things up lets do something useful with our uuid module! Add this code to `app.js`
+
+```javascript
+function createCustomer(name) {
+  return {
+    name: name.toLowerCase(),
+    id: uuidv4(),
+  }
+}
+
+console.log('new customer ', createCustomer('Alice'));
+```
+
+Output for this new code should be:
+
+```bash
+new customer { name: 'alice', id: 'ce9f46f1-5b50-4ca8-94f5-60146367e847' }
+```
+
+*Note: your uuid value will be different.*
+
+---
+
+### Adding tests & intro to npm scripts
+
+1. [Install jest](https://www.npmjs.com/package/jest)
+2. Write a test for `createStore()`
+3. Run it
+4. Use an npm script to run it
+5. Refactor our project to have `src/` and `test/` directories.
+6. Write another test just for fun.
+
+---
+
+#### 1. Install jest
+
+```bash
+> npm install --save-dev jest
+
+```
+
+... wait a minute - what is `--save-dev` ?
+
+---
+
+#### Sidebar: devDependencies
+
+When we run `npm install <MY_MODULE> --save-dev, the module info is added to `package.json` under `devDependencies`, NOT `dependencies`.
+
+---
+
+
+![npm-install-save-dev-package-json](./page-resources/npm-install-save-dev-package-json.png)
+
+---
+
+
+### Sidebar
 
 #### what is an npm module?
 
