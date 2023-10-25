@@ -8,7 +8,7 @@ In the previous lecture, we created a Flask server that serves student data from
 2. [Modifying the Flask Server](#2-modifying-the-flask-server)
 3. [Retrieving Data from PostgreSQL](#3-retrieving-data-from-postgresql)
 
-## 1. Using SQLAlchemy to Connect Flask and PostgreSQL
+## 1. Using SQLAlchemy & Psycopg2 to Connect Flask and PostgreSQL
 
 To connect Flask to PostgreSQL, we will use SQLAlchemy, a popular Object Relational Mapping (ORM) library for Python. SQLAlchemy provides an easy and efficient way to interact with databases.
 
@@ -16,6 +16,12 @@ First, make sure you have SQLAlchemy installed. You can install it using `pip`:
 
 ```bash
 pip install Flask-SQLAlchemy
+```
+
+Secondly, we want to ensure our Python code is able to be interpreted as SQL queries and that our Query results are able to be interpreted as Python code. In order to do this we will need to install psycopg2, a Python library that facilitates seamless communication between Python programs and PostgreSQL databases, through `pip`
+
+```bash
+pip install psycopg2
 ```
 
 ## 2. Modifying the Flask Server
