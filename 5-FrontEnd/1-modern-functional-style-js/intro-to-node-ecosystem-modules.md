@@ -167,7 +167,7 @@ video store is  { customers: [], videos: [] }
 
 ---
 
-### 3. Install it and save it to  the `package.json` file.
+### 3. Install it and save it to  the `package.json` file
 
 ```bash
 > npm install --save uuid
@@ -500,9 +500,13 @@ ReferenceError: uuidv4 is not defined
 
 ## npm scripts
 
+1. Creating a 'start' npm script.
+2. npm scripts can call other npm scripts
+3. "npm start" and "npm test" - special scripts.
+
 ---
 
-### Creating a 'start' npm script
+### 1. Creating a 'start' npm script
 
 Now lets modify `package.json`. We are going to add an *npm script* we can call to run our program for us.
 
@@ -517,24 +521,64 @@ Modify the `scripts` object so it has a property named `start`. It should look m
 ```json
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node src/app.js"
   },
 ```
 
 ---
 
-As your node projects become more complex, this is a standard practice. Many frontend build tools, like *vite* or *create-react-app* actually do this for you.
+#### Running it
+
+```bash
+> npm run start
+```
+
+- As your node projects become more complex, a run/start script is a standard practice. Many frontend build tools, like *vite* or *create-react-app* actually do this for you.
 
 ---
+
+### 2. npm scripts can call other scripts
+
+```json
+  "scripts": {
+    "bar": "echo 'goodbye, world!'",
+    "foo": "npm run bar",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+```
+
+```bash
+> npm run bar
+> npm run foo
+```
+
+- Pretty much anything we can run on the command line we can put in an npm script.
+- npm scripts can call other npm scripts.
+
+---
+
+### 3. `npm start` and `npm test`
+
+- Some special script names, like "start" and "test", are so standard, we can use a shorthand:
+  - `npm start` instead of `npm run start`
+  - `npm test` instead of `npm run start`
+- [npm scripts have many cool features](https://docs.npmjs.com/cli/v10/using-npm/scripts)
+
+```bash
+> npm start # this should work
+> npm foo # this should fail
+```
+
+---
+
 
 ## Adding a test and devDependencies
 
 1. [Install jest](https://www.npmjs.com/package/jest)
-2. Write a test for `createStore()`
-3. Run it
-4. Use an npm script to run it
-5. Refactor our project to have `src/` and `test/` directories.
-6. Write another test just for fun.
+2. Add an npm script "test"
+3. Write a test for `createStore()`
+4. Run it
 
 ---
 
