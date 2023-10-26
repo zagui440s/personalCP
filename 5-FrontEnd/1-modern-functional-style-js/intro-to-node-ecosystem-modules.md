@@ -1,78 +1,37 @@
-# Intro to the node project ecosystem
-
----
-
-## aka
-
-The agony and the ecstasy of:
-
-- npm vs yarn
-- package.json
-- node projects
-- CommonJS vs ESModules, i.e. require vs import/export
-
----
-
-## in other words ...
-
-Modern JS!
-
----
-
-
-## TLO's - Hard Skills
-
----
-
-### npm & node.js projects
-
-- Create a new node project with npm
-- Install npm modules as dependencies
-- Create and run npm scripts
-- Understand the standard node.js project structure  & best practice
-- Run tests with jest
-- Install & run an existing node.js project 
-
----
-
-### JS Modules
-
-- Recognize the old CommonJS module if you see it (`require()`)
-- Import / export JS code with the preferred new ESModule
-  - Using relative paths
-  - Can do both named and default exports
-
----
-
-## ELO's -- Concepts & Contextual Knowledge
-
----
-
-### node.js
-
-- Explain at a high level what node.js is and what it lets us do
-
-### npm & node.js projects
-
-- Be able to read and understand a package.json file
-
-### JS Modules
-
-- Able to explain why there are two module systems for JS and which one is preferred
+# Node.js projects, npm, and Importing/Exporting
 
 ---
 
 ## Table of Contents
 
-1. What is node.js? Running JS in the browser vs node.js
-2. Creating a new node.js project
-3. Installing npm modules
-4. Adding a test
-4. npm scripts
-5. Project structure & package.json
-6. Tests
-7. JS Modules - Importing and Exporting
-8. Installing & running an existing node.js project
+1. [What is npm](#what-is-npm)
+2. [Creating a new node.js project](#creating-a-new-nodejs-project)
+3. [Installing npm modules & importing with CommonJS](#installing-npm-modules)
+4. [Adding a test & Installing a devDependency](#adding-a-test-and-devdependencies)
+5. [Node.js project structure](#nodejs-project-structure)
+6. [npm scripts](#npm-scripts)
+7. [Importing and Exporting with ES6 Modules](#importing-and-exporting-with-es6-modules)
+8. [Using an existing node.js project](#using-an-exising-nodejs-project)
+
+---
+
+## TLO's - Hard Skills
+
+- Create a new node project with npm
+- Install npm modules as dependencies
+- Basic use of Import/Export with CommonJS modules
+- Run tests with jest
+- Understand the standard node.js project structure  & best practice
+- Create and run npm scripts
+- Import/Export code with ES6 Modules as both default and named exports
+- Install & run an existing node.js project
+
+---
+
+## ELO's -- Concepts & Contextual Knowledge
+
+- Be able to read and understand a package.json file
+- Able to identify the two different module systems (CommonJS/ES6Modules) and which is preferred/best practice.
 
 ---
 
@@ -98,11 +57,17 @@ https://docs.npmjs.com/about-npm
 
 ---
 
-## Creating a new node.js project with npm
+## Creating a new node.js project
+
+1. Create project dir.
+
+2. Initialize the project - run `npm init` to create a `package.json` file.
+
+3. Create our entrypoint file and run a "hello world" check.
 
 ---
 
-### Initial setup - create the project
+### 1. Initial setup - create the project
 
 First, create your project directory and navigate to it.
 
@@ -113,7 +78,7 @@ First, create your project directory and navigate to it.
 
 ---
 
-### Initialize the node project
+### 2. Initialize the node project
 
 Run this in our project root directory:
 
@@ -124,12 +89,14 @@ Run this in our project root directory:
 Follow all the steps below.
 
 1. For "package name" put `video-store`,  you will see why shortly.
+
 2. **When it prompts you for an entry point**, put `app.js`
+
 3. Just leave everything else blank and hit enter for now. If you want to experiment, feel free, it should not break anything.
 
 ---
 
-### Entry point?
+### 3. Entry point?
 
 The npm init CLI asked us for an **entry point** -- this is the file path (which includes the file name) that node and npm will use when searching through files for dependencies (other files/modules we are importing, etc).
 
@@ -172,11 +139,7 @@ video store is  { customers: [], videos: [] }
 
 ---
 
-We will discuss more what an "entry point" is later. Now let's talk about ...
-
----
-
-### Installing npm modules
+## Installing npm modules
 
 1. Look at the module on npmjs and on its github.
 
@@ -188,13 +151,13 @@ We will discuss more what an "entry point" is later. Now let's talk about ...
 
 ---
 
-#### 1. Look at the [uuid module on npmjs](https://www.npmjs.com/package/uuid)
+### 1. Look at the [uuid module on npmjs](https://www.npmjs.com/package/uuid)
 
 ![npmjs-site-npm-module](./page-resources/npmjs-site-an-npm-module.png)
 
 ---
 
-#### 2. Look at its docs to see how to use it
+### 2. Look at its docs to see how to use it
 
 - The npm page for uuid points us to its github, [which has a quickstart in the README](https://github.com/uuidjs/uuid#quickstart)
 
@@ -204,7 +167,7 @@ We will discuss more what an "entry point" is later. Now let's talk about ...
 
 ---
 
-#### 3. Install it and save it to  the `package.json` file.
+### 3. Install it and save it to  the `package.json` file.
 
 ```bash
 > npm install --save uuid
@@ -214,32 +177,7 @@ We will discuss more what an "entry point" is later. Now let's talk about ...
 
 ---
 
-#### Sidebar: package.json and node_modules/
-
-- `npm init` creates it.
-- It is a normal JSON file that is treated in a special way by npm.
-- It must always be in the **root directory** of the project.
-- Every node module must have one. Every project where you use npm must have one.
-
----
-
-- It can do a LOT of stuff. Most critically:
-  - dependencies
-  - scripts
-  - project info
-- npm automatically creates `package-lock.json` when you install a module.
-- package-lock.json has the **specific** version info of a module.
-
----
-
-- The `node_modules/` directory is where the code of an npm module actually gets installed.
-- Never modify it directly.
-- Don't check it into version control - use a `.gitignore file`
-- Always check `package.json` and `package-lock.json` into version control.
-
----
-
-#### 4. Run some code to make sure things work
+### 4. Run some code to make sure things work
 
 Add this to `app.js`
 
@@ -255,10 +193,6 @@ console.log('uuid is ', myUUID);
 // ... all our other code is below this line ...
 
 ```
-
-- Require or Import statements MUST be at the top of the file.
-- Put the other code right after our 'hello world'. Not required but recommended.
-- The `require` is a CommonJS module way of importing. This is the **old** way. We'll see the new way - ESModules - in a bit.
 
 ---
 
@@ -298,43 +232,34 @@ new customer { name: 'alice', id: 'ce9f46f1-5b50-4ca8-94f5-60146367e847' }
 
 ---
 
-### Adding tests & intro to npm scripts
+### Sidebar: `package.json`
 
-1. [Install jest](https://www.npmjs.com/package/jest)
-2. Write a test for `createStore()`
-3. Run it
-4. Use an npm script to run it
-5. Refactor our project to have `src/` and `test/` directories.
-6. Write another test just for fun.
+- `npm init` creates it.
+- It is a normal JSON file that is treated in a special way by npm.
+- It must always be in the **root directory** of the project.
+- Every node module must have one. Every project where you use npm must have one.
 
 ---
 
-#### 1. Install jest
-
-```bash
-> npm install --save-dev jest
-
-```
-
-... wait a minute - what is `--save-dev` ?
+- It can do a LOT of stuff. Most critically:
+  - dependencies
+  - scripts
+  - project info
+- npm automatically creates `package-lock.json` when you install a module.
+- package-lock.json has the **specific** version info of a module.
 
 ---
 
-#### Sidebar: devDependencies
+### Sidebar: `node_modules/`
 
-When we run `npm install <MY_MODULE> --save-dev, the module info is added to `package.json` under `devDependencies`, NOT `dependencies`.
-
----
-
-
-![npm-install-save-dev-package-json](./page-resources/npm-install-save-dev-package-json.png)
+- The `node_modules/` directory is where the code of an npm module actually gets installed.
+- Never modify it directly.
+- Don't check it into version control - use a `.gitignore file`
+- Always check `package.json` and `package-lock.json` into version control.
 
 ---
 
-
-### Sidebar
-
-#### what is an npm module?
+### Sidebar: What is an npm module?
 
 ---
 
@@ -354,50 +279,53 @@ When we run `npm install my-module`, npm checks the npmjs server to see where to
 
 ---
 
-#### Back to - what is an entry point?
+### Sidebar: `require()`
 
-We set our entry point to `app.js`
-
-**If someone else has downloaded our module using `npm install`, and then uses `require` to import and run our module in their program - this is the file that gets run.**
-
-**Like so ...**
+- ALWAYS put Require or Import statements at the top of the file.
+- The `require` is a CommonJS module way of importing. This is the **old** way. We'll see the new way - ES6Modules - in a bit.
+- `require()` is becoming outdated but every now and then you need to use it. After today, you should avoid it.
 
 ---
 
+## Adding a test and devDependencies
 
-*example of another person using our program in their code*
+1. [Install jest](https://www.npmjs.com/package/jest)
+2. Write a test for `createStore()`
+3. Run it
+4. Use an npm script to run it
+5. Refactor our project to have `src/` and `test/` directories.
+6. Write another test just for fun.
 
-```js
-// runs our program by executing whatever is in `app.js`
-// Note that they use the *name* of our npm module, which we specified
-// when we ran `npm init`
-const videoStore = require(video-store);
+---
 
-// lets pretend our module actually does stuff ...
-videoStore.addCustomer('Alice');
+### 1. Install jest
+
+```bash
+> npm install --save-dev jest
+
 ```
 
----
-
-### Best practice -- Getting oriented
-
-For a new project, always get oriented.
+... wait a minute - what is `--save-dev` ?
 
 ---
 
-It's always a good idea to take a few minutes to look at the config files and directory structure of a new project. Let's do that now.
+### Sidebar: devDependencies
+
+When we run `npm install <MY_MODULE> --save-dev, the module info is added to `package.json` under `devDependencies`, NOT `dependencies`.
 
 ---
 
-#### package.json
+![npm-install-save-dev-package-json](./page-resources/npm-install-save-dev-package-json.png)
 
-Look at the `package.json` file. This was created when we ran `npm init`. We don't have to modify it yet, just check it out. It is a good habit to always look at the `package.json` file of a project to get a sense of its structure, dependencies, and npm scripts.
+---
+
+## NodeJS Project Structure
 
 ---
 
 #### .gitignore
 
-Look at the `.gitignore` file. Wait! We don't have that yet - it doesn't exist. Why do we want one?
+Let's look at our `.gitignore` file. Wait! We don't have that yet - it doesn't exist. Why do we want one?
 
 - The `.gitignore` file tells whatever git repo (ie whatever directory) its in to *ignore* certain files and folders.
 
@@ -447,18 +375,7 @@ cat .gitignore
 
 ---
 
-### Wait ... node_modules?
-
-The `node_modules/` directory is where our *dependencies* - npm packages (aka node modules) get installed. We will investigate this more shortly.
-
----
-
-
-(which was included in this repo). When you create a github repo you can choose a default `.gitignore` file and one option is specifically for node.js projects, which is what was used here.
-
----
-
-Note that the `node_modules/` directory is in there, which means that git will ignore everything in `node_modules/`. This is good, as we don't want to check dependencies into version control.
+## npm scripts
 
 ---
 
@@ -484,3 +401,33 @@ Modify the `scripts` object so it has a property named `start`. It should look m
 ---
 
 As your node projects become more complex, this is a standard practice. Many frontend build tools, like *vite* or *create-react-app* actually do this for you.
+
+---
+
+## Importing and Exporting with ES6 Modules
+
+---
+
+## Using an exising NodeJS project
+
+---
+
+### Best practice -- Getting oriented
+
+For a new project, always get oriented.
+
+---
+
+It's always a good idea to take a few minutes to look at the config files and directory structure of a new project. Let's do that now.
+
+---
+
+#### package.json
+
+1. What `dependencies` and `devDependencies` are there?
+
+2. What npm scripts are there?
+
+3. Are ES6 modules enabled for this project?
+
+---
