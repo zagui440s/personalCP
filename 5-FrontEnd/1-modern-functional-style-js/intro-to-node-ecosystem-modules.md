@@ -289,9 +289,17 @@ When we run `npm install my-module`, npm checks the npmjs server to see where to
 
 ## NodeJS Project Structure
 
+1. Always add a `.gitignore` file
+
+2. Always add a README.
+
+3. Create `src/`, `tests/`, and `mocks/` dirs.
+
+4. Don't clutter `app.js` -- code you re-use (import/export) should go in different files.
+
 ---
 
-#### .gitignore
+### 1. Always add a .gitignore file
 
 Let's look at our `.gitignore` file. Wait! We don't have that yet - it doesn't exist. Why do we want one?
 
@@ -301,7 +309,7 @@ Why do we want to do that?
 
 ---
 
-##### Stuff we want to ignore
+#### Stuff we want to ignore
 
 - Log files with error messages and such, which we don't want to check into version control (put into our projects github).
 
@@ -313,21 +321,19 @@ Why do we want to do that?
 
 ---
 
-##### Best Practice
+#### Best Practice
 
-Don't check dependencies (modules or libraries you install with a package manager) into version control.
+- Don't check dependencies into version control.
 
-They take up space, and you often want to grab the latest version.
+- They take up space, and you often want to grab the latest version.
 
-Instead, check the **dependency name and version** into version control.
+- Instead, check the **dependency name and version** into version control.
 
-- In JS with npm this is done in `package.json`
-- In Python with pip this is done in `requirements.txt`
+- For node.js projects this is done with `package.json` and `package-lock.json`
 
 ---
 
 #### ... Back to creating that `.gitignore` file:
-
 
 ```bash
 > echo 'node_modules' >  .gitignore
@@ -337,9 +343,158 @@ This creates the file and appends "node_modules" to it.
 You can run these commands to confirm the file was created correctly and contains what it should:
 
 ```bash
-ls -a 
-cat .gitignore
+> ls -a 
+> cat .gitignore
 ```
+
+---
+
+### 2. Always create a README
+
+- `README.md` should go in the project root dir - the same dir `package.json` is in
+- It should contain a brief description of the project.
+- It should contain **instructions on how to install and run the project.**
+
+---
+
+```bash
+> touch README.md
+```
+
+Add something like ...
+
+```markdown
+# Video store
+
+A video store program.
+
+## Installing
+1. Clone this project
+2. Run `npm install`
+
+## Running
+To run, run `npm start`
+```
+
+- We will shortly what `npm start` is.
+
+---
+
+### 3. Create `src/`, `tests/`, and `mocks/` dirs
+
+```bash
+> mkdir src tests mocks
+> ls
+> mv app.js srcs/
+> ls srcs/
+```
+
+---
+
+![src-test-mocks](./page-resources/src-test-mocks.png)
+
+- Source code (our program) goes in `src/`
+- Test code goes in `tests/`
+- Mock data (sample data) goes in `mocks/`
+
+---
+
+### 4. Don't clutter `app.js` -- code you re-use (import/export) should go in different files
+
+- Keeps our code organized.
+- Makes it easier to import functions, etc, to test.
+- Makes `app.js` easier to read and understand.
+
+---
+
+1. Move `createStore()` into it's own file.
+2. Export it the old way (CommonJS Module)
+3. Import the old way into `app.js`
+4. Rinse and repeat with `createCustomer()`
+
+---
+
+#### 1. Move `createStore()` into it's own file
+
+```bash
+> touch src/store.js
+> code src/store.js
+```
+
+```javascript
+// store.js
+
+function createStore() {
+    return {
+        customers: [],
+        videos: [],
+    }
+}
+```
+
+---
+
+#### 2. Export it the old way (CommonJS Module)
+
+```javascript
+// store.js
+
+function createStore() {
+    return {
+        customers: [],
+        videos: [],
+    }
+}
+
+// This is an object. createStore() is a property on it. 
+// When we call `require('./store.js)` in another file, 
+// it **returns** this object!
+module.exports = {
+  createStore // shorthand for `createStore: createStore`
+}
+```
+
+---
+
+#### 3. Import the old way into `app.js`
+
+```javascript
+const uuid = require('uuid');
+const store = require('./store')
+
+/* other code we don't care about right now ... */
+
+console.log('video store is ', store.createStore())
+```
+
+Make sure it works:
+
+```bash
+> node src/app.js
+```
+
+---
+
+#### How CommonJS import/export works
+
+![commonjs-import-export-createstore](./page-resources/commonjs-import-export-createstore.png)
+
+---
+
+#### 4. Rinse and repeat with `createCustomer()`
+
+- Create a file named `src/customer.js`
+- Move the `createCustomer()` function into it from `src/app.js`
+- Export it from `src/customer.js` and into `src/app.js` like we did with `createCustomer()`
+- Run `src/app.js`
+
+**Did you get an error?**
+
+```bash
+ReferenceError: uuidv4 is not defined
+```
+
+*What extra step do we have to do?*
 
 ---
 
