@@ -7,9 +7,9 @@
 1. [What is npm](#what-is-npm)
 2. [Creating a new node.js project](#creating-a-new-nodejs-project)
 3. [Installing npm modules & importing with CommonJS](#installing-npm-modules)
-4. [Adding a test & Installing a devDependency](#adding-a-test-and-devdependencies)
-5. [Node.js project structure](#nodejs-project-structure)
-6. [npm scripts](#npm-scripts)
+4. [Node.js project structure](#nodejs-project-structure)
+5. [npm scripts](#npm-scripts)
+6. [Adding a test & Installing a devDependency](#adding-a-test-and-devdependencies)
 7. [Importing and Exporting with ES6 Modules](#importing-and-exporting-with-es6-modules)
 8. [Using an existing node.js project](#using-an-exising-nodejs-project)
 
@@ -287,38 +287,6 @@ When we run `npm install my-module`, npm checks the npmjs server to see where to
 
 ---
 
-## Adding a test and devDependencies
-
-1. [Install jest](https://www.npmjs.com/package/jest)
-2. Write a test for `createStore()`
-3. Run it
-4. Use an npm script to run it
-5. Refactor our project to have `src/` and `test/` directories.
-6. Write another test just for fun.
-
----
-
-### 1. Install jest
-
-```bash
-> npm install --save-dev jest
-
-```
-
-... wait a minute - what is `--save-dev` ?
-
----
-
-### Sidebar: devDependencies
-
-When we run `npm install <MY_MODULE> --save-dev, the module info is added to `package.json` under `devDependencies`, NOT `dependencies`.
-
----
-
-![npm-install-save-dev-package-json](./page-resources/npm-install-save-dev-package-json.png)
-
----
-
 ## NodeJS Project Structure
 
 ---
@@ -404,11 +372,69 @@ As your node projects become more complex, this is a standard practice. Many fro
 
 ---
 
+## Adding a test and devDependencies
+
+1. [Install jest](https://www.npmjs.com/package/jest)
+2. Write a test for `createStore()`
+3. Run it
+4. Use an npm script to run it
+5. Refactor our project to have `src/` and `test/` directories.
+6. Write another test just for fun.
+
+---
+
+### 1. Install jest
+
+```bash
+> npm install --save-dev jest
+
+```
+
+... wait a minute - what is `--save-dev` ?
+
+---
+
+### Sidebar: devDependencies
+
+```bash
+> npm install <MY_MODULE> --save-dev 
+```
+
+When we run this, the module info is added to `package.json` under `devDependencies`, NOT `dependencies`.
+
+---
+
+![npm-install-save-dev-package-json](./page-resources/npm-install-save-dev-package-json.png)
+
+---
+
+### 2. Write a test for `createStore()`
+
+---
+
 ## Importing and Exporting with ES6 Modules
+
+1. Modify package.json so we can use ES6 Modules
+
+2. Refactor our existing code
+
+3. Default exports vs named exports
+
+4. Absolute vs relative paths
 
 ---
 
 ## Using an exising NodeJS project
+
+1. Read the README
+
+2. Clone the project if its on github.
+
+3. Install npm modules with `npm install`
+
+4. Get oriented.
+
+5. Run it to make sure it works.
 
 ---
 
