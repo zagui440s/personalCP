@@ -1,0 +1,38 @@
+[
+    {
+      "id": "tt6615224",
+      "title": "A Snowy Day in Oakland",
+      "imgUrl": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/231006/asnowydayinoakland-posterart.jpg",
+      "copiesAvailable": 0,
+      "totalAvailable": 4,
+      "rating": "PG-13",
+      "description": "It snows one dat in Oakland and everybody is talking about it! Wow, it snowed! In Oakland? Wow! Someone should make a movie about this. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "tt10151854",
+      "title": "Shazam: Fury of the Gods",
+      "imgUrl": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/227897/SHZAM2_VERT_MAIN_2764x4096_DOM.jpg",
+      "copiesAvailable": 4,
+      "totalAvailable": 4,
+      "rating": "NC-17",
+      "description": "Shazam: Fury of the Gods is the hotly anticipated sequal to Creed II Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "tt12261776",
+      "title": "65",
+      "imgUrl": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/230571/65_OnLine_TSR.jpg",
+      "copiesAvailable": 2,
+      "totalAvailable": 3,
+      "rating": "PG-13",
+      "description": "The story of a 65 year old man who travels back to the year 65 million BC. The film features exactly 65 dinosaurs. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    },
+    {
+      "id": "tt11145118",
+      "title": "Creed III",
+      "imgUrl": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/229833/CreedIII_NewPoster_Press2765x4096.jpg",
+      "copiesAvailable": 1,
+      "totalAvailable": 4,
+      "rating": "R",
+      "description": "Creed III - Shazam is back! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    }
+  ]
