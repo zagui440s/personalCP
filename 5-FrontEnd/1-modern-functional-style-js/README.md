@@ -6,16 +6,12 @@ Some previous JS programming experience is required; students should already be 
 
 **The instructor should demo the beginning parts of the assignment (video store logic) as a tutorial during class time.**
 
-## Lectures & Assignments
+## Lessons & Assignments
 
-### Lectures
-
-1. [Intro to the node ecosystem - node projects & npm, CommonJS Modules vs ESModules](./intro-to-node-ecosystem-modules.md)
-2. [Modern functional-style Javascript](./modern-js.md)
-
-### Assignments
-
-- [Create the logic for a video store using the tools we have learned](https://github.com/Code-Platoon-Assignments/video-store-0-functional-js-and-state)
+- [Lesson: Intro to the node ecosystem - node projects & npm, CommonJS Modules vs ESModules](./intro-to-node-ecosystem-modules.md)
+  - [Assignment: Refactor a project to use ES Modules & add a feature](https://github.com/Code-Platoon-Assignments/nodejs-video-store-0)
+- Lesson: Modern functional-style Javascript](./modern-js.md)
+  - [Assignment: Create the logic for a video store using the tools we have learned](https://github.com/Code-Platoon-Assignments/video-store-0-functional-js-and-state)
 
 ## What are we trying to accomplish?
 
