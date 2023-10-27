@@ -9,7 +9,7 @@ By learning about HTTP, fetch, and promises, you aim to gain a fundamental under
 - [Lesson - What is HTTP](./1-what-is-http.md)
 - [Lesson - How to use Fetch](./2-ajax-fetch.md)
   - [Morning Assignment - Pokemon Theme Team](https://classroom.github.com/a/P_c-7jpu)
-  - `Morning Assignment` Find an api that interests you and build a simple web page that utilizes axios to call the api and then displays the data on the page. Get creative and have fun with it! :)
+  - `Morning Assignment` Find an api that interests you and build a simple web page that utilizes fetch to call the api and then displays the data on the page. Get creative and have fun with it! :)
   - `Afternoon Assignment` Create a Front-End HTML/CSS/JS template for the API's we've created with Flask this week. Be creative and ensure to have fun!
 
 ## Testable Learning Objectives (TLO's)
@@ -20,10 +20,10 @@ By learning about HTTP, fetch, and promises, you aim to gain a fundamental under
   - What does the structure of an HTTP request look like, and what is the purpose of the `body` and `header`?
   - What action verbs does HTTP use, and when should you use them? `GET`, `POST`, etc.
 - Understand what an API is
-- Learn to send AJAX requests using `axios`, a popular, modern HTTP client for javascript
+- Learn to send AJAX requests using `fetch`, a popular, modern HTTP client for javascript
 - Learn some tools (other than the browser) for testing APIs
 
 ## External Resources
 
-- [Axios docs](https://axios-http.com/docs/intro)
-- [Postman docs](https://learning.postman.com/docs/getting-started/sending-the-first-request/)
+- [Fetch docs](https://javascript.info/fetch)
+- [API List](https://github.com/public-apis/public-apis)
