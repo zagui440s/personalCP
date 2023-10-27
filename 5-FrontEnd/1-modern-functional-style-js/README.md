@@ -6,16 +6,12 @@ Some previous JS programming experience is required; students should already be 
 
 **The instructor should demo the beginning parts of the assignment (video store logic) as a tutorial during class time.**
 
-## Lectures & Assignments
+## Lessons & Assignments
 
-### Lectures
-
-1. [Intro to the node ecosystem - npm, yarn, node projects, CommonJS Modules vs ESModules](./intro-to-node-ecosystem-modules.md)
-2. [Modern functional-style Javascript](./modern-js.md)
-
-### Assignments
-
-- [Create the logic for a video store using the tools we have learned](https://github.com/Code-Platoon-Assignments/video-store-0-functional-js-and-state)
+- [Lesson: Intro to the node ecosystem - node projects & npm, CommonJS Modules vs ESModules](./intro-to-node-ecosystem-modules.md)
+  - [Assignment: Refactor a project to use ES Modules & add a feature](https://github.com/Code-Platoon-Assignments/nodejs-video-store-0)
+- Lesson: Modern functional-style Javascript](./modern-js.md)
+  - [Assignment: Create the logic for a video store using the tools we have learned](https://github.com/Code-Platoon-Assignments/video-store-0-functional-js-and-state)
 
 ## What are we trying to accomplish?
 
@@ -34,10 +30,14 @@ In preparation for working with React.js (a frontend JS UI framework) we will re
 
 ### Node projects
 
-- Able to create a new node project with npm and explain the basic project structure to someone else.
-  - Able to add an npm script to `package.json`
-- Familiar with the node package ecosystem (npm, yarn) and able to use npm and install node modules.
+- Create a new node project with npm
+- Install npm modules as dependencies
 - Able to create a basic `.gitignore` file for a node project 
+- Basic use of Import/Export with CommonJS modules
+- Run tests with jest
+- Understand the standard node.js project structure  & best practice
+- Create and run npm scripts
+- Install & run an existing node.js project
 
 ### Importing / Exporting modules
 
@@ -45,22 +45,7 @@ In preparation for working with React.js (a frontend JS UI framework) we will re
 - Able to set up a node project to use  ESModules
 - Able to import/export with both CommonJS and ESModules
 
-
-### Node / JS modules
-
-- Familiar with  and able to use `require`
-- Familiar with and able to use `import` and `export`
-
-### Frontend build tooling
-
-- Able to create a "hello world" frontend project with vite and has introductory familiarity with the tooling & project structure.
-
 ## ELO's (Elective Learning Objectives)
 
-- Somewhat familiar with the node package ecosystem
-  - npm vs yarn
-  - insecurity - [the leftpad fiasco](https://www.theverge.com/2016/3/24/11300840/how-an-irate-developer-briefly-broke-javascript)
-  - CommonJS modules vs ESModules
-- Beginnging to learn that build tooling is a big deal, especially in JS-land
-- Beginning to learn that project structure is a big deal
-
+- Be able to read and understand a package.json file
+- Able to identify the two different module systems (CommonJS/ES6Modules) and which is preferred/best practice.

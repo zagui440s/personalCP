@@ -1,4 +1,4 @@
-# Node.js projects, npm, and Importing/Exporting
+# Node.js projects, npm, and ES Modules
 
 ---
 
@@ -11,27 +11,6 @@
 5. [npm scripts](#npm-scripts)
 6. [Adding a test & Installing a devDependency](#adding-a-test-and-devdependencies)
 7. [Importing and Exporting with ES6 Modules](#importing-and-exporting-with-es6-modules)
-8. [Using an existing node.js project](#using-an-exising-nodejs-project)
-
----
-
-## TLO's - Hard Skills
-
-- Create a new node project with npm
-- Install npm modules as dependencies
-- Basic use of Import/Export with CommonJS modules
-- Run tests with jest
-- Understand the standard node.js project structure  & best practice
-- Create and run npm scripts
-- Import/Export code with ES6 Modules as both default and named exports
-- Install & run an existing node.js project
-
----
-
-## ELO's -- Concepts & Contextual Knowledge
-
-- Be able to read and understand a package.json file
-- Able to identify the two different module systems (CommonJS/ES6Modules) and which is preferred/best practice.
 
 ---
 
@@ -385,8 +364,8 @@ To run, run `npm start`
 ```bash
 > mkdir src tests mocks
 > ls
-> mv app.js srcs/
-> ls srcs/
+> mv app.js src/
+> ls src/
 ```
 
 ---
@@ -575,23 +554,68 @@ Modify the `scripts` object so it has a property named `start`. It should look m
 
 ## Adding a test and devDependencies
 
-1. [Install jest](https://www.npmjs.com/package/jest)
-2. Add an npm script "test"
-3. Write a test for `createStore()`
-4. Run it
+1. [Install jest](https://www.npmjs.com/package/jest) & update "test" npm script
+2. Write a test for `createStore()`
+3. Run it
 
 ---
 
-### 1. Install jest
+### 1. Install jest & update "test" npm script
 
 ```bash
 > npm install --save-dev jest
-
 ```
 
-... wait a minute - what is `--save-dev` ?
+The [jest docs](https://jestjs.io/docs/getting-started) tell us to update our "test" npm script in `package.json`:
+
+```javascript
+  "scripts": {
+    "test": "jest"
+  },
+```
 
 ---
+
+### 2. Write a test for `createStore()`
+
+```bash
+> touch tests/store.test.js
+```
+
+```javascript
+// store.test.js
+const store = require('../src/store');
+const createStore = store.createStore;
+
+// jest will import the `test()` function when it executes this file
+test('createStore() new store has customers and videos arrays', () => {
+    const newStore = createStore();
+    expect(newStore.customers.length).toBe(0);
+    expect(newStore.videos.length).toBe(0);
+})
+```
+
+- *IMPORTANT: Look at our `require(../src/store)` - the path is relative.*
+
+---
+
+### 3. Run it
+
+```bash
+> npm test
+```
+
+```bash
+ PASS  tests/store.test.js
+  ✓ createStore() new store has customers and videos arrays (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        0.136 s, estimated 1 s
+```
+
+--
 
 ### Sidebar: devDependencies
 
@@ -607,52 +631,179 @@ When we run this, the module info is added to `package.json` under `devDependenc
 
 ---
 
-### 2. Write a test for `createStore()`
-
----
-
 ## Importing and Exporting with ES6 Modules
 
-1. Modify package.json so we can use ES6 Modules
+1. What are ES6 Modules?
 
-2. Refactor our existing code
+2. Advantages of ES Modules
 
 3. Default exports vs named exports
 
-4. Absolute vs relative paths
+4. How to use ES Modules with node.js & npm
+
+5. Refactor our existing code
+
+6. Absolute vs relative paths
 
 ---
 
-## Using an exising NodeJS project
+### What are ES6 Modules?
 
-1. Read the README
+- ES6 Modules or ES Modules are a newer and overall better way of implementing JS modules and importing/exporting code.
 
-2. Clone the project if its on github.
+- They are now natively supported in all browsers.
 
-3. Install npm modules with `npm install`
+- They are not used by default in `node.js` - shortly we will see how to use them in node projects.
 
-4. Get oriented.
-
-5. Run it to make sure it works.
+- Generally you should prefer ES Modules over CommonJS Modules. 
 
 ---
 
-### Best practice -- Getting oriented
+### Advantages of ES Modules
 
-For a new project, always get oriented.
+1. Static Analysis: Static analysis means analyzing code without exporting it. Import and export statements can be analyzed at build time, enabling tools to optimize the code and generate smaller, more efficient bundles.
+
+2. Native Support in Browsers: ES modules are natively supported in modern browsers, while CommonJS modules are not.
+
+3. Better code organization: We can specify dependencies between files more explicitly.
 
 ---
 
-It's always a good idea to take a few minutes to look at the config files and directory structure of a new project. Let's do that now.
+### ES Modules with node.js
+
+Node.js does not support ES Modules by default. There are 2 ways to use ES Modules in a node.js project.
+
+1. Use the `.mjs` extension instead of `.js` for the files you are using ES Modules for.
+2. In `package.json` add a "type" field with the value "module". We will explore this later.
+
+*For the following code examples, if you want to run the code just use the `.mjs` extension when creating the files.*
 
 ---
 
-#### package.json
+### Default vs named exports
 
-1. What `dependencies` and `devDependencies` are there?
+There are two ways to import or export things with ES modules.
 
-2. What npm scripts are there?
+- Default export: You can only have **one** default export per file.
+- Named export: You can have multiple named exports per file.
 
-3. Are ES6 modules enabled for this project?
+---
+
+### Default export
+
+Let's imagine we have two files, `hello.mjs` and `main.js`. **They're both in the same directory**.
+
+```javascript
+// hello.mjs
+function sayHello() {
+  console.log('hello!');
+}
+
+export default sayHello
+```
+
+```javascript
+// main.mjs
+import sayHello from './say-hello.mjs'  // Note the relative path
+sayHello()
+```
+
+We can **use any name we want when importing a default export.**
+
+```javascript
+// main.mjs
+import helloToTheWorld from './hello.mjs'  // Note the relative path
+helloToTheWorld()
+```
+
+---
+
+### Named exports - exporting
+
+There are many ways of doing named exports - they all accomplish the same thing.
+
+```javascript
+// hello.mjs
+function sayHello() { console.log('hello!') }
+function sayGoodbye() { console.log('goodbye!') }
+const anotherGoodbye = () => 'another goodbye';
+
+export const HELLO_WORLD = 'hello, world!';
+export const goodbyeAll = () => 'goodbye, all!';
+export {
+    sayGoodbye,
+    anotherGoodbye,
+}
+
+export default sayHello
+```
+
+---
+
+### Named exports -- importing
+
+There is just one way to import a named export. Note that we are importing both the default and named exports from the file here.
+
+```javascript
+// main.mjs
+import sayHello, { goodbyeAll, sayGoodbye, 
+  HELLO_WORLD 
+} from "./hello.mjs"; // Note the relative path
+
+sayHello();
+console.log(HELLO_WORLD)
+sayGoodbye();
+goodbyeAll();
+
+```
+
+---
+
+### Using ES Modules with node.js & npm
+
+As mentioned, node.js does not support ES Modules by default. Lets review the 2 ways to use ES Modules in a node.js project.
+
+---
+
+#### Use the `.mjs` file extension
+
+- Pro: Lets you use `require()` (CommonJS) in some files and ES Modules in others
+- Con: You have to name every file you want to use ES Modules in `.mjs`
+- Con: Inconsistency in your code. 
+- Generally avoid this approach.
+
+---
+
+#### Set `"type": "module` in `package.json`
+
+
+- Con: You **cannot** use `require()` if you do this.
+- Pro: One change and you can use ES Modules everywhere.
+- Pro: Consistency - all your code imports/exports the same way.
+- Generally prefer this approach.
+
+---
+
+Note the "type" property we've added to our `package.json`.
+
+```json
+{
+  "name": "video-store",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "bar": "echo 'goodbye, world!'",
+  },
+```
+
+However if we run our code ...
+
+```bash
+ReferenceError: require is not defined in ES module scope, you can use import instead
+```
+
+We have to refactor our code to use ES Module imports/exports. And -- this could be a great exercise!
 
 ---
