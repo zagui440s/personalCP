@@ -7,7 +7,7 @@ By learning about Node, NPM, ES6, mapping, filtering, object destructuring, and 
 ## Lectures and Assignments
 
 - [Lecture - NPM](./1-node-projects.md)
-- [Lecture - Intro to React](./2-js-axios.md)
+- [Lecture - Intro to React](./2-intro-vite-react.md)
   - [Assignment - Pokemon Theme Team](https://github.com/Code-Platoon-Assignments/react-pokemon)
   - [Assignment - Guess a Number](https://github.com/Code-Platoon-Assignments/react-guess-number)
   - [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/to-do-react)
