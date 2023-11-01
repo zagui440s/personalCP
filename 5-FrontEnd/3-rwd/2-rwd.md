@@ -10,7 +10,6 @@
   - responsive units (%, vh/vw/vmin, ems/rems,)
   - flexbox
   - media queries
-  - use a CSS framework (e.g. bootstrap)
 
 ## Introduction
 
