@@ -572,3 +572,4 @@ transactions. If two users simultaneously try to update the same bank account, i
 
 - [Official Postgres SQL Tutorial](https://www.postgresql.org/docs/16/tutorial-sql.html)
 - [Postgres SQL command reference](https://www.postgresql.org/docs/16/sql-select.html)
+- [psql guide](https://www.postgresguide.com/utilities/psql/)

@@ -1,5 +1,9 @@
 # Intro to SQL, Relational Databases, and basic data schema design
 
+## Slides
+
+- [SQL Intro slide deck](https://docs.google.com/presentation/d/1_bzAJyf6sQBI2BGMhv2RbAvbCaeL3_4jbt1ZQgcFR14/edit#slide=id.g1cb07ac20c_0_0)
+
 ## Lessons & Assignments
 
 - Lesson: [Intro to Relational Databases](./intro-relational-databases-postgres.md)
