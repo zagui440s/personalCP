@@ -5,7 +5,7 @@
 1. [Modeling a Domain](#modeling-a-domain)
 2. [Entity Relationship Diagrams](#entity-relationship-diagrams)
 3. [Designing an ER Diagram and Postgres Data Schema](#designing-an-er-diagram-and-schema)
-4. [ERD Diagram: 32 Flavors: Modeling an ice cream store](#er-diagram-32-flavors-modeling-an-ice-cream-store)
+4. [References](#references)
 
 ## A Note on Creating ER Diagrams 
 
@@ -189,7 +189,7 @@ You may not always want to follow this exact order but it useful to break this d
 
 As you do each step you may find you need to refine something from the previous step.
 
-## References & Resources
+## References
 
 - [A good article on Entity Relationship Models](https://www.geeksforgeeks.org/introduction-of-er-model/)
 
