@@ -12,7 +12,6 @@
 We will be using [ERDPlus](https://erdplus.com/) to create our Entity Relationship Diagrams. We recommend you use it as well. It does most of the hard work of creating the details of ER Diagrams, as you can see here:
 
 ![erdplus-demo](./page-resources/erdplus-demo.png)
-*Example of an entity-relationship diagram*
 
 ## Modeling a domain
 
@@ -23,6 +22,7 @@ Higher-level problem-solving skills like this are a huge part of software engine
 You will find these skills help you be more efficient and productive, and, you will also be able to borrow from them when designing and building things other than databases.
 
 ![sample entity relationship diagram of a company](./page-resources/entity-relationship-diagram-company-database.webp)
+*Example of an entity-relationship diagram*
 
 ### What is a domain?
 
