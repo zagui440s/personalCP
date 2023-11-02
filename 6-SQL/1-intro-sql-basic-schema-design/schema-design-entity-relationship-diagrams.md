@@ -151,7 +151,7 @@ There is more to ER Diagrams, but these are the most important things and more t
 
 ## Designing an ER Diagram and Schema
 
-*This process borrows from [A Practical Gudie to Entity-Relationship Modeling](https://cci.drexel.edu/faculty/song/courses/info%20605/appendix/AppendixA.PDF)*
+*This process borrows from [A Practical Guide to Entity-Relationship Modeling](https://cci.drexel.edu/faculty/song/courses/info%20605/appendix/AppendixA.PDF)*
 
 Now that we know what an ER Diagram is and what it looks like, how do we turn a real-world *problem* or *domain* into one?
 
