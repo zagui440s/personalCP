@@ -1,6 +1,8 @@
 
 # Intro to Relational Databases & Postgresql
 
+*We recommend using [drawsql](https://drawsql.app/) to visualize your data schema - you can import SQL files into it or directly write sql in the app*
+
 ## Table of Contents
 
 1. [What is a database?](#what-is-a-database)
