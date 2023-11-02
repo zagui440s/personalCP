@@ -12,6 +12,7 @@
 We will be using [ERDPlus](https://erdplus.com/) to create our Entity Relationship Diagrams. We recommend you use it as well. It does most of the hard work of creating the details of ER Diagrams, as you can see here:
 
 ![erdplus-demo](./page-resources/erdplus-demo.png)
+*Example of an entity-relationship diagram*
 
 ## Modeling a domain
 
