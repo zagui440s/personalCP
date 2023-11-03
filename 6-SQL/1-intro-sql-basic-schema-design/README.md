@@ -2,7 +2,7 @@
 
 ## Slides, Media, Tool
 
-- *We recommend using [drawsql](https://drawsql.app/) to visualize your data schema - you can import SQL files into it or directly write sql in the app*
+- *We recommend using [QuickDatabaseDiagrams](https://www.quickdatabasediagrams.com/) or [drawsql](https://drawsql.app/) to visualize your data schema - you can import SQL files into it or directly write sql in the app*
 
 - *We recommend using [ERDPlus](https://erdplus.com/) to create entity relationship diagrams.*
 
