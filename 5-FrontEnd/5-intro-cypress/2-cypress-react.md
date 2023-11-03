@@ -52,6 +52,20 @@ The provided content in the `cypress.config.js` file is an example of customizin
 
 - `video`: It is set to `false` in this example, which disables video recording during test execution. If you want to enable video recording for your tests, set it to `true`.
 
+```js
+import { defineConfig } from "cypress";
+
+export default defineConfig({
+    e2e: {
+        baseUrl: "http://localhost:5173/",
+        supportFile: false,
+    },
+    viewportWidth:1024,
+    viewportHeight:768,
+    video:false,
+})
+```
+
 ## Adding Scripts to `package.json`
 
 To make it convenient to run Cypress commands, you can add the following scripts to your `package.json` file:
