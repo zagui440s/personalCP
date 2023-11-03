@@ -1,4 +1,4 @@
-# Lesson: Tailwind CSS
+# Tailwind CSS
 
 ## Introduction to Tailwind CSS
 

@@ -1,4 +1,4 @@
-# Lesson: Getting Started with React Bootstrap in a React.js + Vite Project
+# Getting Started with React Bootstrap in a React.js + Vite Project
 
 ## Introduction
 

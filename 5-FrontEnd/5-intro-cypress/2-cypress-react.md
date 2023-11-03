@@ -1,4 +1,4 @@
-# Lesson: Using Cypress with React.js + Vite
+# Using Cypress with React.js + Vite
 
 ## Introduction
 
@@ -51,6 +51,20 @@ The provided content in the `cypress.config.js` file is an example of customizin
 - `viewportWidth` and `viewportHeight`: These settings define the dimensions of the browser viewport for your tests. In this example, it's set to a width of 1024 and a height of 768 pixels. Adjust these values to match the expected viewport dimensions for your application.
 
 - `video`: It is set to `false` in this example, which disables video recording during test execution. If you want to enable video recording for your tests, set it to `true`.
+
+```js
+import { defineConfig } from "cypress";
+
+export default defineConfig({
+    e2e: {
+        baseUrl: "http://localhost:5173/",
+        supportFile: false,
+    },
+    viewportWidth:1024,
+    viewportHeight:768,
+    video:false,
+})
+```
 
 ## Adding Scripts to `package.json`
 
