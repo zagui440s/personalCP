@@ -12,6 +12,8 @@ Some popular RDBMS systems are:
 - [MySQL](https://www.mysql.com/)
 - [MariaDB](https://mariadb.org/)
 
+In this course we will use PostgreSQL, or Postgres. There are meaningful differences between the different relational databases, but, *everything you learn will translate directly into working with MySQL, MariaDB, and other relational databases.*
+
 ## SQL
 
 (Structured Query Language) is a domain-specific language used for managing and querying data held in relational database management systems (RDBMS). SQL allows you to perform various operations on databases, including:
@@ -36,8 +38,8 @@ You will specifically learn how to use PostgreSQL. This knowledge will translate
 
 ## Lessons
 
-1. [Intro to SQL & basic schema design](./1-intro-sql-basic-schema-design/README.md)
-2. [CSV and JSON with relational databases](./2-csv-json/README.md)
+1. [Intro to Relational Databases and Modeling Data](./1-intro-sql-basic-schema-design/README.md)
+2. [SQL Queries, Using CSV and JSON files with Postgres](./2-queries-csv-json/README.md)
 3. [Constraints and Relationships](./3-constraints-relationships/README.md)
 4. [SQL Workshop!](./4-sql-workshop/README.md)
 5. [SQL Review](./5-sql-review/README.md)

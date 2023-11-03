@@ -1,4 +1,4 @@
-# Intro to SQL, Relational Databases, and basic data schema design
+# Intro to Relational Databases and Data Modeling
 
 ## Slides, Media, Tool
 
