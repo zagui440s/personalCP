@@ -1,4 +1,4 @@
-# Lesson: Using Cypress with React.js + Vite
+# Using Cypress with React.js + Vite
 
 ## Introduction
 
