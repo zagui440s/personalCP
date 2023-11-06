@@ -1,9 +1,5 @@
 # SQL Queries
 
-## Prerequesites
-
-You'll be executing queries against the [cars database](https://github.com/echoplatoonew/cars_database), so please make sure that you can get it up and running.
-
 ## Table of Contents
 
 1. [`SELECT` and the `WHERE` clause](#select)
@@ -383,19 +379,6 @@ AND extract(MONTH FROM Advertisement.advertisement_date) = 5;
 - [SQL Zoo](http://sqlzoo.net/)
 
 SQL Queries: SELECT, GROUP BY, Joins (use cars database)
-
-### SELECT
-
-### AS
-### WHERE
-
-### String pattern matching with LIKE
-### BETWEEN
-### IN
-### Comparison operators
-### Aggregate functions
-#### COUNT
-#### AVG
 
 ## References
 
