@@ -21,6 +21,7 @@ By learning to add routing to your React + Vite project using react-router-dom, 
     - NotFound.jsx should render an error message letting the user know this page does not exist
     - Error Route to render NotFound.jsx
     - NavBar.jsx should allow users to navigate your project
+    - Testing with Cypress to ensure all requirements are being met
     - Styling from React BootStrap or Tailwind.css
     - Have fun!
 
