@@ -36,7 +36,7 @@ In this section, we'll walk through setting up React Router Dom in a Vite + Reac
    If you don't already have a Vite + React project, you can create one using the following command:
 
    ```bash
-   yarn create vite my-react-router-app
+   npm create vite my-react-router-app
    cd my-react-router-app
    ```
 
