@@ -71,7 +71,22 @@ In this section, we'll walk through setting up React Router Dom in a Vite + Reac
 4. **Create Page Components**:
    Create the Page components for the routes mentioned in the "router.jsx" file, such as "HomePage.jsx"
 
-5. **Use Routes in Your App**:
+5. **Connect Browser Router to main.jsx**
+   Currently our application doesn't know it's supposed to use the Browser Router we've just created. We have to tell main.jsx to utilize our browser router to render pages and components on the browser instead of immediately rendering App.jsx.
+
+    ```jsx
+   import React from "react";
+   import ReactDOM from "react-dom/client";
+   import { RouterProvider } from "react-router-dom";
+   import router from "./router";
+   import "./index.css";
+
+   ReactDOM.createRoot(document.getElementById("root")).render(
+     <RouterProvider router={router} />
+   );
+   ```
+
+7. **Use Routes in Your App**:
    In your main application component, import and use the `AppRoutes` component.
 
    ```jsx
@@ -83,7 +98,7 @@ In this section, we'll walk through setting up React Router Dom in a Vite + Reac
    }
    ```
 
-6. **Start the Development Server**:
+8. **Start the Development Server**:
    You can now start the Vite development server:
 
    ```bash
