@@ -1,18 +1,17 @@
 # Constraints and Relationships
 
-## Topics Covered / Goals
+A database constraint is effectively a rule (or limitation) that we add to a column or multiple columns for a table. These help us create proper relationships without worrying about invalid data. There are several types of constraints that we can add (see: [constraints](https://www.postgresql.org/docs/14/ddl-constraints.html)) to our tables.
 
-- Database Constraints
-- Database Relationships
-- Database Schema Design
+To start, let's focus on:
 
-## Lesson
+- Primary Keys
+- Foreign Keys
+- The `UNIQUE` constraint
 
-The larger your application, the more tables you will have, and the more ways they will intersect. Database schema design is especially important for fullstack applications. Today, we'll talk about types of constraints you can add to database tables, types of relationships you can create between database tables, and how to put it all together to create a database schema design that works for our application needs.
+## Primay and Foreign Keys are Constraints
 
-### Constraints
+You may have seen primary/foreign keys already. Let's briefly review them and discuss how they *enforce* (i.e. constrain) relationships in our data.
 
-A database constraint is effectively a rule (or limitation) that we add to a column or multiple columns for a table. These help us create proper relationships without worrying about invalid data. There are a few types of constraints that we can add (see: [constraints](https://www.postgresql.org/docs/14/ddl-constraints.html)) to our tables, but we're going to focus on these three:
 
 - Primary Key (PK)
   - Establishes the main (i.e. primary) unique identification column(s) for a table's records
@@ -51,6 +50,8 @@ FOREIGN KEY (professor_id)
 REFERENCES professors (id);
 ```
 
+## The `UNIQUE` constraint
+
 - Unique Key (UQ)
   - Establishes column(s) whose values must be unique across all records
   - UQ column values can be NULL
@@ -62,9 +63,9 @@ CREATE TABLE lockers (
 );
 ```
 
-### Relationships
+## Relationships
 
-Entities (i.e. tables) in our database can have one of three main relationships with one another:
+To review, entities (i.e. tables) in our database can have one of three main relationships with one another:
 
 - One-to-One
   - A relationship where AT MOST one record from Table-A can ever be referenced by a record from Table-B
@@ -143,7 +144,7 @@ This is a one-to-many relationship!
 
 This is a many-to-many relationship!
 
-- _Solution:_ Create a new join table (using FKs) between table-`posts` and table-`reaction_types`, called table-`post_reactions`:
+- _Solution:_ Create a new **join table** (using FKs) between table-`posts` and table-`reaction_types`, called table-`post_reactions`:
 
 **post_reactions**
 ---|
@@ -155,9 +156,3 @@ user_id |
 In this new table, column-`post_id` would have a FK to table-`posts`, column-`reaction_id` would have a FK to table-`reaction_types`, and colunm-`user_id` would have a FK to table-`user_accounts`.
 
 Additionally, we may want to create a UQ for column-`post_id` + column-`user_id` because the same user is not allowed to have multiple reactions to the same post.
-
-## Assignments
-
-- [Schema Design](https://classroom.github.com/a/KHg3kYR_)
-- [Schema Script](https://classroom.github.com/a/LAfTBpUx)
-- [Schema Modifications](https://classroom.github.com/a/QOfigTWN)
