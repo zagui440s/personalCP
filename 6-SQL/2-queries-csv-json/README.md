@@ -2,8 +2,6 @@
 
 ## What are we Trying to Accomplish?
 
-You will learn about the most important Postgres data types - these are the types that our table columns can be.
-
 You will learn how to write SQL queries to get the information you care about from a database. This is a useful skill in and of itself (especially if you are ever asked to get data for some report at work), but is also valuable because it will give you hands-on experience with relational databases and a strong 'mental model' for how they work.
 
 It is also extremely important to be able to import and export data to and from our database. The `.csv` and `.json` file formats are *extremely* popular ways of formatting human-friendly text data. In particular, CSV is usually how spreadsheet data is exported, and, often how databases dump-export their data into text, so, it is particularly important to learn how to work with CSV files and Postgres.
@@ -27,6 +25,11 @@ You'll be executing queries against the [cars database](https://github.com/code-
   - Assignment: [SQL Queries 1: Selecting, Filtering, and Aggregating](https://github.com/Code-Platoon-Assignments/sql_queries_1)
   - Assignment: [SQL Queries 2: GROUP BY and Inner Joins](https://github.com/Code-Platoon-Assignments/sql_queries_2)
 - Lesson: [Using CSV & JSON with Postgres, Designing a data model from a CSV file](./csv-json.md)
+  - In-class Tutorial or Assignment: [Restaurant schema design](./tutorial-restaurant-schema-design/README.md)
+  - Assignment: Read the [Postgres data types overview](./postgres-data-types.md)
+  - Assignment: [64 Slices Stage 1](https://github.com/Code-Platoon-Assignments/sql-64-slices-1). *Stretch goal: Stage 2*.
+  - Assignment: [Grubhub Schema Design](https://github.com/Code-Platoon-Assignments/grubhub_schema)
+  
 
 ## Topics Covereed
 

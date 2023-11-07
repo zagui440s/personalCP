@@ -279,7 +279,6 @@ Referenced by:
 
 The default value is ... `nextval` something something. Without getting too much into the details, this is because `car_model_id` is a `SERIAL PRIMARY KEY` -- the Postgres copy command will *generate* these values for us!
 
-
 ## Importing JSON data
 
 It is probably going to be easier to write a Python program to turn your JSON into a CSV file, and then import that into Postgres.

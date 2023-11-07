@@ -16,6 +16,7 @@
   - Assignment: [Refactor and add another foreign key to the `purchases` table](https://github.com/Code-Platoon-Assignments/sql-basics-multiple-foreign-keys)
 
 - Lesson: [Data modeling with Entity-Relationship Diagrams & Schema Design](./schema-design-entity-relationship-diagrams.md)
+  - In-class tutorial or Assignment [Blog Schema Design](./tutorial-blog-schema-design/README.md)
   - In-class tutorial or Assignment [32 Flavors Ice Cream Stage 1](https://github.com/Code-Platoon-Assignments/sql-32-flavors-1)
   - Assignment: [Design & Build Instagram schema](https://github.com/Code-Platoon-Assignments/instagram_schema)
   - Assignment: [Read this article on the Conceptual / Logical / Physical Data Model](https://www.couchbase.com/blog/conceptual-physical-logical-data-models/)
