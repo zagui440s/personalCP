@@ -1,4 +1,4 @@
-# Lesson: Utilizing `useOutletContext` in React Router with Vite
+# Utilizing `useOutletContext` in React Router with Vite
 
 ## Introduction
 
