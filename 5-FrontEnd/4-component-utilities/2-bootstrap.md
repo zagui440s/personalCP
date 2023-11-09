@@ -45,7 +45,7 @@ To get started with React Bootstrap in a React.js + Vite project, follow these s
 
 3. Import and set up Bootstrap styles in your application:
 
-   Open your `src/index.js` file and import the Bootstrap CSS at the top:
+   Open your `src/main.jsx` file and import the Bootstrap CSS at the top:
 
    ```javascript
    import 'bootstrap/dist/css/bootstrap.min.css';
