@@ -113,7 +113,3 @@ on BlogUser.id = max_comment.user_id;
 ---------
  Leodora
 ```
-
-
-## Challenges
-[Instagram Schema Design](https://github.com/echoplatoonew/instagram_schema)
