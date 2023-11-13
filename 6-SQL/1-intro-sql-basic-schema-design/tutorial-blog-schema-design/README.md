@@ -1,6 +1,6 @@
 # SQL Schema Design: Blog
 
-[Blog db](https://github.com/echoplatoonew/blog-db)
+[Blog db](https://github.com/code-platoon-assignments/blog-db)
 
 Today we're going to walk through designing and implementing the database schema for a blog.
 
