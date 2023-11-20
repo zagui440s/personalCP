@@ -7,10 +7,10 @@ By learning about Django Models, Model Fields and Methods, Django Model Fixtures
 ## Lessons & Assignments
 
 - [Lesson - Intro to Django ORM](./1-intro-django-orm.md)
-        - [Assignment - School API exercise 1]()
+  - [Assignment - School API exercise 1](https://github.com/Code-Platoon-Assignments/django-school-api)
 - [Lesson - Django Model Methods, Fixtures, and the Admin Site](./2-fields-methods-fixtures-admin.md)
-        - [Assignment - School API exercise 2]()
-        - [Assignment - ORM Assignments](https://classroom.github.com/a/HfH7CgUJ)
+  - [Assignment - School API exercise 2](https://github.com/Code-Platoon-Assignments/django-school-api-II)
+  - [Assignment - ORM Assignments](https://github.com/Code-Platoon-Assignments/DJANGO_ORM_assignments.git)
 
 ## Topics Covered
 
