@@ -1,3 +1,12 @@
+# Django Authentication
+
+## Lectures and Assignments
+
+- [Lesson - Django Auth](./1-django-auth.md)
+  - [Assignment - Django Auth](https://github.com/Code-Platoon-Assignments/Django_auth.git)
+- [Lesson - Django Auth Full Stack](./2-react-authentication.md)
+  - [Assignment - Library Manager](https://github.com/Code-Platoon-Assignments/library-manager.git)
+
 ## TLO's (Testable Learning Objectives)
 
 - Handling user Tokens during development

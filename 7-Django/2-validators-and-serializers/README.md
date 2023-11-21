@@ -10,6 +10,7 @@ By learning about Django Model field validators and Model Serializers from Djang
   - [School API](https://github.com/Code-Platoon-Assignments/django-school-api-III)
 - [Lesson - Model Serializers](./2-intro-model-serializers.md)
   - [School API](https://github.com/Code-Platoon-Assignments/django-api-iv)
+  - [Django Validations](https://github.com/Code-Platoon-Assignments/django-validations)
   - **Pets & Owners** Add Serializers and Tests to the tables you created in the Pets and Owners exercise.
   - **Video Store** Add Serializers and Tests to the tables you created in the Video Store exercise.
 

@@ -8,6 +8,7 @@ By learning about CRUD operations and RESTful API design while building a Pokede
 
 - [Lesson - Intro to CRUD](./1-intro-to-CRUD.md)
 - [Lesson - Create and Delete](./2-create-and-delete.md')
+  - [Assignment - To Do List](https://github.com/Code-Platoon-Assignments/Djago-CRUD)
 
 ## Topics Covered
 

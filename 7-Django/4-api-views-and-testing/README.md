@@ -8,6 +8,7 @@ By comprehending Django Rest Framework's APIViews and Response handling, as well
 
 - [Lesson - DRF APIViews and Responses](./1-api-views.md)
 - [Lesson - Custom Endpoints and Testing](./2-endpoints-and-testing.md)
+  - [Assignment - Pet Store `GET`](https://github.com/Code-Platoon-Assignments/DRF_Intro_assignment)
 
 ## Topics Covered
 

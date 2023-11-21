@@ -8,6 +8,7 @@ By learning how to integrate third-party APIs with your Django API and securely 
 
 - [Lesson - Working with Back-End API's](./1-back-end-apis-and-secrets.md)
 - [Lesson - Formatting and Displaying BE API's](./2-formatting-responses.md)
+  - [Assignment - 3rd Party API's](https://github.com/Code-Platoon-Assignments/Django_API-s)
 
 ## Topics Covered
 

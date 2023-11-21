@@ -7,10 +7,11 @@ By mastering Django model associations, understanding how to manage these relati
 ## Lessons & Assignments
 
 - [Lesson - Django Associations](./1-intro-to-associations.md)
-        - [School API]()
-        - [Val & Associations]()
-        - [Django Validations]()
+  - [School API]()
 - [Lesson - Django Server](./2-intro-to-django-server.md)
+  - [Django Associations - CARS](https://github.com/uniformplatoon-assignments/Val_Associations_assignments)
+  - [Django Associations](https://github.com/Code-Platoon-Assignments/django-associations)
+  - [Hello Django](https://github.com/Code-Platoon-Assignments/hello-django)
 
 ## Topics Covered
 
