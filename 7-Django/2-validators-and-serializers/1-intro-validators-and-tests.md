@@ -168,7 +168,7 @@ class pokemon_test(TestCase):
 
 > To run your tests execute the command `python manage.py test` in the terminal and we should see a '.' for every test passed, an 'E' for error, and an 'F' for failure.
 
-> We've created an [assertions](../../../CheatSheets/test_assertions.md) cheat sheet for you to get further knowledge on the different types of assertions and how to utilize them
+> We've created an [assertions](../CheatSheets/test_assertions.md) cheat sheet for you to get further knowledge on the different types of assertions and how to utilize them
 
 ## External Resources
 
