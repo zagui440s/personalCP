@@ -143,7 +143,7 @@ class A_move(APIView):
 
 > Our user is now able to grab all pokemon, all moves, a pokemon, or a move through our API! Now lets create some tests to ensure that our future refactoring does not break our application.
 
-## Testing our API enpoints
+## Testing our API endpoints
 
 > Now that we have some extensive data and relationships created, we will want to utilize fixtures in our tests to mimick our current data available from our Database. Create some fixtures using `dumpdata` onto each app.
 
