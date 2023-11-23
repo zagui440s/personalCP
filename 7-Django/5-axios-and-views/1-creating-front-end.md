@@ -4,7 +4,7 @@
 
 > In this lesson you will learn how to send requests from your Vite + React Front-End application to your Django Back-End API to `GET` information from our PostgreSQL database and render it in our User Interface.
 
-![Alt text](../resources/dev-full-stack.png)
+![Alt text](./resources/dev-full-stack.png)
 
 ## Full-Stack Life Cycle of a Web Application
 
