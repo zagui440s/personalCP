@@ -1,4 +1,4 @@
-# Model Associations and the Django Server
+# Full Stack Application
 
 ## What are we trying to accomplish?
 
@@ -7,7 +7,9 @@ By learning about the full stack life cycle, Django CORS headers, and utilizing 
 ## Lessons & Assignments
 
 - [Lesson - Creating a Pokedex React Front-End](./1-creating-front-end.md)
+  - [Assignment - School API VIII](https://github.com/Code-Platoon-Assignments/django-school-api-VIII)
 - [Lesson - Axios and API views](./2-axios-apiviews.md)
+  - [Assignment - School API VIII Continued](https://github.com/Code-Platoon-Assignments/django-school-api-VIII)
 
 ## Pre-requisites for tomorrows lecture
 
