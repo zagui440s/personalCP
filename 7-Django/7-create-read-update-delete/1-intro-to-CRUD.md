@@ -68,15 +68,20 @@ from rest_framework.status import HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST
         if "type" in request.data and request.data.get("type"):
             pokemon.type = request.data.get("type")
         # Add pokemon to our PokemonSerializer to validate data
-        pokemon = PokemonSerializer(pokemon, data = vars(pokemon))
-        if pokemon.is_valid():
+        ser_pokemon = PokemonSerializer(pokemon, data = vars(pokemon))
+        # lines 60 - 71 check each individual field for the request.data to find out what it can
+        # change within the Pokemon instance... but there's gotta be a better way of doing this...
+        # well our DRF Model Serializer can actually handle partial data and check each individual 
+        # field for us instead of having us check it manually. Please utilize the example below:
+        ser_pokemon = PokemonSerializer(pokemon, data = request.data, partial = True)
+        if ser_pokemon.is_valid():
             # save all changes
-            pokemon.save()
+            ser_pokemon.save()
             # We've made our necessary changes to the pokemon instance so we can return the appropriate response status of 204 which we will grab from DRF
             return Response(status=HTTP_204_NO_CONTENT)
         else:
-            print(pokemon.errors)
-            return Response(pokemon.errors, status=HTTP_400_BAD_REQUEST)
+            print(ser_pokemon.errors)
+            return Response(ser_pokemon.errors, status=HTTP_400_BAD_REQUEST)
 
 # In the example above we are attempting to utilize our Serializer to validate all the new data... but currently our serializer only tracks on some fields not all. Lets update our PokemonSerializer to include all fields
 

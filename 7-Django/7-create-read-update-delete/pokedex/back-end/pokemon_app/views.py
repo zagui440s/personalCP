@@ -53,26 +53,31 @@ class A_pokemon(APIView):
         pokemon = self.get_a_pokemon(id)
         # Now we have to check the body of our request and check if
         # the following keys are in our request ['level_up', 'captured', 'moves', description]
-        if 'level_up' in request.data and request.data['level_up']:
-            pokemon.level_up()
-        if 'captured' in request.data and type(request.data['captured']) == bool:
-            pokemon.change_caught_status(request.data.get("captured"))
-        if "moves" in request.data:
-            pokemon.moves.add(request.data.get("moves"))
-        if "description" in request.data and request.data.get("description"):
-            pokemon.description = request.data.get("description")
-        if "type" in request.data and request.data.get("type"):
-            pokemon.type = request.data.get("type")
-        # Add pokemon to our PokemonSerializer to validate data
-        pokemon = PokemonSerializer(pokemon, data = vars(pokemon))
-        if pokemon.is_valid():
+        # if 'level_up' in request.data and request.data['level_up']:
+        #     pokemon.level_up()
+        # if 'captured' in request.data and type(request.data['captured']) == bool:
+        #     pokemon.change_caught_status(request.data.get("captured"))
+        # if "moves" in request.data:
+        #     pokemon.moves.add(request.data.get("moves"))
+        # if "description" in request.data and request.data.get("description"):
+        #     pokemon.description = request.data.get("description")
+        # if "type" in request.data and request.data.get("type"):
+        #     pokemon.type = request.data.get("type")
+        # # Add pokemon to our PokemonSerializer to validate data
+        # ser_pokemon = PokemonSerializer(pokemon, data = vars(pokemon))
+        # lines 66 - 67 check each individual field for the request.data to find out what it can
+        # change within the Pokemon instance... but there's gotta be a better way of doing this...
+        # well our DRF Model Serializer can actually handle partial data and check each individual 
+        # field for us instead of having us check it manually. Please utilize the example below:
+        ser_pokemon = PokemonSerializer(pokemon, data = request.data, partial = True)
+        if ser_pokemon.is_valid():
             # save all changes
-            pokemon.save()
+            ser_pokemon.save()
             # We've made our necessary changes to the pokemon instance so we can return the appropriate response status of 204 which we will grab from DRF
             return Response(status=HTTP_204_NO_CONTENT)
         else:
-            print(pokemon.errors)
-            return Response(pokemon.errors, status=HTTP_400_BAD_REQUEST)
+            print(ser_pokemon.errors)
+            return Response(ser_pokemon.errors, status=HTTP_400_BAD_REQUEST)
 
     def delete(self, request, id):
         # get a pokemon from our database
