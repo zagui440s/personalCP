@@ -24,7 +24,7 @@ Django provides several forms of authentication that can be used to secure your 
 
 - **Capabilities**: Token Authentication involves generating a unique token for each user upon login. This token is then used to authenticate subsequent requests by including it in the `Authorization` header (`Authorization: Token <token>`). Tokens can be stored on the client-side (e.g., in local storage or cookies) or provided through an API.
 - **Limitations**: Token Authentication requires clients to manage and include the token with each request. It is not suitable for browser-based applications that rely on cookies for authentication.
-- **Scenarios**: Token Authentication is commonly used in stateless APIs, mobile applications, or scenarios where cross-origin requests are involved.
+- **Scenarios**: Token Authentication is commonly used in REST APIs, since Token Authentication requires no server-side "state", and satisifies the "stateless" constraint of REST API's, mobile applications, or scenarios where cross-origin requests are involved.
 
 ## The AbstractUser Model
 
