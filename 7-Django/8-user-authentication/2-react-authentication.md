@@ -1,4 +1,6 @@
-### Step 1: Axios Requests in React
+# React Authentication
+
+## Step 1: Axios Requests in React
 
 > We don't want to necessarily write the same URL over and over again since we want to follow the `DRY` (Don't Repeat Yourself) principle. Let's do some basic alterations to `axios` to facilitate our ability to make requests. Let's set up our Axios instance with the appropriate base URL for our Django backend. Since we are currently working in `development`, this URL should match the URL that shows up when you `runserver` in Django:
 
@@ -11,7 +13,7 @@ export const api = axios.create({
 });
 ```
 
-### Step 2: Authenticating Users and Obtaining Tokens
+## Step 2: Authenticating Users and Obtaining Tokens
 
 > Now it's time for the action. Lets run both our Django server and Vite development server to host both of our projects on `separate` ports. Once both of our ports are running, let's take a look around and get familiar with both our Django API and our React front-end.
 
@@ -44,7 +46,7 @@ const signUp = async (e) => {
 
 > Thanks to the `useEffect` we've set up for logging our user onto the console, we are able to see that new user emails populate on the console itself. What about the Token? Where did it go? We are currently in the development stage, so it's fine for us to place the user tokens inside of the Browsers Local Storage... but `What is local storage?`
 
-#### Local Storage
+### Local Storage
 
 > Browser localStorage is a crucial web development tool that enables developers to store key-value pairs locally within a web browser. This feature allows web applications to persistently store data on a user's device, even after the user navigates away from the webpage or closes the browser. Understanding the key factors related to localStorage is essential for developers to make the most of this powerful and versatile tool.
 
@@ -72,7 +74,7 @@ Here are a couple of key factors to keep in mind when utilizing `localStorage`:
 
 Remember to use `localStorage` responsibly, considering security and storage limitations, to enhance the user experience and build efficient web applications.
 
-### Step 3: Logging In
+## Step 3: Logging In
 
 > Now that we are familiar with `localStorage` and how axios is working, we can move on to quickly creating a function for a user to log in and obtain their token rather than signing up.
 
@@ -99,7 +101,7 @@ const logIn = async (e) => {
 
 > It's easy to see that these two functions we've just created are very similar except for the api endpoint they're pinging, so this may be a good place for you to come back to and refactor this logic.
 
-### Step 4: Deleting Tokens
+## Step 4: Deleting Tokens
 
 > Finally, the question of the user being able to sign out. We know our API won't allow the user to do much if they're signed out so we really don't need to worry about the Django side of this. Instead, let's create a function that will be triggered by an onclick event of our `Log out` button.
 
