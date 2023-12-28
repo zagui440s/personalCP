@@ -32,7 +32,7 @@ By learning inheritance and polymorphism in Python object-oriented programming (
 - Composition vs Inheritance
   - Examples
 
-## Testable Learning Objectives
+## Tangible Learning Objectives
 
 - Utilize Inheritance to Create Flexible Code
 - Utilize Polymorphism to adjust Inherited Methods

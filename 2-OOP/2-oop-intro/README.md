@@ -30,7 +30,7 @@ Everything in programming is interpreted as a class/object at it's most basic le
 - **Dunder Methods:** These are special methods that are built-in to use within classes, in Python.
 - **Getters and Setters:** Provide encapsulation for data in instances of our class, by separating the interface to our data from its internal representation.
 
-## Testable Learning Objectives
+## Tangible Learning Objectives
 
 - Constructing Classes in Python
 - Constructing Initializers for Python Classes

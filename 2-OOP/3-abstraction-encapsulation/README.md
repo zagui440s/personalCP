@@ -27,7 +27,7 @@ Learning the difference between class and instance attributes, as well as unders
 - **Instance Attributes -vs- Class Attributes:** Understanding the different types of variables to use with Classes is important for encapsulating your data, so that data is available only where it needs to be.
 - **Instance Methods -vs- Class Methods -vs- Static Methods:** Understanding the different types of methods to use with Classes is important for encapsulating your data, so that data is available only where it needs to be.
 
-## Testable Learning Objectives
+## Tangible Learning Objectives
 
 - Construct Class and Instance Attributes
 - Construct Class and Instance Methods
