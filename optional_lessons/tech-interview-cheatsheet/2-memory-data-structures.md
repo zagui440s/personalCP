@@ -1,6 +1,5 @@
 
-## Interview Bootcamp
-Over the next couple of days, we will be covering concepts that you'll want to know for interviews. Some concepts will be abstract and others will not. Let's get started.
+## Interview Cheatsheet & Review
 
 ### Bits, Bytes, and Binary
 At the end of the day, all the code you write, whether it be Python, Java, Javascript, Cobol, etc., is translated into 0's and 1's (i.e., binary) because computers are electronics. Electronics have currents running through them and the currents are either on (1) or off (0). Information is stored on your computer using bits and bytes:

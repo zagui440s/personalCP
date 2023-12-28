@@ -1,5 +1,5 @@
 
-## Interview Bootcamp
+## Interview Cheatsheet & Review
 
 ### Big O Notation
 - Describes how long it takes to run your function based on the size of the input you put in
