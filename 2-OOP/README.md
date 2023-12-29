@@ -1,6 +1,6 @@
 # Intro to Object Oriented Programming with Python and JavaScript
 
-## Instructor Notes & Prerequesites
+## Instructor Notes & Prerequisites
 
 All students should have Linux set up on their local dev environments. This is usually Mac OS X or for Windows users WSL2 w/its default Ubuntu. Non-Ubuntu distros are fine if the student knows what they are doing.
 

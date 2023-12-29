@@ -12,7 +12,7 @@ By learning about HTTP, fetch, and promises, you aim to gain a fundamental under
   - `Morning Assignment` Find an api that interests you and build a simple web page that utilizes fetch to call the api and then displays the data on the page. Get creative and have fun with it! :)
   - `Afternoon Assignment` Create a Front-End HTML/CSS/JS template for the API's we've created with Flask this week. Be creative and ensure to have fun!
 
-## Testable Learning Objectives (TLO's)
+## TLO's (Tangible Learning Objectives)
 
 - Understand the basics of HTTP
   - web protocol built on top of TCP (guarantees packets are delivered in order)

@@ -13,7 +13,7 @@ By learning about the Document Object Model (DOM) and how to manipulate it with 
   - [DOM Manipulation](https://github.com/Code-Platoon-Assignments/html-dom-manipulation.git)
   - Stretch Challenge: [Create a Static Webpage](https://github.com/Code-Platoon-Assignments/html-static-webpage.git)
 
-## Testable Learning Objectives (TLO's)
+## TLO's (Tangible Learning Objectives)
 
 - Understand what the DOM (Document Object Model) is
 - Understand how to use JavaScript to manipulate the DOM

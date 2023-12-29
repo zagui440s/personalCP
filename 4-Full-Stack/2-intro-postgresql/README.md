@@ -13,7 +13,7 @@ By learning about Relational Database Management Systems (RDBMS), you are aiming
   - [SQL Basics](https://github.com/Code-Platoon-Assignments/sql-basics)
   - [SQL Zoo](http://sqlzoo.net/)
 
-## TLO's (Testable Learning Objectives)
+## TLO's (Tangible Learning Objectives)
 
 - Understand the need for persistent data
 - Explain the structure of a relational database
@@ -23,4 +23,4 @@ By learning about Relational Database Management Systems (RDBMS), you are aiming
 ## External Resources
 
 - [Install Postgres](https://github.com/tangoplatoon/install-postgres)
-- [psql guide](https://www.postgresguide.com/utilities/psql/)
+- [Psql guide](https://www.postgresguide.com/utilities/psql/)

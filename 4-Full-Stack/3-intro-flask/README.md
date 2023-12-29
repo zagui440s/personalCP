@@ -12,7 +12,7 @@ By learning how to create a web server with Flask that can handle GET requests a
   - [Assignment - Flask and Postgres](https://github.com/Code-Platoon-Assignments/flask_postgres)
   - [Assignment - School API](https://github.com/Code-Platoon-Assignments/flask_postgres_school)
 
-## TLO's (Testable Learning Objectives)
+## TLO's (Tangible Learning Objectives)
 
 - Understand the Purpose and Function of a Web Server
 - Connect a Web Server to a PostgreSQL database
