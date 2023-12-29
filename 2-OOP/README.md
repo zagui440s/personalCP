@@ -24,3 +24,7 @@ Additionally, learning to read and write CSV files with Python equips you with e
 - Persistent Data
 - Interacting with a CSV file
 - Assessment #1 at end of the week!
+
+## Video Playlist
+
+- [OOP Youtube](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESSwMZNV7tdn3Z1rer_GYHk)
