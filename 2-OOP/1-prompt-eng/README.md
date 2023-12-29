@@ -8,7 +8,10 @@ By learning about prompt engineering as a full stack software engineer, you aim 
 
 - [Lesson - Intro to Prompt Engineering](./1-intro-pe.md)
 - [Lesson - Applying Prompt Engineering](2-applying-pe.md)
+  - [Assignment - Tic Tac Toe](.) Create a Tic Tac Toe Terminal game in Python by utilizing prompt engineering concepts to generate a series of prompts that will allow you to accomplish this task.
 
 ## ELO's (Elective Learning Objectives)
 
-- 
+- Understand LLM's strengths and witnesses
+- Identify Good and Bad prompt practices
+- Generate effective prompts
