@@ -1,4 +1,4 @@
-# Intro to JS, Python, and the Tools of the Trade
+# Intro to JS, Python, the Command Line, and Git
 
 ## What are we trying to accomplish?
 
@@ -21,50 +21,12 @@ Lastly, we will cover the two most commonly used languages in the industry along
 
 ## Module Topics
 
-- Setting Up a Development Environment
-  - Understanding UNIX
-  - Understanding the terminal CLI
+- Setting Up Your Dev Environment & The Command Line
 - Git Fundamentals
-  - Cloning Repositories
-  - Forking Repositories
-  - Useful git tools
-- JavaScript and Jest
-  - JavaScript fundamentals
-  - Intermediate JavaScript
-  - Intro to Test Driven Development
-  - TDD with Jest
-- Python and Pytest
-  - Python Fundamentals
-  - Intermediate Python
-  - TDD with Pytest
-- Team Kickoff
+- JavaScript, Python Fundamentals
+- Intro to Testing/TDD in JS and Python
 
-### Linux
+## Video Playlist
+- [Intro to JS/Python/Installfest Youtube Playlist](https://www.youtube.com/watch?v=9_jVb5DnCRg&list=PLu0CiQ7bzwESgW6swsJYXeNgEFXmY_m1w)
 
-Linux is the most widely-used operating system in the world, from embedded systems, IoT devices, wifi routers, nuclear submarines, and ... web servers and personal computers.
-
-Almost all operating systems are running on some flavor of Linux, this week we will get familiarized with our terminals Command Line Interface by setting up our Linux Development Environment. Additionally we will cover the difference between git and github and how to maximize this tool to boost your personal and professional development throughout the program.
-
-### Git & Github
-
-Git is an extremely popular "version control software", a powerful program that helps you to manage your code - keeping track of different "versions" of it, and it's history - as your projects get bigger. It has become an industry-standard tool.
-
-You'll learn about git, start using it, and learn how Git and Github relate to each other and what their differences are.
-
-### Javascript
-
-Javascript (JS) is maybe the most popular programming language in the world, and the language of the web. It is **the** language for "frontend" web development. You'll begin to deepen your knowledge of JS.
-
-### Python
-
-Python is another popular programming language. It gets used for scientific computing, for machine learning (AI), and "backend" web app development. It is also a popular "teaching" language used to teach people how to program. Python is what's called an "Object Oriented Programming language" (OOP). You'll begin to deepen your knowledge of Python.
-
-## Testing
-
-As our programs get bigger, how do we know if they are working correctly? As we write software in teams, how do we ensure more errors don't slip into the software? 
-
-Writing "tests" - programs to run our program, and test it is doing what it should, is one important part of writing high-quality and maintainable software.
-
-Testing is a common practice regardless of the programming language and you'll learn how to do it with both Python and JS.
-
-You'll also learn about **Test Driven Development**, or TDD. This is not only a testing strategy but a *programmer workflow* that can help you write code more productively & more enjoyably. It is extremely common in the industry and some knowledge of TDD or Testing is expected for most roles.
+- Note: The Windows/WSL Installfest is not in the above playlist [but you can find it here](https://www.youtube.com/watch?v=9-v-0xRHWb8&list=PLu0CiQ7bzwEQP6Y4igNWNJhSwTkfSMRQA&index=2). Mac installfest is in the playlist.
