@@ -21,3 +21,18 @@ By the end of this lecture you'll have strengthen the relationship with your fel
   - [Balanced Parentheses](https://github.com/Code-Platoon-Assignments/algo-balanced-parentheses.git) in JS & Python
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
+
+## Topics Covered / Goals
+
+- Created class teams & gotten to know your teammates.
+- Hands-on intro to writing code as a part of a team.
+- Class President & Social Chair
+
+## Tangible Learning Objectives
+
+n/a
+
+## Elective Learning Objectives
+
+- Preview of working as a team to write a simple programs w/tests in a TDD fashion.
+- Preview of using git/github to collaborate.
