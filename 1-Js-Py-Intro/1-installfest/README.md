@@ -6,7 +6,7 @@ By the end of this lecture you'll have a `complete` development environment in y
 
 ## Lectures & Assignment
 
-1. [Installfest](./installfest-cli.md)
+1. [Installfest & Intro to the Command Line](./installfest-cli.md). *Note: Run complete installfest before 'Intro to Command Line'.*
 
    - [CLI Practice](https://github.com/Code-Platoon-Assignments/cli-practice.git)
 

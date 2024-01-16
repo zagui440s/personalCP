@@ -4,7 +4,7 @@
 
 Modern software development is complex, and, writing code professionally requires using some specific tools and workflows. And while software is still a young field, there is a rich legacy of tools and programs that have become "standard" knowledge and which you can take advantage of.
 
-You now will start learning how to use these professional tools, both to meet the standards of the industry and to improve your own productivity, workflow, and the quality of the software you write. 
+You now will start learning how to use these professional tools, both to meet the standards of the industry and to improve your own productivity, workflow, and the quality of the software you write.
 
 You will also dive deeper in the Python and Javascript programming languages and begin to learn best practices for both those languages.
 
