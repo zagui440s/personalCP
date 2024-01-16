@@ -1,5 +1,9 @@
 # Installfest
 
+## Intro
+
+Being able to manage your own dev environment (your computer) is a core professional software engineer skill. Think of your computer as your workspace or workbench - because it is! We will guide you in installing and configuring everything you need to write and run code in the class.
+
 ## Computer Setup (Mac, Linux, & Windows)
 
 Before we get started, just know that this can be chaotic. Your goal is to get a working environment. Please follow along closely!
@@ -235,6 +239,10 @@ You will use these less commonly as on a modern system you will have access to b
   - These aren't exactly 'commands' but 'operators', and they are what make `echo` useful.
   - Ex: `echo "hello world" > hello.txt` will overwrite (or create) `hello.txt` with the echoed input
   - Ex: `echo "goodbye moon" >> hello.txt` will concatenate `hello.txt` with the echoed input
+
+## Conclusion
+
+You have learned the basics of working on the command line in a Linux/Unix environment, and, gotten your environment set up. Push yourself to practice using the command line for navigating between directories, viewing the contents of directories, and creating files. **It is okay if this is slow at first** -- it will come with practice, and, like a snowball, each day of effort will add up until one day you find that things are becoming second nature! 🚀
 
 ## Resources
 
