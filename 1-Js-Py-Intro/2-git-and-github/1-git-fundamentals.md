@@ -1,5 +1,9 @@
 # Git Fundamentals
 
+## Intro
+
+You will learn about and get hands-on experience with the fundamentals of git, and understand the difference between git and github.
+
 ## What is Git?
 
 **Git** is a just another command-line tool/program, the same as `mkdir` or `python`, but a uniquely important one for doing professional software development. Git is the de-facto **version control system** for source code. Have you ever saved some changes to a file only to realize a few hours later you deleted something you now want to recover? Git is how software developers manage their code changes so that the history of the project is _tracked_. As a result, we can never completely lose any of our work! Even if we outright delete something, we can always 'rewind' to an earlier point in the project's history to recover it!
@@ -286,11 +290,13 @@ You will see a message indicating that the changes from my-feature have now been
 
 ![git merge](./page-resources/git-merge.png)
 
-### Looking Forward
+## Conclusion
 
 Everything we have covered so far is about how to work with a Git repo locally, but you have probably noticed using the cli can be a little cumbersome as a means of visualizing your commit history and branches. In part 2 we will cover syncing with Github and how to use Github to see a lot of the same info using the much more usable interface of a website.
 
-### Cheatsheet
+git is a powerful tool, and commits and branching allow us to safely experiment with different variations of our code without losing work. However like many complex tools it takes time and practice to master. You will continue to use git fundamentals daily throughout this course - practice, be patient, and **don't hesitate to ask questions about git** and you will be on your way! 🚀
+
+## Cheatsheet
 
 Some important commands we learnt so far include:
 
@@ -312,7 +318,7 @@ Some important commands we learnt so far include:
 
 - `git merge <branchname>` - merge the latest changes from the branch with the given name into the branch you are currently on
 
-### Advice
+## Advice
 
 Some good general git advice:
 
@@ -321,3 +327,9 @@ Some good general git advice:
 2. **Never** use a git command you copied off the internet and don't fully understand. You will only run into even greater complications. If you encounter a new git command on stack overflow, do your due dilligence and read about it first, and ideally seek a TA's help before proceeding.
 
 3. Run `git status` between every other command you run. It will tell you what the state of the system is and is the main way you get familiar with the concepts git uses.
+
+4. Ask for help sooner rather than later with git. With git in particular, it's easy to paint yourself into a corner and make a small problem worse w/out realizing it.
+
+## Resources
+
+- [Code Platoon git workflow cheat sheet & intermediate git cheat sheet](https://github.com/Code-Platoon-Curriculum/curriculum/blob/main/optional_lessons/intermediate-git.md)

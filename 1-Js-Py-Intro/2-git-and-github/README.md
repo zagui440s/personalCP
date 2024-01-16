@@ -4,6 +4,10 @@
 
 By the end of this lecture you'll understand how to use the command-line program Git (`git`) to manage changes to a project in a way that allows you to keep track of those changes and roll them back if necessary - a process known as _version control_. Additionally, you'll learn how to integrate Git with the website Github so they changes will be backed up on the internet for the sake of posterity and making it easier to visually explore your project.
 
+*Version control software* is critically important for modern software development. In addition to tracking changes and safely being able to "undo" work, it also lets you safely collaborate on the same codebase with others without causing problems (or "conflicts") for each other, and manage and share different variations of your codebase.
+
+*[Git](https://git-scm.com/)* is one of the most popular version-control tools and some understanding of it is a prerequesite for every software engineer, regardless of your level of experience. Git was created by Linus Torvaldis, the creator of Linux, to help manage the challenges of a remote, distributed team. It has become widely used, especially in the open-source community. We will focus on git and github in this course. Some other version control tools are [Mercurial](https://www.mercurial-scm.org/) and [SVN](https://www.perforce.com/blog/vcs/what-svn). Learning git will also prepare you to use these other tools if you encounter them in your career.
+
 ## Lectures & Assignment
 
 1. [Git Fundamentals](./1-git-fundamentals.md)
@@ -16,27 +20,32 @@ By the end of this lecture you'll understand how to use the command-line program
 
    - [Github Practice](https://github.com/Code-Platoon-Assignments/github-practice)
 
-   - [Github Essentials](https://github.com/Code-Platoon-Assignments/git-essentials. Not an assignment but a useful reference for forking/cloning assignments in the future.
-
 [Stretch Assignment - Group Project - Experiment with collaborating on a github repo](./stretch-assignment-github-teams.md)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
 ## Topics Covered / Goals
 
-- What is Git?
-- Understand the difference between Git and Github
-- Upgrading a regular folder into a Git repository
-- Checking the 'status' of your git repo
+- What is version control?
+- What is Git? Git vs Github.
+- Basic git concepts & the essential git workflow.
+- Able to clone an assignment github repo and point it to a remote on your own github account.
+
+## Tangible Learning Objectives
+
+- Understand how to clone an existing Github repo to create a local copy
+- Understand how to link a local git repo to any 'remote' repo (including one we just created on Github) by changing the remote url
+- Understand how to push local changes to a remote repo
+- Understand how to pull remote changes to keep the local repo in sync
 - Understand the essential git workflow
   - Staging untracked files to make git aware of the changes
-  - Commiting staged/tracked files into a unique changeset
+  - Commiting staged/tracked files into a unique changeset & pushing that commit to a remote repo.
+
+## Elective Learning Objectives
+
+- Checking the 'status' of your git repo
 - Understand the concept of 'branches'
   - Understand how to create a new branch
   - Understand how to switch between branches
-- What is Github?
-- Understand how to link a local git repo to a 'remote' url (Github)
-- Understand how to push local changes to that remote url
-- Understand how to pull remote changes to keep the local repo in sync
-- Understand how to fork an existing Github repo to create your own personal copy
-- Understand how to clone an existing Github repo to create a local copy
+- Upgrading a regular folder into a Git repository
+- Understand how to fork an existing Github repo
