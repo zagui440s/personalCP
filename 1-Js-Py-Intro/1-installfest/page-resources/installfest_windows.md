@@ -88,11 +88,11 @@ Lastly, let's configure VS Code to always use a WSL terminal by default; this wi
 1. Go to the "Terminal" > "New Terminal" menu to open a new terminal.
 
 2. Along the top right of the terminal, click the downward arrow next to the "+" symbol (see image below). This will give you a list of available terminals to choose from.
- ![VS-Code-Select-Default-Terminal](../page-resources/vs-code-select-default-terminal-1.png)
+ ![VS-Code-Select-Default-Terminal](./vs-code-select-default-terminal-1.png)
 
 3. Choose "Select Default Profile". This will open the VS Code "Command Palette" and you will see all available terminals. There should be one named "Ubuntu" (Ubuntu running inside WSL), or, if you've installed & configured "Windows Terminal", "Windows Terminal". Choose either. **IMPORTANT: Your list of options may look different from the ones in this screenshot.**
 
- ![VS-Code-Command-Palette-Select-Default-Terminal](../page-resources/vs-code-select-default-terminal-2.png)
+ ![VS-Code-Command-Palette-Select-Default-Terminal](./vs-code-select-default-terminal-2.png)
 
 ## Package Management
 
