@@ -22,40 +22,27 @@ By the end of this lecture you'll learn how to utilize `Pythons` elegant syntax 
 
 ## Topics Covered / Goals
 
-- Understand basic Python syntax
-- Understand variable types
-- Understand basic data types
-- Understand data structures:
-  - lists
-  - tuples
-  - dictionaries
-- Understand control flow in Python:
-  - if-statements
-  - for-loops
-  - while-loops
-- Understand some common built-in methods
-  - built-in methods for strings, lists, dicts, etc
-  - destructive vs non-destructive methods
-- Understand how to find an item in a list or dictionary
-- Understand switch cases
-- Understand lambda functions
-- Understand list methods map(), filter(), sort(), reduce()
-- Understand Try-Except error handling
-- Understand files in python. (relative vs. absolute paths)
-- Understand Test Driven Development
-- Understand basic pytest syntax
-- Understand different pytest assertions
-- Understand pytest common errors
-- Understand pytest capabilities
-  - Monkeypatch
-  - capsys
+- Python Fundamentals
+- Pytest Fundamentals
+- TDD Fundamentals
 
 ## Testable Learning Objectives
 
-- Basic Python Fundamentals
+- Python Syntax, Variable types, control flow (conditional logic, for/while loops)
+- Python Built-in Data Structures - lists, tuples, dictionaries.
+- Python Built-in methods for strings, lists, dicts, etc.
+- Understand how to find an item in a list or dictionary
+- Understand Try-Except error handling
+- Understand files in python. (relative vs. absolute paths)
 - Test Driven Development with Pytest
+- Pytest syntax, common errors, capabilities
+  - Monkeypatch
+  - capsys
 
 ## Elective learning objectives
 
-- Intermediate Python Fundamentals
+- Python Fundamentals
 - Writing Tests with Pytest
+- Understand Test Driven Development
+- Understand switch cases
+- Understand lambda functions
