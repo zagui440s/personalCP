@@ -1,5 +1,18 @@
 # Intro to Intermediate Javascript
 
+## Intro
+
+We will cover why Javascript (or JS) is such an important language for the web, and review/dig deeper into JS language fundamentals. Every programming language has fundamental features such as:
+
+- It's syntax
+- Logical operators (if, and, etc)
+- "Primitive" data types (often numbers or strings or booleans)
+- More complex data types (often arrays, lists, objects, etc)
+- If it is "strongly typed" or "weakly typed" (also called a *dynamic* language, as the type of a variable can change)
+- It's tools to compile (if necessary) a program written in the language and run that program on a computer
+
+JS and Python have some similarities (both are dynamic languages) and differences ("objects" work very differently in JS than Python). It is important to know the programming language you use inside and out; your goal in this course should be to become proficient in both JS and Python, and, to become an expert in one of them.
+
 ## How the internet works
 
 Before we can really talk about JavaScript, let's take a high level view of how the internet works, as it relates to web-development
@@ -18,9 +31,9 @@ So what does this have to do with JavaScript? Well, on the backend, you can choo
 
 > In reality you do now, TypeScript is a 'better' JS that 'transpiles' down to JS, but it's beyond the scope of the course at the moment
 
-## Node
+## Node.js
 
-JavaScript was initially intended to simply be the language for the frontend, but there's nothing stopping anyone from implementing it as a general purpose (backend) language, and thats exactly what someone did with the creation of [Node.js](https://nodejs.org/en/). At Code Platoon we use Python + Django for our backend purposes, but Node will allow us to practice our JavaScript on our local computer before we get to the frontend portion of the course.
+JavaScript was initially intended to simply be the language for the frontend, but there's nothing stopping anyone from implementing it as a general purpose (backend) language, and thats exactly what someone did with the creation of [Node.js](https://nodejs.org/en/). At Code Platoon we use Python + Django for our backend purposes, but Node.js (also referred to as just Node) will allow us to practice our JavaScript on our local computer before we get to the frontend portion of the course.
 
 ```bash
   node # open Node in REPL (Read-Evaluate-Print-Loop) mode
@@ -30,7 +43,7 @@ JavaScript was initially intended to simply be the language for the frontend, bu
   node example.js # execute a specific JavaScript file
 ```
 
-## Intro JavaScript
+## Intro to JavaScript
 
 A lot of what we are about to run through was covered in the pre-work, but we want to do a quick overview if there is any confusion. Please do call it out and ask questions on a topic you feel weak on, as these are your core 'tools' in the language and you want to make sure you understand them well before moving on to more advanced parts of the language.
 
@@ -362,3 +375,7 @@ for (let entry of Object.entries(database)) {
   console.log(key, value); // '457', { name: 'Tom', age: 34 }
 }
 ```
+
+## Conclusion
+
+We've done a review and deep dive of JS language fundamentals! We'll be moving on to Python, but, JS will continue to pop up in the course. And, you will find that *concepts* translate well between languages. Python objects are different than JS objects, but, as you'll see, JS objects are very similar to Python dictionaries in terms of how they can be used! There is a lot of syntax to learn, but the more you focus on the underlying concepts the more you'll find your comfort level and ability continuing to grow! 🚀
