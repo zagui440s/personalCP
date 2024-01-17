@@ -24,11 +24,20 @@ By the end of this lecture you'll learn how to utilize JavaScript to solve progr
 - Basic overview of how the internet works
 - Why JavaScript?
 - What is Node?
+- JS Language fundamentals
+- Intro to unit testing in JS with Jest
+
+## Tangible Learning Objectives
+
+n/a - all of the JS skills you learned will be needed in future assignments and assessments as we dive into the frontend and React.js, but your first Assessment (Assessment 1) will focus on Python. However if you don't take the time now to gain proficiency in these JS skills you will struggle later on.
+
+## Elective Learning Objectives
+
+- Pass by value vs Pass by reference
 - Variables
 - Functions
 - Primitive Data Types
 - Complex Data Types
-- Pass by value vs Pass by reference
 - the ternary operator
 - loops (`for`, `for ... of`, `Object.entries`)
 - 'Arrow' functions
@@ -36,6 +45,7 @@ By the end of this lecture you'll learn how to utilize JavaScript to solve progr
 - The spread operator (`[...]`)
 - `exports/require` syntax
 - `npm` basics
-- Jest as a test runner
-- `expect` as an assertion library
+- What is a unit test
+- Using Jest as a test runner
+- Using `expect` as an assertion library
 - skipping tests

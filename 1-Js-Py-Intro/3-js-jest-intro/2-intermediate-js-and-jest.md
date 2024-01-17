@@ -1,8 +1,14 @@
 # Intermediate JS and Jest
 
+## Intro
+
+We will learn about more modern JS language features to help us write our code more expressively, and also introduce how to write and run *tests*. The more complex our programs become the more value tests can offer. Ideally, tests make our lives easier as developers. Different languages have different tools for writing tests but in general the approach is similar across languages. We'll learn about *Jest*, a popular library for writing tests in JS.
+
+Specifically we will write some **unit tests**, tests that test a specific *unit* of our code, such as a specific function. Unit tests are often the foundation of a testing strategy.
+
 ## Intermediate JavaScript
 
-Just about everything we are going to discuss from this point on is what is referred to as 'syntactic sugar'. The ideas presented in part 1 are the core of the language. Syntactic sugar on the other hand just provides a way for a programmer to more neatly and concisely express an idea that was already possible without it, but perhaps unecessary verbose or otherwise inconvenient.
+Many of the JS features we will explore today are what is referred to as 'syntactic sugar'. The ideas presented in part 1 are the core of the language. Syntactic sugar on the other hand just provides a way for a programmer to more neatly and concisely express an idea that was already possible without it, but was perhaps unecessarily verbose or otherwise inconvenient.
 
 ### 'Arrow' functions
 
@@ -275,7 +281,7 @@ function factorial(num) {
 module.exports = factorial;
 ```
 
-Now, we want to write a test spec, a file Jest will 'pick up' to run our test. By default Jest will look for files with the extension `.spec.js`, so let's create a file `factorial.spec.js`:
+Now, we want to write a test spec, a file Jest will 'pick up' to run our test. **By default Jest will look for files with the extension `.spec.js`**, so let's create a file `factorial.spec.js`:
 
 ```js
 const factorial = require("./factorial.js");
@@ -406,3 +412,7 @@ xdescribe("tests factorial for large numbers", () => {
   });
 });
 ```
+
+## Conclusion
+
+We've reviewed important modern JS language features - arrow functions, destructuring, and imports/exports in particular. And we've learned how to write unit tests in Jest to test the functions we write and get good *test coverage*, and organize and run our tests. Writing tests takes more work - at first. But as your programs grow complex, writing unit tests and practicing *Test-Driven Development* will help you design your programs, organize your workflow, and make it *easier* to change your code - because you can trust your tests to be a "harness" to catch you if you make a mistake! 🚀
