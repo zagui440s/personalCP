@@ -165,7 +165,7 @@ This not only doesn't break, it treats the 1 as 'truth-y' and, instead of return
 - `===` will _not_ perform such cooercions, so `1 === '1'` evaulates to `false`.
 - Prefer `===` unless you have a very specific reason to use `==`, as that coercion behavior is almost never what you really want and it makes it easy to create odd type-based bugs.
 
-> For reference: [Booleans](./code-examples/booleans.js)
+> For reference: [Booleans](./examples/booleans.js)
 
 #### `undefined`
 
@@ -202,7 +202,7 @@ daysOfTheWeek.push("thurs");
 console.log(daysOfTheWeek); // ["mon", "tues", "wed", "thurs"];
 ```
 
-> For reference: [Arrays](./code-examples/arrays.js)
+> For reference: [Arrays](./examples/arrays.js)
 
 #### Objects
 
@@ -233,7 +233,7 @@ console.log(tomEntry.name); // "Tom"
 tomEntry.age = tomEntry.age + 1;
 ```
 
-> For reference: [Objects](./code-examples/objects.js)
+> For reference: [Objects](./examples/objects.js)
 
 ### Functions and data types
 
@@ -295,8 +295,8 @@ This is because complex data types are not copied when passed in to a function a
 
 ![pass by reference](./page-resources/pass-by-reference.png)
 
-> For reference: [Pass by value](./code-examples/pass-by-value.js)
-> For reference: [Pass by reference](./code-examples/pass-by-reference.js)
+> For reference: [Pass by value](./examples/pass-by-value.js)
+> For reference: [Pass by reference](./examples/pass-by-reference.js)
 
 ### `if/else` and the ternary operator
 

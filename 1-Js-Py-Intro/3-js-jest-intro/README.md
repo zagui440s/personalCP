@@ -6,16 +6,16 @@ By the end of this lecture you'll learn how to utilize JavaScript to solve progr
 
 ## Lectures & Assignment
 
-1. [JS intro](./1-js-intro-to-js.md)
+1. [Lecture - JS intro](./1-js-intro-to-js.md)
 
-   - [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in JS
+   - [Assignment - Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in JS
 
-   - [Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in JS
+   - [Assignment - Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in JS
 
-2. [Jest](./2-intermediate-js-and-jest.md)
+2. [Lecture - Jest](./2-intermediate-js-and-jest.md)
 
-   - [Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in JS
-   - [Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in JS
+   - [Assignment - Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in JS
+   - [Assignment - Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in JS
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
@@ -27,11 +27,7 @@ By the end of this lecture you'll learn how to utilize JavaScript to solve progr
 - JS Language fundamentals
 - Intro to unit testing in JS with Jest
 
-## Tangible Learning Objectives
-
-n/a - all of the JS skills you learned will be needed in future assignments and assessments as we dive into the frontend and React.js, but your first Assessment (Assessment 1) will focus on Python. However if you don't take the time now to gain proficiency in these JS skills you will struggle later on.
-
-## Elective Learning Objectives
+## Terminal Learning Objectives
 
 - Pass by value vs Pass by reference
 - Variables
@@ -49,3 +45,7 @@ n/a - all of the JS skills you learned will be needed in future assignments and 
 - Using Jest as a test runner
 - Using `expect` as an assertion library
 - skipping tests
+
+## Enabling Learning Objectives
+
+n/a - all of the JS skills you learned will be needed in future assignments and assessments as we dive into the frontend and React.js, but your first Assessment (Assessment 1) will focus on Python. However if you don't take the time now to gain proficiency in these JS skills you will struggle later on.

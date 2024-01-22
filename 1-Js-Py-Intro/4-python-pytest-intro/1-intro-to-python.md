@@ -541,7 +541,7 @@ To write to a file, change the flag to `'w'` to write over the entire file or `'
 
 ## Conclusion
 
-Python is a readable and expressive language, with a lot of useful built-in data structures, functions, and language features. Take the time to dig into Python - in doing assignments in it, reviewing your code-line-by line for understanding, and, reading the [Python docs](https://docs.python.org/3/). Python is designed [with certain principles in mind](https://peps.python.org/pep-0020/). It is a great language to learn in-depth and become an expert in! 🚀 
+Python is a readable and expressive language, with a lot of useful built-in data structures, functions, and language features. Take the time to dig into Python - in doing assignments in it, reviewing your code-line-by line for understanding, and, reading the [Python docs](https://docs.python.org/3/). Python is designed [with certain principles in mind](https://peps.python.org/pep-0020/). It is a great language to learn in-depth and become an expert in! 🚀
 
 ## Resources
 

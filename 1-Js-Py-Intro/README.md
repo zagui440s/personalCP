@@ -13,11 +13,11 @@ Lastly, we will cover the two most commonly used languages in the industry along
 
 ## Lessons
 
-1. [Installfest](./1-installfest/)
-2. [Git Fundamentals](./2-git-and-github/)
-3. [JavaScript and Jest](./3-js-jest-intro/)
-4. [Python and Pytest](./4-python-pytest-intro/)
-5. [Team Kickoff](./5-Team-Kickoff/)
+1. [Installfest](./1-installfest/README.md)
+2. [Git Fundamentals](./2-git-and-github/README.md)
+3. [JavaScript and Jest](./3-js-jest-intro/README.md)
+4. [Python and Pytest](./4-python-pytest-intro/README.md)
+5. [Team Kickoff](./5-Team-Kickoff/README.md)
 
 ## Module Topics
 

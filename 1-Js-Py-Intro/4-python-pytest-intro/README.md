@@ -6,17 +6,17 @@ By the end of this lecture you'll learn how to utilize `Pythons` elegant syntax 
 
 ## Lectures & Assignment
 
-1. [Intro to Python](./1-intro-to-python.md)
+1. [Lecture - Intro to Python](./1-intro-to-python.md)
 
-    - [99 Bottles](https://github.com/Code-Platoon-Assignments/algo-99-bottles-py.git) in Python
-    - [Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial-py.git) in Python
-    - [Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci-py.git) in Python
+    - [Assignment - 99 Bottles](https://github.com/Code-Platoon-Assignments/algo-99-bottles-py.git) in Python
+    - [Assignment - Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial-py.git) in Python
+    - [Assignment - Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci-py.git) in Python
 
-2. [TDD with Pytest](./2-tdd-with-pytest.md)
+2. [Lecture - TDD with Pytest](./2-tdd-with-pytest.md)
 
-    - [Test my Calculator](https://github.com/Code-Platoon-Assignments/intro-to-pytest.git)
-    - [Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numeral-py.git) in Python
-    - [Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search-py.git) in Python
+    - [Assignment - Test my Calculator](https://github.com/Code-Platoon-Assignments/intro-to-pytest.git)
+    - [Assignment - Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numeral-py.git) in Python
+    - [Assignment - Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search-py.git) in Python
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
 
@@ -26,7 +26,7 @@ By the end of this lecture you'll learn how to utilize `Pythons` elegant syntax 
 - Pytest Fundamentals
 - TDD Fundamentals
 
-## Testable Learning Objectives
+## Terminal Learning Objectives
 
 - Python Syntax, Variable types, control flow (conditional logic, for/while loops)
 - Python Built-in Data Structures - lists, tuples, dictionaries.
@@ -39,9 +39,8 @@ By the end of this lecture you'll learn how to utilize `Pythons` elegant syntax 
   - Monkeypatch
   - capsys
 
-## Elective learning objectives
+## Enabling learning objectives
 
-- Python Fundamentals
 - Writing Tests with Pytest
 - Understand Test Driven Development
 - Understand switch cases
