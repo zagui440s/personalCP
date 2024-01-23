@@ -10,25 +10,14 @@ By the end of this lecture you'll understand how to use the command-line program
 
 ## Lectures & Assignment
 
-1. [Lesson - Git Fundamentals](./1-git-fundamentals.md)
-
-   - [Assignment - Git Practice](https://github.com/Code-Platoon-Assignments/git-practice)
-
-   - [Assignment - Learn Git Branching (Introduction Sequence, 1-3)](http://learngitbranching.js.org/) (this is a good resource to know about if you want to get deeper into `git`)
-
-2. [Lesson - Github Fundamentals](./2-github-fundamentals.md)
-
-   - [Github Practice](https://github.com/Code-Platoon-Assignments/github-practice)
-   - [Stretch Assignment - Group Project - Experiment with collaborating on a github repo](./stretch-assignment-github-teams.md)
+- [Lesson - Git Fundamentals](./1-git-fundamentals.md)
+  - [Assignment - Git Practice](https://github.com/Code-Platoon-Assignments/git-practice)
+  - [Assignment - Learn Git Branching (Introduction Sequence, 1-3)](http://learngitbranching.js.org/) (this is a good resource to know about if you want to get deeper into `git`)
+- [Lesson - Github Fundamentals](./2-github-fundamentals.md)
+  - [Github Practice](https://github.com/Code-Platoon-Assignments/github-practice)
+  - [Stretch Assignment - Group Project - Experiment with collaborating on a github repo](https://github.com/Code-Platoon-Assignments/Git-Group-Project/tree/main)
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
-
-## Topics Covered / Goals
-
-- What is version control?
-- What is Git? Git vs Github.
-- Basic git concepts & the essential git workflow.
-- Able to clone an assignment github repo and point it to a remote on your own github account.
 
 ## Terminal Learning Objectives
 

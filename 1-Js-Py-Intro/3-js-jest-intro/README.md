@@ -6,26 +6,14 @@ By the end of this lecture you'll learn how to utilize JavaScript to solve progr
 
 ## Lectures & Assignment
 
-1. [Lecture - JS intro](./1-js-intro-to-js.md)
-
-   - [Assignment - Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in JS
-
-   - [Assignment - Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in JS
-
-2. [Lecture - Jest](./2-intermediate-js-and-jest.md)
-
-   - [Assignment - Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in JS
-   - [Assignment - Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in JS
+- [Lecture - JS intro](./1-js-intro-to-js.md)
+  - [Assignment - Factorial](https://github.com/Code-Platoon-Assignments/algo-factorial) in JS
+  - [Assignment - Roman Numerals](https://github.com/Code-Platoon-Assignments/algo-roman-numerals) in JS
+- [Lecture - Jest](./2-intermediate-js-and-jest.md)
+  - [Assignment - Fibonacci](https://github.com/Code-Platoon-Assignments/algo-fibonacci) in JS
+  - [Assignment - Linear Search](https://github.com/Code-Platoon-Assignments/algo-linear-search) in JS
 
 > Stuck? Have a code error? Use the ["4 Before Me"](https://docs.google.com/document/d/1nseOs5oabYBKNHfwJZNAR7GlU0zkZxNagsw63AD7XV0/edit) debugging checklist to help you solve it!
-
-## Topics Covered / Goals
-
-- Basic overview of how the internet works
-- Why JavaScript?
-- What is Node?
-- JS Language fundamentals
-- Intro to unit testing in JS with Jest
 
 ## Terminal Learning Objectives
 
