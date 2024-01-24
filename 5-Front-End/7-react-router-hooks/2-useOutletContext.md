@@ -130,6 +130,16 @@ export default function ContactUsPage() {
 
 In this example, `useOutletContext` provides access to `route` and its properties, such as `path` and `params`, without having to pass these as props from a parent component.
 
+## Passing down the Context
+
+At this point we know that children pages within the router are connected to `App.jsx` through `<Outlet/>`... but how exactly does that look?
+
+![outlet](./resources/outlet.png)
+
+Now that we see that how can we pass a state variable named `favorites` and set as a list to multiple pages within the Outlet? Thats where outlet context comes in. The state variable is passed to the outlet as `context` and accessed by the children of `App.jsx` as necessary.
+
+![outletContext](./resources/outletContext.png)
+
 ## Summary
 
 In this lesson, you learned about `useOutletContext`, a valuable tool for managing and accessing routing information in your React application. It helps you avoid prop drilling and simplifies the sharing of routing data among components. By using `useOutletContext`, you can improve code maintainability and enhance the organization of your routing-related code.

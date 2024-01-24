@@ -109,7 +109,7 @@ In this lecture, we will extend our knowledge on CSS concepts to make our websit
 ```css
 .container {
   display: flex; /* or inline-flex */
-  justify-content: space-evenly; /* spaces the child elements evenly in relation to the parent container
+  justify-content: space-evenly; /* spaces the child elements evenly in relation to the parent container*/
 }
 ```
 

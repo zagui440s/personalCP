@@ -24,9 +24,15 @@ By learning to add routing to your React + Vite project using react-router-dom, 
     - Testing with Cypress to ensure all requirements are being met
     - Styling from React BootStrap or Tailwind.css
     - Have fun!
+  - [Reading Assignment - Beginning React.JS Ch.12 (start at pg.317)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
 
 ## TLO's (Testable Learning Objectives)
 
-- Creating a React Router
+- Creating a React BrowserRouter from react-router-dom
 - Creating an Error Page for error Handling
-- Creating Navigation capabilities for a Front-End site
+- Creating Navigation capabilities for a Front-End site with react-router-dom components.
+
+## ELO's (Enabling Learning Objectives)
+
+- Utilize outlet to connect Router to App.jsx
+- Understand why react-router-dom is important to protect state variables

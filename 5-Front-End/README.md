@@ -23,8 +23,9 @@ You will be able to explain how these applications are built and why they're bui
 
 - Understand how NPM works
 - Understand the React project structure
-- Implement React Hooks
-- Implement React Router and React Router Hooks
+- Implement React Hooks and React Router Hooks
+- Understand and apply Responsive Web Design
+- Create a Front-End test suite
 
 ## Video Playlist
 

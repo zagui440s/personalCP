@@ -6,13 +6,25 @@ By learning how to use and integrate Tailwind CSS and React Bootstrap in your Vi
 
 ## Lectures and Assignments
 
-- [Lecture - Tailwind CSS](./1-tailwind.md)
-- [Lecture - React BootStrap](./2-bootstrap.md)
+- [Lesson - Tailwind CSS](./1-tailwind.md)
+- [Lesson - React BootStrap](./2-bootstrap.md)
   - [Assignment - Tailwind and BootStrap Project](.) Create a React project utilizing all the tools you've learned so far. This project must contain (but is not limited to) the following:
     - Vite + React.js Project
     - Use of useEffect and useState
-    - Use of Axios and at lease 1 3rd Party API
+    - Use of Axios and at least 1 3rd Party API
     - Use of Components and Props
     - Use of Tailwind CSS for styling html components
     - Use of ReactBootstrap Components
     - Have fun and challenge yourself!
+  - [Reading Assignment - Beginning React Ch.20 (Read the Testing Section)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
+
+## TLO's (Terminal Learning Objectives)
+
+- N/A You do not have to utilize these tools but they are very powerful and knowing how to use these tools will make you a better more efficient Front-End developer.
+
+## ELO's (Enabling Learning Objectives)
+
+- Integrate Tailwind.css with a Vite + React.js project
+  - Customize individual elements CSS utilizing Tailwind classes
+- Integrate React BootStrap with a Vite + React.js project
+  - Import pre-designed components and customize them with built in functionality

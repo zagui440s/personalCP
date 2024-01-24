@@ -6,10 +6,10 @@ By learning about React hooks like `useState` and `useEffect`, as well as unders
 
 ## Lectures and Assignments
 
-- [Lecture - useState and useEffect](./1-useState-useEffect.md)
+- [Lesson - useState and useEffect](./1-useState-useEffect.md)
   - [Assignment - Mute Button](https://github.com/Code-Platoon-Assignments/react-mute-button)
   - [Assignment - Refactor](.) Refactor yesterdays assignments to utilize useState and useEffect
-- [Lecture - components and props](./2-components-props.md)
+- [Lesson - components and props](./2-components-props.md)
   - [Assignment - Hangman](https://github.com/Code-Platoon-Assignments/react-hangman)
   - [Assignment - Whack A Mole](https://github.com/Code-Platoon-Assignments/react-whack-a-mole)
   - [Reading Assignments - Beginning React.JS Ch.10](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)

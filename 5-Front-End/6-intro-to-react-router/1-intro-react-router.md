@@ -86,7 +86,7 @@ In this section, we'll walk through setting up React Router Dom in a Vite + Reac
    );
    ```
 
-7. **Use Routes in Your App**:
+6. **Use Routes in Your App**:
    In your main application component, import and use the `AppRoutes` component.
 
    ```jsx
@@ -98,7 +98,7 @@ In this section, we'll walk through setting up React Router Dom in a Vite + Reac
    }
    ```
 
-8. **Start the Development Server**:
+7. **Start the Development Server**:
    You can now start the Vite development server:
 
    ```bash

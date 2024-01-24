@@ -29,7 +29,7 @@ The following table includes the most commonly used tags and their default displ
 | `inline`       | `span`, `i`, `b`, `em`, `strong`, `sup`, ... |
 | `inline-block` | `img`                                        |
 
-Create several more divs that all have the class `.box`.
+Create several more div's that all have the class `.box`.
 
 ```html
 <div id="boxes">
@@ -48,7 +48,7 @@ Create several more divs that all have the class `.box`.
 </div>
 ```
 
-> By default, divs have `display:block`.
+> By default, div's have `display:block`.
 Use the inspector to see that this default style is being applied by the browser. Notice how each box takes up the full width of the page.
 > By default, `strong` elements have `display:inline`.
 Use the inspector to see that this default style is being applied by the browser. Notice how the strong tag's dimensions are the same as the text it contains.
@@ -67,29 +67,29 @@ In the linked stylesheet, add `display: inline-block` to the `.box` class.
 }
 ```
 
-Refresh the page to see how the divs now form multiple rows.
+Refresh the page to see how the div's now form multiple rows.
 
-### How do we know how these divs will line up?
+### How do we know how these div's will line up?
 
 > By default, all elements are subject to the "document flow", meaning that they "fall" into the top left corner, then line up to the right.
 > When there's no more space on the current line, elements form a new line below, to the left.
 > Some CSS styles can change the way elements flow (e.g. `display:block`, `display:inline-block`) and some styles can remove elements from the document flow entirely (e.g. `display:none`).
 > During this lecture, we'll see other examples of styles that change how elements flow.
 
-### How do we know how many divs I can fit in one row? (box-sizing)
+### How do we know how many div's I can fit in one row? (box-sizing)
 
-> Our divs have `width:100px;`. If our window is 1000px wide, you might think that we could fit 10 divs in one row.
+> Our div's have `width:100px;`. If our window is 1000px wide, you might think that we could fit 10 div's in one row.
 > However, the element's width only includes the content, not the padding, margin, or border.
 > If we take the rest of the box model into account, each div actually takes up 100px + 2(2px) + 2(2px) + 2(10px) = 128px.
 > We can make our lives easier by setting `* { box-sizing: border-box }`. This means that the border and padding should be included when calculating the element's width.
-> For example, if we set `* { box-sizing: border-box }`, then our divs only take up 104px, because the padding and border are included in the 100px width. Only the element margin adds to the total space it takes up.
+> For example, if we set `* { box-sizing: border-box }`, then our div's only take up 104px, because the padding and border are included in the 100px width. Only the element margin adds to the total space it takes up.
 > The benefit of this is that we can now make small adjustments to our padding and border, without messing up the rest of our layout.
 > The default value for `box-sizing` is `content-box`, meaning that only the content is included in the width. Another option is `box-sizing:margin-box`, which means that all layers of the box model are included when calculating the element's width.
 
 Use the inspector to temporarily change the padding or border of one of the boxes.
 The size of the content changes dynamically so that the total width remains the same while the padding or border change.
 
-### What's that extra space between the divs? It's not margin, or padding. What's going on?
+### What's that extra space between the div's? It's not margin, or padding. What's going on?
 
 > "**IMPORTANT**: One of the nuances of using `inline-block` is that **white-space** is still calculated in the layout of `inline-block` elements. This effectively creates a gap between `inline-block` elements, meaning the boxes will have this gap between them that is not a result of the `margin` or `padding` properties. In fact, the gap one sees is the actual `space` character!"
 > One way to get rid of this space is to set the font-size of parent element wrapping the `inline-block` to **zero**
@@ -145,7 +145,7 @@ Add position:relative to theBox to demonstrate relative positioning.
 ```
 
 > Even though `#theBox` appears to be floating off in space, it actually takes up space in its usual location, as if it were static.
-> You can tell because all the other divs are in their usual locations. They don't get pushed around when we add `top` or `left` to `#theBox`.
+> You can tell because all the other div's are in their usual locations. They don't get pushed around when we add `top` or `left` to `#theBox`.
 
 #### Fixed Position
 
@@ -276,7 +276,7 @@ Show students how the above styles force the text block to render below the floa
 
 ### Overflow
 
-> Normally, html elements will automatically expand their size to accomodate all of their children.
+> Normally, html elements will automatically expand their size to accommodate all of their children.
 > However, if you explicitly set a height on an element, and it has more content than will fit in that height, the content will overflow from the container.
 
 Set a fixed height `#boxes`.
@@ -300,7 +300,7 @@ All the boxes on the page won't fit in 700px of vertical space. Use the inspecto
 ```
 
 > If you want the extra content to be accessible without messing up your layout, then `overflow:scroll` will make `#boxes` scrollable.
-> If you think that `#boxes` will have too much content only **some** of the time, you may want to use `overflow:auto`. This will make the scrollbars appear only when necessary.
+> If you think that `#boxes` will have too much content only **some** of the time, you may want to use `overflow:auto`. This will make the scroll-bars appear only when necessary.
 
 ```css
 #boxes {
