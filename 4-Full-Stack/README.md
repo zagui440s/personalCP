@@ -6,11 +6,11 @@ By learning how to create a simple full stack app with Flask, HTML, CSS, JavaScr
 
 ## Lessons
 
-- [HTML & CSS](./1-intro-html-css/)
-- [PostgreSQL](./2-intro-postgresql/)
-- [Flask Server](./3-intro-flask/)
-- [JS DOM](./4-js-dom/)
-- [Ajax & Requests](./5-ajax-fetch/)
+- [HTML & CSS - Building a Front End Application](./1-intro-html-css/)
+- [PostgreSQL - Constructing Database Schemas](./2-intro-postgresql/)
+- [Flask Server - Building a Python Back-End API](./3-intro-flask/)
+- [JS DOM - Manipulating the Document Object Model](./4-js-dom/)
+- [Ajax & Requests - Connecting Front and Back end frameworks](./5-ajax-fetch/)
 
 ## Module Topics
 

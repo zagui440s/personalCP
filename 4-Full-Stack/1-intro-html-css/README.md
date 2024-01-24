@@ -17,8 +17,13 @@ By learning HTML and CSS, you are equipping yourself with the foundational skill
     - projects: links to github projects
     - any other sections you'd like to add
 
-## TLO's (Tangible Learning Objectives)
+## TLO's (Terminal Learning Objectives)
 
 - Create an HTML Template
 - Style an HTML Template
 - Display an HTML and CSS Front-End in Local Host
+
+## ELO's (Enabling Learning Objectives)
+
+- Understand Hypertext Markup Language
+- Understand how to create stylish User Interfaces

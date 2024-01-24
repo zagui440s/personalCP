@@ -1,158 +1,142 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Victor Platoon</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./main.css" />
-  </head>
-  <body>
-    <div id="container">
-        <div class="row">
-            <div class="box">1</div>
-            <div class="box">2</div>
-            <div class="box">3</div>
-        </div>
-        <div class="row">
-            <div class="box">4</div>
-            <div class="box">5</div>
-            <div class="box">6</div>
-        </div>
-        <div class="row">
-            <div class="box">7</div>
-            <div class="box">8</div>
-            <div class="box">9</div>
-        </div>
-    </div>
-    <!-- <header>
-      <h1>Victor Platoon</h1>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Introduction to HTML">
+    <meta name="author" content="Your Name">
+    <title>HTML Examples</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #1e3799;
+        }
+
+        p {
+            color: #4a5568;
+        }
+
+        .red-text {
+            color: #e53e3e;
+        }
+
+        #green-paragraph {
+            color: #48bb78;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML Examples</h1>
+
+    <!-- Headings -->
+    <h2>Headings</h2>
+    <h1>Main Heading</h1>
+    <h2>Subheading 1</h2>
+    <h3>Subheading 2</h3>
+
+    <!-- Paragraphs -->
+    <h2>Paragraphs</h2>
+    <p>This is a regular paragraph.</p>
+    <p class="red-text">This paragraph has a red text color.</p>
+    <p id="green-paragraph">This paragraph has a green text color.</p>
+
+    <!-- Line Breaks -->
+    <h2>Line Breaks</h2>
+    This is a line of text.<br>Now it's on a new line without starting a new paragraph.
+
+    <!-- Lists -->
+    <h2>Lists</h2>
+    <ol>
+        <li>Ordered List Item 1</li>
+        <li>Ordered List Item 2</li>
+        <li>Ordered List Item 3</li>
+    </ol>
+    <ul>
+        <li>Unordered List Item 1</li>
+        <li>Unordered List Item 2</li>
+        <li>Unordered List Item 3</li>
+    </ul>
+    <dl>
+        <dt>Definition Term 1</dt>
+        <dd>Definition Description 1</dd>
+        <dt>Definition Term 2</dt>
+        <dd>Definition Description 2</dd>
+    </dl>
+
+    <!-- Images -->
+    <h2>Images</h2>
+    <img src="example.jpg" alt="Example Image" width="300" height="200">
+
+    <!-- Tables -->
+    <h2>Tables</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+            </tr>
+            <tr>
+                <td>Data 3</td>
+                <td>Data 4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Links -->
+    <h2>Links</h2>
+    <a href="https://www.example.com">Visit Example Website</a>
+
+    <!-- Forms and Input -->
+    <h2>Forms and Input</h2>
+    <form action="/submit" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Semantic Elements -->
+    <h2>Semantic Elements</h2>
+    <header>
+        <h3>Header Section</h3>
     </header>
     <nav>
-      <a id="homelink">Home</a>
-      <a>Profile</a>
-      <a>Students</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </nav>
     <main>
-      <div>
-        <p id="theP" class="oddp">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-          corporis impedit nemo voluptatum! Magnam fugiat tenetur dolor
-          recusandae sit suscipit, neque, nemo, odit eos laudantium consequatur
-          molestias? Labore, nam vitae!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-          corporis impedit nemo voluptatum! Magnam fugiat tenetur dolor
-          recusandae sit suscipit, neque, nemo, odit eos laudantium consequatur
-          molestias? Labore, nam vitae!
-        </p>
-        <p class="oddp">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-          corporis impedit nemo voluptatum! Magnam fugiat tenetur dolor
-          recusandae sit suscipit, neque, nemo, odit eos laudantium consequatur
-          molestias? Labore, nam vitae!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
-          corporis impedit nemo voluptatum! Magnam fugiat tenetur dolor
-          recusandae sit suscipit, neque, nemo, odit eos laudantium consequatur
-          molestias? Labore, nam vitae!
-        </p>
-      </div>
+        <article>
+            <h4>Article Title</h4>
+            <p>Article content goes here.</p>
+        </article>
+        <aside>
+            <p>Aside content goes here.</p>
+        </aside>
     </main>
-    <footer class="oddp">GO BACK TO <a>Home</a></footer> -->
-    <!-- <h1>Victor Platoon</h1>
-    <table>
-      <tr>
-        <th>head</th>
-        <th>head</th>
-        <th>head</th>
-      </tr>
-      <tr>
-        <td>
-            row
-        </td>
-        <td>
-            row
-        </td>
-        <td>
-            row
-        </td>
-      </tr>
-      <tr>
-        <td>
-            row
-        </td>
-        
-      </tr>
-      <tr>
-        <td>
-            row
-        </td>
-        
-      </tr>
-    </table>
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/W3Schools_logo.svg/1088px-W3Schools_logo.svg.png"
-    />
-    <div id="lists">
-      <ol>
-        Coding for Today
-        <li>HTML</li>
-        <li>CSS</li>
-      </ol>
-      <ul>
-        Things to do
-        <li>
-          <input type="checkbox" />
-          Code
-        </li>
-        <li>
-          <input type="checkbox" />
-          Eat
-        </li>
-        <li>
-          <input type="checkbox" />
-          Sleep
-        </li>
-      </ul>
-    </div>
-    <form>
-      <input type="checkbox" />
-      <input type="color" />
-      <input type="date" />
-      <input type="number" />
-      <textarea> </textarea>
-      <button>Submit</button>
-    </form>
-    <div>
-      <h2>1</h2>
-      <a href="https://www.amazon.com">Amazon</a>
-      <p>
-        <strong>Lorem ipsum dolor</strong>
-        <em>sit amet consectetur</em> adipisicing elit. Ab recusandae
-        <u>ullam laborum itaque</u> <br />commodi tempore eos molestiae quae,
-        quidem ipsum aut minus debitis vitae temporibus laudantium. Quas veniam
-        vel repellendus.
-      </p>
-      <div>
-        <h2>2</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab recusandae
-          ullam laborum itaque commodi tempore eos molestiae quae, quidem ipsum
-          aut minus debitis vitae temporibus laudantium. Quas veniam vel
-          repellendus.
-        </p>
-        <div>
-          <h2>3</h2>
-          <p>
-            <span>Lorem ipsum dolor sit</span> amet consectetur adipisicing
-            elit. Ab recusandae ullam laborum itaque commodi tempore eos
-            molestiae quae, quidem ipsum aut minus debitis vitae temporibus
-            laudantium. Quas veniam vel repellendus.
-          </p>
-        </div>
-      </div>
-    </div> -->
-  </body>
+    <footer>
+        <p>Footer content goes here.</p>
+    </footer>
+
+</body>
+
 </html>
