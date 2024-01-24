@@ -11,7 +11,7 @@ By learning how to create a web server with Flask that can handle GET requests a
 - [Lesson - Utilizing PostgreSQL](./2-flask-postgresql.md)
   - [Assignment - Flask and Postgres](https://github.com/Code-Platoon-Assignments/flask_postgres)
   - [Assignment - School API](https://github.com/Code-Platoon-Assignments/flask_postgres_school)
-  - [Reading Assignment - Understanding the DOM Ch.3 & 4](https://drive.google.com/file/d/1epQLuOoXG5C6c93ASURGF6qNQggAh1oV/view?usp=drive_link)
+  - [Reading Assignment - Understanding the DOM Ch.3, 4, & 9](https://drive.google.com/file/d/1epQLuOoXG5C6c93ASURGF6qNQggAh1oV/view?usp=drive_link)
 
 ## TLO's (Tangible Learning Objectives)
 

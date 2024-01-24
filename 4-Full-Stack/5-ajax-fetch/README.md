@@ -8,9 +8,10 @@ By learning about HTTP, fetch, and promises, you aim to gain a fundamental under
 
 - [Lesson - What is HTTP](./1-what-is-http.md)
 - [Lesson - How to use Fetch](./2-ajax-fetch.md)
-  - [Morning Assignment - Pokemon Theme Team](https://classroom.github.com/a/P_c-7jpu)
   - `Morning Assignment` Find an api that interests you and build a simple web page that utilizes fetch to call the api and then displays the data on the page. Get creative and have fun with it! :)
-  - `Afternoon Assignment` Create a Front-End HTML/CSS/JS template for the API's we've created with Flask this week. Be creative and ensure to have fun!
+  - [Assignment - Pokemon Theme Team](https://classroom.github.com/a/P_c-7jpu)
+  - `Assignment` Create a Front-End HTML/CSS/JS template for the API's we've created with Flask this week. Be creative and ensure to have fun!
+  - [Reading Assignment - Beginning React.JS Ch.2](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
 
 ## TLO's (Terminal Learning Objectives)
 
