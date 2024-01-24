@@ -2,13 +2,7 @@
 
 In the previous lecture, we created a Flask server that serves student data from a list of dictionaries. However, in real-world applications, it's common to store data in a relational database like PostgreSQL. In this lecture, we'll connect our Flask server to a PostgreSQL database named `students` and retrieve data from it. We will use the schema and data you provided.
 
-## Table of Contents
-
-1. [Using SQLAlchemy & Psycopg2 to Connect Flask and PostgreSQL](#1-using-sqlalchemy--psycopg2-to-connect-flask-and-postgresql)
-2. [Modifying the Flask Server](#2-modifying-the-flask-server)
-3. [Retrieving Data from PostgreSQL](#3-retrieving-data-from-postgresql)
-
-## 1. Using SQLAlchemy & Psycopg2 to Connect Flask and PostgreSQL
+## 1. Using SQLAlchemy & Psycopg3 to Connect Flask and PostgreSQL
 
 To connect Flask to PostgreSQL, we will use SQLAlchemy, a popular Object Relational Mapping (ORM) library for Python. SQLAlchemy provides an easy and efficient way to interact with databases.
 
@@ -21,7 +15,7 @@ pip install Flask-SQLAlchemy
 Secondly, we want to ensure our Python code is able to be interpreted as SQL queries and that our Query results are able to be interpreted as Python code. In order to do this we will need to install psycopg2, a Python library that facilitates seamless communication between Python programs and PostgreSQL databases, through `pip`
 
 ```bash
-pip install psycopg2
+pip install "psycopg[binary]"
 ```
 
 ## 2. Modifying the Flask Server
@@ -74,4 +68,4 @@ if __name__ == '__main__':
 
 With these changes, your Flask server is now connected to the PostgreSQL database. When you run the server, it will serve student data from the PostgreSQL database.
 
-To retrieve student data, run the Flask server and make a GET request to `http://localhost:5000/students`. The server will fetch the data from the PostgreSQL database and return it as JSON.
+To retrieve student data, run the Flask server and make a GET request to `http://localhost:5000/students/`. The server will fetch the data from the PostgreSQL database and return it as JSON.

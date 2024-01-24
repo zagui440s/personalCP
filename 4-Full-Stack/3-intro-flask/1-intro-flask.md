@@ -1,12 +1,5 @@
 # Lesson: Creating a Flask Server for Handling GET Requests
 
-## Table of Contents
-
-1. [What Is a Web Server and Why Use Python?](#1-what-is-a-web-server-and-why-use-python)
-2. [What Is Flask?](#2-what-is-flask)
-3. [How Does the Server Work?](#3-how-does-the-server-work)
-4. [Creating a Web Server with Flask](#4-creating-a-web-server-with-flask)
-
 ## 1. What Is a Web Server and Why Use Python?
 
 A web server is a software application that listens for incoming HTTP requests from clients, such as web browsers, and responds with the requested content. Python is an excellent choice for web development due to its simplicity, readability, and a wide range of web frameworks available. One such framework is Flask, which is lightweight and easy to use, making it a great choice for beginners and experienced developers alike.
