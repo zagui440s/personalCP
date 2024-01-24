@@ -12,3 +12,15 @@ By learning about React hooks like `useState` and `useEffect`, as well as unders
 - [Lecture - components and props](./2-components-props.md)
   - [Assignment - Hangman](https://github.com/Code-Platoon-Assignments/react-hangman)
   - [Assignment - Whack A Mole](https://github.com/Code-Platoon-Assignments/react-whack-a-mole)
+  - [Reading Assignments - Beginning React.JS Ch.10](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
+
+## TLO's(Terminal Learning Objectives)
+
+- Utilize useState and useEffect to interact with the Virtual DOM
+- Utilize props to pass attributes to components
+- Create Components to isolate behavior
+
+## ELO's(Enabling Learning Objective)
+
+- Understand the relationship between state the Virtual DOM and the DOM
+- Understand the parent to child relationship with Components

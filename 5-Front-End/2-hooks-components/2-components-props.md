@@ -18,7 +18,7 @@ Repeating code is a common source of errors and maintenance headaches. Component
 
 Components create a clear separation of concerns in your code. Each component focuses on a specific task or piece of the UI. This isolation makes debugging easier because you can pinpoint issues to a particular component rather than sifting through a large monolithic codebase.
 
-## Project Folder Structure for Creating Components
+### Project Folder Structure for Creating Components
 
 To organize your components efficiently, consider structuring your project like this:
 
@@ -35,19 +35,75 @@ src/
 
 By placing your components in a separate folder, your project remains well-organized, and it's easier to locate and manage them.
 
-## Creating Components
+### Practical Example
 
-To create a component, define a JavaScript function or class that returns JSX. Here's an example of a simple functional component:
+Lets take a look at our to-do-list application and try to create a behavior where a task can be checked as completed by users. My first thought would be to create a `useState` hook for completed and update it upon a user interaction.
 
 ```jsx
-import React from 'react';
+const [completed, setCompleted] = useState(false)
 
-function Button() {
-  return <button>Click me</button>;
-}
-
-export default Button;
+return (
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>
+            <input type="checkbox" checked={completed} onChange={(e)=>setCompleted(e.target.checked)}>
+            {item.item}
+            <button onClick={()=>removeItem(item)}>
+              Remove Button
+            <button>
+          </li>
+        ))}
+      </ul>
+)
 ```
+
+well that didn't work as expected. Rather than only updating one it updated all of my tasks at once. What's going on? Lets take a look:
+
+![No Component](./resources/noCompState.png)
+
+## Creating a Component
+
+we could change our function to change the individual objects "completed" attribute to but that would really handle the problem at it's root level. Instead we want to isolate this behavior for each individual object by creating a Component that will isolate an objects properties and functions.
+
+```jsx
+const Task = () => {
+  const [completed, setCompleted] = useState(false)
+
+  useEffect(()=>{
+    console.log(completed)
+  },[completed])
+
+  return (
+      <li>
+        <input type="checkbox" checked={completed} onChange={(e)=>setCompleted(e.target.checked)}>
+        A task will be displayed here
+        <button>
+          Remove Button
+        </button>
+      </li>
+  )
+}
+```
+
+```jsx
+import Task from "./components/Task.jsx";
+
+function App() {
+  const [tasks, setTasks] = useState(jsonTask);
+
+  // add and remove tasks functions
+
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <Task key={index} />
+      ))}
+    </ul>
+  );
+}
+```
+
+![Component Task](./resources/componentTask.png)
 
 ## Export and Import Statements within React.js
 
@@ -60,7 +116,7 @@ In React, you have two primary ways to export components: using `export default`
 When you use `export default`, you are exporting a single "default" value from your module. In the context of React components, this means that you can export one component as the default export from a file. Here's an example:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 function Button() {
   return <button>Click me</button>;
@@ -72,7 +128,7 @@ export default Button;
 In this case, `Button` is the default export of the `Button.js` file. When you import this component in another file, you can choose any name you want for the imported value. For example:
 
 ```jsx
-import MyButton from './Button';
+import MyButton from "./Button";
 ```
 
 Here, we named the imported component `MyButton`, but you could name it anything you prefer.
@@ -82,7 +138,7 @@ Here, we named the imported component `MyButton`, but you could name it anything
 In contrast to default exports, named exports allow you to export multiple values from a single module, each with a distinct name. You can have multiple named exports in one module. Here's an example:
 
 ```jsx
-import React from 'react';
+import React from "react";
 
 export function Button() {
   return <button>Click me</button>;
@@ -96,7 +152,7 @@ export function Link() {
 In this case, both the `Button` and `Link` components are named exports of the file. When importing named exports, you must use the exact name specified in the module. For example:
 
 ```jsx
-import { Button, Link } from './Button';
+import { Button, Link } from "./Button";
 ```
 
 Here, you import both `Button` and `Link` by their respective names.
@@ -115,10 +171,10 @@ Understanding the difference between `export default` and named exports is essen
 
 ```jsx
 // Importing a default export
-import Button from './Button';
+import Button from "./Button";
 
 // Importing a named export
-import { Button } from './Button';
+import { Button } from "./Button";
 ```
 
 Certainly, let's explain the concept of parent and child relationships within React.js.
@@ -137,7 +193,7 @@ Consider a simple example where we have a `User` component as the parent and `Pr
 
 ```jsx
 function User() {
-  const userData = {userId: 1, name: 'John', age: 30 };
+  const userData = { userId: 1, name: "John", age: 30 };
 
   return (
     <div>
@@ -159,11 +215,11 @@ function Profile() {
 
 function Posts() {
   // Fetch and display user posts based on the userId and save to useState
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
   return (
     <ul>
-      {posts.map((post)=>(
+      {posts.map((post) => (
         <li>{post.title}</li>
       ))}
     </ul>
@@ -182,7 +238,7 @@ function Greeting(props) {
   return <h1>Hello, {props.name}!</h1>;
 }
 
-<Greeting name="John" /> // Renders "Hello, John!"
+<Greeting name="John" />; // Renders "Hello, John!"
 ```
 
 ## `props` Destructuring
@@ -199,7 +255,7 @@ This way, you can access `name` directly, simplifying your component's code.
 
 ```jsx
 function User() {
-  const userData = {userId: 1, name: 'John', age: 30 };
+  const userData = { userId: 1, name: "John", age: 30 };
 
   return (
     <div>
@@ -221,11 +277,11 @@ function Profile({ user }) {
 
 function Posts({ userId }) {
   // Fetch and display user posts based on the userId and save to useState
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
 
   return (
     <ul>
-      {posts.map((post)=>(
+      {posts.map((post) => (
         <li>{post.title}</li>
       ))}
     </ul>
@@ -237,6 +293,50 @@ function Posts({ userId }) {
 - `Posts` receives the `userId` prop and fetches and displays user-specific posts.
 
 This hierarchical structure and the passing of data from parent to child components are fundamental to building complex and reusable user interfaces in React. It allows you to create modular and maintainable code by breaking down the UI into smaller, manageable parts.
+
+## Finishing To-Do App
+
+utilizing what we just learned we can now pass each individual task object from our `tasks` useState and functions down to the `Task` component.
+
+```jsx
+import Task from "./components/Task.jsx";
+
+function App() {
+  const [tasks, setTasks] = useState(jsonTask);
+
+  // add and remove tasks functions
+
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <Task key={index} task={item} removeATask={removeATask} />
+      ))}
+    </ul>
+  );
+}
+```
+
+```jsx
+const Task = (props) => {
+  const [completed, setCompleted] = useState(props.task.completed)
+
+  useEffect(()=>{
+    console.log(completed)
+  },[completed])
+
+  return (
+      <li>
+        <input type="checkbox" checked={completed} onChange={(e)=>setCompleted(e.target.checked)}>
+        {props.task.task}
+        <button onClick={()=>props.removeATask(props.task)} >
+          Remove Button
+        </button>
+      </li>
+  )
+}
+```
+
+![props](./resources/componentPrompt.png)
 
 ## Conclusion
 

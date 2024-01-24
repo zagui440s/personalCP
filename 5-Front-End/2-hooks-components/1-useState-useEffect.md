@@ -10,21 +10,51 @@ Before diving into hooks, it's crucial to understand the concept of the React Vi
 
 - **Virtual DOM**: React maintains a virtual representation of the actual DOM. When you make changes to the application's state, React updates the virtual DOM first, then calculates the difference between the new and previous virtual DOM states. Finally, it only updates the real DOM where changes occurred. This process optimizes rendering performance.
 
+![Virtual DOM](./resources/virturalDom.png)
+
 ## State and the Virtual DOM
 
 ### `useState` Hook
 
 The `useState` hook allows you to add and manage state within your functional components. It's essential for making your components dynamic and interactive.
 
+For example, lets say we wanted to change the greeting within our front-end interface to `Goodbye Code Platoon` with a click of a button. We would create a `useState` const named greeting that would store the original value of we would want to display as it's initializer and render the code like this.
+
+```jsx
+function App() {
+  //         get    sets           init
+  const [hello, setHello] = useState("Hello Victor") //any||null
+
+  return(
+    <>
+     <h1>{hello}</>
+     <button onClick={()=>setHello("Goodbye Victor")}>
+       Change Greeting
+      </button>
+    </>
+  )
+  // notice the onClick function is taking in a function to be triggered upon an event. You are still setting up an event listener.
+}
+```
+
+When the button is clicked our Virtual DOM will be updated to look like this, please notice that the onClick function itself did not update the DOM being rendered by the browser.
+
+![State Update VDOM](./resources/stateUpdateVDOM.png)
+
+Now that the Virtual DOM has been update it will trigger a comparison and see that the DOM is no longer matching the Virtual DOM. Once that happens React will update the DOM and update the browser side code to change the User Interface.
+
+![VDOM AND DOM](./resources/VDOMandDOM.png)
+
 #### Adding Items to a `useState` Array
 
 You can use `useState` to manage an array state and add items to it. Here's an example:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import jsonTasks from "./data/tasks.json";
 
 function Example() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState([jsonTasks]);
 
   const addItem = (newItem) => {
     setItems([...items, newItem]);
@@ -32,10 +62,12 @@ function Example() {
 
   return (
     <div>
-      <button onClick={() => addItem('New Item')}>Add Item</button>
+      <button onClick={() => addItem({ id: tasks.length + 1, task: `newTask${tasks.length + 1}`, completed: false })}>
+        Add Item
+      </button>
       <ul>
         {items.map((item, index) => (
-          <li key={index}>{item}</li>
+          <li key={index}>{item.task}</li>
         ))}
       </ul>
     </div>
@@ -45,14 +77,27 @@ function Example() {
 
 In this example, we use the `setItems` function to update the state. By spreading the previous array and adding the new item, we ensure that we create a new array, which triggers a re-render.
 
+![mappingEx](./resources/mappingEx.png)
+
 #### Removing Items from a `useState` Array
 
 You can remove items from a `useState` array using the `filter` method. Here's an example:
 
 ```jsx
 const removeItem = (itemToRemove) => {
-  setItems(items.filter((item) => item !== itemToRemove));
+  setItems(items.filter((item) => item.id !== itemToRemove.id));
 };
+return (
+  //....
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>
+            {item.item}
+            <button onClick={()=>removeItem(item)}>Remove Item </button>
+          </li>
+        ))}
+      </ul>
+  );
 ```
 
 This code filters out the item to be removed and sets the state with the new array.
@@ -114,10 +159,14 @@ Using state variables for conditional rendering ensures that your components sta
 Here's an example of conditional rendering using a state variable:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function App() {
   const [show, setShow] = useState(true);
+
+  useEffect(()=>{
+    console.log(show)
+  }, [show])
 
   return (
     <div>

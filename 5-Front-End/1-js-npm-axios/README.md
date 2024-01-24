@@ -9,5 +9,17 @@ By learning about Node, NPM, ES6, mapping, filtering, object destructuring, and 
 - [Lecture - NPM](./1-node-projects.md)
 - [Lecture - Intro to React](./2-intro-vite-react.md)
   - [Assignment - Pokemon Theme Team](https://github.com/Code-Platoon-Assignments/react-pokemon)
-  - [Assignment - Guess a Number](https://github.com/Code-Platoon-Assignments/react-guess-number)
   - [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/to-do-react)
+  - [Reading Assignment - Beginning with React.JS Ch.4(Please skip everything regarding Class components) & Ch.11(stop at page 272)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
+
+## TLO's(Terminal Learning Objectives)
+
+- Manage Dependencies in NPM
+- Create a React.JS project
+- Utilize Axios to make HTTP requests
+
+## ELO's(Enabling Learning Objectives)
+
+- Understand NPM project structure
+- Understand the Vite + React folder structure
+- Understand import and export statements within npm modules
