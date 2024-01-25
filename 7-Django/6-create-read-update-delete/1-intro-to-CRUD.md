@@ -10,7 +10,7 @@ In this lesson we will cover basic Create Read Update and Delete (CRUD) principl
 
 > Create refers to the process of adding new data to a system, such as creating a new record in a database or adding a new item to a list.
 
-> Read refers to the process of retrieving existing data from a system, such as querying a database to retrieve a specific record or displaying a list of items. We have done this through our previous lessons by sending `GET` requests to our Django Back End through axios.
+> Read refers to the process of retrieving existing data from a system, such as querying a database to retrieve a specific record or displaying a list of items. We have done this through our previous lessons by sending `GET` requests to our Django Back End through Thunder Client.
 
 > Update refers to the process of modifying existing data in a system, such as editing a record in a database or updating the details of an item.
 
@@ -90,92 +90,7 @@ from rest_framework.status import HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST
 fields = "__all__"
 ```
 
-> We've built out our `PUT` method and return the appropriate response. This CBV is still linked to the same `url path` that our `GET` method was linked to. The only difference is we now have the ability to send both `PUT` and `GET` requests to the same url pattern. Let's hop over to our React Front-End and add the ability to update a Pokemon through our User Interface in the `PokemonItem.jsx`component.
-
-```javascript
-
-export const PokemonItem = ({ pokemon }) => {
-//...
-  const [showForm, setShowForm] = useState(false);
-  const [newType, setNewType] = useState("");
-  const [newDescription, setNewDescription] = useState("");
-  const [captured, setCaptured] = useState(pokemon.captured);
-  const [levelUp, setLevelUp] = useState(false);
-
- //...
-
-  const updatePokemon = async (e) => {
-    e.preventDefault();
-    let data = {
-      type: newType,
-      captured: captured,
-      level_up: levelUp,
-      description: newDescription,
-    };
-    console.log(data)
-    let response = await axios
-      .put(`http://127.0.0.1:8000/api/v1/pokemon/${pokemon.id}/`, data)
-      .catch((err) => {
-        alert("couldn't update pokemon");
-        console.error(err);
-      });
-    if (response.status === 204) {
-      window.location.reload();
-    }
-  };
-
-  return (
-    <li>
-    {....}
-      Name: {pokemon.name}
-      {showForm ? (
-        <form onSubmit={(e) => updatePokemon(e)}>
-          <br />
-          <input
-            type="text"
-            placeholder={pokemon.type}
-            onChange={(e) => setNewType(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder={pokemon.description}
-            onChange={(e) => setNewDescription(e.target.value)}
-          />
-          <div>
-            <label>
-              <input
-                type="checkbox"
-                id="caught"
-                name="caught"
-                checked={captured}
-                onChange={(e) => setCaptured(e.target.checked)}
-              />
-              Caught
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                id="level"
-                name="level"
-                checked={levelUp}
-                onChange={(e) => setLevelUp(e.target.checked)}
-              />
-              Level Up
-            </label>
-          </div>
-          <button onClick={() => setShowForm(!showForm)}>CANCEL</button>
-          <input type="submit" placeholder="Submit" />
-        </form>
-      ) : (
-      {....}
-      )
-      }
-    </li>
-  );
-};
-```
-
-> Once you've submitted your request you'll see that your responses body came back empty. Well if we check the response status header and it returns with the code 204 No Content, we can assume the request was successful and did not receive any content.
+> We've built out our `PUT` method and return the appropriate response. This CBV is still linked to the same `url path` that our `GET` method was linked to. The only difference is we now have the ability to send both `PUT` and `GET` requests to the same url pattern.
 
 > Everything is working properly but I'm starting to notice that I have a bit of repeated code within my `A_pokemon` CBV. I want to ensure I don't repeat myself so I think I'm going to go back and apply a django shortcut name `get_object_or_404` and create a method that will return a pokemon instance.
 

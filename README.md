@@ -2,8 +2,6 @@
 
 ## Getting Started
 
-You can view our cohort's [curriculum calendar](https://docs.google.com/spreadsheets/d/1OFBrYsnRSmpgJOWq7rxwBummdR5eCAnqpWJMeqmm-do/edit#gid=0), which is broken down by weeks and days.
-
 ![Fullstack Development](./page-resources/cp_fullstack_development.png)
 
 ## Asking Questions in Slack / Slack Etiquette
@@ -13,10 +11,6 @@ Before anything, read through [Slack etiquette](https://slack.com/blog/collabora
 Questions should be asked in the #questions Slack channel using proper [formatting](https://slack.com/help/articles/202288908-Format-your-messages) (see Inline code section), not via TA or instructor DM. This reflects the industry norms - companies want their engineers to have discussions publicly so that questions can be easily searched and referenced.
 
 Your questions should be pointed (not "Can someone help me?"), show that you’ve read through the code/error, should contain your thought process / some potential solutions, and should not be anything that is easily Google-able. Once you ask a question and find a solution, please update your question thread so that other students can benefit from seeing the question and answer.
-
-## Daily Check-ins
-
-It is important for you to have a place to talk about how you are feeling and how you feel you are progressing. Every morning before class starts, please fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLSfZjxwlNH-f2mEMfrqPkO062Y58GeiGqNW8jdd_Ujvq31ZGDQ/viewform?usp=sf_link).
 
 ## What should I do if I finish everything on any given day?
 
@@ -40,5 +34,4 @@ Classroom videos/lectures will be recorded and posted to YouTube. It can take up
 
 ## Additional Resources Shared in Class
 
-- [Pass-by-value vs pass-by-reference](https://gist.github.com/AloofBuddha/92ee6749a8be48c984881a4523f533c3)
-- [CSS review](https://youtu.be/8qoOsZy-WbU)
+- [Lectures & Books](https://drive.google.com/drive/folders/1JXp_dvxjdFWyrVmSq6wqs9vcvqSDtZ5O?usp=drive_link)

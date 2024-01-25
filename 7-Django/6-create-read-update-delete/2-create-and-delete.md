@@ -25,83 +25,7 @@ class All_pokemon(APIview):
             return Response(new_pokemon.errors, status=HTTP_400_BAD_REQUEST)
 ```
 
-> Now that we have a flexible and well constructed API view to create a Pokemon, we can test it with `axios` by sending a `POST` request to `http://127.0.0.1:8000/api/v1/pokemon/` with all of the following data.
-
-```javascript
-// front-end/src/pages/Pokemon.jsx
-import Row from "react-bootstrap/esm/Row";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { PokemonItem } from "../components/PokemonItem";
-
-export const Pokemon = () => {
-  const [pokemon, setPokemon] = useState([]);
-  const [name, setName] = useState("");
-  const [level, setLevel] = useState(0);
-  const [captured, setCaptured] = useState(false);
-  const [type, setType] = useState("");
-  const [description, setDescription] = useState("");
-
-  {...}
-
-  const createAPokemon = async(e) => {
-    e.preventDefault()
-    let data = {
-      "name":name,
-      "level":level,
-      "description":description,
-      "captured":captured,
-      "type":type
-    }
-    // console.log(data)
-    let response = await axios
-      .post("http://127.0.0.1:8000/api/v1/pokemon/", data)
-      .catch((err)=>{
-        alert("could not create Pokemon")
-        console.error(err)
-      })
-    if (response.status === 201){
-      window.location.reload()
-    }
-  }
-
-  return (
-    <Row style={{ padding: "0 10vmin" }}>
-      <form onSubmit={(e)=>createAPokemon(e)}>
-        <h2>Create a Pokemon</h2>
-        <input
-          type="text"
-          placeholder="Pokemon Name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Pokemon Type"
-          onChange={(e) => setType(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Pokemon Level"
-          onChange={(e) => setLevel(e.target.value)}
-        />
-        <textarea
-          placeholder="description"
-          onChange={(e) => setDescription(e.target.value)}
-        ></textarea>
-        <label>
-          Captured
-          <input
-            type="checkbox"
-            onChange={(e) => setCaptured(e.target.checked)}
-          />
-        </label>
-        <input type="submit" value="create" />
-      </form>
-      {....}
-    </Row>
-  );
-};
-```
+> Now that we have a flexible and well constructed API view to create a Pokemon, we can test it with `Thunder Client` by sending a `POST` request to `http://127.0.0.1:8000/api/v1/pokemon/` with all of the following data.
 
 > Our API is working correctly and it is able to validate data and create a new entry onto our database utilizing the `POST` method.
 
@@ -123,34 +47,6 @@ class A_pokemon(APIView):
 ```
 
 > Finally we can test it by sending a DELETE request to `http://127.0.0.1:8000/api/v1/pokemon/geodude/`. This will cause Geodude to be deleted from out database and this should reflect on our user interface.
-
-```javascript
-// front-end/src/components/PokemonItem.jsx
-export const PokemonItem = ({ pokemon }) => {
-
-  {...}
-
-  const deleteAPokemon = async() => {
-    let response = await axios
-        .delete(`http://127.0.0.1:8000/api/v1/pokemon/${pokemon.id}/`)
-        .catch((err)=>{
-        alert("could not delete a pokemon")
-        console.error(err)
-        })
-    if (response.status === 204){
-        window.location.reload()
-    }
-  }
-
-  return (
-    <li>
-    Name: {pokemon.name}
-    <button onClick={deleteAPokemon}>Delete</button>
-    {...}
-    </li>
-  )
-}
-```
 
 ## Testing API Endpoints
 

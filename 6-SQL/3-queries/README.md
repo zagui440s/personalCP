@@ -3,16 +3,19 @@
 Certainly! Below are SQL queries that cover various aspects such as SELECT, *, SUM, AVG, AS, SORTED_BY, GROUP_BY, DESCEND, LEFT_JOIN, RIGHT_JOIN, JOIN, LIKE, IN, WHERE, and other essential queries in reference to the "games" and "genres" tables:
 
 1. **Basic SELECT:**
+
    ```sql
    SELECT * FROM games;
    ```
 
 2. **SELECT with Alias (AS):**
+
    ```sql
    SELECT game_title AS title, quantity AS stock FROM games;
    ```
 
 3. **SUM and GROUP BY:**
+
    ```sql
    SELECT genre_id, SUM(quantity) AS total_stock
    FROM games
@@ -20,6 +23,7 @@ Certainly! Below are SQL queries that cover various aspects such as SELECT, *, S
    ```
 
 4. **AVG and GROUP BY:**
+
    ```sql
    SELECT genre_id, AVG(price) AS avg_price
    FROM games
@@ -27,6 +31,7 @@ Certainly! Below are SQL queries that cover various aspects such as SELECT, *, S
    ```
 
 5. **Sorted By and DESCEND:**
+
    ```sql
    SELECT game_title, quantity
    FROM games
@@ -34,6 +39,7 @@ Certainly! Below are SQL queries that cover various aspects such as SELECT, *, S
    ```
 
 6. **LEFT JOIN:**
+
    ```sql
    SELECT game_title, quantity, genre_name
    FROM games
@@ -62,6 +68,7 @@ Certainly! Below are SQL queries that cover various aspects such as SELECT, *, S
    ```
 
 10. **IN:**
+
     ```sql
     SELECT game_title, quantity
     FROM games
@@ -69,6 +76,7 @@ Certainly! Below are SQL queries that cover various aspects such as SELECT, *, S
     ```
 
 11. **Combining Conditions in WHERE:**
+
     ```sql
     SELECT game_title, quantity
     FROM games
