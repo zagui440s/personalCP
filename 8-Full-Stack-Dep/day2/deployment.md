@@ -14,7 +14,6 @@
 - [AWS Route53](#10-aws-route53)
 - [Certbot](#11-certbot)
 
-
 ## 1. Understanding a Deployed Site on the Internet
 
 ![Alt Text](../resources/fullstack.png)
@@ -92,7 +91,7 @@ We'll create a `t2.micro` instance using the AWS Management Console and generate
 6. Download the PEM certificate
 7. Launch the instance
 
-**Keep your PEM certificate secure, as it provides access to your EC2 instance**
+**Keep your PEM certificate secure, as it provides access to your EC2 instance!**
 
 ## 4. Connecting to EC2 Instance via SSH
 
@@ -353,4 +352,3 @@ sudo service nginx restart
 ## External Resources
 
 - [certbot](https://certbot.eff.org/instructions)
-
