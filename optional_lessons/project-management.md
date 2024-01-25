@@ -5,7 +5,7 @@ In this lesson we will learn how to follow the development process by creating d
 
 ## Creating Repository
 
-While working on a project, we don't want code that hasn't been reviewed by at least two coworkers to end up on our main branch. Instead we want our main branch on our repository to be protected and have developers do their work on seperate branches that will require approval to merge with the main branch.
+While working on a project, we don't want code that hasn't been reviewed by at least two coworkers to end up on our main branch. Instead we want our main branch on our repository to be protected and have developers do their work on separate branches that will require approval to merge with the main branch.
 
 Lets go over the steps to create our repository with a protected main branch.
 
