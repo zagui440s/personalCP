@@ -12,15 +12,15 @@ By learning about CRUD operations and RESTful API design while building a Pokede
   - [Assignment - To Do List](https://github.com/Code-Platoon-Assignments/Djago-CRUD)
   - [Assignment - School API IX](https://github.com/Code-Platoon-Assignments/django-school-api-IX)
 
-## Topics Covered
-
-- Understand HTTP Responses for HTTP methods
-- Understand Restful API Requirements
-- Understand Front-End and Back-End Integrations
-
-## Testable Learning Objectives (TLO's)
+## TLO's (Testable Learning Objectives)
 
 - HTTP RESTful API Design
 - Create an Update API CBV
 - Create a CREATE/POST method in a CBV
 - Create a DELETE/DELETE method in a CBV
+
+## ELO's (Enabling Learning Objectives)
+
+- Understand HTTP Responses for HTTP methods
+- Understand Restful API Requirements
+- Understand Front-End and Back-End Integrations

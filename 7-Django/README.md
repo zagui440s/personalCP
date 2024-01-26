@@ -22,6 +22,8 @@ Django is a high-level web framework written in Python that allows developers to
 
 Django Rest Framework (DRF) is an extension to Django that facilitates the creation of RESTful APIs. It provides a powerful set of tools for serializing and deserializing data, handling authentication and authorization, handling requests, and responding with appropriate HTTP status codes.
 
+> Please read ["Why DRF"](./Resources/Why_DRF.md) if you are interested on this Django Extension
+
 ### Interacting with Django
 
 DRF seamlessly integrates with Django, leveraging its features to build RESTful APIs. DRF uses Django's URL routing system to define API endpoints, allowing developers to map URLs to views and control how requests are handled. DRF also integrates with Django's authentication and authorization mechanisms, making it easy to secure API endpoints.

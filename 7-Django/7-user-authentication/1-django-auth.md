@@ -300,7 +300,3 @@ from rest_framework.permissions import IsAuthenticated
 ## External Resources
 
 - [django auth docs](https://docs.djangoproject.com/en/4.0/topics/auth/default/)
-
-## Assignments
-
-- [Django Auth](https://classroom.github.com/a/E6XQnC5M)
