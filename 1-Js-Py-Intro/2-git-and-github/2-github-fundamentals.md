@@ -1,5 +1,9 @@
 # Github Fundamentals
 
+## Intro
+
+You will go deeper into using git in conjunction with github and learn how to save your work to your "remote" git repo on github.
+
 ## What is Github?
 
 To reiterate from part 1:
@@ -170,7 +174,7 @@ Go back to the cli and first make sure you are on the `main` branch (`git checko
 
 ## Conclusion
 
-This concludes our intro to Git/Github lecture, but as you probably suspect there is a lot that has not been covered. For better or worse git is a very complex tool and we have only scratched the surface. The essential point is that you already have what you need to backup your own work when working alone.
+This concludes our intro to Git/Github lecture, but as you probably suspect there is a lot that has not been covered. Git is a very complex tool and we have only scratched the surface. The essential point is that you already have what you need to backup your own work when working alone, and learned the workflow you will use on a daily basis when working on assignments.🚀
 
 ## Cheatsheet
 
@@ -203,3 +207,5 @@ Other good general bits of git advice I feel are worth sharing:
 - [Atlassian Git resouces](./https://www.atlassian.com/git/tutorials/setting-up-a-repository)
 
 Atlassian is a company that makes many software development tools like Jira (project management) and a Github competitor called BitBucket. We don't use or teach BitBucket but their tutorials around Git are extremely high quality with diagrams that help a lot compared to Git's own official docs.
+
+- [Code Platoon git workflow cheat sheet & intermediate git cheat sheet](https://github.com/Code-Platoon-Curriculum/curriculum/blob/main/optional_lessons/intermediate-git.md)

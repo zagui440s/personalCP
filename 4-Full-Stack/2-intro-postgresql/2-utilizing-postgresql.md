@@ -4,23 +4,15 @@
 
 Welcome to the lecture on "Why PostgreSQL and How to Work with It." In this session, we'll explore the significance of PostgreSQL as a powerful relational database management system (RDBMS) and dive into practical aspects of working with PostgreSQL. You'll learn why PostgreSQL is a popular choice for managing data and how to perform essential tasks, including handling CSV files, writing SQL scripts, and designing efficient database schemas.
 
-## Table of Contents
-
-1. [Why PostgreSQL?](#1-why-postgresql)
-2. [Working with PostgreSQL and CSV Files](#2-working-with-postgresql-and-csv-files)
-3. [Database Schema Design](#3-database-schema-design)
-4. [Writing SQL Files for PostgreSQL](#4-writing-sql-files-for-postgresql)
-5. [Conclusion](#5-conclusion)
-
-### 1. Why PostgreSQL?
+## 1. Why PostgreSQL?
 
 PostgreSQL, often referred to as "Postgres," is a robust and open-source relational database management system. But why should you choose PostgreSQL? We'll explore the reasons for PostgreSQL's popularity and its advantages. According to the DB-Engines Ranking, PostgreSQL consistently ranks among the top database management systems, praised for its advanced features, extensibility, and strong community support. We'll delve into how PostgreSQL excels in areas such as data integrity, transaction support, and extensibility. Additionally, we'll discuss real-world use cases and industries where PostgreSQL shines, from startups to large enterprises.
 
-### 2. Working with PostgreSQL and CSV Files
+## 2. Working with PostgreSQL and CSV Files
 
 Handling data in PostgreSQL often involves importing data from external sources like CSV files. We'll walk through the process of importing and exporting data between PostgreSQL and CSV files.
 
-#### Importing Data from CSV Files
+### Importing Data from CSV Files
 
 One common scenario is the need to import data from a CSV file into a PostgreSQL database. The `COPY` command is an efficient way to accomplish this task. Here's an example of how to use it:
 
@@ -76,7 +68,7 @@ id,first_name,last_name,age,grade
 
 5. Referential Integrity: If your application has multiple related tables, you can implement foreign keys to maintain referential integrity.
 
-#### Creating the Table
+### Creating the Table
 
 With this schema in place, you can use SQL commands to create the "students" table. You can then employ the `COPY` command, as explained in the previous section, to import data from your CSV file into the newly created table. This well-designed schema ensures that your data is organized, accessible, and adheres to your application's requirements.
 

@@ -63,7 +63,7 @@ Let's write a simple test using the pytest framework to check if a function work
 1. **Write the Test:** In `test_example.py` import the `add_two_numbers` function(we have not created this function) and write a test that will assert this function can take in two numbers as arguments and return their sum.
 
    ```python
-   from example.py import add_two_numbers
+   from example import add_two_numbers
 
    def test_add_two_numbers():
        assert add_two_numbers(2,2) == 4

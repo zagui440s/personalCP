@@ -1,41 +1,33 @@
-# Intro to Unix, TDD, Python, Pytest, JavaScript, Jest, and your Teams
-
-## Instructor Notes & Prerequesites
-
-All students should have Linux set up on their local dev environments. This is usually Mac OS X or for Windows users WSL2 w/its default Ubuntu. Non-Ubuntu distros are fine if the student knows what they are doing.
+# Intro to JS, Python, the Command Line, and Git
 
 ## What are we trying to accomplish?
 
-Linux is the most widely-used operating system in the world, from embedded systems, IoT devices, wifi routers, nuclear submarines, and ... web servers and personal computers.
+Modern software development is complex, and, writing code professionally requires using some specific tools and workflows. And while software is still a young field, there is a rich legacy of tools and programs that have become "standard" knowledge and which you can take advantage of.
 
-Almost all operating systems are running on some flavor of Linux, this week we will get familiarized with our terminals Command Line Interface by setting up our Linux Development Environment. Additionally we will cover the difference between git and github and how to maximize this tool to boost your personal and professional development throughout the program.
+You now will start learning how to use these professional tools, both to meet the standards of the industry and to improve your own productivity, workflow, and the quality of the software you write.
 
+You will also dive deeper in the Python and Javascript programming languages and begin to learn best practices for both those languages.
+
+Most of all, you will begin to learn your "workbench" - your computer. Not only will you go deeper into Python, JS, and programming generally, but you will begin learning how to customize and configure your "dev environment" - your own machine.
 Lastly, we will cover the two most commonly used languages in the industry along with their respective popular test frameworks. This will allow you to understand and exercise Test Driven Development concepts and fundamentals to help you become an essential tool for the industry.
 
 ## Lessons
 
-1. [Installfest](./1-installfest/)
-2. [Git Fundamentals](./2-git-and-github/)
-3. [JavaScript and Jest](./3-js-jest-intro/)
-4. [Python and Pytest](./4-python-pytest-intro/)
-5. [Team Kickoff](./5-Team-Kickoff/)
+1. [Installfest](./1-installfest/README.md)
+2. [Git Fundamentals](./2-git-and-github/README.md)
+3. [JavaScript and Jest](./3-js-jest-intro/README.md)
+4. [Python and Pytest](./4-python-pytest-intro/README.md)
+5. [Team Kickoff](./5-Team-Kickoff/README.md)
 
 ## Module Topics
 
-- Setting Up a Development Environment
-  - Understanding UNIX
-  - Understanding the terminal CLI
+- Setting Up Your Dev Environment & The Command Line
 - Git Fundamentals
-  - Cloning Repositories
-  - Forking Repositories
-  - Useful git tools
-- JavaScript and Jest
-  - JavaScript fundamentals
-  - Intermediate JavaScript
-  - Intro to Test Driven Development
-  - TDD with Jest
-- Python and Pytest
-  - Python Fundamentals
-  - Intermediate Python
-  - TDD with Pytest
-- Team Kickoff
+- JavaScript, Python Fundamentals
+- Intro to Testing/TDD in JS and Python
+
+## Video Playlist
+
+- [Intro to JS/Python/Installfest Youtube Playlist](https://www.youtube.com/watch?v=9_jVb5DnCRg&list=PLu0CiQ7bzwESgW6swsJYXeNgEFXmY_m1w)
+
+- Note: The Windows/WSL Installfest is not in the above playlist [but you can find it here](https://www.youtube.com/watch?v=9-v-0xRHWb8&list=PLu0CiQ7bzwEQP6Y4igNWNJhSwTkfSMRQA&index=2). Mac installfest is in the playlist.
