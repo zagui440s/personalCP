@@ -289,6 +289,12 @@ If your terminal now looks like it does below, you have succesfully installed Po
 postgres=#
 ```
 
+Now that you are logged into postgres you can create a user role within your PostgreSQL database that matches the user within your Ubuntu instance by running the following command.
+
+```sql
+CREATE ROLE <your_username> WITH LOGIN SUPERUSER INHERIT CREATEDB CREATEROLE;
+```
+
 To exit out of this enviroment type
 
 ```
@@ -296,6 +302,8 @@ postgres=# \q
 ```
 
 You will still be logged in as the user 'postgres' even after this step, so either close the terminal outright or press `Ctrl-D` to return to the regular terminal environment you began in.
+
+Now you can enter PostgreSQL by typing `psql postgres || psql` into the terminal.
 
 ## VSCode Extensions
 
