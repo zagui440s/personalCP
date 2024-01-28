@@ -156,7 +156,7 @@ Absolute vs relative filepaths: When speaking of paths, we often speak of the ab
 - `rm <filename>`
 
   - 'Remove' a file.
-  - `rm fil1.txt` will remove `file1.txt` (assuming it exists).
+  - `rm file1.txt` will remove `file1.txt` (assuming it exists).
   - `rm -r my-folder` will remove a folder with stuff in it (recursively).
   - `rm -rf my-folder` will remove a folder with something in it 'forcefully' i.e. without asking 'are you sure?' first.
 
