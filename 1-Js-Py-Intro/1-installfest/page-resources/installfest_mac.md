@@ -221,7 +221,7 @@ git config --global user.email "<YOUR_EMAIL>"
 We also want to make sure that when committing we open the commit message prompt in VSCode (default will be `vim` and you will not like it):
 
 ```bash
-git config --global core.editor code
+git config --global core.editor code --wait
 ```
 
 You can confirm git is configured correctly by running
