@@ -182,6 +182,9 @@ This concludes our intro to Git/Github lecture, but as you probably suspect ther
 
 - `git remote add origin <github-url>` - set up your local git repo to refer to a remote (Github) repo
 
+- `git remote set-url origin <github-url>` - if origin url exists already, change it to set up your local git repo to refer to a remote (Github) repo
+
+
 - `git push -u origin main` - initial setup for pushing your main branch to an equivalent branch on your Github repo (origin)
 
 - `git push` - continually push changes once the initial setup has been done
