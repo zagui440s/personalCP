@@ -4,6 +4,26 @@
 
 Today, we're diving into the heart of your code - computer memory. This is a critical aspect that influences the performance and efficiency of your programs. In this lecture, we'll explore why understanding computer memory is crucial in coding, specifically focusing on Python programming.
 
+**Basics of Computer Memory:**
+
+- **Definition:**
+  - **Computer Memory:** It refers to the hardware component responsible for temporarily or permanently storing data and instructions. This fundamental element is vital for a computer's functionality and data processing.
+
+- **Types of Memory:**
+  - **Primary Memory (RAM):**
+    - *Volatile, fast-access memory:* RAM, or Random Access Memory, is characterized by its volatility, meaning it loses its content when the power is turned off. This type of memory ensures quick access to data actively used by the CPU during ongoing operations.
+
+    - *Holds data currently in use by the CPU:* Primary Memory, in the form of RAM, is the space where the CPU stores and retrieves data actively in use. For example, when you have multiple applications open on your computer, the data from these applications resides in RAM for quick access.
+
+    - *Examples:* DDR4 RAM, SDRAM (Synchronous Dynamic RAM)
+
+  - **Secondary Memory (Storage):**
+    - *Non-volatile, retains data even when the power is off:* Unlike RAM, Secondary Memory, often referred to as Storage, is non-volatile, meaning it retains data even when the power is turned off. An example of this is your computer's hard drive or solid-state drive (SSD), where data is stored persistently, allowing you to power off and restart your computer without losing stored information.
+
+    - *Long-term storage (e.g., hard drives, SSDs):* Devices such as hard drives and SSDs fall under the category of Secondary Memory, providing a reliable and long-term storage solution. For instance, the files and programs installed on your computer are stored in the hard drive, allowing you to access them even after shutting down and restarting your system.
+
+    - *Examples:* HDD (Hard Disk Drive), SSD (Solid State Drive)
+
 ## Why It's Important to Understand Computer Memory in Coding
 
 1. **Resource Optimization:**
