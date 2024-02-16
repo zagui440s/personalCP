@@ -11,7 +11,6 @@ By learning about recursion and the call stack, you aim to grasp a fundamental p
   - [Assignment - Put your "recursive loop" solution into Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit) and step through it.
   - [Assignment - Do the recursion challenges](https://github.com/Code-Platoon-Assignments/recursion-challenges). *Note: these may take some time!*
   - [Flatten List](https://github.com/Code-Platoon-Assignments/FlattenList.git)
-  - [Smallest Node](https://github.com/Code-Platoon-Assignments/smallest-node.git)
   - [Binary Search](https://github.com/Code-Platoon-Assignments/binary-search.git)
 
 ## Terminal Learning Objectives (TLO's)

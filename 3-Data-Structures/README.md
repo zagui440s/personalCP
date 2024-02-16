@@ -11,13 +11,9 @@ You will learn some of the fundamental building blocks (data structures, algorit
 ## Module Topics
 
 1. [Linear Search and Binary Search](./1-intro-data-structures/)
-
 2. [Big-O](./2-big-o/)
-
 3. [Memory and Linked Lists](./3-memory-linked-list/)
-
 4. [Recursion](./4-recursion/)
-
 5. [Intro to Whiteboarding Problems & Technical Interviews, DS Review](./5-intro-whiteboarding-problems-ds-review/README.md)
 
 ## Video Playlist
