@@ -8,18 +8,13 @@ By learning about front-end testing and how to test React applications with Cypr
 
 - [Lecture - Why Testing?](./1-why-testing.md)
 - [Lecture - Cypress](./2-cypress-react.md)
-  - [Assignment - Cypress](.) Create a React project that utilizes the Cypress test suite. Use this assignment to get familiarized with the different types of commands and tests you can run within [cypress](https://docs.cypress.io/guides/component-testing/react/examples)
-  - [Assignment - Refactor](.) One of the most important skills as a Software Engineer is being able to refactor code. Take the time to go over this modules assignments and apply the following concepts:
-    - Ensure proper use of React Hooks (useState, useEffect || Don't use the JS DOM)
-    - Isolate behavior (Create React Components with Props)
-    - Don't Repeat Yourself (Do you have any repeated code?)
-    - Add styling to components (Apply TailwindCSS or BootStrap)
-    - Add test suites to reinforce requirements (Utilize Cypress to create tests that reinforce assignment requirements)
+  - [Assignment - Cypress](https://github.com/Code-Platoon-Assignments/react-cypress.git)
+  - [Assignment - Refactor](https://github.com/Code-Platoon-Assignments/React-Refactor.git)
   - [Reading Assignment - Beginning React.JS Ch.12(stop at pg.317)](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
 
 ## TLO's (Terminal Learning Objectives)
 
-- Develop Projects and features utizing TDD with Cypress
+- Develop Projects and features utilizing TDD with Cypress
 
 ## ELO's (Enabling Learning Objectives)
 

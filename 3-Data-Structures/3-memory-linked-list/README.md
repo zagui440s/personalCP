@@ -14,11 +14,11 @@ By learning about computer memory and linked lists, you are aiming to gain a dee
   - [Reverse a LL](https://leetcode.com/problems/reverse-linked-list/)
   - [Swapping nodes in a LL](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)
 
-## Terminal Learning Objectives(TLO's)
+## TLO's (Terminal Learning Objectives)
 
 - N/A This will not be evaluated in Code Platoon
 
-## Enabling Learning Objectives(ELO's)
+## ELO's (Enabling Learning Objectives)
 
 - Understanding Computer Memory and Efficiency
 - Understand what is a Linked List

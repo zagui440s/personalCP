@@ -1,5 +1,5 @@
 
-# Whiteboarding Problems & Technical Interviews, Data Structures Review
+# White-boarding Problems & Technical Interviews, Data Structures Review
 
 ## What are we trying to accomplish?
 
@@ -26,10 +26,10 @@ If possible review data structures but the priority is introducing how to tackle
 
 2. **In-class exercise:** Students take 30 minutes to work on a simple leetcode problem from the list. Should **not** be a data structures problem - focus is in the process. Allocate approx. 10min for group feedback / discussion afterwards.
 
-## Testable Learning Objectives (TLO's)
+## TLO's (Terminal Learning Objectives)
 
 - Learn and able to apply the basic whiteboarding problem strategy.
 
-## Elective Learning Objectives (ELO's)
+## ELO's (Enabling Learning Objectives)
 
 - Can explain what the interviewer is looking for in a technical interview and what we are being evaluated on in a technical interview.

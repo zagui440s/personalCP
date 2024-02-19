@@ -13,11 +13,11 @@ By learning about recursion and the call stack, you aim to grasp a fundamental p
   - [Flatten List](https://github.com/Code-Platoon-Assignments/FlattenList.git)
   - [Binary Search](https://github.com/Code-Platoon-Assignments/binary-search.git)
 
-## Terminal Learning Objectives (TLO's)
+## TLO's (Terminal Learning Objectives)
 
 N/A
 
-## Enabling Learning Objectives (ELO's)
+## ELO's (Enabling Learning Objectives)
 
 - Be able to explain what recursion is.
 - Be able to explain what a base case is.

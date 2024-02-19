@@ -11,11 +11,11 @@ Learning about linear search versus binary search provides a fundamental underst
   - [Assignment - Linear vs Binary](https://github.com/Code-Platoon-Assignments/ds-linear-vs-binary-search/tree/main)
   - [Assignment - Refactor](.): One of the most important parts about programming is having the ability to visit previously written code and refactor our work to make it more efficient. Go through the assignments you've completed so far and think about which problems you can solve in a more effective way. It doesn't have to be binary search, maybe there's a different method or a different Data Type you can utilize in programs to make them more efficient.
 
-## Terminal Learning Objectives(TLO's)
+## TLO's (Terminal Learning Objectives)
 
 - None of these concepts will be evaluated here in Code Platoon but they will be expected of you upon reaching the interview process or possibly your first job.
 
-## Enabling Learning Objectives(ELO's)
+## ELO's (Enabling Learning Objectives)
 
 - Understand how to apply linear search and how to identify it's problem
 - Understand how to refactor and restructure code to make it more efficient
