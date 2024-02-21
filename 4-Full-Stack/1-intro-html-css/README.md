@@ -10,7 +10,7 @@ By learning HTML and CSS, you are equipping yourself with the foundational skill
   - [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/html-css-to-do-list-I.git)
 - [Lesson - Intro to CSS](./2-intro-to-css.md)
   - [Assignment - To-Do List](https://github.com/Code-Platoon-Assignments/html-css-to-do-list-II.git)
-  - [Assignment - Top Ten](https://classroom.github.com/a/3buomjOe)
+  - [Assignment - Top Ten](https://github.com/Code-Platoon-Assignments/html-top-ten.git)
   - Use the html and css you were introduced to today to start a portfolio website for yourself. This does not have to be completed today but it's good to start one so you can keep adding to it the more you learn.
   Sections to include:
     - About me: a little paragraph about you
