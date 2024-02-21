@@ -9,7 +9,7 @@ By learning about HTTP, fetch, and promises, you aim to gain a fundamental under
 - [Lesson - What is HTTP](./1-what-is-http.md)
 - [Lesson - How to use Fetch](./2-ajax-fetch.md)
   - [Assignment - API Integration](https://github.com/Code-Platoon-Assignments/API-Integration.git)
-  - [Assignment - Pokemon Theme Team](https://classroom.github.com/a/P_c-7jpu)
+  - [Assignment - Pokemon Theme Team](https://github.com/Code-Platoon-Assignments/pokemon-theme-team.git)
   - [Assignment - Full Stack Apps](https://github.com/Code-Platoon-Assignments/Student-Full-Stack.git)
   - [Reading Assignment - Beginning React.JS Ch.2](https://drive.google.com/file/d/1groEhrGvFKe7Jf_u3NfnoDQUJspU2alu/view?usp=drive_link)
 
