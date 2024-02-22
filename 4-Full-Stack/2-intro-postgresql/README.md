@@ -29,5 +29,5 @@ By learning about Relational Database Management Systems (RDBMS), you are aiming
 
 ## External Resources
 
-- [Install Postgres](https://github.com/tangoplatoon/install-postgres)
+- [Install Postgres](https://github.com/Code-Platoon-Curriculum/install-postgres)
 - [Psql guide](https://www.postgresguide.com/utilities/psql/)
