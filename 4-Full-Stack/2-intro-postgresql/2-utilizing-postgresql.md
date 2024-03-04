@@ -17,7 +17,7 @@ Handling data in PostgreSQL often involves importing data from external sources 
 One common scenario is the need to import data from a CSV file into a PostgreSQL database. The `COPY` command is an efficient way to accomplish this task. Here's an example of how to use it:
 
 ```sql
-COPY your_table_name FROM '/path/to/your/file.csv' DELIMITER ',' CSV HEADER;
+\COPY your_table_name FROM '/path/to/your/file.csv' DELIMITER ',' CSV HEADER;
 ```
 
 - `your_table_name`: Replace this with the name of your target database table.
@@ -48,17 +48,17 @@ id,first_name,last_name,age,grade
 
 1. Table Structure: Begin by defining a table to hold the student data. You can name it "students." The schema might look like this:
 
-  ```sql
-  CREATE TABLE students (
+   ```sql
+   CREATE TABLE students (
       id serial PRIMARY KEY,
       first_name VARCHAR (50),
       last_name VARCHAR (50),
       age INT,
       grade CHAR(1)
-  );
-  ```
+   );
+   ```
 
-  We've specified a primary key (id) to ensure each student record is unique. Columns like first_name, last_name, age, and grade are tailored to match the CSV data's structure.
+   We've specified a primary key (id) to ensure each student record is unique. Columns like first_name, last_name, age, and grade are tailored to match the CSV data's structure.
 
 2. Data Types: Utilize appropriate data types for each column. For example, we've used VARCHAR for name-related columns and INT for age.
 

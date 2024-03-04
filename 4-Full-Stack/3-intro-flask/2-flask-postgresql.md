@@ -31,7 +31,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 # Configuration for the PostgreSQL database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/students'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://username:password@localhost/students'
 
 # Initialize the SQLAlchemy extension
 db = SQLAlchemy(app)

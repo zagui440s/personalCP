@@ -52,7 +52,7 @@ def get_students():
     return jsonify(students)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8000) # Flask tries to run on port 5000 by default but it's sometimes occupied by a different function. Let's tell flask to utilize port 8000 instead
 ```
 
 **Explanation:**
