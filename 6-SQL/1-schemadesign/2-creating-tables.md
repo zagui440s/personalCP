@@ -89,7 +89,7 @@ In order to run an SQL file within postgres we will need the absolute path to sa
 Now you are ready to load some data onto your data tables. Add the following command to your SQL script, or run it straight on your psql terminal connected to the `gaming_store` database.
 
 ```sql
-COPY games FROM 'path/to/data/games.csv' WITH CSV HEADER;
+\COPY games FROM 'path/to/data/games.csv' WITH CSV HEADER;
 ```
 
 - **COPY:** This is a PostgreSQL command used to copy data between a file and a table. It allows you to efficiently load data from a file into a table or unload data from a table into a file.
