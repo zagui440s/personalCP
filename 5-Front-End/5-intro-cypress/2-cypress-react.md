@@ -82,7 +82,7 @@ Here's what these scripts do:
 
 - `"cy:open"`: This script runs the `cypress open` command, which opens the Cypress Test Runner in interactive mode. You can use this to interactively write and debug your tests.
 
-- `"cy:run"`: This script runs the `npx cypress run --spec` command, allowing you to run Cypress tests from the command line. The `--spec` flag allows you to specify a specific test file to run. For example, you can run a specific test with `"npm run cy:run -- --spec cypress/integration/myTest.spec.js"`.
+- `"cy:run"`: This script runs the `npx cypress run --spec` command, allowing you to run Cypress tests from the command line. The `--spec` flag allows you to specify a specific test file to run. For example, you can run a specific test with `"npm run cy:run -- --spec cypress/integration/myTest.cy.js"`.
 
 These scripts provide a convenient way to interact with Cypress for both test development and test execution.
 
@@ -90,10 +90,10 @@ By configuring `cypress.config.js` and adding these scripts to your `package.jso
 
 ## 3. How to Write Your First Cypress E2E Test
 
-Now that Cypress is set up in your project, let's write your first E2E test. Create a new file in the `cypress/integration` directory, such as `myFirstTest.spec.js`. Inside this file, you can write your test using Cypress commands. Here's a simple example:
+Now that Cypress is set up in your project, let's write your first E2E test. Create a new file in the `cypress/integration` directory, such as `myFirstTest.cy.jsx`. Inside this file, you can write your test using Cypress commands. Here's a simple example:
 
 ```javascript
-// cypress/integration/myFirstTest.spec.js
+// cypress/integration/myFirstTest.cy.jsx
 describe('My First Cypress Test', () => {
   it('Visits the app and asserts title', () => {
     cy.visit('/'); // Replace with your app's URL
@@ -120,7 +120,7 @@ In your project's root directory, run the following command:
 npm run cy:open
 ```
 
-This will open the Cypress Test Runner. You can see your test file, "myFirstTest.spec.js," in the runner.
+This will open the Cypress Test Runner. You can see your test file, "myFirstTest.js," in the runner.
 
 ### c. Run the Test
 
