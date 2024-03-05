@@ -28,6 +28,12 @@ Using npm:
 npm install react-router-dom
 ```
 
+Create a "pages" directory where we'll put each component that will be a "page" - that there will be routing for. This is not required, but is recommended and a common way of organizing your code:
+
+```bash
+mkdir src/pages
+```
+
 ## How to Create and Connect a React Browser Router to a Vite + React Development Environment
 
 In this section, we'll walk through setting up React Router Dom in a Vite + React project.
@@ -50,7 +56,7 @@ In this section, we'll walk through setting up React Router Dom in a Vite + Reac
    // router.jsx
    import { createBrowserRouter } from "react-router-dom";
    import App from "./App";
-   import HomePage from "./components/HomePage";
+   import HomePage from "./pages/HomePage";
 
    const router = createBrowserRouter([
      {
