@@ -1,4 +1,4 @@
-action_figure_id,action_figure_title,quantity,price
+id,action_figure_title,quantity,price
 1,Superhero Figure 1,10,19.99
 2,Game Character Figure 1,15,24.99
 3,Anime Character Figure 1,18,29.99

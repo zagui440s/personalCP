@@ -38,6 +38,8 @@ Lets try to take a look at it in this perspective:
 
 In summary, PostgreSQL is the database server itself, responsible for storing and managing data, while psql is a client tool that enables users to interact with the PostgreSQL server. They work together to provide a comprehensive environment for developing, managing, and querying relational databases.
 
+> Please checkout the [cheatsheet](../resources/cheatsheet.md) for the different commands between `psql` and `PostgreSQL` along with their examples.
+
 ## Turning Schema Design into SQL Tables
 
 Lets take a look at the following scenario and the [data](./example/data/) provided to us within the lecture.
