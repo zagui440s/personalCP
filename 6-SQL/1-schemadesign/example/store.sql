@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS game;
 -- Create Game Table
 CREATE TABLE game (
     game_id INT PRIMARY KEY,
-    game_title VARCHAR(255) UNIQUE,
+    game_title VARCHAR(255),
     quantity INT,
     price DECIMAL(5, 2)
 );

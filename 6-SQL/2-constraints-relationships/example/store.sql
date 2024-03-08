@@ -1,71 +1,61 @@
--- Create Database
-CREATE DATABASE gaming_store;
-USE gaming_store;
+-- Drop the table if it exists
+DROP TABLE IF EXISTS game;
 
--- Create Database
-CREATE DATABASE gaming_store;
-USE gaming_store;
-
--- Create Genres Table
-CREATE TABLE genres (
-    genre_id SERIAL PRIMARY KEY,
-    genre_name VARCHAR(255) UNIQUE
+-- Create Game Table
+CREATE TABLE game (
+    game_id INT PRIMARY KEY,
+    game_title VARCHAR(255) UNIQUE NOT NULL CHECK (game_title ~ '^[A-Za-z0-9 _\-:''\\]+$'),
+    quantity INT NOT NULL CHECK(quantity > 0 AND quantity < 51),
+    price DECIMAL(5, 2) NOT NULL CHECK(price > 10 AND price < 60)
 );
 
--- Insert Sample Data into Genres Table
-INSERT INTO genres (genre_name) VALUES
-    ('Action'),
-    ('Adventure'),
-    ('RPG'),
-    ('Strategy'),
-    ('Sports'),
-    ('Simulation'),
-    ('FPS'),
-    ('Puzzle'),
-    ('Horror'),
-    ('Open World');
 
--- Create Games Table with Genre Relationship
-CREATE TABLE games (
-    game_id SERIAL PRIMARY KEY,
-    game_title VARCHAR(255),
-    quantity INT,
-    price DECIMAL(10, 2),
-    genre_id INT,
-    FOREIGN KEY (genre_id) REFERENCES genres (genre_id)
+-- Insert Sample Data into Game Table
+\COPY game FROM './data/game.csv' WITH CSV HEADER;
+
+
+DROP TABLE IF EXISTS action_figure;
+
+CREATE TABLE action_figure (
+    id INT PRIMARY KEY,
+    action_figure_title VARCHAR UNIQUE NOT NULL CHECK (action_figure_title ~ '^[A-Za-z0-9 _-]+$'),
+    quantity INT NOT NULL CHECK(quantity > 0 AND quantity < 31),
+    price DECIMAL(5,2) NOT NULL CHECK(price > 10 AND price < 100.01)
 );
 
--- Create Posters Table
-CREATE TABLE posters (
-    poster_id INT PRIMARY KEY,
-    poster_title VARCHAR(255),
-    quantity INT,
-    price DECIMAL(10, 2)
+\COPY action_figure FROM './data/action_figure.csv' WITH CSV HEADER;
+
+DROP TABLE IF EXISTS employee;
+
+-- MAX SALARY AN HOUR IS 31.25 AND MIN IS 16.66
+CREATE TABLE employee (
+    id INT PRIMARY KEY,
+    employee_name VARCHAR NOT NULL CHECK (employee_name ~ '^[A-Za-z ]+$'),
+    position VARCHAR NOT NULL CHECK (position IN (
+        'Sales Associate',
+        'Store Manager',
+        'Inventory Clerk',
+        'Customer Service Representative',
+        'IT Specialist',
+        'Marketing Coordinator',
+        'Assistant Manager',
+        'Finance Analyst',
+        'Security Officer',
+        'HR Coordinator'
+    )),
+    salary DECIMAL(7,2) NOT NULL CHECK (salary > 31987.19 AND salary < 60000.01)
 );
 
--- Create Action Figures Table
-CREATE TABLE action_figures (
-    action_figure_id INT PRIMARY KEY,
-    action_figure_title VARCHAR(255),
-    quantity INT,
-    price DECIMAL(10, 2)
+\COPY employee FROM './data/employee.csv' WITH CSV HEADER;
+
+DROP TABLE IF EXISTS poster;
+
+CREATE TABLE poster (
+    id SERIAL PRIMARY KEY,
+    poster_title VARCHAR UNIQUE NOT NULL CHECK (poster_title ~ '^[A-Za-z0-9 _-]+$'),
+    quantity INT NOT NULL CHECK (quantity > 0 AND quantity < 31),
+    price DECIMAL(4,2) NOT NULL CHECK (price <= 20.00 AND price > 6)
 );
 
--- Create Employees Table
-CREATE TABLE employees (
-    employee_id INT PRIMARY KEY,
-    employee_name VARCHAR(255),
-    position VARCHAR(255),
-    salary DECIMAL(10, 2)
-);
 
--- Insert Sample Data into Games Table
-COPY games(game_title, quantity, price, genre_id) FROM '/path/to/games_extended.csv' WITH CSV HEADER;
--- Insert Sample Data into Posters Table
-COPY posters FROM '/path/to/dataposters.csv' WITH CSV HEADER;
-
--- Insert Sample Data into Action Figures Table
-COPY action_figures FROM '/path/to/dataaction_figures.csv' WITH CSV HEADER;
-
--- Insert Sample Data into Employees Table
-COPY employees FROM '/path/to/dataemployees.csv' WITH CSV HEADER;
+\COPY poster FROM './data/poster.csv' WITH CSV HEADER;

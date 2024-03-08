@@ -1,86 +1,23 @@
 # Queries and Joins
 
-Certainly! Below are SQL queries that cover various aspects such as SELECT, *, SUM, AVG, AS, SORTED_BY, GROUP_BY, DESCEND, LEFT_JOIN, RIGHT_JOIN, JOIN, LIKE, IN, WHERE, and other essential queries in reference to the "games" and "genres" tables:
+## What are we trying to accomplish?
 
-1. **Basic SELECT:**
+By learning how to familiarize yourself with new databases and mastering queries and joins, you aim to empower yourself with the essential skills needed to efficiently navigate and extract meaningful insights from diverse data sources. This proficiency not only enhances your ability to manage and analyze information but also equips you to make informed decisions in various professional settings. Whether you're in a business, research, or IT environment, acquiring these skills enables you to leverage the full potential of data, streamline processes, and contribute to informed decision-making, ultimately enhancing your value as a versatile and adept individual in the rapidly evolving landscape of information technology and data-driven decision-making.
 
-   ```sql
-   SELECT * FROM games;
-   ```
+## Lectures & Assignments
 
-2. **SELECT with Alias (AS):**
+- [Lecture - Familiarizing with a DB](./1-familiarize-db.md)
+  - [Assignment - Draw the Schema](.) Utilizing the provided SQL file, draw a Database schema with [drawSql](https://drawsql.app/) to get a better picture of relationships and data types.
+- [Lecture - Queries and Joins](./2-queries-joins)
+  - [Assignment - Game Store V](https://github.com/Code-Platoon-Assignments/game-store-v)
 
-   ```sql
-   SELECT game_title AS title, quantity AS stock FROM games;
-   ```
+## TLO's (Terminal Learning Objectives)
 
-3. **SUM and GROUP BY:**
+- Create SQL Queries to Generate Reports
+- Create Join Statements to Generate Proper Query Results
+- Create SQL Mathematical Queries to Generate Reports
 
-   ```sql
-   SELECT genre_id, SUM(quantity) AS total_stock
-   FROM games
-   GROUP BY genre_id;
-   ```
+## ELO's (Enabling Learning Objectives)
 
-4. **AVG and GROUP BY:**
-
-   ```sql
-   SELECT genre_id, AVG(price) AS avg_price
-   FROM games
-   GROUP BY genre_id;
-   ```
-
-5. **Sorted By and DESCEND:**
-
-   ```sql
-   SELECT game_title, quantity
-   FROM games
-   ORDER BY quantity DESC;
-   ```
-
-6. **LEFT JOIN:**
-
-   ```sql
-   SELECT game_title, quantity, genre_name
-   FROM games
-   LEFT JOIN genres ON games.genre_id = genres.genre_id;
-   ```
-
-7. **RIGHT JOIN:**
-   ```sql
-   SELECT game_title, quantity, genre_name
-   FROM genres
-   RIGHT JOIN games ON genres.genre_id = games.genre_id;
-   ```
-
-8. **INNER JOIN (JOIN):**
-   ```sql
-   SELECT game_title, quantity, genre_name
-   FROM games
-   INNER JOIN genres ON games.genre_id = genres.genre_id;
-   ```
-
-9. **LIKE:**
-   ```sql
-   SELECT game_title, quantity
-   FROM games
-   WHERE game_title LIKE 'Call%';
-   ```
-
-10. **IN:**
-
-    ```sql
-    SELECT game_title, quantity
-    FROM games
-    WHERE genre_id IN (1, 3, 5);
-    ```
-
-11. **Combining Conditions in WHERE:**
-
-    ```sql
-    SELECT game_title, quantity
-    FROM games
-    WHERE genre_id = 3 AND price > 50.00;
-    ```
-
-These queries cover a range of SQL operations including basic SELECT statements, aliases, aggregate functions (SUM, AVG), sorting, grouping, different types of joins (LEFT, RIGHT, INNER), filtering using LIKE, IN, and WHERE conditions. Adjust them based on your specific needs and table structures.
+- Understand how to adapt to new databases
+- Understand how to interpret real life scenarios into SQL queries

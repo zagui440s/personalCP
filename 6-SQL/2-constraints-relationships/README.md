@@ -7,10 +7,9 @@ By learning about relationships and constraints in database management, you are 
 ## Lectures & Assignments
 
 - [Lesson - Constraints](./1-constraints.md)
-  - [Assignment: Add more constraints to the game store](.)
+  - [Assignment - Game Store III](https://github.com/Code-Platoon-Assignments/game-store-III)
 - [Lesson - Relationships](./2-relationships.md)
-  - [Assignment: Add more relationships to the game store](.)
-  - TODO: Add another constraints/relationships assignment here.
+  - [Assignment - Game Store IV](https://github.com/Code-Platoon-Assignments/game-store-iv/tree/main)
 
 ## TLO's (Terminal Learning Objectives)
 

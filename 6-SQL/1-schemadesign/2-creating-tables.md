@@ -57,7 +57,7 @@ You are tasked with designing a database schema for a gaming store that sells ga
 |  title | type | Nullable | Index Type |
 |-------|-----|---------|-----------|
 | game_id| bigint|f|Primary Key |
-|game_title|varchar|f|Unique|
+|game_title|varchar|f|n/a|
 |quantity | int | f|n/a|
 |price | decimal |f|n/a|
   

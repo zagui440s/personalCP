@@ -72,11 +72,32 @@ CREATE TABLE vin_numbers (
 );
 ```
 
+## RELATIONSHIPS AND CASCADE
+
+### What is `CASCADE` and what does it do?
+
+In SQL, `CASCADE` is a command used with the `DROP TABLE` statement. When applied, it automatically drops not only the specified table but also all dependent objects associated with it, such as foreign key constraints, indexes, and views. The syntax for using `CASCADE` is straightforward:
+
+```sql
+DROP TABLE table_name CASCADE;
+```
+
+### When/Why to use CASCADE
+
+Utilize `CASCADE` in scenarios where you want to efficiently clean up your database structure, especially during development or testing phases. This command simplifies the removal of a table and its dependencies with a single line of code. However, exercise caution and thoroughly assess the impact on dependent objects before using `CASCADE` to avoid unintentional data loss.
+
+```sql
+-- Example: Using CASCADE to drop a table and its dependencies
+DROP TABLE IF EXISTS example_table CASCADE;
+```
+
 ## Many-to-One Relationships
 
 ### Scenario 1: Students and University
 
 In the educational realm, a many-to-one relationship exists between students and universities. Multiple students can attend the same university, but each student is associated with only one educational institution.
+
+> In the following examples you'll notice the syntax is exactly the same as the one-to-one relationship. That's because the relationships in SQL are more conceptual than enforced, what does get enforce is the reference to another table not the relationship itself.
 
 **SQL Code:**
 
