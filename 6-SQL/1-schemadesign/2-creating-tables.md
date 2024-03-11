@@ -104,10 +104,6 @@ Now you are ready to load some data onto your data tables. Add the following com
 
 So, in summary, the `COPY` command is used to copy data from a CSV file (`'path/to/data/games.csv'`) into the `games` table in the PostgreSQL database. The `WITH CSV HEADER` option is specified because the CSV file has a header row that should be skipped during the import process.
 
-## Query Challenge
-
-Design a query to retrieve the total product equity within the gaming store. The equity should be calculated as the sum of the product of quantity and price for each category. Write the SQL query to accomplish this task and ensure that it provides accurate and consolidated information on the gaming store's total revenue.
-
 ## More about PostgreSQL
 
 Here's an example URI for a PostgreSQL database that covers host, username, password, and port. We'll then break down the URI to show each component using psql commands.
