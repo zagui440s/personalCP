@@ -10,6 +10,8 @@ By learning how to familiarize yourself with new databases and mastering queries
   - [Assignment - Draw the Schema](.) Utilizing the provided SQL file, draw a Database schema with [drawSql](https://drawsql.app/) to get a better picture of relationships and data types.
 - [Lecture - Queries and Joins](./2-queries-joins)
   - [Assignment - Game Store V](https://github.com/Code-Platoon-Assignments/game-store-v)
+  - [Assignment - 32 Flavors Stage 3](https://github.com/Code-Platoon-Assignments/sql-32-flavors-1/blob/main/README.md#stage-3)
+  - [Assignment - 64 Slices Stage 3](https://github.com/Code-Platoon-Assignments/sql-64-slices-1/blob/main/README.md#stage-3)
 
 ## TLO's (Terminal Learning Objectives)
 
