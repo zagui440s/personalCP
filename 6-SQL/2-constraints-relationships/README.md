@@ -10,6 +10,8 @@ By learning about relationships and constraints in database management, you are 
   - [Assignment - Game Store III](https://github.com/Code-Platoon-Assignments/game-store-III)
 - [Lesson - Relationships](./2-relationships.md)
   - [Assignment - Game Store IV](https://github.com/Code-Platoon-Assignments/game-store-iv/tree/main)
+  - [Assignment - 32 Flavors **Stage 2**](https://github.com/Code-Platoon-Assignments/sql-32-flavors-1/blob/main/README.md#stage-2)
+  - [Assignment - 64 Slices **Stage 2**](https://github.com/Code-Platoon-Assignments/sql-64-slices-1/blob/main/README.md#stage-2)
 
 ## TLO's (Terminal Learning Objectives)
 
