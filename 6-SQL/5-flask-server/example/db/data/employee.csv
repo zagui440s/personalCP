@@ -1,4 +1,4 @@
-employee_id,employee_name,position,salary
+id,employee_name,position,salary
 1,John Doe,Sales Associate,40000.00
 2,Jane Smith,Store Manager,60000.00
 3,Mark Johnson,Inventory Clerk,35000.00

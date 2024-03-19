@@ -1,4 +1,4 @@
-poster_id,poster_title,quantity,price
+id,poster_title,quantity,price
 1,Movie Poster 1,15,9.99
 2,Game Poster 1,20,7.99
 3,Superhero Poster 1,25,12.99
