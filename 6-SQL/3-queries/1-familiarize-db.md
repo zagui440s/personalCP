@@ -18,6 +18,16 @@ Welcome, aspiring SQL developers! When you embark on a journey with a new databa
   COMMENT ON TABLE your_table IS 'Description of your table';
   ```
 
+  We haven't talked about comments yet or where they go so lets take a moment here to iterate on comments within PostgreSQL.
+
+  Comments are typically stored within a separate table named `pg_description` where every table created is referenced to by it's object ID(oid). Unfortunately `pg_description` doesn't actually store the table name just the description and oid which means in order to pull a comment from this table we have to utilize a function `obj_description`. Here's an example
+
+  ```sql
+  SELECT obj_description('<table>'::regclass);
+  ```
+
+  This function expects one argument which is the tables oid... but how do we get said oid? Oid's and names are stored within a separate table named `pg_class` and we can find it by running a query to explicitly return the oid of a table by matching the relname to the table name.... but this is a long process and there has to be a quicker way. Instead we utilize `<table>::regclass` which will return a special data type of the class named `<table>` and from this class `obj_description` will only grab the oid to find the correct description and print it onto our terminal.
+
 ### Bad Practice: Neglecting to Document Database Elements
 
 - **Pitfall:** Failing to document schema, tables, or columns can lead to confusion for you and your team.

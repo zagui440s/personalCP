@@ -1,25 +1,25 @@
-# PostgreSQL
+# Introduction to Relational Databases
 
 ## What are we trying to accomplish?
 
-By learning about SQL in PostgreSQL and psql, one aims to develop a comprehensive understanding of relational database management systems (RDBMS) and the tools required for effective data manipulation and querying. PostgreSQL, being a powerful open-source RDBMS, provides a robust platform for storing, organizing, and retrieving structured data. Through understanding SQL, the standard language for interacting with databases, and psql, the interactive terminal for PostgreSQL, individuals can efficiently perform tasks such as creating and managing databases, defining schemas, executing complex queries, and optimizing database performance. Ultimately, mastering SQL in PostgreSQL and psql equips individuals with essential skills for working with data, facilitating tasks ranging from basic data retrieval to advanced database administration and optimization.
+By learning about relational databases using PostgreSQL, you aim to acquire a comprehensive understanding of data management, storage, and retrieval within the context of structured relationships. This encompasses grasping fundamental concepts such as tables, columns, and relationships, as well as more advanced topics like indexing, normalization, and query optimization. Through PostgreSQL, you seek to master the skills required to design, implement, and maintain efficient and scalable database systems, empowering you to effectively organize and manipulate data for various applications ranging from web development to business analytics, thereby enhancing your proficiency as a data professional and enabling you to contribute meaningfully to projects and organizations reliant on robust data management solutions.
 
 ## Lessons
 
-- [Schema Design](./1-schemadesign/)
-- [Constraints and Relaitonships](./2-constraints-relationships/)
-- [Queries](./3-queries/)
-- [Review](./4-review/)
-- [Flask and PostgreSQL](./5-flask-server/)
+1. [Schema Design](./1-schemadesign/README.md)
+2. [Constraints and Relationships](./2-constraints-relationships/README.md)
+3. [SQL Queries](./3-queries/README.md)
+4. [Review](./4-review/README.md)
+5. [Flask + PostgreSQL](./5-flask-server/README.md)
 
 ## Module Topics
 
-- Planning and Creating Database Schemas
-- Capabilities and Limitations in `psql`
-- Understanding and Applying Constraints
-- Understanding and Applying Relationships
-- Writing Queries with SQL
+- Making Schema Design Decisions
+- Implementing Constraints to enforce data consistency
+- Using Relationships to facilitate Database maintainability
+- Generating reports through SQL queries
+- Implementing different JOINs to generate data
 
 ## Video Playlist
 
-- [6 SQL](.)
+- [6 Whiskey PostgreSQL](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESpu7SCo6RVY6vnbPi1fykk)

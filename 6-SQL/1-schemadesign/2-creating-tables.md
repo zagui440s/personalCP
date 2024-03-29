@@ -104,6 +104,79 @@ Now you are ready to load some data onto your data tables. Add the following com
 
 So, in summary, the `COPY` command is used to copy data from a CSV file (`'path/to/data/games.csv'`) into the `games` table in the PostgreSQL database. The `WITH CSV HEADER` option is specified because the CSV file has a header row that should be skipped during the import process.
 
+## Updating the Serial Primary Key
+
+After copying data from a csv file, you'll notice that if you try to `INSERT` a new entry into your database you'll receive an error relating Primary Keys already existing. We copied data into a specific table, but PostgreSQL is utilizing a separate table typically named `<table>_id_sequence` to track the next value to generate for ID's... but this table was never updated to match the highest value from the CSV data. To fix this we will utilize the following command:
+
+```sql
+SELECT setval('<table>_id_sequence', (SELECT MAX(id) FROM <table>));
+```
+
+This `setval` function within PostgreSQL expects two parameters: The table to set a value to, and the value that will be set. In the command above we will set the highest `id` value within our table as the `last_value` within the `<table>_id_sequence` table. Now any future entries through the insert command will generate the ID automatically without causing a problem.
+
+## Altering fields
+
+In SQL, the `ALTER TABLE` command is used to modify existing table structures. This command allows you to add, modify, or drop columns and constraints in a table. In PostgreSQL, the `ALTER TABLE` command provides various options for altering table structures to meet changing requirements. Here's an overview of how you can use the `ALTER TABLE` command to alter fields in a table:
+
+1. **Adding a New Column:**
+
+    To add a new column to an existing table, you can use the `ALTER TABLE` command with the `ADD COLUMN` clause. Here's the syntax:
+
+    ```sql
+    ALTER TABLE table_name
+    ADD COLUMN new_column_name data_type [constraint];
+    ```
+
+    For example, to add a new column named `new_column` of type `integer` to a table named `example_table`, you would execute:
+
+    ```sql
+    ALTER TABLE example_table
+    ADD COLUMN new_column INT;
+    ```
+
+2. **Modifying a Column:**
+
+    To modify an existing column in a table, you can use the `ALTER TABLE` command with the `ALTER COLUMN` clause. This allows you to change the data type or add constraints to an existing column. Here's the syntax:
+
+    ```sql
+    ALTER TABLE table_name
+    ALTER COLUMN column_name [SET DATA TYPE new_data_type] [constraint];
+    ```
+
+    For example, to change the data type of a column named `old_column` in a table named `example_table` to `varchar(100)`, you would execute:
+
+    ```sql
+    ALTER TABLE example_table
+    ALTER COLUMN old_column SET DATA TYPE VARCHAR(100);
+    ```
+
+3. **Dropping a Column:**
+
+    To remove an existing column from a table, you can use the `ALTER TABLE` command with the `DROP COLUMN` clause. Here's the syntax:
+
+    ```sql
+    ALTER TABLE table_name
+    DROP COLUMN column_name;
+    ```
+
+    For example, to drop a column named `obsolete_column` from a table named `example_table`, you would execute:
+
+    ```sql
+    ALTER TABLE example_table
+    DROP COLUMN obsolete_column;
+    ```
+
+4. **Adding Constraints:**
+
+    Constraints such as `NOT NULL`, `UNIQUE`, `PRIMARY KEY`, `FOREIGN KEY`, and `CHECK` can be added using the `ALTER TABLE` command with the `ADD CONSTRAINT` clause. Here's an example of adding a `NOT NULL` constraint to an existing column:
+
+    ```sql
+    ALTER TABLE example_table
+    ALTER COLUMN existing_column SET NOT NULL;
+    ```
+
+    These are some of the basic operations you can perform using the `ALTER TABLE` command in PostgreSQL to alter fields within a table. It provides flexibility in modifying table structures to accommodate changing business needs or data requirements.
+
 ## More about PostgreSQL
 
 Here's an example URI for a PostgreSQL database that covers host, username, password, and port. We'll then break down the URI to show each component using psql commands.
