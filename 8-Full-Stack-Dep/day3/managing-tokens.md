@@ -10,6 +10,16 @@ To make token-based authentication more secure and prevent potential security vu
 
 Additionally, we are setting a limited lifespan for the tokens by specifying an expiration date for the cookie. This enhances security by automatically invalidating the token after a certain period, reducing the window of opportunity for potential attackers.
 
+## Tangible Learning Objectives (TLO's)
+
+- Understand security advantages of HTTP-only cookies
+- Configure Django settings to use HTTP-only cookies
+- Configure Django ALLOWED_HOST settings for AWS deployment to be more restrictive
+- Update Django view logic to create cookies
+- Write a custom Django Rest Framework Authentication class for cookies
+- Update Django view logic authentication methods
+- Configure axios on the frontend to use cookies
+
 ## Configuring Django Settings
 
 So far our site has been hosted on an AWS Ec2 instance with an SSL certificate from Certbot for standard encryption. Our site is pretty secure but we will be handling user authentication a bit differently now that we are in a production environment.
