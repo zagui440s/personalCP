@@ -83,7 +83,7 @@ When a user signs in now we can inspect the browsers developer tools cookies sec
 
 ## Configuring Token Based Authentication
 
-Currently we are utilizing `DRF's TokenAuthentication` as our authentication class. Let's take a deeper look at how the `TokenAuthentication` class works in authenticating and returning the correct `user` model.
+Currently we are utilizing `DRF's TokenAuthentication` as our authentication class. [Let's take a deeper look at how the `TokenAuthentication` class works](https://github.com/encode/django-rest-framework/blob/63063da0820e23ef0edbf92a3031103a6c2ce254/rest_framework/authentication.py#L151) in authenticating and returning the correct `user` model.
 
 ```python
 def authenticate(self, request):
