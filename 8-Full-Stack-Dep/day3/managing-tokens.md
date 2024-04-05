@@ -70,6 +70,38 @@ We are no longer passing the users `Token` as part of our API response but inste
 
 The key of our cookie (think of a cookie as a dictionary with a key, value pair) is set to "token". This key could be named anything we want it's only a variable and has no hidden meaning to it, but we would like the key to explain it's content. The value of this cookie is set to the actual users Token. The httponly flag is set to True, which means the cookie will not be accessible through JavaScript, adding some security against cross-site scripting (XSS) attacks. The secure flag is set to True, which means the cookie will only be sent over HTTPS connections. The samesite attribute is set to "Lax", which provides some protection against cross-site request forgery (CSRF) attacks. The expires attribute is set to the format_life_time, which is set to mark a cookies (NOT THE TOKENS) expiration date and force the user to sign in after a set amount of time.
 
+We should update our signup logic to use cookies in a similar fashion:
+
+```python
+class Sign_up(APIView):
+    def post(self, request):
+        # All of this is unchanged
+        data = request.data.copy()
+        data['username'] = request.data.get("username", request.data.get("email"))
+        new_user = App_user(**data)
+        try:
+            new_user.full_clean()
+            new_user.save()
+            new_user.set_password(data.get("password"))
+            new_user.save()
+            login(request, new_user)
+
+            token = Token.objects.create(user = new_user)
+
+            # Here is where we update our signup logic to send the user back a cookie instead of a token
+            life_time = datetime.now() + timedelta(days=7)
+            format_life_time = life_time.strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+            _response = Response({"user":new_user.display_name, "email": new_user.email }, status=HTTP_201_CREATED)
+            _response.set_cookie(key="token", value=token.key, httponly=True, secure=True, samesite="Lax", expires=format_life_time)
+            return _response
+            
+        except ValidationError as e:
+            print(e)
+            return Response(e, status=HTTP_400_BAD_REQUEST)
+
+```
+
 Finally on our Front-End axios `api` instance we will need to update it to ensure that cookies are sent with the request by setting the `withCredentials: true` option.
 
 ```jsx
@@ -164,7 +196,7 @@ The `get_auth_token_from_cookie` method is used to extract the token from the `t
 
 The `authenticate` method uses the extracted token to call the `authenticate_credentials` method of the base class, which handles token validation and user retrieval.
 
-### Applying HTTP Authentication to APIVies
+### Applying HTTP Authentication to APIViews
 
 ```python
 from .utilities import HttpOnlyTokenAuthentication
@@ -181,7 +213,7 @@ class Log_out(APIView):
     permission_classes = [IsAuthenticated]
 ```
 
-Now you'll when a user signs in and re-renders our site we can see that the `whoAmI` function is working properly with out `Info` view, even though the token is no longer in the requests headers.
+Now you'll when a user signus up, or signs in and re-renders our site we can see that the `whoAmI` function is working properly with out `Info` view, even though the token is no longer in the requests headers.
 
 ## Deleting HTTP Cookies
 
