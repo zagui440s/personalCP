@@ -21,6 +21,9 @@ For this assessment you must:
 
 ### [Personal Projects Description](https://github.com/tangoplatoon/assessment-5)
 
+[Here is an example script for **Personal Project Presentations**](./script.md)
 ## Important Dates
 
 - Personal Project Presentations: August 25th
+
+
