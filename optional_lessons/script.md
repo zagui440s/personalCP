@@ -3,9 +3,11 @@
 1. **Describe** what your project is.
 2. **Demo** the *application* features (the stuff the user does, show the app not its code).
 3. **Discuss** challenges & next steps.
-## **PART 1: Introduction (00:30)**
+
 
 # Presentation Script
+
+## **PART 1: Introduction (00:30)**
 
 Good [morning/afternoon/evening], everyone. Thank you for joining me today to discuss an exciting technical project I've been working on. My name is [Ymy Name], and I'm thrilled to share with you the details of my full-stack application.
 
