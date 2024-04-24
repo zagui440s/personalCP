@@ -45,7 +45,7 @@ Now that our `main` branch is protected, we want to conduct any and all developm
 ```
 
 - Inside this branch we could create our React + Vite project, add the new directory to git and create a descriptive commit message, ex:
-  - First portion of the commit message should be the ticket you are currently working on. 
+  - First portion of the commit message should be the ticket you are currently working on.
   - The first letter after the ticket should be capitalize
   - The tense of the commit message should be present and in an imperative style.
   - `PROJECT-001: Create React App`

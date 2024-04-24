@@ -1,40 +1,41 @@
 # Intermediate Git
 
-This lecture will quickly review the git skills from the previous lecture, and also explain more advanced concepts that will be useful during group projects, such as remotes, branching, and merging. 
-
+This lecture will quickly review the git skills from the previous lecture, and also explain more advanced concepts that will be useful during group projects, such as remotes, branching, and merging.
 
 ## Objectives
+
 The student should understand repositories and repository management including:
+
 - basic git commands: init, add, commit, checkout, status, log, push, pull
 - commit references (head, absolute, relative)
 - branching, merging
 - advanced git commands: diff, merge, reset, revert
 - branching strategy
 
-
 ### What is a Git repository?
+
 A branching, historical timeline of commits
 
 ### Working on one local branch
+
 - Where are we now?             `git status`
 - Where have we been?           `git log`
-    - shows all commits before head, which MAY be all commits in the repo
-    - Note: Use `git log --all --graph --decorate` to show commit history with commit labels.
+  - shows all commits before head, which MAY be all commits in the repo
+  - Note: Use `git log --all --graph --decorate` to show commit history with commit labels.
 - What has changed?             `git diff`
-    - compares any two commits or working files - defaults to head vs working files
-- Going back in time            `git checkout [commit]`, detached head
-    - absolute commit references
-        - head - your current checked-out commit
-        - commit id e.g. c32e68b8830d... etc etc etc
-        - branch name, e.g. 'master'
-        - head and branches are moving labels. commit id's never move
-    - relative commit references
-        - `head^`, `head^^`
-        - `head~1`, `head~2`
-    - destroy recent commits    `git reset --hard head`
-    - commit to undo a commit   `git revert`
-    - recreate the past         `git checkout [commit] [file]`
-
+  - compares any two commits or working files - defaults to head vs working files
+- Going back in time `git checkout [commit]`, detached head
+- absolute commit references
+  - head - your current checked-out commit
+  - commit id e.g. c32e68b8830d... etc etc etc
+    - branch name, e.g. 'master'
+    - head and branches are moving labels. commit id's never move
+  - relative commit references
+    - `head^`, `head^^`
+    - `head~1`, `head~2`
+  - destroy recent commits  `git reset --hard head`
+  - commit to undo a commit   `git revert`
+  - recreate the past   `git checkout [commit] [file]`
 
 ```bash
 # where are we now?
@@ -82,19 +83,19 @@ git checkout head~1 . # when checkout is used with two arguments like this, it d
 git status
 git add .
 git commit -m 'went back to a previous state'
+```  
 
-```
-           
 ### Working on multiple local branches
+
 - view branches         `git branch`
 - create branches       `git branch [branch]`
 - delete branches       `git branch -d [branch]`
 - switch branches       `git checkout [branch]`
 - merge branches        `git merge [branch]`
-    - what's changed?   `git diff [branch]`
-    - trivial merge - fast-forward does not create a commit
-    - automatic merge - recursive strategy creates a new commit
-    - manual merge - merge conflicts require YOU to create a commit
+  - what's changed?   `git diff [branch]`
+  - trivial merge - fast-forward does not create a commit
+  - automatic merge - recursive strategy creates a new commit
+  - manual merge - merge conflicts require YOU to create a commit
 
 ```bash
 git branch # shows our current branches. by default, we only have 'master'
@@ -141,13 +142,13 @@ git log --graph --all --decorate=full # our branches have converged
 
 ```
 
-
 ### Working on remote branches
+
 - pushing/updating remote branches      `git push [remote] [local branch]:[remote branch]`
 - deleting remote branches              `git push [remote] :[remote branch]`
 - viewing remotes branches
-    - view remote-tracking branches     `git branch -a`
-    - list git remotes                  `git remote`
+  - view remote-tracking branches   `git branch -a`
+  - list git remotes                  `git remote`
 - pulling/merging from remote branches  `git pull = git fetch + git merge
 
 ```bash
@@ -176,14 +177,15 @@ git pull origin master
 ```
 
 ## Branching strategy and Git Flow
-- Long-term branches
-    - Master or Main - live production code, **MUST** not break
-    - Develop - merges into master, **SHOULD** not break
-- Short-term branches
-    - feature/ - branch off develop, merge into develop
-    - bugfix/ - branch off develop, merge into develop
-    - hotfix/ - branch off master, merge into master
 
+- Long-term branches
+  - Master or Main - live production code, **MUST** not break
+  - Develop - merges into master, **SHOULD** not break
+- Short-term branches
+  - feature/ - branch off develop, merge into develop
+  - bugfix/ - branch off develop, merge into develop
+  - hotfix/ - branch off master, merge into master
 
 ## Assignments
+
 - [Learn Git Branching](https://learngitbranching.js.org/)

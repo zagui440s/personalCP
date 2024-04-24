@@ -4,6 +4,21 @@
 
 ![Fullstack Development](./page-resources/cp_fullstack_development.png)
 
+## Curriculum Modules
+
+1. [Environment and Programming Fundamentals](./01-Js-Py-Intro/README.md)
+2. [Object Oriented Programming in Python](./02-OOP/README.md)
+3. [Simple Full-Stack Apps](./03-Full-Stack/README.md)
+4. [Front-End Dev with React.js + Vite](./04-Front-End/README.md)
+5. [Relational Database Management Systems](./05-RDBMS/README.md)
+6. [Large Language Models with PyTorch](./06-AI-LLMs/README.md)
+7. [Back-End Dev RESTful API with Django](./07-Django/README.md)
+8. [Full-Stack Apps](./08-Full-Stack-Dep/README.md)
+9. [Docker](./09-Docker/README.md)
+10. [Github Actions](./10-Github-Actions/README.md)
+11. [Data Structures and Algorithms](./11-DS-Algorithms/README.md)
+12. [Personal Projects](./12-Personal-Project/README.md)
+
 ## Asking Questions in Slack / Slack Etiquette
 
 Before anything, read through [Slack etiquette](https://slack.com/blog/collaboration/etiquette-tips-in-slack).
@@ -35,3 +50,4 @@ Classroom videos/lectures will be recorded and posted to YouTube. It can take up
 ## Additional Resources Shared in Class
 
 - [Lectures & Books](https://drive.google.com/drive/folders/1JXp_dvxjdFWyrVmSq6wqs9vcvqSDtZ5O?usp=drive_link)
+- [Retention and Additional Material](./00-Retention/)
