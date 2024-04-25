@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-![Fullstack Development](./page-resources/cp_fullstack_development.png)
+![Fullstack Development](./page-resources/full-stack-diamond.jpeg)
 
 ## Curriculum Modules
 
