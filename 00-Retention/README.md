@@ -20,7 +20,7 @@
 
 ### OOP Lessons
 
-- [JS OOP](../optional_lessons/js-oop.md)
+- [JS OOP](../optional_lessons/javascript-oop.md)
 
 ### OOP Assignments
 
