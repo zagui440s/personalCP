@@ -49,11 +49,11 @@ Just like a Django project, you want to isolate your LLM's dependencies utilizin
 python -m venv <name_of_venv>
 source <name_of_env>/bin/activate
 pip install --upgrade pip
-pip install torch torchvision
+pip3 install torch torchvision torchaudio
 pip freeze > requirements.txt
 ```
 
-Now you should have an active virtual environment with `PyTorch`.
+Now you should have an active virtual environment with `PyTorch` within it.
 
 ### Tensors
 
@@ -106,6 +106,16 @@ Let's explain each of the three operations:
      - Element at position `[1, 0]` of `matrix_product`: `3*5 + 4*7 = 43`
      - Element at position `[1, 1]` of `matrix_product`: `3*6 + 4*8 = 50`
    - So, `matrix_product = [[19, 22], [43, 50]]`.
+
+Additionally tensors offer a variety of attributes you can use to easily visualize the tensors content:
+
+```python
+from torch import tensor
+my_tensor = tensor([1, 2, 3, 4, 5])
+print(my_tensor.device) # describes the device CPU or GPU
+print(my_tensor.shape) # describes the tensor size (number of neurons)
+print(my_tensor.dtype) # describes the data type within the tensor
+```
 
 #### More on Tensors
 
