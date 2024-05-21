@@ -1,4 +1,4 @@
-# Model Associations and the Django Server
+# Django Rest Framework APIViews and Testing
 
 ## What are we trying to accomplish?
 

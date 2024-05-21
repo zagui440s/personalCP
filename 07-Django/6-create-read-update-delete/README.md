@@ -1,4 +1,4 @@
-# Intro to CRUD
+# Intro to CRUD and REST API Design
 
 ## What are we trying to accomplish?
 

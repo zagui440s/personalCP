@@ -4,15 +4,14 @@
 
 ## Module Topics
 
-- [Intro to Django & Django-ORM](./Day1/part-I/Intro-Django-ORM/README.md)
-- [Django Model Validators](./Day2/part-I/Intro-Validators-and-Tests/README.md)
-- [Django Model Serializers](./Day2/part-II/Intro-to-Serializers/README.md)
-- [Django Model Associations](./Day3/part-I/Intro-to-Django-Associations/README.md)
-- [Django Rest Frameworks](./Day4/part-I/Django-Rest-Frameworks-API-Views/README.md)
-- [BackEnd API's](./Day5/Back-End-APIs/README.md)
-- [CRUD Capabilities and Best Practices](./Day6/part-I/Intro-to-CRUD/README.MD)
-- [Django User Authentication](./Day7/Django-Auth/README.md)
-- [Full Stack Life Cycle](./Day8/README.md)
+- [Intro to Django & Django-ORM](./1-intro-to-django-orm/README.md)
+- [Intro to Django Model Validators, Serializers, and Tests](./2-validators-and-serializers/README.md)
+- [Model Associations and the Django Server](./3-associations-and-django-server/README.md)
+- [Django Rest Framework APIViews and Testing](./4-api-views-and-testing/README.md)
+- [Back-end API's](./5-back-end-apis/README.md)
+- [Intro to CRUD and REST API Design](./6-create-read-update-delete/README.md)
+- [Django User Authentication](./7-user-authentication/README.md)
+- [Review](./8-review/README.md)
 
 ## What is Django?
 
