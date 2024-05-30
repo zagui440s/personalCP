@@ -19,6 +19,10 @@ Lastly, we will cover the two most commonly used languages in the industry along
 4. [Python and Pytest](./4-python-pytest-intro/README.md)
 5. [Team Kickoff](./5-Team-Kickoff/README.md)
 
+## Comp. Sci Fridays
+
+- [Intro to Prompt Engineering](/06-AI-LLMs/0-prompt-eng/README.md)
+
 ## Module Topics
 
 - Setting Up Your Dev Environment & The Command Line
