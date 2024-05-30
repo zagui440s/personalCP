@@ -6,11 +6,10 @@ By delving into prompt engineering and mastering Object-Oriented Programming (OO
 
 ## Lessons
 
-1. [Intro to Prompt Engineering](./1-prompt-eng/)
-2. [Intro to Python OOP](./2-oop-intro/)
-3. [Abstraction and Encapsulation](./3-abstraction-encapsulation/)
-4. [Inheritance and Polymorphism](./4-inheritance-polymorphism/)
-5. [OOP review](./5-review/)
+1. [Intro to Python OOP](./1-oop-intro/README.md)
+2. [Abstraction and Encapsulation](./2-abstraction-encapsulation/README.md)
+3. [Inheritance and Polymorphism](./3-inheritance-polymorphism/README.md)
+4. [OOP review](./4-review/README.md)
 
 ## Module Topics
 
