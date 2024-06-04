@@ -29,4 +29,4 @@ You will be able to explain how these applications are built and why they're bui
 
 ## Video Playlist
 
-- [Front End Playlist](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQtD0Lg2QziZ2N55jPeZJGV)
+- [Front End Playlist](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQo2DmaLqh5eFnetMw7CJbp)

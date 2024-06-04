@@ -156,6 +156,8 @@ When you create a list in Python, it gets stored in the computer's primary memor
    del data  # Explicitly release memory
    ```
 
+> The reason we don't have to do this for small variables is because Python (and Javascript) does this **memory management** for us. That is part of what the **Python interpreter** (the program that interprets our python source code and turns it into bytecode the computer actually executes and runs) does for us. Languages like Python that provide memory management (also called **garbage collection**) are known as **high-level languages** because our software is **abstracted** away from the computer hardware, as opposed to a **low-level language** like C where we explicitly have to allocate or deallocate (aka release) memory for every single variable. Other popular high-level languages include Javascript, PHP, Ruby, and C#.
+
 4. **Choosing Data Structures:**
    - Select the appropriate data structure based on the application's requirements.
    - Use tuples when immutability is beneficial, and lists when mutability is necessary.

@@ -8,7 +8,7 @@ Data structures are specialized formats for organizing and storing data to enabl
 
 Efficient data structures improve programming efficiency by optimizing the way data is stored and accessed. They enable quicker search, insertion, deletion, and manipulation of data, contributing to faster algorithmic performance. Choosing the right data structure for a specific task is vital in designing algorithms that are both time and space efficient.
 
-## What is a list and how is it interpreted in computer memory?
+## What is an list and how is it interpreted in computer memory?
 
 A list is a fundamental data structure that represents an ordered sequence of elements. In computer memory, a list is often interpreted as a contiguous block of memory where each element is stored at a specific index, allowing for direct access to any element.
 

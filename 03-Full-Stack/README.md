@@ -12,6 +12,10 @@ By learning how to create a simple full stack app with Flask, HTML, CSS, JavaScr
 - [JS DOM - Manipulating the Document Object Model](./4-js-dom/)
 - [Ajax & Requests - Connecting Front and Back end frameworks](./5-ajax-fetch/)
 
+### Comp. Sci Fridays
+
+- [Searching Algorithms: Binary Search vs Simple Search](/11-DS-Algorithms/1-intro-algos/README.md)
+
 ## Module Topics
 
 - Create simple Front-End applications with HTML, JS, and CSS
@@ -22,4 +26,4 @@ By learning how to create a simple full stack app with Flask, HTML, CSS, JavaScr
 
 ## Video Playlist
 
-- [Full Stack Playlist](https://www.youtube.com/playlist?list=PLu0CiQ7bzwES_8z8zWInTcQOKobYMdCBY)
+- [Full Stack Playlist](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESD8F____TWayTMou7kKd3y)

@@ -39,13 +39,13 @@ Your questions should be pointed (not "Can someone help me?"), show that you’v
 
 Classroom videos/lectures will be recorded and posted to YouTube. It can take up to a few hours to process the video after recording, so please be patient if you don't see the video available online immediately after a lecture. If you want to refer back to the lecture content before the video is uploaded, you can look at the demo code in github, which is uploaded immediately after lectures finish.
 
-1. [JavaScript & Python](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESgW6swsJYXeNgEFXmY_m1w)
-2. [Object Oriented Programming](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESSwMZNV7tdn3Z1rer_GYHk)
+1. [JavaScript & Python](https://www.youtube.com/playlist?list=PLu0CiQ7bzwERa4oP43o_grVUlFwXZO_82)
+2. [Object Oriented Programming](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQ4nIjcTBcvjyZXoZ08RfZm)
 3. [Data Structures](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEShZghXM7gzhinxoftZqsK7)
-4. [Intro to Full Stack](https://www.youtube.com/playlist?list=PLu0CiQ7bzwES_8z8zWInTcQOKobYMdCBY)
-5. [Front End Dev (React)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQtD0Lg2QziZ2N55jPeZJGV)
+4. [Intro to Full Stack](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESD8F____TWayTMou7kKd3y)
+5. [Front End Dev (React)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQo2DmaLqh5eFnetMw7CJbp)
 6. [SQL](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESVWl04549ydqzRx1TAIdsi)
-7. [Back End Dev (Django)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwERD6_GVY-0EVHqxIg_wpyTC)
+7. [Back End Dev (Django)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwET1lV7voeSNX7PZ0MySmH1u)
 
 ## Additional Resources Shared in Class
 
