@@ -41,10 +41,10 @@ Classroom videos/lectures will be recorded and posted to YouTube. It can take up
 
 1. [JavaScript & Python](https://www.youtube.com/playlist?list=PLu0CiQ7bzwERa4oP43o_grVUlFwXZO_82)
 2. [Object Oriented Programming](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQ4nIjcTBcvjyZXoZ08RfZm)
-3. [Data Structures](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEShZghXM7gzhinxoftZqsK7)
+3. [Data Structures](https://www.youtube.com/playlist?list=PLu0CiQ7bzwER_9WMqWsv4TGrohhwHm5zE)
 4. [Intro to Full Stack](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESD8F____TWayTMou7kKd3y)
 5. [Front End Dev (React)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQo2DmaLqh5eFnetMw7CJbp)
-6. [SQL](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESVWl04549ydqzRx1TAIdsi)
+6. [SQL](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESpu7SCo6RVY6vnbPi1fykk)
 7. [Back End Dev (Django)](https://www.youtube.com/playlist?list=PLu0CiQ7bzwET1lV7voeSNX7PZ0MySmH1u)
 
 ## Additional Resources Shared in Class

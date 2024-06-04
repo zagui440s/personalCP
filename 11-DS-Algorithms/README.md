@@ -28,4 +28,5 @@ You will learn some of the fundamental building blocks (data structures, algorit
 
 ## Video Playlist
 
-- [Data Structures](https://www.youtube.com/playlist?list=PLu0CiQ7bzwER_9WMqWsv4TGrohhwHm5zE)
+- [Whiskey Data Structures](https://www.youtube.com/playlist?list=PLu0CiQ7bzwER_9WMqWsv4TGrohhwHm5zE)
+- [Victor Data Structures](https://www.youtube.com/playlist?list=PLu0CiQ7bzwER_9WMqWsv4TGrohhwHm5zE)
