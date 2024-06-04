@@ -21,4 +21,4 @@ By delving into prompt engineering and mastering Object-Oriented Programming (OO
 
 ## Video Playlist
 
-- [OOP Youtube](https://www.youtube.com/playlist?list=PLu0CiQ7bzwESSwMZNV7tdn3Z1rer_GYHk)
+- [OOP Youtube](https://www.youtube.com/playlist?list=PLu0CiQ7bzwEQ4nIjcTBcvjyZXoZ08RfZm)

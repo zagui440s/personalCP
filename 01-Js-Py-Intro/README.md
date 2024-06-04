@@ -32,6 +32,6 @@ Lastly, we will cover the two most commonly used languages in the industry along
 
 ## Video Playlist
 
-- [Intro to JS/Python/Installfest Youtube Playlist](https://www.youtube.com/watch?v=9_jVb5DnCRg&list=PLu0CiQ7bzwESgW6swsJYXeNgEFXmY_m1w)
-
+- [Intro to JS/Python/Installfest Youtube Playlist](https://www.youtube.com/playlist?list=PLu0CiQ7bzwERa4oP43o_grVUlFwXZO_82)
+    
 - Note: The Windows/WSL Installfest is not in the above playlist [but you can find it here](https://www.youtube.com/watch?v=9-v-0xRHWb8&list=PLu0CiQ7bzwEQP6Y4igNWNJhSwTkfSMRQA&index=2). Mac installfest is in the playlist.

@@ -13,6 +13,10 @@
 - [Django User Authentication](./7-user-authentication/README.md)
 - [Review](./8-review/README.md)
 
+## Video Playlist
+
+- [Django](https://www.youtube.com/playlist?list=PLu0CiQ7bzwET1lV7voeSNX7PZ0MySmH1u)
+
 ## What is Django?
 
 Django is a high-level web framework written in Python that allows developers to build robust and scalable web applications quickly. It follows the Model-View-Controller (MVC) architectural pattern, emphasizing reusability and the "Don't Repeat Yourself" (DRY) principle. Django provides a comprehensive set of tools and libraries that simplify the development process and promote best practices.
