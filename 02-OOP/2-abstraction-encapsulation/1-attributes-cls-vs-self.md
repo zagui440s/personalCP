@@ -27,7 +27,7 @@ print(dog2.name)  # Output: Max
 
 ## Class Attributes: Shared Among Instances
 
-lacklass attributes are variables that are shared among all instances of a class. They are defined within the class body, outside any method. While they can be accessed using instances, any modification to a class attribute will affect all instances of that class.
+Class attributes are variables that are shared among all instances of a class. They are defined within the class body, outside any method. While they can be accessed using instances, any modification to a class attribute will affect all instances of that class.
 
 ### Example: Class Attributes
 
