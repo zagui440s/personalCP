@@ -6,17 +6,17 @@ By learning about language models (LMs), their utilities, and familiarizing your
 
 ## Lectures and Assignments
 
-- [Lecture - Intro to Language Models](./1-intro-to-LMs.md)
-- [Lecture - Pytorch tools](./2-pytorch-tools.md)
+- [Lecture - Intro to Learning Models](./1-intro-to-LMs.md)
+- [Lecture - Pytorch Tensors](./2-pytorch-tensors.md)
 
 ## Terminal Learning Objectives
 
-- Installing PyTorch.
-- Basic concepts (tensors, autograd, etc.).
+- N/A these topics will not be evaluated here in Code Platoon.
 
 ## Enabling Learning Objectives
 
 - Setting up a virtual environment.
-- What are language models?
-- Applications of language models.
-- Installing necessary libraries.
+- What are learning models?
+- Installing dependencies.
+- Installing PyTorch.
+- Understanding Pytorch Tensors.
