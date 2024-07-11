@@ -60,15 +60,15 @@ print(result)
 
 Using PyTorch tensors, the same element-wise addition is much simpler and more readable. The addition operation is performed directly on the tensors without the need for nested loops. Not to mention many of the implied scenarios we talked about earlier are either handled or identified as an issue by Pytorch right from the start of the operation.
 
-#### Importance of Tensors in Neural Networks
+##### Importance of Tensors in Neural Networks
 
 In neural networks, tensors represent inputs, outputs, weights, and biases. For instance, an input layer of a neural network can be represented as a tensor where each element corresponds to a feature in the input data. Tensors enable efficient computation of forward and backward passes during training, making them a fundamental building block in deep learning.
 
-### Tensor Manipulation
+#### Tensor Manipulation
 
 Tensor manipulation is crucial for preparing data, training models, and making predictions. PyTorch provides various functions to manipulate tensors efficiently.
 
-#### Essential Tensor Manipulation Tools
+##### Essential Tensor Manipulation Tools
 
 1. **Reshaping Tensors**: Changing the shape of a tensor without changing its data.
 
@@ -81,8 +81,15 @@ Tensor manipulation is crucial for preparing data, training models, and making p
 2. **Slicing and Indexing**: Accessing specific elements, rows, or columns in a tensor.
 
     ```python
+    tensor = torch.tensor([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+    # Basic slicing
     sliced_tensor = tensor[:, 1]  # Select all rows in the second column
     print(sliced_tensor)
+    
+    # Boolean indexing
+    boolean_tensor = tensor[tensor > 5]  # Select elements greater than 5
+    print(boolean_tensor)
     ```
 
 3. **Concatenation**: Combining multiple tensors along a specific dimension.
@@ -107,26 +114,73 @@ PyTorch provides a wide range of tensor methods that are essential for building 
 
 #### Built-in Tensor Methods
 
-1. **Mathematical Operations**:
+1. **Shape and Size**:
 
     ```python
     tensor = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
+    print(tensor.shape)  # Shape of the tensor
+    print(tensor.size())  # Size of the tensor
+    ```
+
+2. **Number of Dimensions**:
+
+    ```python
+    print(tensor.ndim)  # Number of dimensions
+    ```
+
+3. **Data Type**:
+
+    ```python
+    print(tensor.dtype)  # Data type of the tensor
+    ```
+
+4. **Unsqueeze**:
+
+    ```python
+    unsqueezed_tensor = tensor.unsqueeze(0)  # Add an extra dimension at position 0
+    print(unsqueezed_tensor)
+    ```
+
+5. **Ravel**:
+
+    ```python
+    raveled_tensor = tensor.ravel()  # Flatten the tensor
+    print(raveled_tensor)
+    ```
+
+6. **Reshape**:
+
+    ```python
+    reshaped_tensor = tensor.reshape(1, 4)  # Reshape tensor to 1x4
+    print(reshaped_tensor)
+    ```
+
+7. **Split**:
+
+    ```python
+    split_tensors = tensor.split(1, dim=0)  # Split tensor into chunks along dimension 0
+    for t in split_tensors:
+        print(t)
+    ```
+
+8. **Mathematical Operations**:
+
+    ```python
     sum_tensor = tensor.sum()  # Sum of all elements
     mean_tensor = tensor.mean()  # Mean of all elements
     print(sum_tensor, mean_tensor)
     ```
 
-2. **Aggregation Functions**:
+9. **Aggregation Functions**:
 
     ```python
     max_val, max_idx = tensor.max(dim=0)  # Max values and their indices along a dimension
     print(max_val, max_idx)
     ```
 
-3. **Transformation Functions**:
+10. **Transformation Functions**:
 
     ```python
-    tensor = torch.tensor([[1.0, 2.0], [3.0, 4.0]])
     transposed_tensor = tensor.t()  # Transpose of the tensor
     print(transposed_tensor)
     ```

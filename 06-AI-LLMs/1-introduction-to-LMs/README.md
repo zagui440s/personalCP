@@ -7,7 +7,10 @@ By learning about language models (LMs), their utilities, and familiarizing your
 ## Lectures and Assignments
 
 - [Lecture - Intro to Learning Models](./1-intro-to-LMs.md)
+  - [Assignment - Environment Confirmation](.) Ensure you can create a Python venv, install PyTorch and JupyterNotebooks and execute JupyterNotebook Code Blocks with PyTorch code.
 - [Lecture - Pytorch Tensors](./2-pytorch-tensors.md)
+  - [Reading Assignment - Deep Learning Overview](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8372231/)
+  - [Reading Assignment - Deep Learning w/PyTorch: Ch.1&2](https://drive.google.com/file/d/1I0qk8Y4ELSCod47kTB-RK6KI_Vrjxykq/view?usp=sharing)
 
 ## Terminal Learning Objectives
 
