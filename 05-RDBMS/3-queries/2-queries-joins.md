@@ -533,3 +533,11 @@ LEFT JOIN plate ON car.id = plate.car_id;
 ## Conclusion
 
 Congratulations on completing this comprehensive SQL lecture for the mechanic shop database! You've covered a wide range of queries, from basic math operators to complex joins involving multiple tables. Armed with this knowledge, you're well-equipped to tackle real-world scenarios and extract valuable insights from databases. Keep practicing, exploring, and building your SQL expertise!
+
+## Additional Resources
+
+- [Aggregate Functions (COUNT, AVG etc)](https://www.postgresql.org/docs/15/tutorial-agg.html)
+- [GROUP BY and HAVING](https://www.postgresql.org/docs/15/queries-table-expressions.html#QUERIES-GROUP)
+- [Different types of JOINs](https://www.postgresql.org/docs/15/tutorial-join.html)
+- [LIKE and ILIKE](https://www.postgresql.org/docs/15/functions-matching.html#FUNCTIONS-LIKE)
+- [Comparisons (IS, NOT, boolean comparison)](https://www.postgresql.org/docs/15/functions-comparison.html)
