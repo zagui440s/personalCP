@@ -19,6 +19,10 @@ You will be able to explain how these applications are built and why they're bui
 7. [React Router Hooks](./7-react-router-hooks/)
 8. [React Review](./8-react-review/)
 
+## Comp. Sci Fridays
+
+- [Understanding Big-O](/11-DS-Algorithms/2-big-o/README.md)
+
 ## Module Topics
 
 - Understand how NPM works
