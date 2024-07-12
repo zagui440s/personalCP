@@ -10,20 +10,27 @@ You will learn some of the fundamental building blocks (data structures, algorit
 
 ## Lessons
 
-1. [Linear Search and Binary Search](./1-intro-data-structures/)
-2. [Big-O](./2-big-o/)
-3. [Memory and Linked Lists](./3-memory-linked-list/)
-4. [Recursion](./4-recursion/)
-5. [Intro to Whiteboarding Problems & Technical Interviews, DS Review](./5-intro-whiteboarding-problems-ds-review/README.md)
+1. [Searching Algorithms: Linear Search and Binary Search](./1-intro-data-structures/)
+2. [Understanding Big-O](./2-big-o/)
+3. [Sorting Algorithms & Algorithm Analysis: Bubble Sort, Insertion Sort, Merge Sort](./3-sorting-algos/README.md)
+4. Divide and Conquer Algorithms
+5. Recursion and Divide & Conquer Revisited
+6. Stacks & Queues Data Structures
+7. Intro to Computer Memory & Linked Lists Data Structure
+8. Doubly and Circular Linked Lists
+9. Binary Trees Data Structure
+10. Hash Table Data Structure 
 
 ## Module Topics
 
-- Pros and Cons of Linear Search
-- Pros and Cons of Binary Search
+- Sorting Algorithms
+- Searching Algorithms
+- Divide & Conquer strategy for Algorithm Design
 - Time Complexity Analysis(Big-O)
 - Space Complexity Analysis(Memory)
-- Working with Linked Lists
-- Visualizing the Call Stack in Recursion
+- Recursion & The Call Stack 
+- Computer Memory
+- Fundamental Data Structures
 - Technical Interview Prep
 
 ## Video Playlist
