@@ -17,13 +17,13 @@ Learning models are algorithms that enable machines to learn from data and make 
 
 Neural networks learn by adjusting the weights of the connections between neurons based on the error of their predictions. This process is called backpropagation and is crucial for the training of the model.
 
-![fullyConnected](../resources/fullyCNN.png)
+![fullyConnected](./resources/fullyCNN.png)
 
 ### Python Virtual Environments, what are they? And why do we need them?
 
 A Python virtual environment is an isolated environment that allows you to manage dependencies for different projects separately. This ensures that the packages required for one project do not interfere with those of another. Virtual environments are essential for maintaining clean and manageable project setups, especially when working on multiple projects with different dependencies.
 
-![venv](../resources/venv.png)
+![venv](./resources/venv.png)
 
 #### Capabilities of Python Virtual Environments
 
