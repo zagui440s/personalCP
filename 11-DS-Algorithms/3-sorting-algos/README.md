@@ -15,11 +15,27 @@ Understanding these sorting algorithms will provide you with a solid foundation 
 ## ELO's (Enabling Learning Objectives)
 
 - Bubble sort: Implement it, be able to explain its runtime complexity, and give examples of different inputs resulting in best-case, worst-case, or average-case complexity.
-- Insertion Sort: Implement insertion sort, explain its runtime complexity, and give examples of different inputs resulting in best-case, worst-case, or average-case complexity.
-- Merge Sort: Implement it iteratively (not recursively) and explain its runtime complexity, and give examples of different inputs resulting in best-case, worst-case, or average-case complexity.
 
+- Insertion Sort: Implement insertion sort, explain its runtime complexity, and give examples of different inputs resulting in best-case, worst-case, or average-case complexity.
+
+- Merge Sort: Implement it iteratively (not recursively) and explain its runtime complexity, and give examples of different inputs resulting in best-case, worst-case, or average-case complexity.
 
 ## Lessons & Assignments
 
 - [Lesson - Bubble Sort, Insertion Sort, And Complexity Analysis](./1-bubble-insertion-sort.md)
+    - Assignment: Selection Sort
+        - Read about Selection Sort in [Grokking Algorithms (Chapter 2)](https://drive.google.com/drive/folders/1JXp_dvxjdFWyrVmSq6wqs9vcvqSDtZ5O). 
+        - Watch [this video on Selection Sort](https://www.youtube.com/watch?v=g-PGLbMth_g&t=63s). Now:  
+        1. Create your own diagram of how Selection Sort works for a list of length 4, like we have been in class. **Put this diagram in the `README.md` file of the github repo you will create for this assignment.**
+        2. Write your own implementation of Selection Sort in Python.
+        3. Write pytest tests for it:
+            - Test for a list of length 0 of randomly ordered integers (such as `[]`)
+            - Tests for a list of length 1 of randomly ordered integers (such as `[3]`)
+                - Write tests specifically for `0`, a positive integer, and a negative integer.
+            - Tests for a list of length 4 of randomly ordered integers (such as `[-4, 0, 1, -9]`).
+                - Make sure your data includes `0` and a negative integer.
+            - Each test should do two things:
+                - Test the list has been correctly sorted
+                - **Your program must have a print statement for each "step" of the sorting algorithm.** The test should look at this output to check that your algorithm is behaving correctly. 
+
 - [Lesson - Merge Sort](./2-merge-sort.md)
