@@ -182,69 +182,73 @@ Biases are additional parameters that allow the model to fit the data better by 
 
 When you pass the `input_tensor` through the model, the following steps occur:
 
-1. **First Linear Layer**:
-    - The input tensor `[[0.1, 0.2, 0.3]]` is multiplied by the first layer's weights and then the biases are added.
-    - Mathematically:
-      \[
-      \text{hidden\_layer\_output} = \text{input\_tensor} \times \text{0.weight}^T + \text{0.bias}
-      \]
-      This results in:
-      \[
-      \text{hidden\_layer\_output} = \left[ [0.1, 0.2, 0.3] \times \begin{bmatrix} -0.4012 & -0.5649 & 0.3153 \\ -0.4333 & 0.0119 & -0.4002 \end{bmatrix}^T \right] + \begin{bmatrix} -0.3478 \\ -0.4386 \end{bmatrix}
-      \]
+###### First Linear Layer
 
-2. **Second Linear Layer**:
-    - The output from the hidden layer is multiplied by the second layer's weights and the biases are added.
-    - Mathematically:
-      \[
-      \text{output} = \text{hidden\_layer\_output} \times \text{1.weight}^T + \text{1.bias}
-      \]
+The input tensor \(\begin{bmatrix} 0.1 & 0.2 & 0.3 \end{bmatrix}\) is multiplied by the first layer's weights and then the biases are added.
 
-3. **Activation Function**:
-    - The `Sigmoid` activation function is applied to the output of the second linear layer to produce the final output.
-    - Mathematically:
-      \[
-      \text{final\_output} = \sigma(\text{output})
-      \]
-      where \(\sigma(x) = \frac{1}{1 + e^{-x}}\).
+Mathematically:
+\[ \text{hidden\_layer\_output} = \text{input\_tensor} \times \text{0.weight}^T + \text{0.bias} \]
 
-##### Example Calculation
+This results in:
+\[ \text{hidden\_layer\_output} = \left[ \begin{bmatrix} 0.1 & 0.2 & 0.3 \end{bmatrix} \times \begin{bmatrix} -0.4012 & -0.5649 & 0.3153 \\ -0.4333 & 0.0119 & -0.4002 \end{bmatrix}^T \right] + \begin{bmatrix} -0.3478 \\ -0.4386 \end{bmatrix} \]
+
+###### Second Linear Layer
+
+The output from the hidden layer is multiplied by the second layer's weights and the biases are added.
+
+Mathematically:
+\[ \text{output} = \text{hidden\_layer\_output} \times \text{1.weight}^T + \text{1.bias} \]
+
+###### Activation Function
+
+The Sigmoid activation function is applied to the output of the second linear layer to produce the final output.
+
+Mathematically:
+\[ \text{final\_output} = \sigma(\text{output}) \]
+where \(\sigma(x) = \frac{1}{1 + e^{-x}}\).
+
+###### Example Calculation
 
 Let's compute the output step-by-step with your provided weights and biases:
 
-1. **First Layer Calculation**:
-    \[
-    \text{hidden\_layer\_output} = [0.1, 0.2, 0.3] \times \begin{bmatrix} -0.4012 & -0.5649 & 0.3153 \\ -0.4333 & 0.0119 & -0.4002 \end{bmatrix}^T + \begin{bmatrix} -0.3478 \\ -0.4386 \end{bmatrix}
-    \]
-    - Multiplying and adding biases:
-      \[
-      \begin{aligned}
-      \text{hidden\_layer\_output}[0] & = (0.1 \times -0.4012) + (0.2 \times -0.5649) + (0.3 \times 0.3153) - 0.3478 \\
-      & = -0.04012 - 0.11298 + 0.09459 - 0.3478 \\
-      & = -0.40631 \\
-      \text{hidden\_layer\_output}[1] & = (0.1 \times -0.4333) + (0.2 \times 0.0119) + (0.3 \times -0.4002) - 0.4386 \\
-      & = -0.04333 + 0.00238 - 0.12006 - 0.4386 \\
-      & = -0.59961 \\
-      \end{aligned}
-      \]
+###### First Layer Calculation
 
-2. **Second Layer Calculation**:
-    \[
-    \text{output} = [-0.40631, -0.59961] \times \begin{bmatrix} -0.6352 \\ -0.1661 \end{bmatrix} + \begin{bmatrix} 0.4511 \end{bmatrix}
-    \]
-    - Multiplying and adding bias:
-      \[
-      \text{output} = (-0.40631 \times -0.6352) + (-0.59961 \times -0.1661) + 0.4511 \\
-      \approx 0.25806 + 0.09957 + 0.4511 \\
-      \approx 0.80873
-      \]
+\[ \text{hidden\_layer\_output} = \begin{bmatrix} 0.1 & 0.2 & 0.3 \end{bmatrix} \times \begin{bmatrix} -0.4012 & -0.5649 & 0.3153 \\ -0.4333 & 0.0119 & -0.4002 \end{bmatrix}^T + \begin{bmatrix} -0.3478 \\ -0.4386 \end{bmatrix} \]
 
-3. **Sigmoid Activation**:
-    \[
-    \text{final\_output} = \sigma(0.80873) \approx \frac{1}{1 + e^{-0.80873}} \approx 0.6918
-    \]
+Multiplying and adding biases:
 
-So, the final output after passing through your model is approximately \(0.6918\).
+\[
+\begin{aligned}
+\text{hidden\_layer\_output}[0] &= (0.1 \times -0.4012) + (0.2 \times -0.5649) + (0.3 \times 0.3153) - 0.3478 \\
+&= -0.04012 - 0.11298 + 0.09459 - 0.3478 \\
+&= -0.40631 \\
+\text{hidden\_layer\_output}[1] &= (0.1 \times -0.4333) + (0.2 \times 0.0119) + (0.3 \times -0.4002) - 0.4386 \\
+&= -0.04333 + 0.00238 - 0.12006 - 0.4386 \\
+&= -0.59961
+\end{aligned}
+\]
+
+###### Second Layer Calculation
+
+\[
+\text{output} = \begin{bmatrix} -0.40631 & -0.59961 \end{bmatrix} \times \begin{bmatrix} -0.6352 \\ -0.1661 \end{bmatrix} + \begin{bmatrix} 0.4511 \end{bmatrix}
+\]
+
+Multiplying and adding bias:
+
+\[
+\text{output} = (-0.40631 \times -0.6352) + (-0.59961 \times -0.1661) + 0.4511 \\
+\approx 0.25806 + 0.09957 + 0.4511 \\
+\approx 0.80873
+\]
+
+###### Sigmoid Activation
+
+\[
+\text{final\_output} = \sigma(0.80873) \approx \frac{1}{1 + e^{-0.80873}} \approx 0.6918
+\]
+
+So, the final output after passing through your model is approximately 0.6918.
 
 This process illustrates how weights and biases are used to transform the input through each layer, ultimately producing a prediction from the model.
 
