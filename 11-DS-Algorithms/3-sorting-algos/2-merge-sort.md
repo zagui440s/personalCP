@@ -73,7 +73,6 @@ def merge_sort_iterative(items):
 
             # right sublist of desired size
             right_sublist = items[i + sublist_len:i + 2 * sublist_len]
-### How does it work?
 
             # compare, sort, and merge the two sublists
             merged_sublists = merge(left_sublist, right_sublist)
