@@ -216,5 +216,5 @@ Recursion is a powerful and elegant technique for solving complex problems by br
 ## Resources
 
 - [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
-- [Factorial Explanation]
-- [Fibonacci Sequence Explanation]
+- [Factorial Explanation](https://www.mathsisfun.com/numbers/factorial.html)
+- [Fibonacci Sequence Explanation](https://www.mathsisfun.com/numbers/fibonacci-sequence.html)
