@@ -36,9 +36,22 @@ The impact of recursion on efficiency depends on how it is implemented and wheth
 
 ## Building a Recursive Function
 
+Let's write a recursive function that will get us the factorial for a number. The factorial mathematical function (symbol: !) says to multiply all whole numbers from our chosen number down to 1. Some examples are:
+
+$$ 5! = 5 * 4 * 3 * 2 * 1 $$
+$$ 4! = 4 * 3 * 2 * 1 $$
+$$ 3! = 3 * 2 * 1 $$
+$$ 2! = 2 * 1 $$
+$$ 1! = 1 $$
+$$ 0! = 1 $$
+
+**Note that zero factorial equals one, this is important.**
+
+That is the mathematical factorial operation. Now, let's write a function using recursion to implement it in Python!
+
 ### Base Case
 
-The base case is a crucial component of recursive functions. It defines when the recursion should stop and helps prevent infinite loops.
+The base case is a crucial part of any recursive function. It defines when the recursion should stop and helps prevent infinite loops.
 
   ```python
   def factorial(n):
@@ -54,6 +67,22 @@ The base case is a crucial component of recursive functions. It defines when the
 
 The recursive case is the part of the function that calls itself. It allows the problem to be broken down into smaller, more manageable subproblems.
 
+### Example: Fibonacci Sequence
+
+The Fibonacci Sequence is the series of numbers:
+
+$$ 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...  $$
+
+The next number is found by adding up the two numbers before it:
+
+... the 2 is found by adding the two numbers before it (1+1),
+... the 3 is found by adding the two numbers before it (1+2),
+... the 5 is (2+3),
+
+and so on!
+
+Example: the next number in the sequence above is 21+34 = 55
+
 ```python
   def fibonacci(n):
       # Base cases
@@ -66,9 +95,11 @@ The recursive case is the part of the function that calls itself. It allows the 
           return fibonacci(n-1) + fibonacci(n-2)
 ```
 
-**IV. Call Stack:**
+## The Call Stack
 
-The call stack is a memory structure that keeps track of function calls. Understanding the call stack is essential for grasping how recursion works.
+The call stack is a memory structure that keeps track of function calls. Pretty much every programming language, and indeed every operating system, uses a call stack. Understanding the call stack is essential not only for grasping how recursion works, but for grasping how programs, operating systems, and computers work.
+
+Let's visualize this in [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit). 
 
   ```python
   def count_down(n):
@@ -79,6 +110,42 @@ The call stack is a memory structure that keeps track of function calls. Underst
 
   count_down(3)
   ```
+
+  > Question: Which lines of code are the base case for this function? Which are the recursive case?
+
+### Review & Challenge: Make Recursive Factorial "Go Up"
+
+Let's review our recursive factorial function, and, see if we can make a few changes.
+
+**Question:** Why do we need `if n == 0` as a part of our base case for `factorial()` - what will fail if we remove it?
+
+> Hint: What input to our function will trigger `if n == 0` in our base case logic?
+
+**Question:** What would happen if our recursive case was `n * factorial(n+1)` ? What problem do we see, and, could we further refactor our recursive algorithm so it could actually work with this as our recursive case?
+
+The problem we encounter is our algorithm "goes up" and goes on forever! **It never stops, because it never hits it's base case!**
+
+It takes a bit of work, but it is indeed possible to design our recursive factorial algorithm to "go up", instead of "go down". Note how:
+
+- Our base case has changed.
+- We need to pass a `current` argument to our function, so our base case will know when to stop.
+- Our recursive step needs to pass `current` as an argument.
+
+It is common with recursive functions to pass important, consistently changing data like `current` as a function argument to subsequent recursive calls.
+
+```python
+def factorial_up(n, current=1):
+    # Base case: when current exceeds n, return 1 (end of recursion)
+    if current > n:
+        return 1
+    # Recursive case: multiply current with the factorial of the next number
+    return current * factorial_up(n, current + 1)
+
+# Example usage:
+n = 5
+print(f"The factorial of {n} is: {factorial_up(n)}")
+```
+
 
 ## Recursion vs. Iteration
 
@@ -149,3 +216,5 @@ Recursion is a powerful and elegant technique for solving complex problems by br
 ## Resources
 
 - [Python Tutor](http://www.pythontutor.com/visualize.html#mode=edit)
+- [Factorial Explanation](https://www.mathsisfun.com/numbers/factorial.html)
+- [Fibonacci Sequence Explanation](https://www.mathsisfun.com/numbers/fibonacci-sequence.html)
