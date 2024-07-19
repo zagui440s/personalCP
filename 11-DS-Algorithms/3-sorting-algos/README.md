@@ -39,3 +39,4 @@ Understanding these sorting algorithms will provide you with a solid foundation 
                 - **Your program must have a print statement for each "step" of the sorting algorithm.** The test should look at this output to check that your algorithm is behaving correctly. 
 
 - [Lesson - Merge Sort](./2-merge-sort.md)
+      - [Assignment: Implement Merge Sort for I024 Slices](https://github.com/Code-Platoon-Assignments/algos-merge-sort-1024-calories/tree/main)
