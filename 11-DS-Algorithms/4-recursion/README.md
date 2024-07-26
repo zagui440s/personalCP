@@ -13,6 +13,8 @@ By learning about recursion and the call stack, you aim to grasp a fundamental p
   - [Flatten List](https://github.com/Code-Platoon-Assignments/FlattenList.git)
   - [Binary Search](https://github.com/Code-Platoon-Assignments/binary-search.git)
 
+**Challenge Assignment: [Towers of Hanoi](https://github.com/Code-Platoon-Curriculum/algo-towers-of-hanoi/tree/main)**
+
 ## TLO's (Terminal Learning Objectives)
 
 N/A
