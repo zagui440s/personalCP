@@ -1,7 +1,11 @@
-# Lesson: Introduction to Docker
+# Introduction to Docker
 
 ## Table of Contents
 
+- [What are we trying to accomplish](#what-are-we-trying-to-accomplish)
+- [Lessons](#lessons)
+- [Module topics](#module-topics)
+- [Video Playlist](#video-playlist)
 - [What is Docker?](#1-what-is-docker)
   - [Definition of Docker](#definition-of-docker)
   - [Containers vs. Virtual Machines](#containers-vs-virtual-machines)
@@ -26,6 +30,38 @@
   - [Installing Docker](#installing-docker)
   - [Running Your First Docker Container](#running-your-first-docker-container)
   - [Working with Docker Images](#working-with-docker-images)
+- [What you'll be able to accomplish by the end of this Module](#6-what-youll-be-able-to-accomplish-by-the-end-of-this-module)
+- [Additional Articles](#7-additional-articles)
+   * [Conclusion](#conclusion)
+   
+## What are we trying to accomplish
+
+By learning how to use Docker, you aim to develop the skills needed to containerize applications effectively. This includes concepts like creating and managing Docker images, running and orchestrating containers, and understanding Docker's role in modern DevOps practices. Through Docker, you seek to master the skills required to ensure consistent and efficient application deployment across various environments, allowing you to handle complex deployments with ease and scalability, and enabling you to streamline the development workflow and improve collaboration in software engineering projects.
+
+## Lessons
+
+1. [PostgreSQL and Docker](./1-docker-postgres/README.md)
+2. [Django API + PostgreSQL + Docker](./2-docker-django-api/README.md)
+3. [React.js + Django API + PostgreSQL in Docker](./3-docker-nginx-react/README.md)
+4. [Docker Compose](./4-docker-compose/README.md)
+5. [Docker Hub](./5-dockerized-deployment/README.md)
+
+## Module topics
+
+* **Integrating PostgreSQL with Docker**: Understanding how to set up and manage PostgreSQL within Docker containers, including database initialization and configuration.
+
+* **Building a Django API with Docker and PostgreSQL**: Learning how to containerize a Django API and integrate it with PostgreSQL, managing dependencies, and configuring environment variables.
+
+* **Combining React.js, Django API, and PostgreSQL in Docker**: Implementing a full-stack application with React.js on the front end, Django API on the back end, and PostgreSQL for data persistence, all within Docker containers.
+
+* **Managing Multi-Container Applications with Docker Compose**: Using Docker Compose to define and manage multi-container applications, including service orchestration and configuration.
+
+* **Deploying Dockerized Applications with Docker Hub**: Learning how to use Docker Hub for image storage and distribution, and deploying Dockerized applications using Docker Hub's registry and deployment features.
+
+## Video Playlist
+
+* [Whiskey Docker](https://www.youtube.com/playlist?list=PLu0CiQ7bzwETNkvAWV2kwxaALiv1-uiA7)
+
 
 ## 1. What is Docker?
 
@@ -184,7 +220,19 @@ docker image ls
 
 This will display a list of Docker images you have pulled or created.
 
-## 6. Additional Articles
+## 6. What you'll be able to accomplish by the end of this Module
+
+* **Set Up and Configure Docker Containers**: Deploy PostgreSQL, Django, and React.js within Docker containers, configuring each component to work together seamlessly.
+
+* **Build and Deploy a Full-Stack Application**: Develop and containerize a full-stack application with React.js on the front end, Django API on the back end, and PostgreSQL for data storage.
+
+* **Manage Multi-Container Applications**: Use Docker Compose to define, run, and manage complex multi-container setups, including setting up inter-container networking and service dependencies.
+
+* **Utilize Docker Hub for Deployment**: Push Docker images to Docker Hub, and pull images for deployment, effectively managing and distributing your Dockerized applications.
+
+* **Automate Docker Workflows**: Implement automated workflows for building, testing, and deploying Docker containers, improving efficiency and consistency in your development pipeline.
+
+## 7. Additional Articles
 
 To deepen your understanding of Docker, consider reading the following resources and conducting personal research:
 
