@@ -51,3 +51,4 @@ Classroom videos/lectures will be recorded and posted to YouTube. It can take up
 
 - [Lectures & Books](https://drive.google.com/drive/folders/1JXp_dvxjdFWyrVmSq6wqs9vcvqSDtZ5O?usp=drive_link)
 - [Retention and Additional Material](./00-Retention/)
+- [Khan Academy Pre-Calculus Course](https://www.khanacademy.org/math/precalculus) - the sections on Vectors and Matrices are good background for our AI Curriculum.
