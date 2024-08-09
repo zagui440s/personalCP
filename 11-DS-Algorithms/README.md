@@ -14,12 +14,12 @@ You will learn some of the fundamental building blocks (data structures, algorit
 2. [Understanding Big-O](./2-big-o/)
 3. [Sorting Algorithms & Algorithm Analysis: Bubble Sort, Insertion Sort, Merge Sort](./3-sorting-algos/README.md)
 4. Divide and Conquer Algorithms
-5. Recursion and Divide & Conquer Revisited
-6. Stacks & Queues Data Structures
-7. Intro to Computer Memory & Linked Lists Data Structure
+5. [Recursion and Divide & Conquer Revisited](./4-recursion/README.md)
+6. [Stacks & Queues Data Structures](./5-stacks-and-queues/README.md)
+7. [Intro to Computer Memory & Linked Lists Data Structure](./6-memory-linked-lists/README.md)
 8. Doubly and Circular Linked Lists
 9. Binary Trees Data Structure
-10. Hash Table Data Structure 
+10. Hash Table Data Structure
 
 ## Module Topics
 
