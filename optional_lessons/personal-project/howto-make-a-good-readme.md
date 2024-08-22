@@ -5,7 +5,7 @@
 The README file contains critical information for other developers on how to install, configure, and run your project. This is important for your teammates, other devs who may be using your 
 project if it is open-source, and for yourself six months from now.
 
-A project without a good README is looked up poorly by professional. 
+A project without a useful README is looked up poorly by professionals. 
 
 As early-career software engineers, since the first thing anyone will see if they look at your project repo on github is your README, the README is also effectively a part of your portfolio and should be treated as such.
 
