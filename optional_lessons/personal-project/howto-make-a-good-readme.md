@@ -16,11 +16,13 @@ As early-career software engineers, since the first thing anyone will see if the
 A good README must include:
 
 - What is this & why?
-- Installation
+- Installation & Dependencies
 - Setup & Configuration
 - Usage
 
-As early-career engineers, yours should also include:
+Under 'Installation & Dependencies', you should list the things that need to already be installed (such as, say, Python or Postgres) that your project is dependent on.
+
+As early-career engineers, your README should also include:
 
 - An embedded video or gif of the app in action at the top of the README. If this is not possible some sort of relevant image should be included.
 - If the the project is deployed live, a link to the live site.
@@ -29,7 +31,6 @@ As early-career engineers, yours should also include:
 
 Have fun with your README! As long as your README clearly communicates to others what they need to know to use your code, you can and should make your README's fun. If you prefer to keep it to-the-point, that's fine as well.
 
-As long as your README communicates the essential information
 ## Examples of Awesome README's
 
 The examples below are from https://github.com/matiassingers/awesome-readme
