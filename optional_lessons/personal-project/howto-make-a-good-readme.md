@@ -13,16 +13,16 @@ As early-career software engineers, since the first thing anyone will see if the
 
 ### What goes in a README?
 
-A good README must include:
+A good README should include:
 
 - What is this & why?
 - Installation & Dependencies
 - Setup & Configuration
 - Usage
 
-Under 'Installation & Dependencies', you should list the things that need to already be installed (such as, say, Python or Postgres) that your project is dependent on.
+> Under 'Installation & Dependencies', you should list the things that need to already be installed (such as, say, Python or Postgres) that your project is dependent on.
 
-As early-career engineers, your README should also include:
+As early-career software engineers, your README should also include *near the top*:
 
 - An embedded video or gif of the app in action at the top of the README. If this is not possible some sort of relevant image should be included.
 - If the the project is deployed live, a link to the live site.
