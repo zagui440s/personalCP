@@ -168,3 +168,7 @@ Do this out loud and give your interviewer opportunity to give you feedback.
 ## Conclusion
 
 Technical Interviews / Whiteboarding Problems are about showing how you think as much as they are about demonstrating your technical skills and knowledge. Like an NBA player practicing their free-throws, focus your practice on the fundamentals so you still sink that easy shot on Game Day. With preparation and practice, technical interviews can be an opportunity to show your skills and shine!
+
+## Resources
+
+- [Launch School's 'PEDAC' process for Technical Interviews](https://medium.com/launch-school/solving-coding-problems-with-pedac-29141331f93f)
