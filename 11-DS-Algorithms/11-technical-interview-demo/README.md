@@ -1,11 +1,13 @@
 
-# White-boarding Problems & Technical Interviews, Data Structures Review
+# Technical Interviews & White-board Problems
 
 ## What are we trying to accomplish?
 
-You will learn and begin to practice the strategy to use to successfully solve whiteboarding / technical interview problems. It is also helpful as a general program design technique.
+Technical Interviews, sometimes referred to as 'whiteboarding problems', are their own beasts. You will learn the format these interviews take, and how interviewers assess your performance.
 
-You will become more familiar with leetcode since there is a strong chance that in the interview process you will do a coding challenge or problem in leetcode or a similar tool.
+You will learn the strategies & techniques to succeed at these whiteboarding / technical interview problems, which are also helpful as general program design techniques.
+
+You will also become more familiar with leetcode, since there is a strong chance that in the interview process you will do a coding challenge or problem in leetcode or a similar tool.
 
 ## Instructor Notes & Prerequisites
 
@@ -28,8 +30,10 @@ If possible review data structures but the priority is introducing how to tackle
 
 ## TLO's (Terminal Learning Objectives)
 
-- Learn and able to apply the basic whiteboarding problem strategy.
+- N/A This will not be evaluated in Code Platoon
 
 ## ELO's (Enabling Learning Objectives)
 
+- Familiarity with the leetcode platform
+- Learn and able to apply whiteboarding problem strategies.
 - Can explain what the interviewer is looking for in a technical interview and what we are being evaluated on in a technical interview.

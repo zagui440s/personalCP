@@ -17,9 +17,10 @@ You will learn some of the fundamental building blocks (data structures, algorit
 5. [Recursion and Divide & Conquer Revisited](./4-recursion/README.md)
 6. [Stacks & Queues Data Structures](./5-stacks-and-queues/README.md)
 7. [Intro to Computer Memory & Linked Lists Data Structure](./6-memory-linked-lists/README.md)
-8. Doubly and Circular Linked Lists
-9. Binary Trees Data Structure
-10. Hash Table Data Structure
+8. [Doubly and Circular Linked Lists](./7-doubly-linked-lists/)
+9. Binary Trees
+10. Hash Table
+11. [Technical Interview Strategies & Demo](./11-technical-interview-demo/README.md)
 
 ## Module Topics
 

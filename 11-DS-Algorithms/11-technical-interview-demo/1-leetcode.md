@@ -1,6 +1,12 @@
 # Leetcode: How to use it & why
 
-There are many websites that mock this experience of a tech interview, but the one we tend to use at Code Platoon is [LeetCode](https://leetcode.com). Let's look at a classic example of an 'easy' level problem on LeetCode just to get a sense of what it looks like - [Two Sum](https://leetcode.com/problems/two-sum/).
+## Introduction
+
+[LeetCode](https://leetcode.com) is one of the most popular platforms for the kinds of programming problems you'll encounter in technical interviews. It is also one of th most popular tools to use to practice for technical interviews. Familiarity with it is important both for your own interview prep and for when you encounter it or similar tools in the interview process, whether as a coding challenge early in the application process or during a technical interview.
+
+## Lecture
+
+Let's look at a classic example of an 'easy' level problem on LeetCode just to get a sense of what it looks like - [Two Sum](https://leetcode.com/problems/two-sum/).
 
 ![Leetcode](./resources/page-resources/leetcode-general.png)
 
@@ -24,4 +30,8 @@ If you pass all the test cases you will see a screen like this. Noticed the high
 
 ![Leetcode complexity](./resources/page-resources/leetcode-complexity.png)
 
-That sentence should make no sense to you yet, but it's an example of what is called **complexity analysis**, more often refered to simply as **Big-O**. Part of the concept of data structures and algorithms is this idea of a rigorous, mathematical form of analysis of one's alogrithm. This is actual math, but it's possible to learn how to think about complexity analysis without learning the mathematical details. So when the follow up section says "is it possible to come up with an algorithm that is less than `O(N^2)` time complexity?' that essentially means 'you solved it with nested for loops (looking at N elements for each N elements = N^2, the 'big-O' part means 'in the worst case scenario'), is there some way to do that with a better 'worst case' complexity guarantee? Which transaltes to 'could you solve this with only a single loop through the array, instead of nested loops?' We cover this concept in more depth Day 3 of Data Structures week, but it's important to have a basic familiarity upfront.
+Note the follow-up question about the Big-O of your solution. It is common in technical interviews to discuss the runtime complexity of your code and if it is possible to come up with a more efficient solution or not.
+
+## Conclusion
+
+Leetcode is an important preparation tool and platform to be familiar with in order to successfully prepare for and succeed at technical interviews.
