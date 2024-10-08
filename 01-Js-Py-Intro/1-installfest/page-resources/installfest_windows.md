@@ -16,9 +16,10 @@ We are going to install everything that you will need for this course. Please do
 5. Python
 6. Node
 7. Git
-8. Alisases
-9. PostgreSQL
-10. VSCode Extensions
+8. zsh shell
+9. Alisases
+10. PostgreSQL
+11. VSCode Extensions
 
 ## Terminal
 
@@ -224,40 +225,115 @@ This will install that repo in your current directory. Assuming this is successf
 rm -rf lodash
 ```
 
-## Alisases
+## zsh Shell
 
-Every time you open your terminal a special file will automatically be read from to do any necessary 'setup' type work. Assuming the terminal you are using is `bash` this file will be called `.bash_profile`. If you are using `zsh` it will `.zshrc`. If you are unsure what terminal you are running type:
+### bash and zsh
+
+By default Ubuntu is using the shell called [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)). This is the program that runs in your terminal. zsh is a newer shell program, very similar to bash, but with some amenities. zsh is also the default shell on MacOS, so we will install zsh and use it as our default so everyone is using the same shell.
+
+You can run this command to see the shell currently being used. It should print `/bin/bash` or something similar with 'bash' in it:
 
 ```bash
 echo $SHELL
 ```
 
-Open this file in VSCode like so:
+### Installing zsh
 
-```bash
-code ~/.bash_profile
+Use apt to install zsh:
+
+```sh
+sudo apt-get install zsh
 ```
 
-VSCode should open with the `.bash_profile` as the current document. If you didn't have a profile before, it'll be empty. Either way, paste the code below at the bottom of your profile:
+Verify that zsh has been installed:
 
-```bash
+```sh
+zsh --version
+```
+
+### Set zsh as the default shell
+
+Now we will configure Ubuntu to always use zsh. First get the path to where `zsh` lives on your filesystem`:
+
+```sh
+which zsh
+```
+
+It should print out something like:
+
+```sh
+/usr/bin/zsh
+```
+
+**Whatever that path is**, use it in this command below:
+
+```sh
+chsh -s <YOUR_PATH_TO_ZSH>
+```
+
+Now your default shell is zsh!
+
+**Now, Close your terminal and VS Code entirely, and open VS Code and it's terminal again.**
+
+Confirm that when we opened the terminal, which started a new shell session, ubuntu used zsh:
+
+```sh
+echo $SHELL
+```
+
+It should print `/bin/zsh` or a similar path with 'zsh' in it.
+
+### Installing oh-my-zsh
+
+One advantage of zsh is it is easy to install extension and add-ons. [oh-my-zsh](https://ohmyz.sh/) is an extremely popular extension which will add lots of useful features, customization, colors, etc to your zsh shell and command line experience.
+
+To install it run:
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+And now you are uzing zsh!
+
+## Alisases
+
+Every time you open your terminal a special file will automatically be read from to do any necessary 'setup' type work. Assuming the terminal you are using is `bash` this file will be called `.bash_profile`.
+
+If you are using `zsh` it will `.zshrc`.
+
+We are going to modify `~/.zshrc` again so that we don't need to type `python3` but just `python` to invoke the correct program. This is a small change but it's a way of making it clear what your 'default' version is on a platform, and also an opportunity to discuss the concept of aliases.
+
+Open `~/.zshrc` in VSCode like so:
+
+```sh
+code ~/.zshrc
+```
+
+VSCode should open the document. At the bottom of the file add the lines:
+
+```sh
+# Aliases
+
 alias python='python3'
 alias pip='pip3'
 ```
 
-Aliases are what they sound like, simply a new name that points to an existing command. If you are ever in doubt what a given alias points to type:
+Aliases are what they sound like, simply a new name that points to an existing command.
 
-```bash
-which <COMMAND>
+We are also going to add another line to our `.zshrc` to make sure we are using our default Python venv everytime we open the terminal. So below your aliases within `.zshrc` add:
+
+```sh
+# activate default python venv
+source $HOME/default/bin/activate
 ```
 
-If `<COMMAND>` is an alias, it will tell you what it points to. If `<COMMAND>` is a real command it will tell you what its full path is in the file system.
+Test this by opening a new shell / terminal and run:
 
-These aliases won't automatically be applied in your current terminal, but they will take effect in any new terminal windows you open. Alternatively if you don't want to close/open your terminal you can force the terminal to re-read the newly updated file with:
-
-```bash
-source ~/.bash_profile
+```sh
+which python
 ```
+
+It should print something like this: `aliased to python3`
 
 ## PostgreSQL
 
