@@ -124,6 +124,51 @@ person.set_age = 30
 print(person.get_age)   # Output: 30
 ```
 
+Now that we have seen getters and setters, we can name our getters and setters more simply, and following python convention. The name getter and setter is just named `name`, and same for `age`. Notice how this makes the code more succint and simpler to read and write:
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
+
+    # Getter for name attribute
+    @property
+    def name(self):
+        return self._name
+
+    # Setter for name attribute
+    @name.setter
+    def name(self, new_name):
+        if isinstance(new_name, str):
+            self._name = new_name
+        else:
+            print("Name must be a string.")
+
+    # Getter for age attribute
+    @property
+    def age(self):
+        return self._age
+
+    # Setter for age attribute
+    @age.setter
+    def age(self, new_age):
+        if isinstance(new_age, int) and new_age > 0:
+            self._age = new_age
+        else:
+            print("Age must be a positive integer.")
+
+# Create an instance of Person
+person = Person("Alice", 25)
+
+# Access and modify attributes using getters and setters
+print(person.name)  # Output: Alice
+person.name="Bob"
+print(person.name)  # Output: Bob
+person.age = 30
+print(person.age)   # Output: 30
+```
+
 ## Conclusion
 
 In the realm of Python OOP, getters and setters grant you control over how your class attributes are accessed and modified. By encapsulating data and applying validation, you ensure the integrity and reliability of your code. Embrace this powerful practice to build classes that are not only functional but also maintainable and adaptable. Happy coding! 🚀
