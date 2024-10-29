@@ -1,68 +1,82 @@
 import { useState, useEffect } from "react";
-import jsonTasks from "./data/tasks.json";
 import "./App.css";
-import Task from "./components/Task.jsx";
+
+// const changeGreeting = () => {
+//   let h2 = document.getElementById('greeting')
+//   if (h2.innerText === 'Hello'){
+//     h2.innerText = 'Goodbye'
+//   }
+//   else{
+//     h2.innerText = 'Hello'
+//   }
+// }
+import jsonTasks from "./tasks.json"
+import axios from "axios";
 
 function App() {
-  //         get    sets           init
-  // const [hello, setHello] = useState("Hello Victor") //any||null
-  const [tasks, setTasks] = useState(jsonTasks); // returns a array [getter, setter]
-  const [formInput, setFormInput] = useState("");
-  // const [show, setShow] = useState(true);
-  const formSubmit = (e) => {
-    e.preventDefault();
-    let newTask = { id: tasks.length + 1, task: formInput, completed: false };
-    setTasks([...tasks, newTask]);
-    setFormInput("");
-  };
 
-  // useEffect(()=>{
-  //   console.log(show)
-  // }, [show])
-  // if and else
-  // x if x > y else y
-  // ternirary statement
-  //  x > y ? x : y
+  //     variable, function    [variable, funcToUpdateVariable]
+  const [greeting, setGreeting] = useState("Hello"); // requires init val
+  const [tasks, setTasks] = useState(jsonTasks) //[{},{}]
+  // unordered list
+  // iterate through tasks
+    // for each task object render a li
+  const handleClick = () => {
+    if (greeting === 'Hello'){
+      setGreeting('Goodbye')
+    }
+    else{
+      setGreeting('Hello')
+    }
+  }
+  // 2 params 1 = func, 2 = dep array
+  useEffect(()=>{
+    console.log(greeting)
+  },[greeting])
+
+  const [characterImg, setCharacterImg] = useState("https://rickandmortyapi.com/api/character/avatar/1.jpeg")
+  const [characterId, setCharacterId] = useState(1)
+
+  const getCharacterImg = async() => {
+    let { data } = await axios.get(`https://rickandmortyapi.com/api/character/${characterId}`)
+    setCharacterImg(data.image)
+  }
+
+  useEffect(()=> {
+    const getImg = async() =>{
+      await getCharacterImg()
+    }
+    getImg()
+  }, [characterId])
+
   return (
     <>
-      {/*<button onClick={()=>setShow(!show)}>Change</button>
-       <div id="greeting">{hello}</div>
-      <button onClick={()=>setHello("Goodbye Victor")}>
-        Click Me
-      </button>
+      <h1>Select a character</h1>
+      <img src={characterImg} />
+      
+      <button onClick={()=>setCharacterId(1)}>1</button>
+      <button onClick={()=>setCharacterId(2)}>2</button>
+      <button onClick={()=>setCharacterId(3)}>3</button>
+      {/* <h1>{greeting} Yankee</h1>
+      <button onClick={handleClick}>update</button> */}
+      {/* <ul>
       {
-      show ?
-      <h1>Hello</h1>
-      :
-      <h1>Goodbye</h1>
+        tasks.map((lstObj)=>(
+          <li>{lstObj.task} <input type="checkbox" checked={lstObj.completed}/></li>
+        ))
       }
-      <button onClick={()=>setShow(!show)}>Change</button>
-      */}
-
-      <form onSubmit={(e) => formSubmit(e)}>
-        <input
-          placeholder="enter task"
-          value={formInput}
-          onChange={(e) => [
-            setFormInput(e.target.value),
-            console.log(e.target.value),
-          ]}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <ol>
-        {tasks.map((task) => (
-          // taskProp = {task}
-
-          <Task key={task.id}
-            taskTitle={task.task}
-            taskId={task.id}
-            taskCompleted={task.completed}
-          />
-        ))}
-      </ol>
+      </ul> */}
+      {/* <h2 id='greeting'>Hello</h2> */}
+      {/* <h2>{greeting}</h2>
+      <button onClick={()=>setGreeting(greeting === 'Hello' ? 'Goodbye': 'Hello')}>
+        Change goodbye
+      </button> */}
+      {/* <button onClick={()=>setGreeting('Hello')}>
+        Change hello
+      </button> */}
     </>
   );
 }
 
 export default App;
+//useeEffect TRACKS all changes in the console.log and DOM? use two parameters.
