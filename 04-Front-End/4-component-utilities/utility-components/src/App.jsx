@@ -1,58 +1,46 @@
-import { useState } from "react";
-import MySpinner from "./components/Spinner";
+import { useState, useEffect } from "react";
 import "./App.css";
-import NavBar from "./components/NavBar";
-import Button from "react-bootstrap/esm/Button";
-import MyModal from "./components/MyModal";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col"
+import axios from "axios";
+import Pokemon from "./components/Pokemon.jsx";
 
 function App() {
-  //     get     set          init(false)
-  const [show, setShow] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
+  const [usrInput, getUsrInput] = useState(" ");
+  const [response, setResponse] = useState(null);
+  const [pokemonImage, setPokemonImage] = useState(null);
 
+  const handleUsrInput = (event) => {
+    getUsrInput(event.target.value);
+  };
+
+  const fetchData = async (event) => {
+    event.preventDefault();
+    const response = await axios.get(
+      `https://pokeapi.co/api/v2/pokemon/${usrInput}`
+    );
+
+    setPokemonImage(response.data.sprites.front_shiny);
+    setResponse(response);
+    console.log(response.data.stats)
+  };
+  useEffect(() => {
+    console.log(usrInput);
+  }, [usrInput]);
+console.log(pokemonImage)
   return (
     <>
-    <Container>
-      <Row className="a-row">Header</Row>
-      <Row className="a-row">
-        <Col xs={3}>
-          left
-        </Col>
-        <Col xs={6}>
-          News feed
-        </Col>
-        <Col xs={3} >
-          Right
-        </Col>
-      </Row>
-      <Row className="a-row">
-        Footer
-      </Row>
-    </Container>
-      {/* <NavBar />
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
-      </Button>
+      <h1>header h1 in app.jsx</h1>
 
-      <MyModal show={modalShow} onHide={() => setModalShow(false)} />
-      <MySpinner />
-      <div className="bg-purple-500 mt-10">
-        <p className={show ? "bg-green-200" : "bg-red-200"}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed
-          consequatur eveniet iusto tempore reprehenderit cum vitae dolor!
-          Fugiat animi iusto, tempora, voluptatibus placeat, asperiores
-          voluptate explicabo autem numquam accusamus nobis?
-        </p>
-        <button
-          className="px-2 py-1 border-2 text-blue-500 bg-blue-200 hover:bg-blue-300 border-blue-700"
-          onClick={() => setShow(!show)}
-        >
-          Click me!
-        </button>
-      </div> */}
+      <div>
+        <form onSubmit={(e) => fetchData(e)}>
+          <input
+            type="text"
+            placeholder="pokemon name"
+            onChange={(e) => getUsrInput(e.target.value)}
+          />
+          <button> submit </button>
+        </form>
+        <Pokemon pokemonImage={pokemonImage}/>
+      </div>
     </>
   );
 }
