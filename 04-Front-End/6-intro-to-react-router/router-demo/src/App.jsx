@@ -1,3 +1,7 @@
+import AboutPage from "./pages/AboutPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
+
 import "./App.css";
 import { Outlet, Link } from "react-router-dom";
 
@@ -5,7 +9,7 @@ function App() {
   // only render homepage if I'm currently in localhost:5173/
   return (
     <>
-      <h1>Hello Victor</h1>
+      <h1>Hello Yankee</h1>
       <nav>
         <ul>
           <li>
@@ -19,7 +23,8 @@ function App() {
           </li>
         </ul>
       </nav>
-      <Outlet />
+      <Outlet /> 
+      {/* needs OUTLET to render, connect app.jsx to browser, outlet connects the children elements */}
     </>
   );
 }

@@ -3,7 +3,8 @@ import App from "./App";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from './pages/ContactPage';
-import NotFountPage from "./pages/NotFoundPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import YankeePage from "./pages/Yankee";
 
 
 // const router = createHashRouter([
@@ -25,12 +26,16 @@ const router = createBrowserRouter([
                 path: 'contact/',
                 element: <ContactPage />
             },
+            {
+                path: 'yankee/',
+                element: <YankeePage/>,
+            },
             // {
             //     path:"*",
             //     element: <NotFountPage/>
             // }
         ],
-        errorElement: <NotFountPage />
+        errorElement: <NotFoundPage />
     }
 ])
 
