@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NotFountPage = () => {
+const NotFoundPage = () => {
   return (
     <>
       <h1>This url doesn't exist</h1>
@@ -8,4 +8,4 @@ const NotFountPage = () => {
     </>
   );
 };
-export default NotFountPage;
+export default NotFoundPage;

@@ -30,12 +30,12 @@ const router = createBrowserRouter([
                 path: 'yankee/',
                 element: <YankeePage/>,
             },
-            // {
-            //     path:"*",
-            //     element: <NotFountPage/>
-            // }
+            {
+                path:"*",
+                element: <NotFoundPage/>
+            }
         ],
-        errorElement: <NotFoundPage />
+        errorElement: <ErrorPage/>
     }
 ])
 
