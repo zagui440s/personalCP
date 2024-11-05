@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
-import { FavoritesContext } from '../App'; // Import context
+import { FavoritesContext } from '../App'; // Import the context
 
-export default function CharacterCard({ character }) {
+export default function CharacterCard({ character, isFavoritePage }) {
   const navigate = useNavigate();
-  const { addFavorite } = useContext(FavoritesContext); // Use the context
+  const { addFavorite, removeFavorite, favorites } = useContext(FavoritesContext); // Access addFavorite, removeFavorite, and favorites from context
+
+  // Check if the character is in favorites
+  const isInFavorites = favorites.some(fav => fav.id === character.id);
 
   return (
     <Card style={{ width: "18rem" }}>
@@ -16,9 +19,24 @@ export default function CharacterCard({ character }) {
         <Button variant="primary" onClick={() => navigate(`/characters/${character.id}`)}>
           View Details
         </Button>
-        <Button variant="success" onClick={() => addFavorite(character)} className="mt-2">
-          Add to Favorites
-        </Button>
+
+        {/* Conditional rendering for Add/Remove button */}
+        {isFavoritePage ? (
+          // If it's on the FavoriteCharactersPage, show the Remove button
+          <Button variant="danger" onClick={() => removeFavorite(character)}>
+            Remove from Favorites
+          </Button>
+        ) : isInFavorites ? (
+          // If it's on the CharactersPage and the character is in favorites, show the "Added to Favorites" button
+          <Button variant="success" disabled style={{ opacity: 0.6 }}>
+            Added to Favorites
+          </Button>
+        ) : (
+          // If it's on the CharactersPage and the character isn't in favorites, show the Add button
+          <Button variant="success" onClick={() => addFavorite(character)}>
+            Add to Favorites
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );
