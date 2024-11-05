@@ -9,7 +9,7 @@ function App() {
 
     <div>
       <h1>Welcome to the Rick and Morty Show</h1>
-      <p>This is your go-to site for all things Rick and Morty!</p>
+      <p>more random jfbndjnbdjn</p>
     </div>
    
    <Outlet />

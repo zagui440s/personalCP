@@ -18,7 +18,7 @@ function AboutPage(){
     }, []);
 
     if (!info) {
-        return <p>Loading information about the show...</p>;
+        return <p>Loading info for show</p>;
     }
 
     return (
