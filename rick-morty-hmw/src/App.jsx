@@ -1,18 +1,22 @@
-import HomePage from "./pages/HomePage.jsx";
-import './App.css';
-import  { Outlet } from "react-router-dom"
+import { useState } from 'react'
+import './App.css'
+import NavBar from './components/NavBar'
+import { Outlet } from 'react-router-dom'
 
 function App() {
 
+
   return (
     <>
+      <header>
+        <NavBar/>
+      </header>
+      <main>
+        <Outlet/>
+      </main>
+      <footer>
 
-    <div>
-      <h1>Welcome to the Rick and Morty Show</h1>
-      <p>more random jfbndjnbdjn</p>
-    </div>
-   
-   <Outlet />
+      </footer>
     </>
   )
 }

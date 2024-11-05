@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"
 
-function AboutPage(){
+const AboutPage = () => {
     const [ info, setInfo ] = useState(null);
 
     useEffect(() => {
