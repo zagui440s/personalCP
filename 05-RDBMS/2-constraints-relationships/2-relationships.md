@@ -17,18 +17,29 @@ In the context of managing employee records, a one-to-one relationship emerges b
 **SQL Code:**
 
 ```sql
+DROP TABLE IF EXISTS employees CASCADE;
+
+
 CREATE TABLE employees (
     employee_id SERIAL PRIMARY KEY,
     employee_name VARCHAR(255),
     -- Other employee details
 );
 
+DROP TABLE IF EXISTS social_securities;
+
+-- //connect with foreign key
 CREATE TABLE social_security (
-    employee_id INT PRIMARY KEY,
-    ssn VARCHAR(11) UNIQUE,
-    FOREIGN KEY (employee_id) REFERENCES employees (employee_id)
+    ssn_id SERIAL PRIMARY KEY,
+    employee_id INT UNIQUE,
+    ssn VARCHAR(11) UNIQUE NOT NULL,
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 );
+
+INSERT INTO employees(employee_name) VALUES ('ROGER');
+INSERT INTO social_securities(employee_id, ssn) VALUES(1, '222-22-2223');
 ```
+
 
 ### Scenario 2: Passport and Person
 
@@ -170,25 +181,46 @@ In an academic scenario, a many-to-many relationship exists between students and
 **SQL Code:**
 
 ```sql
+
+DROP TABLE IF EXISTS students;
+
 CREATE TABLE students (
     student_id SERIAL PRIMARY KEY,
-    student_name VARCHAR(255),
+    student_name VARCHAR(50) NOT NULL,
     -- Other student details
 );
 
+
+DROP TABLE IF EXISTS courses CASCADE;
+
+
 CREATE TABLE courses (
     course_id SERIAL PRIMARY KEY,
-    course_name VARCHAR(255),
-    -- Other course details
+    course_name VARCHAR(100) NOT NULL,
+
+        -- Other course details
 );
 
+DROP TABLE IF EXISTS student_courses;
+
+
 CREATE TABLE student_courses (
+    students_courses_id SERIAL PRIMARY KEY,
     student_id INT,
     course_id INT,
     PRIMARY KEY (student_id, course_id),
     FOREIGN KEY (student_id) REFERENCES students (student_id),
     FOREIGN KEY (course_id) REFERENCES courses (course_id)
 );
+
+INSERT INTO students(students_name) VALUES ('Tristan');
+INSERT INTO students(students_name) VALUES ('Jesus');
+
+INSERT INTO courses(course_name) VALUES('PYTHON');
+INSERT INTO courses(course_name) VALUES('javascript')
+
+
+INSERT INTO student_courses(student_id, course_id) VALUES(1,2)
 ```
 
 ### Scenario 2: Actors and Movies
