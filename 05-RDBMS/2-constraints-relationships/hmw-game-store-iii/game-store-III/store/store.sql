@@ -19,7 +19,8 @@ DROP TABLE IF EXISTS action_figure;
 
 CREATE TABLE action_figure (
     id INT PRIMARY KEY,
-    action_figure_title VARCHAR,
+    action_figure_title VARCHAR(50) UNIQUE NOT NULL,
+        CHECK (action_figure_title ~ '[A-Za-z0-9\-]+$'),
     quantity INT,
     price DECIMAL(5,2)
 );
