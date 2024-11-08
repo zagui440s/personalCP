@@ -14,7 +14,6 @@ const FavoriteCharactersPage = () => {
         <div className="row">
           {favorites.map((character) => (
             <div className="col-md-4" key={character.id}>
-              {/* Pass isFavoritePage as true */}
               <CharacterCard character={character} isFavoritePage={true} />
             </div>
           ))}

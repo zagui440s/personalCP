@@ -8,7 +8,7 @@ export const FavoritesContext = createContext();
 function App() {
   const [favorites, setFavorites] = useState([]);
 
-  const addFavorite = (character) => { // Renamed to `addFavorite`
+  const addFavorite = (character) => {
     const isInFavorites = favorites.find(fav => fav.id === character.id);
 
     if (!isInFavorites && favorites.length < 4) {
@@ -25,9 +25,13 @@ function App() {
       <header>
         <NavBar />
       </header>
+
       <main>
+
         <Outlet />
       </main>
+
+
       <footer>
         <p>This is the footer</p>
       </footer>

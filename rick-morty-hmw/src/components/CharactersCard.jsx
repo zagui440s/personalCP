@@ -2,13 +2,12 @@ import React, { useContext } from 'react';
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router-dom";
-import { FavoritesContext } from '../App'; // Import the context
+import { FavoritesContext } from '../App';
 
 export default function CharacterCard({ character, isFavoritePage }) {
   const navigate = useNavigate();
   const { addFavorite, removeFavorite, favorites } = useContext(FavoritesContext); // Access addFavorite, removeFavorite, and favorites from context
 
-  // Check if the character is in favorites
   const isInFavorites = favorites.some(fav => fav.id === character.id);
 
   return (
@@ -16,6 +15,8 @@ export default function CharacterCard({ character, isFavoritePage }) {
       <Card.Img variant="top" src={character.image} />
       <Card.Body>
         <Card.Title>{character.name}</Card.Title>
+
+        {/* View details button */}
         <Button variant="primary" onClick={() => navigate(`/characters/${character.id}`)}>
           View Details
         </Button>
@@ -23,7 +24,11 @@ export default function CharacterCard({ character, isFavoritePage }) {
         {/* Conditional rendering for Add/Remove button */}
         {isFavoritePage ? (
           // If it's on the FavoriteCharactersPage, show the Remove button
-          <Button variant="danger" onClick={() => removeFavorite(character)}>
+          <Button 
+            data-testid="remove-from-favorites" 
+            variant="danger" 
+            onClick={() => removeFavorite(character)}
+          >
             Remove from Favorites
           </Button>
         ) : isInFavorites ? (
@@ -32,8 +37,12 @@ export default function CharacterCard({ character, isFavoritePage }) {
             Added to Favorites
           </Button>
         ) : (
-          // If it's on the CharactersPage and the character isn't in favorites, show the Add button
-          <Button variant="success" onClick={() => addFavorite(character)}>
+        
+          <Button 
+            data-testid="add-to-favorites" 
+            variant="success" 
+            onClick={() => addFavorite(character)}
+          >
             Add to Favorites
           </Button>
         )}
