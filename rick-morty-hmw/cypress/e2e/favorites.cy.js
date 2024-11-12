@@ -1,7 +1,7 @@
 describe('Favorites Functionality', () => {
   
     beforeEach(() => {
-      cy.visit('http://localhost:5174'); // Visit the homepage before each test
+      cy.visit('http://localhost:5173'); // Visit the homepage before each test
     });
     
     it('Should load the home page successfully', () => {
