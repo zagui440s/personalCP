@@ -1,0 +1,12 @@
+[
+{
+  "model": "pokemon_app.pokemon",
+  "pk": 1,
+  "fields": {
+    "name": "Pikachu",
+    "level": 12,
+    "date_encountered": "2024-11-13",
+    "captured": false
+  }
+}
+]
