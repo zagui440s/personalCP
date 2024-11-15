@@ -20,3 +20,5 @@ class Move(models.Model):
 
     def __str__(self):
         return f"| {self.name} | accuracy: {self.accuracy} | power: {self.power} | current_pp: {self.pp}/20|"
+    
+    
