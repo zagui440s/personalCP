@@ -7,7 +7,9 @@ class MoveSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Move
-        fields = ['id', 'name', 'power', 'accuracy', 'pokemon']
+        # fields = ['id', 'name', 'power', 'accuracy', 'pokemon']
+        fields = '__all__'
+        
 
     def get_pokemon(self, obj):
         pokemon = obj.pokemon.all()

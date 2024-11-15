@@ -119,13 +119,13 @@ class MoveSerializer(serializers.ModelSerializer):
 
 ```python
 >>> from move_app.serializers import MoveSerializer
->>> psychic = MoveSerializer(data={"name":"Psychich"})
+>>> psychic = MoveSerializer(data={"name":"Psychic"})
 >>> psychic.is_valid()
 True
 >>> psychic.save()
-<Move: | Psychich | accuracy: 70 | power: 80 | current_pp: 20/20|>
+<Move: | Psychic | accuracy: 70 | power: 80 | current_pp: 20/20|>
 >>> psychic.data
-{'id': 3, 'name': 'Psychich', 'power': 80, 'accuracy': 70}
+{'id': 3, 'name': 'Psychic', 'power': 80, 'accuracy': 70}
 ```
 
 > Perfect, now we have a pokemon Model and a move Model with a move instance. We can finally create some associations!
