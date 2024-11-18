@@ -8,6 +8,8 @@ from django.urls import reverse
 from tests.answers import all_pokemon, a_pokemon, all_moves, a_move
 import json
 
+# from django.core.exceptions import ValidationError, roger inputted this in class??
+
 
 class Test_views(TestCase):
     # We dont have a database so we will mock our DB through fixtures
