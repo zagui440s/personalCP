@@ -252,13 +252,13 @@ class pokemon(models.Model):
 <QuerySet []>
 >>> blastoise.moves.add(1) # this many-to-many relationship is handled as a `set` within Django meaning that if we want to add a relationship we would do it through the `add` method
 >>> blastoise.moves.all()
-<QuerySet [<Move: | Psychich | accuracy: 70 | power: 80 | current_pp: 20/20|>]>
+<QuerySet [<Move: | Psychic| accuracy: 70 | power: 80 | current_pp: 20/20|>]>
 # Repeat the process for Eevee
 >>> eevee.moves.all() 
 <QuerySet []>
 >>> eevee.moves.add(3)
 >>> eevee.moves.all()
-<QuerySet [<Move: | Psychich | accuracy: 70 | power: 80 | current_pp: 20/20|>]>
+<QuerySet [<Move: | Psychic | accuracy: 70 | power: 80 | current_pp: 20/20|>]>
 # save both of our Pokemon instances with their current changes.
 >>> blastoise.save()
 >>> eevee.save()

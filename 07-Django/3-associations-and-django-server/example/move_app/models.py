@@ -2,6 +2,7 @@ from django.db import models
 from django.core import validators as v
 from django.core.exceptions import ValidationError
 from .validators import validate_move_name
+# from pokemon_app.models import Pokemon
 
 # Create your models here.
 class Move(models.Model):
@@ -17,6 +18,8 @@ class Move(models.Model):
     # We want to know just how much Power each move has
     power = models.PositiveIntegerField(
         default=80, validators=[v.MaxValueValidator(120)])
+    
+    # pokemon = models.ManyToManyField(Pokemon, related_name="moves")
 
     def __str__(self):
         return f"| {self.name} | accuracy: {self.accuracy} | power: {self.power} | current_pp: {self.pp}/20|"
