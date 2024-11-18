@@ -19,6 +19,6 @@ class Test_urls(TestCase):
         # subTest allows us to run more than one assertion within a Test
         with self.subTest():
             # Here we will ensure the url path matches the url route
-            self.assertEquals(url.route, 'api/v1/pokemon/')
+            self.assertEqual(url.route, 'api/v1/pokemon/')
         # Finally we will assert the correct view is corresponding to this endpoint
         self.assertTrue(url.func.view_class is All_pokemon)
