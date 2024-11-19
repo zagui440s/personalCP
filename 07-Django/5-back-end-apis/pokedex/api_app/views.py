@@ -13,7 +13,7 @@ class Noun_Project(APIView):
     def get(self, request, types):
         # let's grab this body from the `get started` documentation from the NounAPI 
         auth = OAuth1(env.get("NOUN_API_KEY"), env.get("NOUN_SECRET_KEY")) #<== for now place your corresponding keys here
-        endpoint = f"http://api.thenounproject.com/icon/{types}"
+        endpoint = f"https://api.thenounproject.com/v2/icon?query={types}&limit=1"
 
         response = requests.get(endpoint, auth=auth) # notice with axios we had to wait for the promise to be completed, with requests it know to pause the program and wait until it receives a response
         # print(response.content) # we can see that the content within this response comes back as a binary string lets fix that

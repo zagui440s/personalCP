@@ -28,14 +28,14 @@ class Test_views(TestCase):
         response = self.client.get(reverse('all_pokemon'))
         response_body =json.loads(response.content)
         # we want our responses body to be equal to our answer from answer.py
-        self.assertEquals(response_body, all_pokemon)
+        self.assertEqual(response_body, all_pokemon)
 
     def test_002_get_a_pokemon(self):
         # client sends a get request to a url path by url name.
         response = self.client.get(reverse('a_pokemon', args=['pikachu']))
         # since our URL has an integrated parameter, we can pass it's value through args
         response_body = json.loads(response.content)
-        self.assertEquals(response_body, a_pokemon)
+        self.assertEqual(response_body, a_pokemon)
     # REPEAT THE PROCESS FOR THE MOVE_APP
 
 class NounProjectTest(TestCase):
@@ -44,11 +44,11 @@ class NounProjectTest(TestCase):
 
     @patch('requests.get')
     def test_pokeball_img_api_view(self, mock_get):
-        types = 'nomal'
+        types = 'normal'
         preview_url = "https://static.thenounproject.com/png/688525-200.png"
         mock_response = type('MockResponse', (), {'json': lambda self: {'icon': {'preview_url': preview_url}}})
         mock_get.return_value = mock_response()
         response = self.client.get(reverse('noun_project', args=[types]))
         with self.subTest():
             self.assertEqual(response.status_code, 200)
-        self.assertEquals(json.loads(response.content), preview_url)
+        self.assertEqual(json.loads(response.content), preview_url)
