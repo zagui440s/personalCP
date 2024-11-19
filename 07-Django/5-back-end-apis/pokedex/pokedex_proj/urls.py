@@ -41,4 +41,6 @@ urlpatterns = [
     path("api/v1/pokemon/", include("pokemon_app.urls")),
     path('api/v1/moves/', include("move_app.urls")),
     path('api/v1/noun/', include("api_app.urls")),
+
+#     add more path heres, weather, whatver
 ]
