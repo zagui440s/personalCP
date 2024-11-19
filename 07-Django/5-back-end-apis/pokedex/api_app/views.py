@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 import requests # <== import requests so we can utilize it within our CBV to make API calls
@@ -16,7 +17,9 @@ class Noun_Project(APIView):
 
         response = requests.get(endpoint, auth=auth) # notice with axios we had to wait for the promise to be completed, with requests it know to pause the program and wait until it receives a response
         # print(response.content) # we can see that the content within this response comes back as a binary string lets fix that
+        
         responseJSON = response.json() # by calling the .json() method we are turning this request into a Python Dictionary that we can manipulate
+        print(responseJSON)
         # pp.pprint(responseJSON)
         # print(responseJSON['icon']['preview_url'])
         return Response(responseJSON['icon']['preview_url'])
